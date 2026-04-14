@@ -1,0 +1,66 @@
+import type { Metadata } from 'next';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
+import ScrollReveal from '@/components/effects/ScrollReveal';
+import { getContent } from '@/lib/cms';
+
+export const metadata: Metadata = {
+  title: 'Terms',
+  description:
+    'Clawless Computer terms — placeholder for the pre-launch site. Full terms ship with the product.',
+};
+
+export default function TermsPage() {
+  const cms = getContent();
+
+  return (
+    <div className="relative z-[1]">
+      <Navbar content={cms.content.nav} />
+      <main className="mx-auto max-w-[1200px] px-6 sm:px-8">
+        <section className="pb-12 pt-32 text-center">
+          <ScrollReveal>
+            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-accent">
+              Legal
+            </p>
+            <h1 className="text-[40px] font-bold leading-[1.1] tracking-[-0.03em] text-text-primary sm:text-[52px]">
+              Terms
+            </h1>
+            <p className="mx-auto mt-4 max-w-[520px] text-base leading-relaxed text-text-secondary">
+              Last updated: April 2026
+            </p>
+          </ScrollReveal>
+        </section>
+
+        <section className="mx-auto max-w-[760px] pb-24">
+          <ScrollReveal>
+            <div
+              className="rounded-2xl border border-border-default p-8 text-text-secondary sm:p-10"
+              style={{ background: 'rgba(10, 15, 28, 0.6)' }}
+            >
+              <p className="mb-4 leading-[1.8]">
+                This site is the pre-launch presence for{' '}
+                <strong className="text-text-primary">Clawless Computer</strong>,
+                an upcoming desktop product built on top of the open-source
+                OpenClaw engine. The site is provided for informational
+                purposes only.
+              </p>
+              <p className="mb-4 leading-[1.8]">
+                Nothing on this page constitutes an offer, warranty, or
+                contract. Product features, naming, pricing, availability, and
+                release timing may change between now and the first public
+                release.
+              </p>
+              <p className="leading-[1.8]">
+                Full terms of service for the Clawless Computer product —
+                covering license grant, acceptable use, payment terms, refund
+                policy, warranty disclaimers, and limitation of liability —
+                will be published with the launch and replace this placeholder.
+              </p>
+            </div>
+          </ScrollReveal>
+        </section>
+      </main>
+      <Footer content={cms.content.footer} />
+    </div>
+  );
+}
