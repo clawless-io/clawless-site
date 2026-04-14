@@ -1,0 +1,46 @@
+name: Deploy to Cloudflare Pages
+
+# Runs on every push to main and on manual trigger from the Actions tab.
+# The job builds the Next.js static export and uploads the resulting `out/`
+# directory to the existing Cloudflare Pages project `clawless-site`.
+#
+# Auth: requires the GitHub repository secret `CLOUDFLARE_API_TOKEN`
+# (Cloudflare API token with `Account > Cloudflare Pages > Edit` and
+# `User > User Details > Read` permissions). The Cloudflare account ID is
+# hardcoded below because it is not a secret, just an identifier.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build static export
+        run: bun run build
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          # Public account ID for Jaysidd@yahoo.com's Cloudflare account.
+          # Not a secret; safe to commit. Visible in `wrangler whoami`.
+          accountId: 8368028f1f2560ac1ad853ef0452bd30
+          command: pages deploy out --project-name=clawless-site --branch=main
