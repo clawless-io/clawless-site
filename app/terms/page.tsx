@@ -7,7 +7,7 @@ import { getContent } from '@/lib/cms';
 export const metadata: Metadata = {
   title: 'Terms',
   description:
-    'Clawless Computer terms — placeholder for the pre-launch site. Full terms ship with the product.',
+    'Clawless Computer terms, placeholder for the pre-launch site. Full terms ship with the product.',
 };
 
 export default function TermsPage() {
@@ -51,10 +51,11 @@ export default function TermsPage() {
                 release.
               </p>
               <p className="leading-[1.8]">
-                Full terms of service for the Clawless Computer product —
-                covering license grant, acceptable use, payment terms, refund
-                policy, warranty disclaimers, and limitation of liability —
-                will be published with the launch and replace this placeholder.
+                Full terms of service for the Clawless Computer product will
+                be published with the launch and replace this placeholder.
+                They will cover license grant, acceptable use, payment terms,
+                refund policy, warranty disclaimers, and limitation of
+                liability.
               </p>
             </div>
           </ScrollReveal>

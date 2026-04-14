@@ -3,12 +3,12 @@ import type { Metadata } from 'next';
 export const SITE_URL = 'https://clawless.ai';
 export const SITE_NAME = 'Clawless Computer';
 export const SITE_DESCRIPTION =
-  'An operating system for AI. Run agents, models, and tools on any computer you own — desktop, server, spare laptop, or VPS. Built on top of OpenClaw.';
+  'An operating system for AI. Run agents, models, and tools on any computer you own. Desktop, server, spare laptop, or VPS. Built on top of OpenClaw.';
 
 export const siteMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Clawless Computer — An operating system for AI.',
+    default: 'Clawless Computer, an operating system for AI.',
     template: '%s | Clawless Computer',
   },
   description: SITE_DESCRIPTION,
@@ -33,12 +33,12 @@ export const siteMetadata: Metadata = {
     locale: 'en_US',
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: 'Clawless Computer — An operating system for AI.',
+    title: 'Clawless Computer, an operating system for AI.',
     description: SITE_DESCRIPTION,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Clawless Computer — An operating system for AI.',
+    title: 'Clawless Computer, an operating system for AI.',
     description: SITE_DESCRIPTION,
   },
   robots: {

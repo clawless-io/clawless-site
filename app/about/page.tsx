@@ -7,7 +7,7 @@ import { getContent } from '@/lib/cms';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Clawless Computer is a companion to OpenClaw — built to bring the open-source AI agent gateway to everyday users through a polished desktop experience. Built by one person who wants AI to make people more powerful, not obsolete.',
+    'Clawless Computer is a companion to OpenClaw, built to bring the open-source AI agent gateway to everyday users through a polished desktop experience. Built by one person who wants AI to make people more powerful, not obsolete.',
 };
 
 export default function AboutPage() {
@@ -71,13 +71,13 @@ export default function AboutPage() {
                 in the world. The engine is powerful, the contributor
                 community is enormous, and new releases ship almost every
                 week. But for most non-technical people, OpenClaw is also{' '}
-                <em>invisible</em> — locked behind a command line that
+                <em>invisible</em>, locked behind a command line that
                 requires you to know what YAML, environment variables, and
                 JSON-RPC calls are.
               </p>
               <p>
                 Clawless Computer exists to close that gap. Same engine, same
-                community, same release cadence — wrapped in a polished
+                community, same release cadence, all wrapped in a polished
                 desktop experience that anyone can install and use without
                 touching a terminal. The mission is approachable AI literacy
                 for everyday users: a platform where people can become
@@ -127,18 +127,18 @@ export default function AboutPage() {
               </h2>
               <p>
                 Clawless Computer is a one-person project, built in spare
-                hours by Jay — someone who fell in love with OpenClaw, saw
+                hours by Jay, someone who fell in love with OpenClaw, saw
                 the size and passion of its community, and noticed the same
-                thing over and over: the people who would benefit most from
+                thing over and over. The people who would benefit most from
                 OpenClaw are the people least likely to ever use it, because
                 they cannot live in a terminal all day.
               </p>
               <p>
                 That gap is the entire reason this project exists. Not to
-                build a different agent engine — OpenClaw is already the best
-                one. Not to compete for users — OpenClaw deserves more of
-                them. Just to be the polished desktop layer that lets the
-                next ten thousand people walk in.
+                build a different agent engine, because OpenClaw is already
+                the best one. Not to compete for users, because OpenClaw
+                deserves more of them. Just to be the polished desktop layer
+                that lets the next ten thousand people walk in.
               </p>
             </ScrollReveal>
 
@@ -149,11 +149,11 @@ export default function AboutPage() {
               </h2>
               <p>
                 If you have heard about OpenClaw, want to use it, and bounced
-                off the command line — Clawless Computer is built for you.
+                off the command line, Clawless Computer is built for you.
                 If you are already an OpenClaw power user and want a real GUI
-                for the times you do not want to type — Clawless Computer is
+                for the times you do not want to type, Clawless Computer is
                 built for you too. If you want to deploy your AI on a spare
-                machine and access it from anywhere — also you.
+                machine and access it from anywhere, also you.
               </p>
               <p>
                 Same engine. Just less typing. Anywhere you want to run it.
@@ -167,7 +167,7 @@ export default function AboutPage() {
               </h2>
               <p>
                 Clawless Computer is the tool. There is also going to be a
-                sister project — a free educational site dedicated to AI
+                sister project, a free educational site dedicated to AI
                 literacy for everyday users. Articles, walkthroughs, and
                 practical guides for the people who are most worried that AI
                 will replace them. The goal is simple: turn fear into

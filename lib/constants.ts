@@ -26,7 +26,7 @@ export const FEATURES = [
   {
     title: 'Visual everything',
     description:
-      'Skills, agents, channels, cron jobs, memory — all clickable. Connect a Telegram bot through a wizard, not a YAML file. Toggle a skill in a panel, not a CLI flag.',
+      'Skills, agents, channels, cron jobs, memory, all clickable. Connect a Telegram bot through a wizard, not a YAML file. Toggle a skill in a panel, not a CLI flag.',
     icon: 'skills' as const,
     color: 'amber',
   },

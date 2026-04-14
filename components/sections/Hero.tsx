@@ -12,7 +12,7 @@ export default function Hero({ content }: Props) {
   const headline = content?.headline ?? ['An operating system', 'for AI.'];
   const tagline =
     content?.tagline ??
-    'Run AI agents, models, and tools on any computer you own — your desktop, a spare laptop, a home server, a VPS. Whatever you point it at becomes your Clawless Computer.';
+    'Run AI agents, models, and tools on any computer you own. Your desktop, a spare laptop, a home server, a VPS. Whatever you point it at becomes your Clawless Computer.';
 
   return (
     <section className="relative overflow-hidden px-8 pb-[100px] pt-[120px] text-center">

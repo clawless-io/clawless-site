@@ -7,7 +7,7 @@ import { getContent } from '@/lib/cms';
 export const metadata: Metadata = {
   title: 'Privacy',
   description:
-    'Clawless Computer privacy notice — what this pre-launch site collects and what it does not.',
+    'Clawless Computer privacy notice, what this pre-launch site collects and what it does not.',
 };
 
 export default function PrivacyPage() {
@@ -41,7 +41,7 @@ export default function PrivacyPage() {
                 This is the pre-launch website for{' '}
                 <strong className="text-text-primary">Clawless Computer</strong>.
                 It is an informational site only. We do not collect anything
-                from visitors here — no analytics, no cookies, no tracking
+                from visitors here. No analytics, no cookies, no tracking
                 scripts, no email signups, no logins. Visit, read, leave.
                 Nothing is recorded.
               </p>

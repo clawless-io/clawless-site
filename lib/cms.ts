@@ -15,7 +15,7 @@ export function getContent(): CmsData {
         badgeText: 'Coming Q3 2026',
         headline: ['An operating system', 'for AI.'],
         tagline:
-          'Run AI agents, models, and tools on any computer you own — your desktop, a spare laptop, a home server, a VPS. Whatever you point it at becomes your Clawless Computer.',
+          'Run AI agents, models, and tools on any computer you own. Your desktop, a spare laptop, a home server, a VPS. Whatever you point it at becomes your Clawless Computer.',
         primaryCta: { label: '', href: '' },
         secondaryCta: { label: '', href: '' },
       },

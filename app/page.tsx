@@ -25,7 +25,7 @@ export default function HomePage() {
               </h2>
               <p className="mb-4 text-base leading-[1.8] text-text-secondary sm:text-lg">
                 OpenClaw is one of the most impressive open-source AI projects
-                in the world — a community big enough to ship new releases
+                in the world, a community big enough to ship new releases
                 almost every week. Clawless Computer is built on top of it,
                 100% compatible, and exists to bring OpenClaw to people who
                 cannot live in a terminal all day.
