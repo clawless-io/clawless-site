@@ -6,6 +6,8 @@ node_modules/
 # Build artifacts
 .next/
 out/
+.wrangler/
+tsconfig.tsbuildinfo
 
 # Local env
 .env*
