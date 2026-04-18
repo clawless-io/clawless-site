@@ -104,13 +104,14 @@ describe('lemonsqueezy webhook handler', () => {
     expect(r.status).toBe(400);
   });
 
-  it('accepts a known event with a valid signature (200)', async () => {
+  it('accepts a known event with a valid signature (200) and logs custom_data', async () => {
     const body = JSON.stringify({
       meta: {
         event_name: 'license_key_created',
         event_id: 'evt-abc',
         store_id: 12345,
         test_mode: true,
+        custom_data: { utm_source: 'youtuber-x', affiliate: 'aff-42' },
       },
       data: { id: '999', type: 'license-keys' },
     });
@@ -131,6 +132,7 @@ describe('lemonsqueezy webhook handler', () => {
       action: 'received',
       store_id: 12345,
       test_mode: true,
+      custom_data: { utm_source: 'youtuber-x', affiliate: 'aff-42' },
     });
   });
 
