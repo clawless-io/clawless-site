@@ -21,9 +21,11 @@ JSON to Cloudflare's logs, and returns 200 or 202. No database is involved.
 
 2. **Signing secret env var**
    - Pages > `clawless-site` > Settings > Environment variables
-   - Add `LEMONSQUEEZY_SIGNING_SECRET` for both Production and Preview
+   - Add `LEMONSQUEEZY_SIGNING_SECRET` for **Production only** (NOT Preview)
    - Value = the webhook signing secret from Lemon Squeezy dashboard > Settings > Webhooks
    - Until this secret is set, the endpoint returns `503` to every request (safe no-op while the LS account is pending bank verification).
+
+   **Why Production only, not Preview:** Until we have a separate LS test store pointed at a separate preview URL (see backlog B36 — dev/staging/prod git flow), sharing the signing secret with Preview deployments means a branch push could accept real live-mode webhooks and double-process them. When B36 lands, Preview will have its own test-mode LS webhook + its own secret.
 
 3. **Point Lemon Squeezy at the endpoint**
    - LS dashboard > Settings > Webhooks > Add endpoint

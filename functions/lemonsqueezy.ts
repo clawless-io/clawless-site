@@ -110,6 +110,9 @@ export async function handle(request: Request, env: Env): Promise<Response> {
     data_type: payload?.data?.type ?? null,
     store_id: payload?.meta?.store_id ?? null,
     test_mode: payload?.meta?.test_mode ?? null,
+    // Persist custom_data so UTM / affiliate / campaign tags are available for
+    // later retention analytics without re-fetching from Lemon Squeezy.
+    custom_data: payload?.meta?.custom_data ?? null,
     ts: new Date().toISOString(),
   };
 
