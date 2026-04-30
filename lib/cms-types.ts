@@ -87,8 +87,22 @@ export interface CompanionContent {
   paragraphs: string[];
 }
 
+/**
+ * The zero-data positioning section. Standalone because the founder rule
+ * (feedback-zero-data-collection.md) names this the main marketing point;
+ * it is not a footnote in another section.
+ */
+export interface ZeroDataContent {
+  eyebrow: string;
+  headline: string;
+  lead: string;
+  chips: string[];
+  paragraphs: string[];
+}
+
 export interface WebsiteContentMap {
   hero: HeroContent;
+  zeroData: ZeroDataContent;
   features: FeaturesContent;
   featuresPage: FeaturesPageContent;
   whoItsFor: WhoItsForContent;

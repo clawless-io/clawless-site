@@ -14,11 +14,23 @@ export function getContent(): CmsData {
       hero: {
         badgeText: 'Coming Q3 2026',
         headline: ['An operating system', 'for AI.'],
-        valueProps: 'Download. No credit card. No email. 7-day trial.',
+        valueProps:
+          'Download. No credit card. No email. No account. 7-day trial.',
         tagline:
           'A polished desktop home for OpenClaw, the open-source AI engine, built so everyday users can run agents, models, and tools without a terminal.',
         primaryCta: { label: 'Get Clawless', href: '/download' },
         secondaryCta: { label: 'See how it works', href: '#demo' },
+      },
+      zeroData: {
+        eyebrow: 'Privacy is the product',
+        headline: 'We do not ask for anything.',
+        lead: 'Most AI apps want at least your email before you can try them. Clawless does not.',
+        chips: ['No credit card', 'No email', 'No account', 'No telemetry'],
+        paragraphs: [
+          'Download, install, start a 7-day trial in the app. No signup, no login, no profile. We do not know who you are, by design.',
+          'If we are not collecting anything, there is nothing to leak. No customer database to breach. No mailing list to harvest. No cookies, no analytics, no identifiers. The marketing site is a brochure with a download button.',
+          'When you pay, Lemon Squeezy handles checkout on their domain as the merchant of record. They take your card. We never see it.',
+        ],
       },
       features: {
         sectionLabel: 'What Clawless Computer is',
