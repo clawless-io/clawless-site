@@ -11,13 +11,13 @@ name: Deploy to Cloudflare Pages
 
 on:
   push:
-    branches: [main, dev]
+    branches: [main]
   workflow_dispatch:
 
 # Prevent two main-branch pushes from deploying in parallel and racing on the
 # Cloudflare Pages project. cancel-in-progress: false preserves the "every push
-# deploys" contract — we want later pushes to queue behind earlier ones, not
-# replace them, so an intermediate commit is never skipped.
+# deploys" contract: later pushes queue behind earlier ones rather than
+# replacing them, so an intermediate commit is never skipped.
 concurrency:
   group: deploy-${{ github.ref }}
   cancel-in-progress: false
@@ -61,10 +61,4 @@ jobs:
           # Public account ID for Jaysidd@yahoo.com's Cloudflare account.
           # Not a secret; safe to commit. Visible in `wrangler whoami`.
           accountId: 8368028f1f2560ac1ad853ef0452bd30
-          # github.ref_name evaluates to "main" for main pushes and "dev" for dev
-          # pushes. Cloudflare Pages uses the --branch flag to route deploys to
-          # the production URL (clawless.ai) for main and to a branch preview
-          # (dev.clawless-site.pages.dev) for dev. Per the locked dev → main
-          # workflow (2026-04-30), feature work merges into dev for founder
-          # validation before being promoted to main.
-          command: pages deploy out --project-name=clawless-site --branch=${{ github.ref_name }}
+          command: pages deploy out --project-name=clawless-site --branch=main
