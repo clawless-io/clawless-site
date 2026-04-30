@@ -43,9 +43,28 @@ export interface FooterContent {
   madeWith: string;
 }
 
+export interface FeatureGroup {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  bullets: string[];
+}
+
+export interface FeaturesPageContent {
+  pageTitle: string;
+  pageLead: string;
+  privacyHook: string;
+  groups: FeatureGroup[];
+  closingHeadline: string;
+  closingDescription: string;
+  closingButtonLabel: string;
+  closingButtonHref: string;
+}
+
 export interface WebsiteContentMap {
   hero: HeroContent;
   features: FeaturesContent;
+  featuresPage: FeaturesPageContent;
   cta: CtaContent;
   nav: NavContent;
   footer: FooterContent;
