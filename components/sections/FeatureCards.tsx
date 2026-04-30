@@ -74,17 +74,12 @@ const icons: Record<string, React.ReactNode> = {
   ),
 };
 
+// Three brand colors used on the home FEATURES cards. Add new entries
+// intentionally, do not let aliases for the same hex creep back in.
 const iconColors: Record<string, { bg: string; fg: string }> = {
   indigo: { bg: 'rgba(0, 212, 255, 0.12)', fg: '#00D4FF' },
-  cyan: { bg: 'rgba(0, 212, 255, 0.12)', fg: '#00D4FF' },
   electricCyan: { bg: 'rgba(34, 255, 170, 0.12)', fg: '#22FFAA' },
-  violet: { bg: 'rgba(34, 255, 170, 0.12)', fg: '#22FFAA' },
-  emerald: { bg: 'rgba(34, 255, 170, 0.12)', fg: '#22FFAA' },
   amber: { bg: 'rgba(255, 184, 0, 0.12)', fg: '#FFB800' },
-  rose: { bg: 'rgba(255, 99, 132, 0.12)', fg: '#FF6384' },
-  sky: { bg: 'rgba(56, 189, 248, 0.12)', fg: '#38BDF8' },
-  purple: { bg: 'rgba(168, 85, 247, 0.12)', fg: '#A855F7' },
-  orange: { bg: 'rgba(255, 165, 0, 0.12)', fg: '#FFA500' },
 };
 
 export default function FeatureCards({ content }: Props) {

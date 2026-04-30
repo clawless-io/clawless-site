@@ -181,8 +181,3 @@ export function getContent(): CmsData {
     },
   };
 }
-
-/** Backwards-compat alias for any caller that still uses the async name. */
-export async function fetchAllContent(): Promise<CmsData> {
-  return getContent();
-}
