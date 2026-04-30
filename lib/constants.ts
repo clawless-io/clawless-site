@@ -5,7 +5,96 @@
  */
 
 export const NAV_LINKS = [
+  { label: 'Features', href: '/features' },
   { label: 'About', href: '/about' },
+] as const;
+
+/**
+ * The seven feature groups rendered on /features. Categories are locked
+ * by the founder brief and each maps to a `[Live]` chapter in the
+ * clawless-v1 knowledge base. Sub-bullets are kept honest (no model
+ * counts that change, no enumeration of the default agent lineup
+ * because B67 may rework it).
+ */
+export const FEATURE_GROUPS = [
+  {
+    eyebrow: 'Group 01',
+    title: 'Chat with any AI model',
+    lead: 'The chat surface is fast, streamable, and works the same with every provider you connect. Switch models mid-conversation. Drop in a slash command. Read replies as rich Markdown with code blocks, tables, and inline images.',
+    bullets: [
+      'Major providers out of the box: OpenAI, Anthropic, Google, Groq, plus 800+ models through OpenRouter.',
+      'Switch models mid-conversation. The new model picks up where the previous one left off.',
+      'Slash commands for new conversations, model switching, engine status, and more.',
+      'Conversation history grouped by agent, searchable across every agent at once.',
+      'Streaming replies with code-block syntax highlighting, real tables, and inline links.',
+    ],
+  },
+  {
+    eyebrow: 'Group 02',
+    title: 'Specialized agents you can build',
+    lead: 'Instead of one general AI you keep re-instructing, Clawless gives you several specialized agents and a builder for your own. Each agent has its own system prompt, default model, tool scope, conversation history, and memory.',
+    bullets: [
+      'A default lineup of agents is ready to use the moment you launch the app.',
+      'Build a custom agent in a small form: name, system prompt, model, tool scope.',
+      'Each agent keeps its own conversations and switches without losing context.',
+      'Per-agent tool scopes so an agent only uses the tools you trust it with.',
+    ],
+  },
+  {
+    eyebrow: 'Group 03',
+    title: 'Memory that learns the way you work',
+    lead: 'Clawless captures the things you tell it once, sorts them by importance, and feeds the most useful ones back into future conversations. You stay in control: you can see the whole list, edit anything, pin things you want pinned, and delete anything you do not want kept.',
+    bullets: [
+      'Tiered memory (pinned, insights, general, decayed) so important things stay close and stale things fade.',
+      'Auto-extracted from your conversations, plus you can ask explicitly or add manually.',
+      'Memories live on your computer in your Clawless folder. Nothing uploaded to a Clawless server.',
+      'Cross-agent recall: switching agents mid-task carries a brief context handoff so the new agent catches up.',
+    ],
+  },
+  {
+    eyebrow: 'Group 04',
+    title: 'Tools your agents can use to do real work',
+    lead: 'Tools are how agents do things in the world instead of just talking about them. Read files, write files, search the web, run shell commands, call MCP servers. Clawless ships a sensible default set and lets you add your own.',
+    bullets: [
+      'Default tools for filesystem, web, and shell out of the box, no setup.',
+      'Three security profiles (Strict, Standard, Permissive) so you choose how much the agent can do without asking.',
+      'Per-tool approval prompts under Strict and Standard: allow once, allow always for the session, or deny.',
+      'Add new tools by connecting an MCP server. Per-agent tool scope so each agent only sees what you assigned.',
+    ],
+  },
+  {
+    eyebrow: 'Group 05',
+    title: 'Skills that turn your agents into specialists',
+    lead: 'Skills are recipes that tell an agent how to do a specific job well. Bundle instructions, the right tools, and a trigger into a reusable unit. Install from ClawHub, or build your own in the Skill Builder.',
+    bullets: [
+      'ClawHub catalog of community-built skills. Browse by category, install in one click.',
+      'Build custom skills in a small form: name, description, trigger, instructions, tool selection.',
+      'Skills are local: stored on your computer alongside agents and conversations, not uploaded.',
+      'Updates are opt-in. You always know what your agents are running.',
+    ],
+  },
+  {
+    eyebrow: 'Group 06',
+    title: 'Reach your agents from anywhere',
+    lead: 'Connect an agent to the messaging platforms you already use, so you can talk to it from your phone, your team Slack, or wherever you are. Setup is a wizard, not a config file.',
+    bullets: [
+      '20+ platforms supported including Telegram, Discord, Slack, Microsoft Teams, Google Chat, Mattermost, Matrix, Email, SMS, Webhooks, GitHub, Linear.',
+      'Setup wizard guides you through tokens with deep links to the right page on each provider.',
+      'Pick the agent that handles each channel; one agent per channel at launch.',
+      'Direct-message policy lets you choose whether anyone can DM the bot or only paired users.',
+    ],
+  },
+  {
+    eyebrow: 'Group 07',
+    title: 'Schedule recurring prompts',
+    lead: 'Automations are scheduled chat messages. Tell Clawless what to ask and when, and it sends the prompt on schedule. Send the result to chat, to a connected channel, or to a file.',
+    bullets: [
+      'Friendly presets (hourly, weekday morning, weekly Friday, and more) plus raw cron for power users.',
+      'Pick which agent handles each job, so different schedules can use different specialists.',
+      'Send the result in-chat, to a connected channel like Slack or Telegram, or to a file.',
+      'Pause and resume non-destructively. Job history shows every previous fire.',
+    ],
+  },
 ] as const;
 
 export const FEATURES = [

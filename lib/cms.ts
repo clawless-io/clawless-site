@@ -5,7 +5,7 @@
  * push to GitHub, Cloudflare Pages rebuilds and redeploys automatically.
  */
 
-import { NAV_LINKS, FEATURES } from './constants';
+import { NAV_LINKS, FEATURES, FEATURE_GROUPS } from './constants';
 import type { CmsData } from './cms-types';
 
 export function getContent(): CmsData {
@@ -28,6 +28,24 @@ export function getContent(): CmsData {
           icon: f.icon,
           color: f.color,
         })),
+      },
+      featuresPage: {
+        pageTitle: 'Everything Clawless does.',
+        pageLead:
+          'The full feature surface, pulled straight from what ships in the desktop app. Every group below maps to a panel you can open inside Clawless on day one.',
+        privacyHook:
+          'Download. No credit card. No email. No account. 7-day trial.',
+        groups: FEATURE_GROUPS.map((g) => ({
+          eyebrow: g.eyebrow,
+          title: g.title,
+          lead: g.lead,
+          bullets: [...g.bullets],
+        })),
+        closingHeadline: 'Try Clawless free for 7 days.',
+        closingDescription:
+          'No credit card. No email. No account. Download, install, paste a provider API key, start chatting. When the trial ends, pick a plan from the in-app upgrade button or keep the app in read-only mode.',
+        closingButtonLabel: 'Get Clawless',
+        closingButtonHref: '/download',
       },
       cta: {
         headline: 'Coming Q3 2026.',
