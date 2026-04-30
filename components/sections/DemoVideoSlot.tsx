@@ -44,7 +44,7 @@ export default function DemoVideoSlot({ content }: Props) {
                     height="28"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    style={{ color: '#22FFAA', marginLeft: 4 }}
+                    style={{ color: 'var(--color-success)', marginLeft: 4 }}
                   >
                     <polygon points="6,4 20,12 6,20" />
                   </svg>

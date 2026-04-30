@@ -40,8 +40,8 @@ export default function Button({
       style={
         isPrimary
           ? {
-              background: 'linear-gradient(135deg, #00D4FF, #22FFAA)',
-              color: '#05070F',
+              background: 'linear-gradient(135deg, var(--color-accent), var(--color-success))',
+              color: 'var(--color-bg-primary)',
               boxShadow: '0 0 24px rgba(0, 212, 255, 0.25)',
               ...(pulse ? { animation: 'subtlePulse 3s ease-in-out infinite' } : {}),
             }

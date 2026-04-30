@@ -19,7 +19,7 @@ export default function FeatureGroups({ groups }: Props) {
                 className="mb-5 text-[28px] font-bold leading-[1.15] tracking-[-0.02em] sm:text-[36px]"
                 style={{
                   background:
-                    'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)',
+                    'linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-secondary) 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                 }}
@@ -44,7 +44,7 @@ export default function FeatureGroups({ groups }: Props) {
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      style={{ color: '#22FFAA', marginTop: 2, flexShrink: 0 }}
+                      style={{ color: 'var(--color-success)', marginTop: 2, flexShrink: 0 }}
                       aria-hidden
                     >
                       <polyline points="20 6 9 17 4 12" />

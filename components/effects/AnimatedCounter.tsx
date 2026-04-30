@@ -54,7 +54,7 @@ export default function AnimatedCounter({ target, prefix = '', suffix = '', clas
       ref={ref}
       className={`text-5xl font-extrabold ${className}`}
       style={{
-        background: 'linear-gradient(135deg, #00D4FF, #22FFAA)',
+        background: 'linear-gradient(135deg, var(--color-accent), var(--color-success))',
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
         filter: 'drop-shadow(0 0 12px rgba(0, 212, 255, 0.5))',

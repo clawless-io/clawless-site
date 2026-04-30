@@ -36,7 +36,7 @@ export default function PricingPage() {
             <h1
               className="relative mb-6 text-[40px] font-extrabold leading-[1.1] tracking-[-0.02em] sm:text-[52px] md:text-[60px]"
               style={{
-                background: 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)',
+                background: 'linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-secondary) 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
               }}
@@ -50,7 +50,7 @@ export default function PricingPage() {
               <p className="relative mx-auto inline-flex items-center gap-2 rounded-full border border-border-light bg-bg-surface px-4 py-2 text-[13px] font-medium text-text-primary">
                 <span
                   className="h-1.5 w-1.5 rounded-full"
-                  style={{ background: '#22FFAA' }}
+                  style={{ background: 'var(--color-success)' }}
                   aria-hidden
                 />
                 {p.privacyHook}
@@ -69,7 +69,7 @@ export default function PricingPage() {
               <span
                 className="mr-3 inline-block h-2 w-2 rounded-full"
                 style={{
-                  background: '#FFB800',
+                  background: 'var(--color-warning)',
                   animation: 'pulse 2s infinite',
                 }}
                 aria-hidden
@@ -101,8 +101,8 @@ export default function PricingPage() {
                       className="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center rounded-full px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.12em]"
                       style={{
                         background:
-                          'linear-gradient(135deg, #00D4FF, #22FFAA)',
-                        color: '#05070F',
+                          'linear-gradient(135deg, var(--color-accent), var(--color-success))',
+                        color: 'var(--color-bg-primary)',
                       }}
                     >
                       {tier.badge}
@@ -118,7 +118,7 @@ export default function PricingPage() {
                       tier.highlighted
                         ? {
                             background:
-                              'linear-gradient(135deg, #00D4FF 0%, #22FFAA 100%)',
+                              'linear-gradient(135deg, var(--color-accent) 0%, var(--color-success) 100%)',
                             WebkitBackgroundClip: 'text',
                             WebkitTextFillColor: 'transparent',
                           }
@@ -163,7 +163,7 @@ export default function PricingPage() {
                   className="mb-5 text-[28px] font-bold leading-[1.15] tracking-[-0.02em] sm:text-[36px]"
                   style={{
                     background:
-                      'linear-gradient(135deg, #00D4FF 0%, #22FFAA 100%)',
+                      'linear-gradient(135deg, var(--color-accent) 0%, var(--color-success) 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                   }}
@@ -200,7 +200,7 @@ export default function PricingPage() {
                       strokeWidth="3"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      style={{ color: '#22FFAA', marginTop: 2, flexShrink: 0 }}
+                      style={{ color: 'var(--color-success)', marginTop: 2, flexShrink: 0 }}
                       aria-hidden
                     >
                       <polyline points="20 6 9 17 4 12" />

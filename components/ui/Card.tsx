@@ -45,7 +45,7 @@ export default function Card({ children, highlighted = false, className = '' }: 
         data-glow-bar
         className="absolute top-0 left-0 right-0 h-[3px] transition-opacity duration-300"
         style={{
-          background: 'linear-gradient(90deg, transparent, #00D4FF, #22FFAA, transparent)',
+          background: 'linear-gradient(90deg, transparent, var(--color-accent), var(--color-success), transparent)',
           opacity: 0,
         }}
       />
