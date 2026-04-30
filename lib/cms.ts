@@ -57,9 +57,7 @@ export function getContent(): CmsData {
         closingHeadline: 'Try Clawless free for 7 days.',
         closingDescription:
           'No credit card. No email. No account. Download, install, paste a provider API key, start chatting. When the trial ends, pick a plan from the in-app upgrade button or keep the app in read-only mode.',
-        closingButtonLabel: 'Get Clawless',
-        closingButtonHref: '/download',
-        closingButtonComingSoon: true,
+        closingButton: { label: 'Get Clawless', href: '/download', comingSoon: true },
       },
       whoItsFor: {
         sectionLabel: 'Who it is for',
@@ -83,9 +81,7 @@ export function getContent(): CmsData {
         headline: 'Try Clawless free for 7 days.',
         description:
           'No credit card. No email. No signup. Download, install, paste a provider API key, start chatting. When the trial ends, pick a plan from the in-app upgrade button or keep the app in read-only mode.',
-        buttonLabel: 'Get Clawless',
-        buttonHref: '/download',
-        buttonComingSoon: true,
+        button: { label: 'Get Clawless', href: '/download', comingSoon: true },
       },
       nav: {
         links: NAV_LINKS.map((l) => ({ label: l.label, href: l.href })),

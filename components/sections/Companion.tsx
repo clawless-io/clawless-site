@@ -1,5 +1,3 @@
-'use client';
-
 import ScrollReveal from '@/components/effects/ScrollReveal';
 import type { CompanionContent } from '@/lib/cms-types';
 
