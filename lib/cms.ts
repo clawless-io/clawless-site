@@ -42,6 +42,86 @@ export function getContent(): CmsData {
           color: f.color,
         })),
       },
+      pricingPage: {
+        pageTitle: 'Pricing',
+        pageSubhead:
+          'One plan. Pay monthly, yearly, or once for life. Same features at every price.',
+        privacyHook:
+          'No card to start the trial. No email signup. No account.',
+        preLaunchBanner:
+          'Pricing locked. Available for purchase when Clawless launches in Q3 2026.',
+        tiers: [
+          {
+            name: 'Monthly',
+            priceLabel: '$4.95',
+            priceNote: 'per month',
+            cta: { label: 'Available Q3 2026', href: '#', comingSoon: true },
+          },
+          {
+            name: 'Yearly',
+            priceLabel: '$50',
+            priceNote: 'per year, about 16% less than monthly',
+            cta: { label: 'Available Q3 2026', href: '#', comingSoon: true },
+          },
+          {
+            name: 'Lifetime',
+            priceLabel: '$199',
+            priceNote:
+              'Founding-member price for the first 3 months from public launch. $299 after.',
+            badge: 'Founding member',
+            highlighted: true,
+            cta: { label: 'Available Q3 2026', href: '#', comingSoon: true },
+          },
+        ],
+        includesHeadline: 'Every plan includes',
+        includes: [
+          'Every Clawless feature, present and future',
+          '7-day free trial. No card, no email, no account.',
+          'All major AI providers: Claude, GPT, Gemini, Groq, plus 800+ models through OpenRouter',
+          'Bring your own provider keys. You pay AI providers directly at their rates.',
+          'Local-first storage. No telemetry, no analytics, no cookies.',
+          'Cancel anytime through the Lemon Squeezy customer portal.',
+        ],
+        comparison: {
+          headline: 'How the price compares',
+          rows: [
+            {
+              product: 'Clawless',
+              details: '$4.95 per month. BYOK. No account.',
+            },
+            {
+              product: 'Cursor',
+              details: '$20 per month. Account required. AI usage included.',
+            },
+            {
+              product: 'Claude Pro',
+              details: '$20 per month. Account required. AI usage included.',
+            },
+          ],
+        },
+        faq: [
+          {
+            question: 'How does the 7-day trial work?',
+            answer:
+              'Download Clawless, install it, and the trial starts inside the app. No card, no email, no account on this site. When the trial ends, the in-app upgrade button opens the Lemon Squeezy customer portal in your browser. Decide then.',
+          },
+          {
+            question: 'How do I cancel?',
+            answer:
+              'Cancellation is handled through the Lemon Squeezy customer portal. From the desktop app, click Manage Subscription in Settings. Or visit clawless.ai/portal and sign in with the email tied to your purchase. No account creation, magic-link only.',
+          },
+          {
+            question: 'Why one plan instead of tiered pricing?',
+            answer:
+              'Every Clawless feature ships to every customer. There is no Pro tier, no Enterprise upsell, no usage cap. The only choice is whether you pay monthly, yearly, or once for life.',
+          },
+          {
+            question: 'What does BYOK mean?',
+            answer:
+              'Bring your own keys. You sign up directly with the AI providers you want to use (Claude, GPT, Gemini, etc.) and pay them at their rates. Clawless never marks up provider tokens because Clawless never sees them. Your keys live on your computer.',
+          },
+        ],
+      },
       featuresPage: {
         pageTitle: 'Everything Clawless does.',
         pageLead:

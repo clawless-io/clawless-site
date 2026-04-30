@@ -76,6 +76,46 @@ export interface FeaturesPageContent {
   closingButton?: CtaButtonContent;
 }
 
+/**
+ * One pricing tier card on /pricing. priceLabel is the prominent
+ * headline price (e.g. "$4.95/mo", "$50/yr", "$199"). priceNote is a
+ * smaller line under it for savings or launch-window context.
+ * `highlighted` adds the founding-member styling to the lifetime card.
+ */
+export interface PricingTier {
+  name: string;
+  priceLabel: string;
+  priceNote?: string;
+  badge?: string;
+  highlighted?: boolean;
+  cta: CtaButtonContent;
+}
+
+export interface PricingComparisonRow {
+  product: string;
+  details: string;
+}
+
+export interface PricingFaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface PricingPageContent {
+  pageTitle: string;
+  pageSubhead: string;
+  privacyHook: string;
+  preLaunchBanner: string;
+  tiers: PricingTier[];
+  includesHeadline: string;
+  includes: string[];
+  comparison?: {
+    headline: string;
+    rows: PricingComparisonRow[];
+  };
+  faq?: PricingFaqItem[];
+}
+
 export interface WhoItsForColumn {
   title: string;
   description: string;
@@ -115,6 +155,7 @@ export interface WebsiteContentMap {
   zeroData: ZeroDataContent;
   features: FeaturesContent;
   featuresPage: FeaturesPageContent;
+  pricingPage: PricingPageContent;
   whoItsFor: WhoItsForContent;
   demoVideo: DemoVideoContent;
   companion: CompanionContent;
