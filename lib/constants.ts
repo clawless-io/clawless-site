@@ -1,5 +1,5 @@
 /**
- * Site content — inlined for phase 1.
+ * Site content, inlined for phase 1.
  * No external CMS, no API fetch. Edit this file to update the site,
  * push to GitHub, Cloudflare Pages rebuilds.
  */
@@ -97,33 +97,46 @@ export const FEATURE_GROUPS = [
   },
 ] as const;
 
+// Three-card row for the home page. Categories are locked; refine wording here.
 export const FEATURES = [
   {
-    title: 'Run it anywhere',
+    title: 'Chat with any AI model, no terminal needed',
     description:
-      'Mac desktop app, headless server, VPS, or thin client to your own AI machine. Whatever you point Clawless Computer at becomes your AI computer.',
-    icon: 'desktop' as const,
+      'Claude, GPT, Gemini, plus 800+ models through OpenRouter. Switch with one click. Bring your own provider keys; conversations stay on your computer.',
+    icon: 'openrouter' as const,
     color: 'indigo',
   },
   {
-    title: 'Every model in one place',
+    title: 'Agents that do real work for you',
     description:
-      'Claude, GPT, Gemini, OpenAI Codex, plus 800+ models through OpenRouter. Switch with one click. Curated shortlist by default, full catalog when you want it.',
-    icon: 'openrouter' as const,
+      'A default lineup of specialized agents ships with the app, ready the moment you launch. Build your own with a system prompt and a toolset, and each agent remembers the way you like to work.',
+    icon: 'swarm' as const,
     color: 'electricCyan',
   },
   {
-    title: 'Visual everything',
+    title: 'Memory and skills that grow with you',
     description:
-      'Skills, agents, channels, cron jobs, memory, all clickable. Connect a Telegram bot through a wizard, not a YAML file. Toggle a skill in a panel, not a CLI flag.',
+      'Tiered memory captures the things you tell Clawless once, so you do not have to repeat yourself. Skills are reusable instructions you install or build, the way you would install an app.',
     icon: 'skills' as const,
     color: 'amber',
   },
+] as const;
+
+// Three columns for the "Who it is for" section on the home page.
+export const WHO_ITS_FOR = [
   {
-    title: 'Local-first, always yours',
+    title: 'If you bounced off the command line',
     description:
-      'Your API keys stay on your machine. Your conversations stay on your machine. No accounts, no telemetry, no cloud roundtrip for anything that does not have to leave your computer.',
-    icon: 'vault' as const,
-    color: 'sky',
+      'You heard about OpenClaw, you wanted to use it, and the YAML stopped you. Clawless Computer is the desktop on-ramp. Same engine, no terminal.',
+  },
+  {
+    title: 'If you want AI to do real work',
+    description:
+      'Agents, automations, and tools, all clickable. Connect a Telegram bot through a wizard. Schedule a recurring prompt without writing cron. Install a skill the way you would install an app.',
+  },
+  {
+    title: 'If you already use OpenClaw',
+    description:
+      'A real GUI for the times you do not want to type. 100% compatible with the engine you already know, and runnable on any computer you own: a desktop, a spare laptop, a home server, a VPS.',
   },
 ] as const;

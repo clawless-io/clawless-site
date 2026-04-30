@@ -75,17 +75,27 @@ export default function FeaturesPage() {
               <p className="mx-auto mb-10 max-w-[600px] text-base text-text-secondary sm:text-lg">
                 {fp.closingDescription}
               </p>
-              <a
-                href={fp.closingButtonHref}
-                className="inline-flex min-h-[56px] items-center justify-center rounded-[14px] px-11 py-[18px] text-[17px] font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_48px_rgba(0,212,255,0.45)]"
-                style={{
-                  background: 'linear-gradient(135deg, #00D4FF, #22FFAA)',
-                  color: '#05070F',
-                  boxShadow: '0 0 24px rgba(0, 212, 255, 0.25)',
-                }}
-              >
-                {fp.closingButtonLabel}
-              </a>
+              {fp.closingButtonComingSoon ? (
+                <span
+                  aria-disabled="true"
+                  className="inline-flex min-h-[56px] cursor-not-allowed items-center justify-center rounded-[14px] border border-border-default bg-bg-surface px-8 py-[18px] text-[16px] font-semibold text-text-muted sm:px-11 sm:text-[17px]"
+                >
+                  {fp.closingButtonLabel}
+                  <span className="ml-2 opacity-70">· Coming Q3 2026</span>
+                </span>
+              ) : (
+                <a
+                  href={fp.closingButtonHref}
+                  className="inline-flex min-h-[56px] items-center justify-center rounded-[14px] px-11 py-[18px] text-[17px] font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_48px_rgba(0,212,255,0.45)]"
+                  style={{
+                    background: 'linear-gradient(135deg, #00D4FF, #22FFAA)',
+                    color: '#05070F',
+                    boxShadow: '0 0 24px rgba(0, 212, 255, 0.25)',
+                  }}
+                >
+                  {fp.closingButtonLabel}
+                </a>
+              )}
             </ScrollReveal>
           </div>
         </section>
