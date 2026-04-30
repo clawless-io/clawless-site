@@ -1,11 +1,10 @@
-import { FEATURES } from '@/lib/constants';
 import Card from '@/components/ui/Card';
 import SectionHeader from '@/components/ui/SectionHeader';
 import ScrollReveal from '@/components/effects/ScrollReveal';
 import type { FeaturesContent } from '@/lib/cms-types';
 
 interface Props {
-  content?: FeaturesContent;
+  content: FeaturesContent;
 }
 
 const icons: Record<string, React.ReactNode> = {
@@ -89,9 +88,7 @@ const iconColors: Record<string, { bg: string; fg: string }> = {
 };
 
 export default function FeatureCards({ content }: Props) {
-  const label = content?.sectionLabel ?? 'Core Features';
-  const title = content?.sectionTitle ?? 'Built for privacy-first AI';
-  const items = content?.items ?? FEATURES;
+  const { sectionLabel: label, sectionTitle: title, items } = content;
 
   return (
     <section id="features" className="border-b border-border-default px-8 py-20">

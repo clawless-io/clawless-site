@@ -1,17 +1,13 @@
 import ScrollReveal from '@/components/effects/ScrollReveal';
 import SectionHeader from '@/components/ui/SectionHeader';
-import { WHO_ITS_FOR } from '@/lib/constants';
 import type { WhoItsForContent } from '@/lib/cms-types';
 
 interface Props {
-  content?: WhoItsForContent;
+  content: WhoItsForContent;
 }
 
 export default function WhoItsFor({ content }: Props) {
-  const label = content?.sectionLabel ?? 'Who it is for';
-  const title =
-    content?.sectionTitle ?? 'Built for the people OpenClaw cannot reach yet.';
-  const columns = content?.columns ?? WHO_ITS_FOR;
+  const { sectionLabel: label, sectionTitle: title, columns } = content;
 
   return (
     <section className="border-b border-border-default px-8 py-20">

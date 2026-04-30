@@ -2,12 +2,11 @@ import ScrollReveal from '@/components/effects/ScrollReveal';
 import type { DemoVideoContent } from '@/lib/cms-types';
 
 interface Props {
-  content?: DemoVideoContent;
+  content: DemoVideoContent;
 }
 
 export default function DemoVideoSlot({ content }: Props) {
-  const caption = content?.caption ?? 'A walkthrough video lands here before launch.';
-  const videoSrc = content?.videoSrc;
+  const { caption, videoSrc } = content;
 
   return (
     <section id="demo" className="border-b border-border-default px-8 py-20">

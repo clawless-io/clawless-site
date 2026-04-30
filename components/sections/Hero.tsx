@@ -3,21 +3,14 @@ import CtaButton from '@/components/ui/CtaButton';
 import type { HeroContent } from '@/lib/cms-types';
 
 interface Props {
-  content?: HeroContent;
+  content: HeroContent;
 }
 
 export default function Hero({ content }: Props) {
-  const badgeText = content?.badgeText ?? 'Coming Q3 2026';
-  const headline = content?.headline ?? ['An operating system', 'for AI.'];
-  const tagline =
-    content?.tagline ??
-    'Run AI agents, models, and tools on any computer you own. Your desktop, a spare laptop, a home server, a VPS. Whatever you point it at becomes your Clawless Computer.';
-  const valueProps =
-    content?.valueProps ?? 'Download. No credit card. No email. 7-day trial.';
-  const primaryCta = content?.primaryCta;
-  const secondaryCta = content?.secondaryCta;
-  const showPrimary = !!primaryCta?.label && !!primaryCta?.href;
-  const showSecondary = !!secondaryCta?.label && !!secondaryCta?.href;
+  const { badgeText, headline, tagline, valueProps, primaryCta, secondaryCta } =
+    content;
+  const showPrimary = !!primaryCta.label && !!primaryCta.href;
+  const showSecondary = !!secondaryCta.label && !!secondaryCta.href;
 
   return (
     <section className="relative overflow-hidden px-8 pb-[100px] pt-[120px] text-center">
@@ -99,8 +92,8 @@ export default function Hero({ content }: Props) {
         {/* CTAs */}
         {(showPrimary || showSecondary) && (
           <div className="relative flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-            {showPrimary && primaryCta && <CtaButton cta={primaryCta} />}
-            {showSecondary && secondaryCta && (
+            {showPrimary && <CtaButton cta={primaryCta} />}
+            {showSecondary && (
               <a
                 href={secondaryCta.href}
                 className="inline-flex min-h-[56px] items-center justify-center rounded-[14px] border border-border-light bg-bg-surface px-11 py-[18px] text-[17px] font-semibold text-text-primary transition-all duration-300 hover:border-text-muted hover:bg-bg-surface-hover"

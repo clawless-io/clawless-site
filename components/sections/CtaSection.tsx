@@ -3,15 +3,11 @@ import CtaButton from '@/components/ui/CtaButton';
 import type { CtaContent } from '@/lib/cms-types';
 
 interface Props {
-  content?: CtaContent;
+  content: CtaContent;
 }
 
 export default function CtaSection({ content }: Props) {
-  const headline = content?.headline ?? 'Coming Q3 2026.';
-  const description =
-    content?.description ??
-    'Currently in active development. The first public release is targeted for Q3 2026.';
-  const button = content?.button;
+  const { headline, description, button } = content;
 
   return (
     <section className="border-b border-border-default px-8 py-20">
