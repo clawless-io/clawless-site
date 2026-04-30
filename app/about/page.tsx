@@ -7,7 +7,7 @@ import { getContent } from '@/lib/cms';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Clawless Computer is a companion to OpenClaw, built to bring the open-source AI agent gateway to everyday users through a polished desktop experience. Built by one person who wants AI to make people more powerful, not obsolete.',
+    'Clawless Computer is a companion to OpenClaw, built to bring the open-source AI agent gateway to everyday users through a polished desktop experience. Sister project: a free AI literacy site at clawdemy.org.',
 };
 
 export default function AboutPage() {
@@ -51,8 +51,8 @@ export default function AboutPage() {
               </span>
             </h1>
             <p className="mx-auto max-w-[640px] text-base leading-[1.7] text-text-secondary sm:text-lg">
-              An OpenClaw companion built for everyday users. Made by someone
-              who wants AI to make people more powerful, not obsolete.
+              An OpenClaw companion for everyday users. Part of a long bet
+              that AI should make people more powerful, not obsolete.
             </p>
           </ScrollReveal>
         </section>
@@ -79,10 +79,23 @@ export default function AboutPage() {
                 Clawless Computer exists to close that gap. Same engine, same
                 community, same release cadence, all wrapped in a polished
                 desktop experience that anyone can install and use without
-                touching a terminal. The mission is approachable AI literacy
-                for everyday users: a platform where people can become
-                genuinely powerful with AI, instead of being passive users of
-                someone else&apos;s assistant.
+                touching a terminal.
+              </p>
+              <p>
+                That is the surface mission. The deeper one is broader. AI is
+                going to be a defining technology of this generation, and the
+                people most worried that AI will replace them are the people
+                least likely to learn to use it well. The work is to flip
+                that, to make AI literacy approachable so everyday users
+                walk in confident instead of anxious.
+              </p>
+              <p>
+                <strong className="text-text-primary">
+                  Clawless is the tool. Clawdemy is the mission.
+                </strong>{' '}
+                Both come from the same belief: that the right thing to build
+                for AI is something that makes people more powerful, not
+                obsolete.
               </p>
             </ScrollReveal>
 
@@ -120,28 +133,6 @@ export default function AboutPage() {
               </p>
             </ScrollReveal>
 
-            {/* Why someone built this */}
-            <ScrollReveal delay={0.1}>
-              <h2 className="mt-12 mb-4 text-2xl font-bold tracking-[-0.02em] text-text-primary sm:text-3xl">
-                Why one person built it
-              </h2>
-              <p>
-                Clawless Computer is a one-person project, built in spare
-                hours by Jay, someone who fell in love with OpenClaw, saw
-                the size and passion of its community, and noticed the same
-                thing over and over. The people who would benefit most from
-                OpenClaw are the people least likely to ever use it, because
-                they cannot live in a terminal all day.
-              </p>
-              <p>
-                That gap is the entire reason this project exists. Not to
-                build a different agent engine, because OpenClaw is already
-                the best one. Not to compete for users, because OpenClaw
-                deserves more of them. Just to be the polished desktop layer
-                that lets the next ten thousand people walk in.
-              </p>
-            </ScrollReveal>
-
             {/* Who it is for */}
             <ScrollReveal delay={0.15}>
               <h2 className="mt-12 mb-4 text-2xl font-bold tracking-[-0.02em] text-text-primary sm:text-3xl">
@@ -160,33 +151,90 @@ export default function AboutPage() {
               </p>
             </ScrollReveal>
 
-            {/* Sister project teaser */}
+            {/* Clawdemy */}
             <ScrollReveal delay={0.2}>
               <h2 className="mt-12 mb-4 text-2xl font-bold tracking-[-0.02em] text-text-primary sm:text-3xl">
-                A sister project, coming soon
+                Clawdemy, a free AI literacy site
               </h2>
               <p>
-                Clawless Computer is the tool. There is also going to be a
-                sister project, a free educational site dedicated to AI
-                literacy for everyday users. Articles, walkthroughs, and
-                practical guides for the people who are most worried that AI
-                will replace them. The goal is simple: turn fear into
-                fluency. Make people more powerful, not obsolete.
+                Clawdemy is a free, web-based AI literacy site. It is built
+                for the AI-anxious adult who suspects AI is coming for their
+                job and would rather understand the technology than fear it.
+                The mission is simple: turn fear into fluency, and make
+                people more powerful, not obsolete.
               </p>
               <p>
-                More on that when it ships. For now, focus is on getting the
-                Computer ready.
+                Clawdemy teaches AI literacy to everyone, free. Lessons are
+                vendor-neutral on the concept side and use Clawless as the
+                worked environment for hands-on practice. Clawless users get
+                the same content as everyone else. There is no paid tier and
+                no gated content.
+              </p>
+              <p>
+                Currently shipping: a transformer foundations track adapted
+                from Stanford&apos;s CME 295, with AI-narrated audio so the
+                lessons can be listened to in the car or at the gym.
+              </p>
+              <p>
+                Live and in active expansion at{' '}
+                <a
+                  href="https://clawdemy.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-text-primary underline transition-colors duration-200 hover:text-accent"
+                >
+                  clawdemy.org
+                </a>
+                . Independent of the Clawless launch schedule; the lesson
+                library grows continuously.
               </p>
             </ScrollReveal>
 
-            {/* Status */}
+            {/* From the founder */}
             <ScrollReveal delay={0.25}>
               <h2 className="mt-12 mb-4 text-2xl font-bold tracking-[-0.02em] text-text-primary sm:text-3xl">
-                Status
+                From the founder
               </h2>
               <p>
-                Active development. First public release targeted for{' '}
-                <strong className="text-text-primary">Q3 2026</strong>.
+                AI isn&apos;t replacing people. It&apos;s leaving people
+                behind.
+              </p>
+              <p>
+                I&apos;m Jay Siddiqi. I built Clawless because the people who
+                need AI the most are the ones struggling to use it.
+              </p>
+              <p>
+                Most AI tools assume you can open a terminal, manage API
+                keys, and read a GitHub README. Most people can&apos;t, and
+                shouldn&apos;t have to. The gap between &quot;AI
+                exists&quot; and &quot;I can actually use it&quot; is
+                widening every month. The whole point of Clawless is to
+                close it.
+              </p>
+              <p>
+                Clawless is the tool that pays the bills. Clawdemy is why
+                I&apos;m building it in the first place.
+              </p>
+              <p>
+                Clawdemy is a free AI literacy curriculum I edit personally,
+                line by line, before anything ships. No paid tier, no gated
+                content, no upgrade path. It stays free because AI literacy
+                shouldn&apos;t be something you have to buy your way into.
+              </p>
+              <p>
+                If you leave a lesson more confident than when you started,
+                I did my job.
+              </p>
+              <p className="pt-2 text-sm text-text-muted">
+                Jay Siddiqi, Founder ·{' '}
+                <a
+                  href="https://www.linkedin.com/in/junaidsiddiqi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-text-primary underline transition-colors duration-200 hover:text-accent"
+                >
+                  LinkedIn
+                </a>
               </p>
             </ScrollReveal>
           </div>
