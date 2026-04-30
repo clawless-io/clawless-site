@@ -51,12 +51,11 @@ export interface CtaContent {
 
 export interface NavContent {
   links: { label: string; href: string }[];
-  ctaLabel: string;
 }
 
 export interface FooterContent {
   tagline: string;
-  madeWith: string;
+  openClawUrl: string;
 }
 
 export interface FeatureGroup {

@@ -172,11 +172,10 @@ export function getContent(): CmsData {
       },
       nav: {
         links: NAV_LINKS.map((l) => ({ label: l.label, href: l.href })),
-        ctaLabel: '',
       },
       footer: {
         tagline: 'An operating system for AI, on any computer you own.',
-        madeWith: 'Built on top of OpenClaw',
+        openClawUrl: 'https://github.com/openclaw/openclaw',
       },
     },
   };
