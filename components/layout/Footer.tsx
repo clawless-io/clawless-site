@@ -32,7 +32,7 @@ export default function Footer({ content }: Props) {
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-border-light pt-6 sm:flex-row">
           <p className="text-xs text-text-muted">
-            &copy; {new Date().getFullYear()} Clawless Computer. All rights reserved.
+            &copy; {new Date().getFullYear()} RBJ Global Trading LLC. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-xs">
             <a
