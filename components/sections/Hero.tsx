@@ -32,7 +32,7 @@ export default function Hero({ content }: Props) {
           <span className="text-text-primary">Clawless</span>{' '}
           <span
             style={{
-              background: 'linear-gradient(135deg, #00D4FF 0%, #22FFAA 100%)',
+              background: 'linear-gradient(135deg, var(--color-accent) 0%, var(--color-success) 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
             }}
@@ -54,7 +54,7 @@ export default function Hero({ content }: Props) {
         <h1
           className="relative mb-7 text-[42px] font-extrabold leading-[1.05] tracking-[-0.02em] sm:text-[58px] md:text-[64px] lg:text-[72px]"
           style={{
-            background: 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)',
+            background: 'linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-secondary) 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
           }}
@@ -68,7 +68,7 @@ export default function Hero({ content }: Props) {
             ))}
           <span
             style={{
-              background: 'linear-gradient(135deg, #00D4FF 0%, #22FFAA 100%)',
+              background: 'linear-gradient(135deg, var(--color-accent) 0%, var(--color-success) 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
             }}

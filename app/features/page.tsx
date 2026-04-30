@@ -40,7 +40,7 @@ export default function FeaturesPage() {
             <h1
               className="relative mb-6 text-[40px] font-extrabold leading-[1.1] tracking-[-0.02em] sm:text-[52px] md:text-[60px]"
               style={{
-                background: 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)',
+                background: 'linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-secondary) 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
               }}
@@ -54,7 +54,7 @@ export default function FeaturesPage() {
               <p className="relative mx-auto inline-flex items-center gap-2 rounded-full border border-border-light bg-bg-surface px-4 py-2 text-[13px] font-medium text-text-primary">
                 <span
                   className="h-1.5 w-1.5 rounded-full"
-                  style={{ background: '#22FFAA' }}
+                  style={{ background: 'var(--color-success)' }}
                   aria-hidden
                 />
                 {fp.privacyHook}

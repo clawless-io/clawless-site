@@ -52,8 +52,8 @@ export default function CtaButton({
       href={cta.href}
       className="inline-flex min-h-[56px] items-center justify-center rounded-[14px] px-11 py-[18px] text-[17px] font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_48px_rgba(0,212,255,0.45)]"
       style={{
-        background: 'linear-gradient(135deg, #00D4FF, #22FFAA)',
-        color: '#05070F',
+        background: 'linear-gradient(135deg, var(--color-accent), var(--color-success))',
+        color: 'var(--color-bg-primary)',
         boxShadow: '0 0 24px rgba(0, 212, 255, 0.25)',
       }}
     >

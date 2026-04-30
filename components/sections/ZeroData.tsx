@@ -53,7 +53,7 @@ export default function ZeroData({ content: c }: Props) {
                   strokeWidth="3"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  style={{ color: '#22FFAA' }}
+                  style={{ color: 'var(--color-success)' }}
                   aria-hidden
                 >
                   <polyline points="20 6 9 17 4 12" />

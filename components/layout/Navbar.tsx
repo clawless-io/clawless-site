@@ -31,7 +31,7 @@ export default function Navbar({ content }: Props) {
           <span
             className="text-[14px] font-semibold uppercase tracking-[0.12em]"
             style={{
-              background: 'linear-gradient(135deg, #00D4FF, #22FFAA)',
+              background: 'linear-gradient(135deg, var(--color-accent), var(--color-success))',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
             }}

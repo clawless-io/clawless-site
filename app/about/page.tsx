@@ -34,7 +34,7 @@ export default function AboutPage() {
             <h1
               className="relative mb-6 text-[42px] font-extrabold leading-[1.1] tracking-[-0.02em] sm:text-[56px] md:text-[64px]"
               style={{
-                background: 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)',
+                background: 'linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-secondary) 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
               }}
@@ -42,7 +42,7 @@ export default function AboutPage() {
               About{' '}
               <span
                 style={{
-                  background: 'linear-gradient(135deg, #00D4FF 0%, #22FFAA 100%)',
+                  background: 'linear-gradient(135deg, var(--color-accent) 0%, var(--color-success) 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                 }}

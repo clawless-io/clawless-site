@@ -17,7 +17,7 @@ export default function Footer({ content }: Props) {
             <span
               className="text-base font-semibold uppercase tracking-[0.12em]"
               style={{
-                background: 'linear-gradient(135deg, #00D4FF, #22FFAA)',
+                background: 'linear-gradient(135deg, var(--color-accent), var(--color-success))',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
               }}

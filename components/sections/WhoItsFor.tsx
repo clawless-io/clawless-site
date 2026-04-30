@@ -23,7 +23,7 @@ export default function WhoItsFor({ content }: Props) {
                 <h3
                   className="mb-3 text-[17px] font-semibold tracking-[-0.02em]"
                   style={{
-                    background: 'linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)',
+                    background: 'linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-secondary) 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                   }}
