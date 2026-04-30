@@ -13,6 +13,12 @@ export default function Hero({ content }: Props) {
   const tagline =
     content?.tagline ??
     'Run AI agents, models, and tools on any computer you own. Your desktop, a spare laptop, a home server, a VPS. Whatever you point it at becomes your Clawless Computer.';
+  const valueProps =
+    content?.valueProps ?? 'Download. No credit card. No email. 7-day trial.';
+  const primaryCta = content?.primaryCta;
+  const secondaryCta = content?.secondaryCta;
+  const showPrimary = !!primaryCta?.label && !!primaryCta?.href;
+  const showSecondary = !!secondaryCta?.label && !!secondaryCta?.href;
 
   return (
     <section className="relative overflow-hidden px-8 pb-[100px] pt-[120px] text-center">
@@ -78,10 +84,62 @@ export default function Hero({ content }: Props) {
           </span>
         </h1>
 
+        {/* Value props, the four-no positioning hook. Locked phrase. */}
+        {valueProps && (
+          <p className="relative mx-auto mb-5 max-w-[720px] text-[20px] font-semibold leading-[1.4] tracking-[-0.01em] text-text-primary sm:text-[26px]">
+            {valueProps}
+          </p>
+        )}
+
         {/* Tagline */}
-        <p className="mx-auto mb-2 max-w-[680px] text-base leading-[1.7] tracking-[0.01em] text-text-secondary sm:text-xl">
+        <p className="mx-auto mb-10 max-w-[680px] text-base leading-[1.7] tracking-[0.01em] text-text-secondary sm:text-lg">
           {tagline}
         </p>
+
+        {/* CTAs */}
+        {(showPrimary || showSecondary) && (
+          <div className="relative flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+            {showPrimary && primaryCta && (
+              primaryCta.comingSoon ? (
+                <span
+                  aria-disabled="true"
+                  className="inline-flex min-h-[56px] cursor-not-allowed items-center justify-center rounded-[14px] border border-border-default bg-bg-surface px-8 py-[18px] text-[16px] font-semibold text-text-muted sm:px-11 sm:text-[17px]"
+                >
+                  {primaryCta.label}
+                  <span className="ml-2 opacity-70">· Coming Q3 2026</span>
+                </span>
+              ) : (
+                <a
+                  href={primaryCta.href}
+                  className="inline-flex min-h-[56px] items-center justify-center rounded-[14px] px-11 py-[18px] text-[17px] font-semibold transition-all duration-300"
+                  style={{
+                    background: 'linear-gradient(135deg, #00D4FF, #22FFAA)',
+                    color: '#05070F',
+                    boxShadow: '0 0 24px rgba(0, 212, 255, 0.25)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.boxShadow = '0 0 48px rgba(0, 212, 255, 0.45)';
+                    e.currentTarget.style.transform = 'translateY(-1px)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.boxShadow = '0 0 24px rgba(0, 212, 255, 0.25)';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                  }}
+                >
+                  {primaryCta.label}
+                </a>
+              )
+            )}
+            {showSecondary && secondaryCta && (
+              <a
+                href={secondaryCta.href}
+                className="inline-flex min-h-[56px] items-center justify-center rounded-[14px] border border-border-light bg-bg-surface px-11 py-[18px] text-[17px] font-semibold text-text-primary transition-all duration-300 hover:border-text-muted hover:bg-bg-surface-hover"
+              >
+                {secondaryCta.label}
+              </a>
+            )}
+          </div>
+        )}
       </ScrollReveal>
     </section>
   );
