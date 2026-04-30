@@ -144,6 +144,40 @@ export default function PricingPage() {
           </div>
         </section>
 
+        {/* ── Clawdemy callout ── */}
+        {p.clawdemyCallout && (
+          <section className="relative overflow-hidden border-t border-border-light px-2 py-20 sm:px-8">
+            <div
+              className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[760px] rounded-full"
+              style={{
+                transform: 'translate(-50%, -50%)',
+                background:
+                  'radial-gradient(ellipse, rgba(34,255,170,0.10) 0%, rgba(0,212,255,0.06) 40%, transparent 70%)',
+                filter: 'blur(50px)',
+              }}
+              aria-hidden
+            />
+            <div className="relative mx-auto max-w-[760px] text-center">
+              <ScrollReveal>
+                <h2
+                  className="mb-5 text-[28px] font-bold leading-[1.15] tracking-[-0.02em] sm:text-[36px]"
+                  style={{
+                    background:
+                      'linear-gradient(135deg, #00D4FF 0%, #22FFAA 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                  }}
+                >
+                  {p.clawdemyCallout.headline}
+                </h2>
+                <p className="mx-auto max-w-[640px] text-base leading-[1.7] text-text-secondary sm:text-lg">
+                  {p.clawdemyCallout.body}
+                </p>
+              </ScrollReveal>
+            </div>
+          </section>
+        )}
+
         {/* ── What's included ── */}
         <section className="px-2 py-16 sm:px-8">
           <div className="mx-auto max-w-[760px]">

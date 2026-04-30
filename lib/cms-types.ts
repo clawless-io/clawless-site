@@ -107,6 +107,10 @@ export interface PricingPageContent {
   privacyHook: string;
   preLaunchBanner: string;
   tiers: PricingTier[];
+  clawdemyCallout?: {
+    headline: string;
+    body: string;
+  };
   includesHeadline: string;
   includes: string[];
   comparison?: {
