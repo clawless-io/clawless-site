@@ -73,9 +73,16 @@ export function getContent(): CmsData {
             cta: { label: 'Available Q3 2026', href: '#', comingSoon: true },
           },
         ],
+        clawdemyCallout: {
+          headline: 'Clawdemy included with every plan.',
+          body:
+            'A companion AI literacy curriculum that teaches you to use AI well (chat, agents, memory, automation) with hands-on practice using Clawless. No extra cost.',
+        },
         includesHeadline: 'Every plan includes',
         includes: [
           'Every Clawless feature, present and future',
+          'Clawdemy included, our free AI literacy site.',
+          "Updates included for the life of your plan. We follow OpenClaw upstream and ship tested releases as they're ready.",
           '7-day free trial. No card, no email, no account.',
           'All major AI providers: Claude, GPT, Gemini, Groq, plus 800+ models through OpenRouter',
           'Bring your own provider keys. You pay AI providers directly at their rates.',
