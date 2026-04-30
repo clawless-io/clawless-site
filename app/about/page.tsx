@@ -7,7 +7,7 @@ import { getContent } from '@/lib/cms';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Clawless Computer is a companion to OpenClaw, built to bring the open-source AI agent gateway to everyday users through a polished desktop experience. Operated by RBJ Global Trading LLC, with a sister educational project at clawdemy.org.',
+    'Clawless Computer is a companion to OpenClaw, built to bring the open-source AI agent gateway to everyday users through a polished desktop experience. Sister project: a free AI literacy site at clawdemy.org.',
 };
 
 export default function AboutPage() {
@@ -190,21 +190,51 @@ export default function AboutPage() {
               </p>
             </ScrollReveal>
 
-            {/* Behind Clawless */}
+            {/* From the founder */}
             <ScrollReveal delay={0.25}>
               <h2 className="mt-12 mb-4 text-2xl font-bold tracking-[-0.02em] text-text-primary sm:text-3xl">
-                Behind Clawless
+                From the founder
               </h2>
               <p>
-                Clawless Computer is built and operated by{' '}
-                <strong className="text-text-primary">
-                  RBJ Global Trading LLC
-                </strong>
-                .
+                AI isn&apos;t replacing people. It&apos;s leaving people
+                behind.
               </p>
               <p>
-                Active development. First public release targeted for{' '}
-                <strong className="text-text-primary">Q3 2026</strong>.
+                I&apos;m Jay Siddiqi. I built Clawless because the people who
+                need AI the most are the ones struggling to use it.
+              </p>
+              <p>
+                Most AI tools assume you can open a terminal, manage API
+                keys, and read a GitHub README. Most people can&apos;t, and
+                shouldn&apos;t have to. The gap between &quot;AI
+                exists&quot; and &quot;I can actually use it&quot; is
+                widening every month. The whole point of Clawless is to
+                close it.
+              </p>
+              <p>
+                Clawless is the tool that pays the bills. Clawdemy is why
+                I&apos;m building it in the first place.
+              </p>
+              <p>
+                Clawdemy is a free AI literacy curriculum I edit personally,
+                line by line, before anything ships. No paid tier, no gated
+                content, no upgrade path. It stays free because AI literacy
+                shouldn&apos;t be something you have to buy your way into.
+              </p>
+              <p>
+                If you leave a lesson more confident than when you started,
+                I did my job.
+              </p>
+              <p className="pt-2 text-sm text-text-muted">
+                Jay Siddiqi, Founder ·{' '}
+                <a
+                  href="https://www.linkedin.com/in/junaidsiddiqi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-text-primary underline transition-colors duration-200 hover:text-accent"
+                >
+                  LinkedIn
+                </a>
               </p>
             </ScrollReveal>
           </div>
