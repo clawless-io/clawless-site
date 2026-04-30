@@ -2,23 +2,10 @@ import ScrollReveal from '@/components/effects/ScrollReveal';
 import type { ZeroDataContent } from '@/lib/cms-types';
 
 interface Props {
-  content?: ZeroDataContent;
+  content: ZeroDataContent;
 }
 
-const FALLBACK: ZeroDataContent = {
-  eyebrow: 'Privacy is the product',
-  headline: 'We do not ask for anything.',
-  lead: 'Most AI apps want at least your email before you can try them. Clawless does not.',
-  chips: ['No credit card', 'No email', 'No account', 'No telemetry'],
-  paragraphs: [
-    'Download, install, start a 7-day trial in the app. No signup, no login, no profile. We do not know who you are, by design.',
-    'If we are not collecting anything, there is nothing to leak. No customer database to breach. No mailing list to harvest. No cookies, no analytics, no identifiers. The marketing site is a brochure with a download button.',
-    'When you pay, Lemon Squeezy handles checkout on their domain as the merchant of record. They take your card. We never see it.',
-  ],
-};
-
-export default function ZeroData({ content }: Props) {
-  const c = content ?? FALLBACK;
+export default function ZeroData({ content: c }: Props) {
 
   return (
     <section
