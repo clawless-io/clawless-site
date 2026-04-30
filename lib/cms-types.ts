@@ -5,6 +5,18 @@
  * the components already expect.
  */
 
+/**
+ * Shared CTA button shape. comingSoon=true renders the CTA as a
+ * non-clickable gray span with a "Coming Q3 2026" suffix. When the
+ * destination route exists at launch, flip comingSoon to false (or
+ * remove it) for the active link rendering.
+ */
+export interface CtaButtonContent {
+  label: string;
+  href: string;
+  comingSoon?: boolean;
+}
+
 export interface HeroContent {
   badgeText: string;
   headline: string[];
@@ -14,13 +26,8 @@ export interface HeroContent {
    */
   valueProps: string;
   tagline: string;
-  /**
-   * comingSoon=true renders the CTA as a non-clickable gray span with a
-   * "Coming Q3 2026" suffix. When the destination route exists at launch,
-   * flip comingSoon to false (or remove it) for the active link rendering.
-   */
-  primaryCta: { label: string; href: string; comingSoon?: boolean };
-  secondaryCta: { label: string; href: string; comingSoon?: boolean };
+  primaryCta: CtaButtonContent;
+  secondaryCta: CtaButtonContent;
 }
 
 export interface FeatureItem {
@@ -39,13 +46,7 @@ export interface FeaturesContent {
 export interface CtaContent {
   headline: string;
   description: string;
-  buttonLabel: string;
-  buttonHref: string;
-  /**
-   * When true, the CTA renders as a non-clickable gray span with a
-   * "Coming Q3 2026" suffix. Used while /download is unbuilt.
-   */
-  buttonComingSoon?: boolean;
+  button?: CtaButtonContent;
 }
 
 export interface NavContent {
@@ -72,13 +73,7 @@ export interface FeaturesPageContent {
   groups: FeatureGroup[];
   closingHeadline: string;
   closingDescription: string;
-  closingButtonLabel: string;
-  closingButtonHref: string;
-  /**
-   * When true, the closing CTA renders as a non-clickable gray span with a
-   * "Coming Q3 2026" suffix. Used while /download is unbuilt.
-   */
-  closingButtonComingSoon?: boolean;
+  closingButton?: CtaButtonContent;
 }
 
 export interface WhoItsForColumn {

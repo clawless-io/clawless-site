@@ -1,5 +1,3 @@
-'use client';
-
 import ScrollReveal from '@/components/effects/ScrollReveal';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { WHO_ITS_FOR } from '@/lib/constants';
