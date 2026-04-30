@@ -102,14 +102,14 @@ export const FEATURES = [
   {
     title: 'Chat with any AI model, no terminal needed',
     description:
-      'Claude, GPT, Gemini, OpenAI Codex, plus 800+ models through OpenRouter. Switch with one click. Bring your own provider keys; conversations stay on your computer.',
+      'Claude, GPT, Gemini, plus 800+ models through OpenRouter. Switch with one click. Bring your own provider keys; conversations stay on your computer.',
     icon: 'openrouter' as const,
     color: 'indigo',
   },
   {
     title: 'Agents that do real work for you',
     description:
-      'Six agents are ready out of the box: a writer, a researcher, a planner, a tutor, a local helper, and a friendly default. Build your own with a system prompt and a toolset, and they remember the way you like to work.',
+      'A default lineup of specialized agents ships with the app, ready the moment you launch. Build your own with a system prompt and a toolset, and each agent remembers the way you like to work.',
     icon: 'swarm' as const,
     color: 'electricCyan',
   },
