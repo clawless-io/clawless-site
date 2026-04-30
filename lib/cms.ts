@@ -1,11 +1,11 @@
 /**
- * Content layer — phase 1 inlined.
+ * Content layer, phase 1 inlined.
  * No external CMS, no API fetch, no ISR. Everything below is hardcoded
  * from constants.ts. Edit constants.ts (or this file) to update the site,
  * push to GitHub, Cloudflare Pages rebuilds and redeploys automatically.
  */
 
-import { NAV_LINKS, FEATURES, FEATURE_GROUPS } from './constants';
+import { NAV_LINKS, FEATURES, FEATURE_GROUPS, WHO_ITS_FOR } from './constants';
 import type { CmsData } from './cms-types';
 
 export function getContent(): CmsData {
@@ -15,13 +15,13 @@ export function getContent(): CmsData {
         badgeText: 'Coming Q3 2026',
         headline: ['An operating system', 'for AI.'],
         tagline:
-          'Run AI agents, models, and tools on any computer you own. Your desktop, a spare laptop, a home server, a VPS. Whatever you point it at becomes your Clawless Computer.',
-        primaryCta: { label: '', href: '' },
-        secondaryCta: { label: '', href: '' },
+          'A polished desktop home for OpenClaw, the open-source AI engine, built so everyday users can run agents, models, and tools without a terminal.',
+        primaryCta: { label: 'Get Clawless', href: '/download' },
+        secondaryCta: { label: 'See how it works', href: '#demo' },
       },
       features: {
         sectionLabel: 'What Clawless Computer is',
-        sectionTitle: 'Built on OpenClaw. Polished for humans.',
+        sectionTitle: 'What Clawless does for you.',
         items: FEATURES.map((f) => ({
           title: f.title,
           description: f.description,
@@ -47,12 +47,30 @@ export function getContent(): CmsData {
         closingButtonLabel: 'Get Clawless',
         closingButtonHref: '/download',
       },
+      whoItsFor: {
+        sectionLabel: 'Who it is for',
+        sectionTitle: 'Built for the people OpenClaw cannot reach yet.',
+        columns: WHO_ITS_FOR.map((c) => ({
+          title: c.title,
+          description: c.description,
+        })),
+      },
+      demoVideo: {
+        caption: 'A walkthrough video lands here before launch.',
+      },
+      companion: {
+        headline: 'A companion to OpenClaw, not a competitor.',
+        paragraphs: [
+          'OpenClaw is one of the most impressive open-source AI projects in the world, a community big enough to ship new releases almost every week. Clawless Computer is built on top of it, 100% compatible, and exists to bring OpenClaw to people who cannot live in a terminal all day.',
+          "We do not fork OpenClaw. We do not compete with it. We track every release, test it, and ship the upgrades so you do not have to. Our success is OpenClaw's success.",
+        ],
+      },
       cta: {
-        headline: 'Coming Q3 2026.',
+        headline: 'Try Clawless free for 7 days.',
         description:
-          'Currently in active development. The first public release is targeted for Q3 2026.',
-        buttonLabel: '',
-        buttonHref: '',
+          'No card required. Download, install, paste a provider API key, start chatting. When the trial ends, pick a plan from the in-app upgrade button or keep the app in read-only mode.',
+        buttonLabel: 'Get Clawless',
+        buttonHref: '/download',
       },
       nav: {
         links: NAV_LINKS.map((l) => ({ label: l.label, href: l.href })),

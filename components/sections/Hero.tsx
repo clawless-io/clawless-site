@@ -13,6 +13,10 @@ export default function Hero({ content }: Props) {
   const tagline =
     content?.tagline ??
     'Run AI agents, models, and tools on any computer you own. Your desktop, a spare laptop, a home server, a VPS. Whatever you point it at becomes your Clawless Computer.';
+  const primaryCta = content?.primaryCta;
+  const secondaryCta = content?.secondaryCta;
+  const showPrimary = !!primaryCta?.label && !!primaryCta?.href;
+  const showSecondary = !!secondaryCta?.label && !!secondaryCta?.href;
 
   return (
     <section className="relative overflow-hidden px-8 pb-[100px] pt-[120px] text-center">
@@ -79,9 +83,44 @@ export default function Hero({ content }: Props) {
         </h1>
 
         {/* Tagline */}
-        <p className="mx-auto mb-2 max-w-[680px] text-base leading-[1.7] tracking-[0.01em] text-text-secondary sm:text-xl">
+        <p className="mx-auto mb-10 max-w-[680px] text-base leading-[1.7] tracking-[0.01em] text-text-secondary sm:text-xl">
           {tagline}
         </p>
+
+        {/* CTAs */}
+        {(showPrimary || showSecondary) && (
+          <div className="relative flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+            {showPrimary && primaryCta && (
+              <a
+                href={primaryCta.href}
+                className="inline-flex min-h-[56px] items-center justify-center rounded-[14px] px-11 py-[18px] text-[17px] font-semibold transition-all duration-300"
+                style={{
+                  background: 'linear-gradient(135deg, #00D4FF, #22FFAA)',
+                  color: '#05070F',
+                  boxShadow: '0 0 24px rgba(0, 212, 255, 0.25)',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = '0 0 48px rgba(0, 212, 255, 0.45)';
+                  e.currentTarget.style.transform = 'translateY(-1px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = '0 0 24px rgba(0, 212, 255, 0.25)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                {primaryCta.label}
+              </a>
+            )}
+            {showSecondary && secondaryCta && (
+              <a
+                href={secondaryCta.href}
+                className="inline-flex min-h-[56px] items-center justify-center rounded-[14px] border border-border-light bg-bg-surface px-11 py-[18px] text-[17px] font-semibold text-text-primary transition-all duration-300 hover:border-text-muted hover:bg-bg-surface-hover"
+              >
+                {secondaryCta.label}
+              </a>
+            )}
+          </div>
+        )}
       </ScrollReveal>
     </section>
   );

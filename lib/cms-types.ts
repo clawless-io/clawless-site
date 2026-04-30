@@ -61,10 +61,34 @@ export interface FeaturesPageContent {
   closingButtonHref: string;
 }
 
+export interface WhoItsForColumn {
+  title: string;
+  description: string;
+}
+
+export interface WhoItsForContent {
+  sectionLabel: string;
+  sectionTitle: string;
+  columns: WhoItsForColumn[];
+}
+
+export interface DemoVideoContent {
+  caption: string;
+  videoSrc?: string;
+}
+
+export interface CompanionContent {
+  headline: string;
+  paragraphs: string[];
+}
+
 export interface WebsiteContentMap {
   hero: HeroContent;
   features: FeaturesContent;
   featuresPage: FeaturesPageContent;
+  whoItsFor: WhoItsForContent;
+  demoVideo: DemoVideoContent;
+  companion: CompanionContent;
   cta: CtaContent;
   nav: NavContent;
   footer: FooterContent;
