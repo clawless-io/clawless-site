@@ -14,10 +14,10 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# Prevent two main-branch pushes from deploying in parallel and racing on the
-# Cloudflare Pages project. cancel-in-progress: false preserves the "every push
-# deploys" contract: later pushes queue behind earlier ones rather than
-# replacing them, so an intermediate commit is never skipped.
+# Per-ref concurrency: pushes to the same branch serialize so they don't race
+# on the Cloudflare Pages project. cancel-in-progress: false preserves the
+# "every push deploys" contract; later pushes queue behind earlier ones rather
+# than replacing them, so an intermediate commit is never skipped.
 concurrency:
   group: deploy-${{ github.ref }}
   cancel-in-progress: false
