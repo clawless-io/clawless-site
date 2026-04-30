@@ -1,12 +1,11 @@
 import type { FooterContent } from '@/lib/cms-types';
 
 interface Props {
-  content?: FooterContent;
+  content: FooterContent;
 }
 
 export default function Footer({ content }: Props) {
-  const tagline =
-    content?.tagline ?? 'An operating system for AI, on any computer you own.';
+  const { tagline, openClawUrl } = content;
 
   return (
     <footer className="border-t border-border-light px-8 pb-10 pt-[60px]">
@@ -56,7 +55,7 @@ export default function Footer({ content }: Props) {
             <span className="text-text-muted">
               Built on top of{' '}
               <a
-                href="https://github.com/openclaw/openclaw"
+                href={openClawUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="underline transition-colors duration-200 hover:text-text-primary"

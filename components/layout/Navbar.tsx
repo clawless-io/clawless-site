@@ -2,16 +2,15 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { NAV_LINKS } from '@/lib/constants';
 import type { NavContent } from '@/lib/cms-types';
 
 interface Props {
-  content?: NavContent;
+  content: NavContent;
 }
 
 export default function Navbar({ content }: Props) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const links = content?.links ?? NAV_LINKS;
+  const { links } = content;
 
   return (
     <div className="sticky top-0 z-50 px-4 pt-4 sm:px-6 sm:pt-6">
