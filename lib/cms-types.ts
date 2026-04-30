@@ -14,8 +14,13 @@ export interface HeroContent {
    */
   valueProps: string;
   tagline: string;
-  primaryCta: { label: string; href: string };
-  secondaryCta: { label: string; href: string };
+  /**
+   * comingSoon=true renders the CTA as a non-clickable gray span with a
+   * "Coming Q3 2026" suffix. When the destination route exists at launch,
+   * flip comingSoon to false (or remove it) for the active link rendering.
+   */
+  primaryCta: { label: string; href: string; comingSoon?: boolean };
+  secondaryCta: { label: string; href: string; comingSoon?: boolean };
 }
 
 export interface FeatureItem {
@@ -36,6 +41,11 @@ export interface CtaContent {
   description: string;
   buttonLabel: string;
   buttonHref: string;
+  /**
+   * When true, the CTA renders as a non-clickable gray span with a
+   * "Coming Q3 2026" suffix. Used while /download is unbuilt.
+   */
+  buttonComingSoon?: boolean;
 }
 
 export interface NavContent {
@@ -64,6 +74,11 @@ export interface FeaturesPageContent {
   closingDescription: string;
   closingButtonLabel: string;
   closingButtonHref: string;
+  /**
+   * When true, the closing CTA renders as a non-clickable gray span with a
+   * "Coming Q3 2026" suffix. Used while /download is unbuilt.
+   */
+  closingButtonComingSoon?: boolean;
 }
 
 export interface WhoItsForColumn {
