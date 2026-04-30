@@ -8,6 +8,11 @@
 export interface HeroContent {
   badgeText: string;
   headline: string[];
+  /**
+   * Founder-locked positioning hook. Rendered as a punchy sub-headline
+   * directly below the main headline. Empty string disables it.
+   */
+  valueProps: string;
   tagline: string;
   primaryCta: { label: string; href: string };
   secondaryCta: { label: string; href: string };

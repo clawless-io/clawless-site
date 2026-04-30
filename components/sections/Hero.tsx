@@ -13,6 +13,8 @@ export default function Hero({ content }: Props) {
   const tagline =
     content?.tagline ??
     'Run AI agents, models, and tools on any computer you own. Your desktop, a spare laptop, a home server, a VPS. Whatever you point it at becomes your Clawless Computer.';
+  const valueProps =
+    content?.valueProps ?? 'Download. No credit card. No email. 7-day trial.';
   const primaryCta = content?.primaryCta;
   const secondaryCta = content?.secondaryCta;
   const showPrimary = !!primaryCta?.label && !!primaryCta?.href;
@@ -82,8 +84,15 @@ export default function Hero({ content }: Props) {
           </span>
         </h1>
 
+        {/* Value props, the four-no positioning hook. Locked phrase. */}
+        {valueProps && (
+          <p className="relative mx-auto mb-5 max-w-[720px] text-[20px] font-semibold leading-[1.4] tracking-[-0.01em] text-text-primary sm:text-[26px]">
+            {valueProps}
+          </p>
+        )}
+
         {/* Tagline */}
-        <p className="mx-auto mb-10 max-w-[680px] text-base leading-[1.7] tracking-[0.01em] text-text-secondary sm:text-xl">
+        <p className="mx-auto mb-10 max-w-[680px] text-base leading-[1.7] tracking-[0.01em] text-text-secondary sm:text-lg">
           {tagline}
         </p>
 

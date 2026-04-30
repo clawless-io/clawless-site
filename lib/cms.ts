@@ -14,6 +14,7 @@ export function getContent(): CmsData {
       hero: {
         badgeText: 'Coming Q3 2026',
         headline: ['An operating system', 'for AI.'],
+        valueProps: 'Download. No credit card. No email. 7-day trial.',
         tagline:
           'A polished desktop home for OpenClaw, the open-source AI engine, built so everyday users can run agents, models, and tools without a terminal.',
         primaryCta: { label: 'Get Clawless', href: '/download' },
@@ -68,7 +69,7 @@ export function getContent(): CmsData {
       cta: {
         headline: 'Try Clawless free for 7 days.',
         description:
-          'No card required. Download, install, paste a provider API key, start chatting. When the trial ends, pick a plan from the in-app upgrade button or keep the app in read-only mode.',
+          'No credit card. No email. No signup. Download, install, paste a provider API key, start chatting. When the trial ends, pick a plan from the in-app upgrade button or keep the app in read-only mode.',
         buttonLabel: 'Get Clawless',
         buttonHref: '/download',
       },
