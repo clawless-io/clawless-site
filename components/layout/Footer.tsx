@@ -63,6 +63,17 @@ export default function Footer({ content }: Props) {
                 OpenClaw
               </a>
             </span>
+            <span className="text-text-muted">
+              A product of{' '}
+              <a
+                href="https://rbjglobal.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline transition-colors duration-200 hover:text-text-primary"
+              >
+                RBJ Global
+              </a>
+            </span>
           </div>
         </div>
       </div>
