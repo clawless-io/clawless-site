@@ -37,17 +37,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    {
-      url: `${SITE_URL}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${SITE_URL}/terms`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
+    // /privacy and /terms intentionally excluded while they hold
+    // pre-launch placeholder copy. Their pages also carry the
+    // robots meta noindex directive and robots.txt disallow them.
+    // Add them back once the entity-of-record paragraph lands per
+    // project-privacy-terms-llc-backlog.md.
   ];
 }
