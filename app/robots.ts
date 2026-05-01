@@ -9,6 +9,11 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
+      // Placeholder legal pages are noindex'd at the page level too.
+      // Disallow here is the politeness layer; the per-page robots meta
+      // is the authoritative signal. Revisit when these pages get real
+      // entity-of-record content per project-privacy-terms-llc-backlog.md.
+      disallow: ['/privacy', '/terms'],
     },
     sitemap: `${SITE_URL}/sitemap.xml`,
   };

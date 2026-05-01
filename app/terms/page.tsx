@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: 'Terms',
   description:
     'Clawless Computer terms, placeholder for the pre-launch site. Full terms ship with the product.',
+  // Pre-launch placeholder copy. Keep it crawlable for trust, but
+  // out of the index so it does not surface above the marketing
+  // surface on brand queries. Revisit once the entity-of-record
+  // paragraph lands (project-privacy-terms-llc-backlog.md).
+  robots: { index: false, follow: true },
 };
 
 export default function TermsPage() {
