@@ -100,6 +100,42 @@ export interface PricingFaqItem {
   answer: string;
 }
 
+/**
+ * One OS card on /download. `versionLabel` reads under the OS name (e.g.
+ * "macOS 13 Ventura or later"). `architectures` is one or more strings
+ * shown as small chips (e.g. ["Apple Silicon", "Intel x64"]). `formats`
+ * is for Linux's three-format card; macOS/Windows leave it empty.
+ */
+export interface DownloadOsCard {
+  os: string;
+  iconKey: 'macos' | 'windows' | 'linux';
+  versionLabel: string;
+  architectures: string[];
+  formats?: string[];
+  cta: CtaButtonContent;
+}
+
+export interface DownloadPageContent {
+  pageTitle: string;
+  pageSubhead: string;
+  privacyHook: string;
+  preLaunchBanner: string;
+  installFlow: {
+    headline: string;
+    steps: string[];
+  };
+  osCards: DownloadOsCard[];
+  systemRequirements: {
+    headline: string;
+    items: string[];
+  };
+  installFootprint: {
+    headline: string;
+    body: string;
+  };
+  trustStrip: string;
+}
+
 export interface PricingPageContent {
   pageTitle: string;
   pageSubhead: string;
@@ -159,6 +195,7 @@ export interface WebsiteContentMap {
   features: FeaturesContent;
   featuresPage: FeaturesPageContent;
   pricingPage: PricingPageContent;
+  downloadPage: DownloadPageContent;
   whoItsFor: WhoItsForContent;
   demoVideo: DemoVideoContent;
   companion: CompanionContent;

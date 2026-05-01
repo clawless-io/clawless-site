@@ -129,6 +129,79 @@ export function getContent(): CmsData {
           },
         ],
       },
+      downloadPage: {
+        pageTitle: 'Download Clawless',
+        pageSubhead:
+          'Install, paste a provider API key, start the 7-day trial in the app. No card, no email, no account on this site.',
+        privacyHook:
+          'Download. No credit card. No email. No account.',
+        preLaunchBanner:
+          "Available Q3 2026. Here's what you'll need on day one.",
+        installFlow: {
+          headline: 'How it goes on day one',
+          steps: [
+            'Download the build for your operating system.',
+            'Install it the way you install any desktop app, drag to Applications on Mac, run the installer on Windows, or use the AppImage / .deb / .rpm on Linux.',
+            'Open the app, paste a provider API key during onboarding, and the 7-day trial starts in the app. No card, no email, no account on this site.',
+          ],
+        },
+        osCards: [
+          {
+            os: 'macOS',
+            iconKey: 'macos',
+            versionLabel: 'macOS 13 Ventura or later',
+            architectures: ['Apple Silicon', 'Intel x64'],
+            cta: {
+              label: 'Available Q3 2026',
+              href: '#',
+              comingSoon: true,
+            },
+          },
+          {
+            os: 'Windows',
+            iconKey: 'windows',
+            versionLabel: 'Windows 10 (build 1809+) or Windows 11',
+            architectures: ['x64'],
+            cta: {
+              label: 'Available Q3 2026',
+              href: '#',
+              comingSoon: true,
+            },
+          },
+          {
+            os: 'Linux',
+            iconKey: 'linux',
+            versionLabel:
+              'Compatible with any modern Linux distribution (x64). Choose AppImage for universal compatibility, or use the format matching your package manager.',
+            architectures: ['x64'],
+            formats: [
+              'AppImage (universal, recommended)',
+              '.deb (Ubuntu, Debian, derivatives)',
+              '.rpm (Fedora, RHEL, openSUSE)',
+            ],
+            cta: {
+              label: 'Available Q3 2026',
+              href: '#',
+              comingSoon: true,
+            },
+          },
+        ],
+        systemRequirements: {
+          headline: 'System requirements',
+          items: [
+            '8 GB RAM minimum, 16 GB recommended',
+            '1 GB free disk space (app, bundled browser engine, working data)',
+            'Internet connection for AI provider API calls',
+            'No GPU required. Clawless does not run local LLMs; it brings your provider keys to you.',
+          ],
+        },
+        installFootprint: {
+          headline: "What's in the installer",
+          body: "About 200 MB to download, around 500 MB once installed. Most of that footprint is a bundled Chromium engine that powers browser-automation features so agents can drive real websites on your behalf. No surprise downloads, no proxy or firewall failure modes after install.",
+        },
+        trustStrip:
+          'Built and operated by RBJ Global Trading LLC. Built on top of OpenClaw, the open-source AI engine. No telemetry, no analytics, no cookies on this site.',
+      },
       featuresPage: {
         pageTitle: 'Everything Clawless does.',
         pageLead:
