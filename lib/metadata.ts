@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const SITE_URL = 'https://clawless.ai';
 export const SITE_NAME = 'Clawless Computer';
 export const SITE_DESCRIPTION =
-  'An operating system for AI. Run agents, models, and tools on your desktop or laptop, Mac, Windows, or Linux. Built on top of OpenClaw.';
+  'An operating system for AI. Run agents, models, and tools on your Mac or Ubuntu desktop. Built on top of OpenClaw.';
 
 export const siteMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -51,7 +51,7 @@ export const jsonLd = {
   '@type': 'SoftwareApplication',
   name: 'Clawless Computer',
   applicationCategory: 'DeveloperApplication',
-  operatingSystem: 'macOS, Windows, Linux',
+  operatingSystem: 'macOS, Linux (Ubuntu)',
   description: SITE_DESCRIPTION,
   url: SITE_URL,
 };
