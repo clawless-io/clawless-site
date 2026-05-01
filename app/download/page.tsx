@@ -8,7 +8,7 @@ import { getContent } from '@/lib/cms';
 export const metadata: Metadata = {
   title: 'Download',
   description:
-    'Download Clawless Computer for Mac, Windows, or Linux. Available Q3 2026. About 200 MB to download, around 500 MB installed. No card, no email, no account to start the 7-day trial.',
+    'Download Clawless Computer for Mac or Ubuntu. Available Q3 2026. About 200 MB to download, around 500 MB installed. No card, no email, no account to start the 7-day trial.',
 };
 
 const osIcons: Record<'macos' | 'windows' | 'linux', React.ReactNode> = {
@@ -158,7 +158,7 @@ export default function DownloadPage() {
                 Choose your platform
               </h2>
             </ScrollReveal>
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+            <div className="mx-auto grid max-w-[760px] grid-cols-1 gap-5 md:grid-cols-2">
               {d.osCards.map((card, i) => (
                 <ScrollReveal key={card.os} delay={i * 0.08}>
                   <div className="flex h-full flex-col rounded-2xl border border-border-light bg-bg-surface p-7 transition-all duration-300 hover:border-text-muted">

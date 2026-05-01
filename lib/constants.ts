@@ -139,6 +139,6 @@ export const WHO_ITS_FOR = [
   {
     title: 'If you already use OpenClaw',
     description:
-      'A real GUI for the times you do not want to type. 100% compatible with the engine you already know, on Mac, Windows, or Linux.',
+      'A real GUI for the times you do not want to type. 100% compatible with the engine you already know, on Mac or Ubuntu.',
   },
 ] as const;

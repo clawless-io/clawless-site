@@ -104,7 +104,9 @@ export interface PricingFaqItem {
  * One OS card on /download. `versionLabel` reads under the OS name (e.g.
  * "macOS 13 Ventura or later"). `architectures` is one or more strings
  * shown as small chips (e.g. ["Apple Silicon", "Intel x64"]). `formats`
- * is for Linux's three-format card; macOS/Windows leave it empty.
+ * is the Linux card's two-format picker (AppImage / .deb); the macOS
+ * card leaves it empty. The 'windows' iconKey is retained for when
+ * Windows ships post-launch and the card re-enters the array.
  */
 export interface DownloadOsCard {
   os: string;

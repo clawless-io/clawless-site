@@ -141,10 +141,16 @@ export function getContent(): CmsData {
           headline: 'How it goes on day one',
           steps: [
             'Download the build for your operating system.',
-            'Install it the way you install any desktop app, drag to Applications on Mac, run the installer on Windows, or use the AppImage / .deb / .rpm on Linux.',
+            'Install it the way you install any desktop app: drag to Applications on Mac, or use the AppImage or .deb package on Ubuntu.',
             'Open the app, paste a provider API key during onboarding, and the 7-day trial starts in the app. No card, no email, no account on this site.',
           ],
         },
+        // Windows card is intentionally omitted from v1. Founder deferred
+        // Windows post-launch on 2026-05-01: EV cert procurement is tedious
+        // (articles of incorporation, business license, notarized authorization,
+        // multi-day vendor verification), Windows testing requires a multi-version
+        // OS fleet plus AV/SmartScreen reputation work, and OpenClaw's existing
+        // audience skews macOS + Linux. Re-enable here when demand justifies.
         osCards: [
           {
             os: 'macOS',
@@ -158,26 +164,14 @@ export function getContent(): CmsData {
             },
           },
           {
-            os: 'Windows',
-            iconKey: 'windows',
-            versionLabel: 'Windows 10 (build 1809+) or Windows 11',
-            architectures: ['x64'],
-            cta: {
-              label: 'Available Q3 2026',
-              href: '#',
-              comingSoon: true,
-            },
-          },
-          {
-            os: 'Linux',
+            os: 'Linux (Ubuntu)',
             iconKey: 'linux',
             versionLabel:
-              'Compatible with any modern Linux distribution (x64). Choose AppImage for universal compatibility, or use the format matching your package manager.',
+              'Ubuntu 22.04 LTS or later (x64). The AppImage also works on Pop!_OS, Mint, elementary, and Debian 12+.',
             architectures: ['x64'],
             formats: [
-              'AppImage (universal, recommended)',
-              '.deb (Ubuntu, Debian, derivatives)',
-              '.rpm (Fedora, RHEL, openSUSE)',
+              'AppImage (recommended, universal)',
+              '.deb (Ubuntu native package)',
             ],
             cta: {
               label: 'Available Q3 2026',
@@ -189,6 +183,8 @@ export function getContent(): CmsData {
         systemRequirements: {
           headline: 'System requirements',
           items: [
+            'macOS 13 Ventura or later. Apple Silicon and Intel x64.',
+            'Ubuntu 22.04 LTS or later. x64.',
             '8 GB RAM minimum, 16 GB recommended',
             '1 GB free disk space (app, bundled browser engine, working data)',
             'Internet connection for AI provider API calls',
