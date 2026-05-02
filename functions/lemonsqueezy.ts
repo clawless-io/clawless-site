@@ -68,6 +68,12 @@ interface LsWebhookPayload {
   };
 }
 
+// Hard cap on accepted body size. Legitimate LS webhooks are well under 16 KB.
+// 256 KB leaves headroom for future event shapes while defending against an
+// attacker buffering a large body before our signature check runs. Cloudflare's
+// platform cap is 100 MB; this is our application-level cap on top of that.
+const MAX_BODY_BYTES = 256 * 1024;
+
 export async function handle(request: Request, env: Env): Promise<Response> {
   if (request.method !== 'POST') {
     return json({ error: 'method not allowed' }, 405, { Allow: 'POST' });
@@ -75,7 +81,18 @@ export async function handle(request: Request, env: Env): Promise<Response> {
 
   const secret = env.LEMONSQUEEZY_SIGNING_SECRET;
   if (!secret) {
-    return json({ error: 'webhook receiver not configured' }, 503);
+    // Retry-After (in seconds) tells LS's delivery queue to back off for a day
+    // if the endpoint is hit during secret-rotation or pre-activation. Harmless
+    // before the endpoint is registered with LS; damps retry noise otherwise.
+    return json({ error: 'webhook receiver not configured' }, 503, { 'Retry-After': '86400' });
+  }
+
+  const declaredLength = request.headers.get('content-length');
+  if (declaredLength !== null) {
+    const parsed = Number.parseInt(declaredLength, 10);
+    if (Number.isFinite(parsed) && parsed > MAX_BODY_BYTES) {
+      return json({ error: 'payload too large' }, 413);
+    }
   }
 
   const signatureHeader = request.headers.get('x-signature');
@@ -84,6 +101,9 @@ export async function handle(request: Request, env: Env): Promise<Response> {
   }
 
   const rawBody = await request.text();
+  if (rawBody.length > MAX_BODY_BYTES) {
+    return json({ error: 'payload too large' }, 413);
+  }
 
   const signatureValid = await verifySignature(signatureHeader, rawBody, secret);
   if (!signatureValid) {
@@ -135,7 +155,16 @@ async function verifySignature(
   body: string,
   secret: string
 ): Promise<boolean> {
-  if (!/^[0-9a-f]+$/i.test(signatureHex) || signatureHex.length % 2 !== 0) {
+  // HMAC-SHA256 hex-encoded is always exactly 64 characters. Reject anything
+  // else before we allocate. Cheap early exit that also caps the work the
+  // hex-shape check and hexToBytes do below (both run in time proportional to
+  // signature length, so this bounds the "malformed vs well-formed shape"
+  // timing side-channel to a constant — it only ever leaks the length class
+  // of the input, not any secret or signature bytes).
+  if (signatureHex.length !== 64) {
+    return false;
+  }
+  if (!/^[0-9a-f]+$/i.test(signatureHex)) {
     return false;
   }
   const signatureBytes = hexToBytes(signatureHex);
@@ -173,6 +202,10 @@ function json(body: unknown, status: number, extraHeaders: Record<string, string
   });
 }
 
-export const onRequest = async (ctx: PagesFunctionContext): Promise<Response> => {
+// Method-specific export so non-POST requests fall through to Cloudflare's
+// built-in 404 handler instead of reaching our code. The handle() function
+// still has its own 405 branch for defense-in-depth when called directly
+// (e.g., by unit tests).
+export const onRequestPost = async (ctx: PagesFunctionContext): Promise<Response> => {
   return handle(ctx.request, ctx.env);
 };
