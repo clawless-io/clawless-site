@@ -196,7 +196,7 @@ export function getContent(): CmsData {
           body: "About 200 MB to download, around 500 MB once installed. Most of that footprint is a bundled Chromium engine that powers browser-automation features so agents can drive real websites on your behalf. No surprise downloads, no proxy or firewall failure modes after install.",
         },
         trustStrip:
-          'Built and operated by RBJ Global Trading LLC. Built on top of OpenClaw, the open-source AI engine. No telemetry, no analytics, no cookies on this site.',
+          'Built and operated by RBJ Global LLC. Built on top of OpenClaw, the open-source AI engine. No telemetry, no analytics, no cookies on this site.',
       },
       featuresPage: {
         pageTitle: 'Everything Clawless does.',
