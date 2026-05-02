@@ -7,12 +7,7 @@ import { getContent } from '@/lib/cms';
 export const metadata: Metadata = {
   title: 'Privacy',
   description:
-    'Clawless Computer privacy notice, what this pre-launch site collects and what it does not.',
-  // Pre-launch placeholder copy. Keep it crawlable for trust, but
-  // out of the index so it does not surface above the marketing
-  // surface on brand queries. Revisit once the entity-of-record
-  // paragraph lands (project-privacy-terms-llc-backlog.md).
-  robots: { index: false, follow: true },
+    'Clawless Computer privacy notice. The site collects nothing. RBJ Global LLC is the operator of this site and the upcoming desktop product.',
 };
 
 export default function PrivacyPage() {
@@ -51,6 +46,17 @@ export default function PrivacyPage() {
                 Nothing is recorded.
               </p>
               <p className="mb-4 leading-[1.8]">
+                The site and the upcoming Clawless Computer product are
+                operated by{' '}
+                <strong className="text-text-primary">RBJ Global LLC</strong>,
+                a United States limited liability company registered in the
+                State of Texas, with its principal office at 5900 Balcones
+                Drive, STE 100, Austin, TX 78731, USA. Once the product
+                launches, RBJ Global LLC will be the data controller for any
+                personal information processed in connection with licensing,
+                payments, or customer support.
+              </p>
+              <p className="mb-4 leading-[1.8]">
                 When the Clawless Computer product launches, this page will be
                 replaced with a full privacy policy covering what the desktop
                 application stores locally, what (minimal) data the licensing
@@ -59,8 +65,15 @@ export default function PrivacyPage() {
               </p>
               <p className="leading-[1.8]">
                 Until then: there is nothing to disclose, because there is
-                nothing being collected. If you have questions, the contact
-                channel will be added in a future update to this site.
+                nothing being collected. If you have privacy questions in the
+                meantime, contact us at{' '}
+                <a
+                  href="mailto:info@rbjglobal.com"
+                  className="text-accent underline hover:text-text-primary"
+                >
+                  info@rbjglobal.com
+                </a>
+                .
               </p>
             </div>
           </ScrollReveal>

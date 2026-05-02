@@ -7,12 +7,7 @@ import { getContent } from '@/lib/cms';
 export const metadata: Metadata = {
   title: 'Terms',
   description:
-    'Clawless Computer terms, placeholder for the pre-launch site. Full terms ship with the product.',
-  // Pre-launch placeholder copy. Keep it crawlable for trust, but
-  // out of the index so it does not surface above the marketing
-  // surface on brand queries. Revisit once the entity-of-record
-  // paragraph lands (project-privacy-terms-llc-backlog.md).
-  robots: { index: false, follow: true },
+    'Clawless Computer terms placeholder. RBJ Global LLC is the operator of the site and the upcoming product. Full terms of service ship with the launch.',
 };
 
 export default function TermsPage() {
@@ -48,6 +43,18 @@ export default function TermsPage() {
                 an upcoming desktop product built on top of the open-source
                 OpenClaw engine. The site is provided for informational
                 purposes only.
+              </p>
+              <p className="mb-4 leading-[1.8]">
+                The site and the upcoming Clawless Computer product are
+                operated by{' '}
+                <strong className="text-text-primary">RBJ Global LLC</strong>,
+                a United States limited liability company registered in the
+                State of Texas, with its principal office at 5900 Balcones
+                Drive, STE 100, Austin, TX 78731, USA. Once the product
+                launches, RBJ Global LLC will be the contracting party for
+                the Clawless Computer license. The full terms of service
+                published with launch will name this entity and specify
+                governing law and dispute resolution.
               </p>
               <p className="mb-4 leading-[1.8]">
                 Nothing on this page constitutes an offer, warranty, or
