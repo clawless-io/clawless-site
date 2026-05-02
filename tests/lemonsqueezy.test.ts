@@ -46,11 +46,13 @@ describe('lemonsqueezy webhook handler', () => {
     });
     expect(r.status).toBe(405);
     expect(r.headers.get('Allow')).toBe('POST');
+    expect(await r.json()).toEqual({ error: 'method not allowed' });
   });
 
-  it('returns 503 when the signing secret is not configured', async () => {
+  it('returns 503 with Retry-After when the signing secret is not configured', async () => {
     const r = await handle(makeRequest({ body: '{}' }), {});
     expect(r.status).toBe(503);
+    expect(r.headers.get('Retry-After')).toBe('86400');
   });
 
   it('rejects requests with no signature header (401) and does not leak why', async () => {
@@ -172,5 +174,63 @@ describe('lemonsqueezy webhook handler', () => {
       LEMONSQUEEZY_SIGNING_SECRET: SECRET,
     });
     expect(r.status).toBe(401);
+  });
+
+  it('rejects signatures that are not exactly 64 hex chars (length guard)', async () => {
+    const body = JSON.stringify({ meta: { event_name: 'license_key_created' } });
+    // 62 hex chars (valid charset, wrong length) — would have passed the old
+    // regex + even-length guard, must be rejected by the new length guard.
+    const shortSig = 'a'.repeat(62);
+    const r = await handle(makeRequest({ body, signature: shortSig }), {
+      LEMONSQUEEZY_SIGNING_SECRET: SECRET,
+    });
+    expect(r.status).toBe(401);
+  });
+
+  it('accepts X-Signature with the exact casing Lemon Squeezy sends', async () => {
+    // LS sends the header as `X-Signature` (capitalized). Headers API is
+    // case-insensitive per spec, so the handler's `.get('x-signature')` must
+    // find it. This test asserts the spec behavior holds in our runtime.
+    const body = JSON.stringify({
+      meta: { event_name: 'license_key_created', event_id: 'evt-casing', store_id: 1 },
+      data: { id: '1', type: 'license-keys' },
+    });
+    const sig = await hmacHex(body, SECRET);
+    const headers = new Headers({ 'content-type': 'application/json' });
+    headers.set('X-Signature', sig);
+    const req = new Request('https://hooks.clawless.ai/lemonsqueezy', {
+      method: 'POST',
+      headers,
+      body,
+    });
+    const r = await handle(req, { LEMONSQUEEZY_SIGNING_SECRET: SECRET });
+    expect(r.status).toBe(200);
+  });
+
+  it('returns 400 when meta is explicitly null (not just missing)', async () => {
+    const body = JSON.stringify({ meta: null, data: { id: '1' } });
+    const sig = await hmacHex(body, SECRET);
+    const r = await handle(makeRequest({ body, signature: sig }), {
+      LEMONSQUEEZY_SIGNING_SECRET: SECRET,
+    });
+    expect(r.status).toBe(400);
+    expect(await r.json()).toEqual({ error: 'missing event_name' });
+  });
+
+  it('returns 413 when Content-Length exceeds the body size cap', async () => {
+    const body = JSON.stringify({ meta: { event_name: 'license_key_created' } });
+    const sig = await hmacHex(body, SECRET);
+    const headers = new Headers({
+      'content-type': 'application/json',
+      'x-signature': sig,
+      'content-length': String(300 * 1024), // 300 KB, above our 256 KB cap
+    });
+    const req = new Request('https://hooks.clawless.ai/lemonsqueezy', {
+      method: 'POST',
+      headers,
+      body,
+    });
+    const r = await handle(req, { LEMONSQUEEZY_SIGNING_SECRET: SECRET });
+    expect(r.status).toBe(413);
   });
 });

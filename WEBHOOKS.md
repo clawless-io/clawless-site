@@ -60,6 +60,13 @@ Logs dashboard.
 - No database writes. We intentionally rely on Lemon Squeezy as the source of truth; the desktop app learns license state via its own `/validate` heartbeat, not via push from this endpoint.
 - No outbound calls (Slack, email, etc.). Logging only.
 - No replay protection beyond signature verification. LS deduplicates its own retries.
+- No per-event rate limiting. Lemon Squeezy's own delivery queue limits retry rate, and Cloudflare's platform-level limits cap pathological abuse.
+
+### Limits the handler DOES enforce
+
+- Body size: capped at 256 KB (well above legitimate LS payloads, which are typically under 16 KB). Requests with `Content-Length` above the cap are rejected with 413 before the signature check runs.
+- Signature shape: the `X-Signature` header must be exactly 64 hex characters (HMAC-SHA256 hex output; case-insensitive). Anything else is rejected as invalid.
+- Method: only POST reaches the handler. Cloudflare routes non-POST to 404 via the `onRequestPost` export; the 405 branch in `handle()` is defense-in-depth for direct test invocations.
 
 We add DB / CRM wiring here when retention drips or churn analytics become
 real needs. Until then, the Lemon Squeezy dashboard is the CRM.
