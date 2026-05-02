@@ -136,6 +136,28 @@ pending. The name in code/docs/site can update now. Do **not** submit
 banks, lawyers, CAs) as the official entity name until both gates
 clear.
 
+## Legal docs mirror sync protocol (standing rule)
+
+Whenever a commit on this repo modifies a legal page (`app/privacy/page.tsx`,
+`app/terms/page.tsx`, or any future legal route) or the entity / address /
+contact-email constants those pages render from, mirror the change into the
+founder's advisor folder in the same session:
+
+- Source repo: `/Users/junaidsiddiqi/Projects/clawless-io/clawless-site`
+- Mirror folder: `/Users/junaidsiddiqi/Projects/clawless-v1/clawless/advisor/legal-docs/clawless-site/`
+- Files to keep in sync: `privacy.md`, `terms.md`, `README.md`
+- After updating the affected `.md` file, bump the `Last sync timestamp` and
+  `Mirror taken from commit` fields in `README.md` to the new HEAD SHA.
+- If a new legal page is added on this repo, add a new `.md` file plus a row
+  to the README's Contents table. If a legal page is removed, remove its
+  `.md` plus the row.
+
+This sync is internal-only (the mirror folder lives in `clawless-v1`, the
+founder's planning workspace). Do not commit the mirror to a public repo.
+Touching the mirror does not require its own commit on the source repo,
+but the source-repo commit message should mention "(mirror updated)" so
+the audit trail is visible.
+
 ## Source-of-truth references
 
 - Knowledge base for product claims: `clawless-v1` repo, the in-app
