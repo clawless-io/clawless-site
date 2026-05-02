@@ -12,20 +12,20 @@ export default function Footer({ content }: Props) {
       <div className="mx-auto max-w-[1200px]">
         {/* Brand block */}
         <div className="mb-10 text-center sm:text-left">
-          <a href="/" className="inline-flex items-baseline gap-1.5 text-2xl font-extrabold">
-            <span className="text-text-secondary">Clawless</span>
-            <span
-              className="text-base font-semibold uppercase tracking-[0.12em]"
-              style={{
-                background: 'linear-gradient(135deg, var(--color-accent), var(--color-success))',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
-            >
-              Computer
-            </span>
+          <a
+            href="/"
+            aria-label="Clawless Computer, home"
+            className="inline-flex items-center"
+          >
+            <img
+              src="/logo-lockup.svg"
+              alt=""
+              width={270}
+              height={36}
+              className="mx-auto h-9 w-auto sm:mx-0"
+            />
           </a>
-          <p className="mt-2 text-sm leading-relaxed text-text-muted">{tagline}</p>
+          <p className="mt-3 text-sm leading-relaxed text-text-muted">{tagline}</p>
         </div>
 
         {/* Bottom bar */}

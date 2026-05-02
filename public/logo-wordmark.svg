@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 120">
+  <defs>
+    <linearGradient id="wm-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00D4FF"/>
+      <stop offset="100%" stop-color="#22FFAA"/>
+    </linearGradient>
+  </defs>
+
+  <!-- "Clawless" in white -->
+  <text
+    x="0" y="82"
+    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif"
+    font-size="84"
+    font-weight="800"
+    letter-spacing="-2"
+    fill="#F1F5F9"
+  >Clawless</text>
+
+  <!-- "Computer" in the brand gradient, smaller, offset right -->
+  <text
+    x="430" y="82"
+    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif"
+    font-size="84"
+    font-weight="800"
+    letter-spacing="-2"
+    fill="url(#wm-gradient)"
+  >Computer</text>
+</svg>

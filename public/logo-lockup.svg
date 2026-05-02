@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 120">
+  <defs>
+    <linearGradient id="lk-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D4FF"/>
+      <stop offset="100%" stop-color="#22FFAA"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Icon mark (scaled down to fit the height) -->
+  <g transform="translate(10, 6) scale(0.21)">
+    <rect width="512" height="512" rx="96" ry="96" fill="#05070F"/>
+    <rect x="8" y="8" width="496" height="496" rx="88" ry="88"
+          fill="none" stroke="url(#lk-gradient)" stroke-width="3" opacity="0.3"/>
+    <g transform="translate(256, 256)">
+      <path
+        d="M 80,-140 A 160,160 0 1,0 80,140"
+        fill="none"
+        stroke="url(#lk-gradient)"
+        stroke-width="52"
+        stroke-linecap="round"
+      />
+      <circle cx="108" cy="-158" r="14" fill="#00D4FF"/>
+      <circle cx="108" cy="158" r="14" fill="#22FFAA"/>
+    </g>
+  </g>
+
+  <!-- Wordmark to the right of the icon -->
+  <!-- "Clawless" in light text -->
+  <text
+    x="140" y="72"
+    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif"
+    font-size="68"
+    font-weight="800"
+    letter-spacing="-1.5"
+    fill="#F1F5F9"
+  >Clawless</text>
+
+  <!-- "Computer" in gradient -->
+  <text
+    x="490" y="72"
+    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif"
+    font-size="68"
+    font-weight="800"
+    letter-spacing="-1.5"
+    fill="url(#lk-gradient)"
+  >Computer</text>
+</svg>
