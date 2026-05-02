@@ -21,6 +21,9 @@ tsconfig.tsbuildinfo
 .vscode/
 .idea/
 
+# Local agent tooling (per-machine MCP server config)
+.mcp.json
+
 # Logs
 *.log
 npm-debug.log*
