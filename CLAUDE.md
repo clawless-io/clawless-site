@@ -86,16 +86,21 @@ claims.
 
 ## Site shape (current)
 
-Indexable pages:
+Indexable pages (in `app/sitemap.ts`):
 - `/` (home, launch-ready hero with "Coming Q3 2026" pill)
 - `/features`
 - `/pricing`
 - `/download` (placeholder microcopy until launch-day signed releases)
 - `/about`
+- `/privacy` (priority 0.3 — placeholder copy with the entity-of-record
+  paragraph naming RBJ Global LLC; reindexed 2026-05-02)
+- `/terms` (priority 0.3 — placeholder copy with the entity-of-record
+  paragraph; reindexed 2026-05-02)
 
-Noindexed legal pages (placeholder copy, deindexed via `robots: { index: false }`
-+ `app/robots.ts` disallow + sitemap exclusion):
-- `/privacy`, `/terms`, `/cookies`, `/disclaimer`
+There is no `/cookies`, no `/disclaimer`, no `/refunds`, no
+`/acceptable-use` page on this site. The /terms placeholder bundles
+acceptable use, refund policy, and warranty disclaimers into the
+forward-looking line; full topical breakdown ships with launch.
 
 Webhook surface (not a page):
 - `functions/lemonsqueezy.ts` at `/lemonsqueezy` — Lemon Squeezy
@@ -107,17 +112,19 @@ Webhook surface (not a page):
 - **Drop the "Coming Q3 2026" hero pill** AND the `/download`
   placeholder microcopy in the same launch-day commit. Gated on:
   LLC Apple Developer cert + Windows EV cert + first signed release
-  upload. Do not split — keep aspirational language consistent until
+  upload. Do not split, keep aspirational language consistent until
   everything goes live together.
-- **Privacy + Terms LLC entity-of-record paragraphs.** When real
-  legal copy lands, also reverse the SEO deindex (drop noindex,
-  drop robots disallow, re-add to sitemap at priority 0.3).
 - **`/features` Browser Automation group (B66).** Phase 1 ships
   pre-GA with default-off, permission-prompted, headless-only
-  posture. Capture conservatively — do not promise viewport
+  posture. Capture conservatively, do not promise viewport
   streaming or per-agent scope (those are Phase 2).
 - **`lib/constants.ts` "20+ platforms" → "22 platforms"** once channel
   verification stabilizes pre-launch (P3, low priority).
+
+The Privacy + Terms LLC entity-of-record fix shipped 2026-05-02 in
+commit `416b57f`. Both pages name RBJ Global LLC as the operator
+and contracting party, the public contact email is info@rbjglobal.com,
+the SEO deindex is reversed.
 
 ## LLC entity name
 
