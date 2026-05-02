@@ -22,22 +22,27 @@ export default function Navbar({ content }: Props) {
           WebkitBackdropFilter: 'blur(12px)',
         }}
       >
-        {/* Logo / wordmark */}
+        {/* Logo lockup. Mobile shows the mark only; sm and up show the
+         * full mark + wordmark lockup. Both link to home. */}
         <a
           href="/"
-          className="flex items-baseline gap-1.5 text-[20px] font-extrabold tracking-[-0.02em] transition-[filter] duration-300 hover:drop-shadow-[0_0_6px_rgba(255,255,255,0.25)]"
+          aria-label="Clawless Computer, home"
+          className="inline-flex items-center transition-[filter] duration-300 hover:drop-shadow-[0_0_6px_rgba(255,255,255,0.25)]"
         >
-          <span className="text-text-primary">Clawless</span>
-          <span
-            className="text-[14px] font-semibold uppercase tracking-[0.12em]"
-            style={{
-              background: 'linear-gradient(135deg, var(--color-accent), var(--color-success))',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-            }}
-          >
-            Computer
-          </span>
+          <img
+            src="/logo-mark.svg"
+            alt=""
+            width={32}
+            height={32}
+            className="h-8 w-8 sm:hidden"
+          />
+          <img
+            src="/logo-lockup.svg"
+            alt=""
+            width={210}
+            height={28}
+            className="hidden h-7 w-auto sm:block"
+          />
         </a>
 
         {/* Desktop links */}

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1584 396" width="1584" height="396">
+  <defs>
+    <linearGradient id="bn-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00D4FF"/>
+      <stop offset="100%" stop-color="#22FFAA"/>
+    </linearGradient>
+    <!-- Subtle center glow matching the website hero -->
+    <radialGradient id="bn-glow" cx="55%" cy="50%" r="45%">
+      <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.08"/>
+      <stop offset="50%" stop-color="#22FFAA" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Subtle grid pattern -->
+    <pattern id="bn-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.3" opacity="0.04"/>
+    </pattern>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="1584" height="396" fill="#05070F"/>
+
+  <!-- Grid texture -->
+  <rect width="1584" height="396" fill="url(#bn-grid)"/>
+
+  <!-- Center glow -->
+  <rect width="1584" height="396" fill="url(#bn-glow)"/>
+
+  <!-- Layout: avatar overlaps bottom-left ~250px, so main content starts at ~350px -->
+
+  <!-- "CLAWLESS COMPUTER" small wordmark, upper area, offset right -->
+  <text x="792" y="105"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif"
+        font-size="18" font-weight="700" text-anchor="middle"
+        letter-spacing="5" fill="#94A3B8">
+    CLAWLESS
+    <tspan fill="url(#bn-gradient)">COMPUTER</tspan>
+  </text>
+
+  <!-- "Coming Q3 2026" pill -->
+  <rect x="714" y="120" width="156" height="30" rx="15" ry="15"
+        fill="#0F172A" stroke="#1E293B" stroke-width="1"/>
+  <circle cx="733" cy="135" r="4" fill="#22FFAA" opacity="0.9"/>
+  <text x="792" y="140"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif"
+        font-size="13" font-weight="500" text-anchor="middle" fill="#94A3B8">
+    Coming Q3 2026
+  </text>
+
+  <!-- Main headline: "An operating system" -->
+  <text x="792" y="225"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif"
+        font-size="64" font-weight="800" text-anchor="middle"
+        letter-spacing="-2" fill="#E2E8F0">
+    An operating system
+  </text>
+
+  <!-- "for AI." in gradient -->
+  <text x="792" y="305"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif"
+        font-size="64" font-weight="800" text-anchor="middle"
+        letter-spacing="-2" fill="url(#bn-gradient)">
+    for AI.
+  </text>
+
+  <!-- Tagline below, subtle -->
+  <text x="792" y="360"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif"
+        font-size="16" font-weight="400" text-anchor="middle"
+        fill="#64748B">
+    Run AI agents, models, and tools on any computer you own.
+  </text>
+</svg>
