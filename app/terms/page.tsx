@@ -5,7 +5,7 @@ import ScrollReveal from '@/components/effects/ScrollReveal';
 import { getContent } from '@/lib/cms';
 
 export const metadata: Metadata = {
-  title: 'Terms',
+  title: 'Terms of Use',
   description:
     'Clawless Computer terms placeholder. RBJ Global LLC is the operator of the site and the upcoming product. Full terms of service ship with the launch.',
 };
@@ -26,7 +26,7 @@ export default function TermsPage() {
               Terms
             </h1>
             <p className="mx-auto mt-4 max-w-[520px] text-base leading-relaxed text-text-secondary">
-              Last updated: April 2026
+              Last updated: May 2026
             </p>
           </ScrollReveal>
         </section>
@@ -64,10 +64,17 @@ export default function TermsPage() {
               </p>
               <p className="leading-[1.8]">
                 Full terms of service for the Clawless Computer product will
-                be published with the launch and replace this placeholder.
-                They will cover license grant, acceptable use, payment terms,
-                refund policy, warranty disclaimers, and limitation of
-                liability.
+                be published with the launch and will fully replace this
+                placeholder. Those terms will cover license grant, acceptable
+                use, payment terms, refund policy, warranty disclaimers,
+                indemnity, limitation of liability, governing law, and dispute
+                resolution. Until those terms are published, no purchases are
+                being processed through this site, and no refund obligation
+                can be created. After launch, the then-current refund policy
+                in the published Terms of Service will apply to all purchases.
+                In the event of any conflict between this placeholder and the
+                full terms published at launch, the full terms control from
+                the effective date stated in those terms.
               </p>
             </div>
           </ScrollReveal>

@@ -5,7 +5,7 @@ import ScrollReveal from '@/components/effects/ScrollReveal';
 import { getContent } from '@/lib/cms';
 
 export const metadata: Metadata = {
-  title: 'Privacy',
+  title: 'Privacy Notice',
   description:
     'Clawless Computer privacy notice. The site collects nothing. RBJ Global LLC is the operator of this site and the upcoming desktop product.',
 };
@@ -64,6 +64,15 @@ export default function PrivacyPage() {
                 rights including export and deletion.
               </p>
               <p className="mb-4 leading-[1.8]">
+                This site is operated from the United States. If you access it
+                from outside the United States, your connection is delivered by
+                infrastructure located in the United States. We do not target
+                users in the European Economic Area, the United Kingdom, or
+                other regions where local data protection law would impose
+                additional obligations on a service of this scope, and you are
+                welcome to read this site from anywhere.
+              </p>
+              <p className="mb-4 leading-[1.8]">
                 <strong className="text-text-primary">
                   Future changes to these practices.
                 </strong>{' '}
@@ -77,9 +86,9 @@ export default function PrivacyPage() {
                 not after.
               </p>
               <p className="leading-[1.8]">
-                Until then: there is nothing to disclose, because there is
-                nothing being collected. If you have privacy questions in the
-                meantime, contact us at{' '}
+                Until then there is nothing to disclose, because there is
+                nothing being collected. For privacy questions in the meantime,
+                contact us at{' '}
                 <a
                   href="mailto:info@rbjglobal.com"
                   className="text-accent underline hover:text-text-primary"
