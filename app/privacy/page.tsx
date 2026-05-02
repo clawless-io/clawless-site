@@ -26,7 +26,7 @@ export default function PrivacyPage() {
               Privacy
             </h1>
             <p className="mx-auto mt-4 max-w-[520px] text-base leading-relaxed text-text-secondary">
-              Last updated: April 2026
+              Last updated: May 2026
             </p>
           </ScrollReveal>
         </section>
@@ -62,6 +62,19 @@ export default function PrivacyPage() {
                 application stores locally, what (minimal) data the licensing
                 system tracks server-side, and how to exercise your data
                 rights including export and deletion.
+              </p>
+              <p className="mb-4 leading-[1.8]">
+                <strong className="text-text-primary">
+                  Future changes to these practices.
+                </strong>{' '}
+                We currently collect no visitor data on this site. If our
+                practices change in the future, we will update this policy with
+                a new effective date and clear disclosure of what changed. In
+                particular, if we ever add analytics or marketing measurement,
+                we will update this policy first, deploy any consent mechanism
+                required for your jurisdiction, and describe specifically what
+                is collected and why. We commit to updating before changing,
+                not after.
               </p>
               <p className="leading-[1.8]">
                 Until then: there is nothing to disclose, because there is
