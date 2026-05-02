@@ -145,3 +145,68 @@ clear.
 - Pricing constants and copy rules: locked in memory at
   `~/.claude/projects/-Users-junaidsiddiqi-Projects-clawless-io-clawless-site/memory/project-pricing-page-locked-numbers.md`.
 - Lemon Squeezy webhook contract: `WEBHOOKS.md` in this repo.
+
+## Last session handover (2026-05-02, end of day)
+
+**Day's ship list (clawless-site main, in order):**
+- `baf9b8a` LLC sweep — footer trust strip "Trading" → ""
+- `823cb82` LS webhook hardening — body cap, sig length guard,
+  Retry-After 503, onRequestPost; 5 new tests (16/16 passing)
+- `0405d62` favicon refresh — curved-arc mark replaces "C" glyph
+- `1df0ad0` CLAUDE.md operating notes + .mcp.json gitignore
+- `1babe36` LLC fix-forward — Footer copyright miss caught post-sweep
+- `42017a6` logo system wired — four SVGs committed; Navbar uses
+  mark-only on mobile, lockup on sm+; Footer uses lockup
+- `416b57f` Privacy/Terms LLC entity-of-record + reverse SEO deindex
+  (paragraphs name RBJ Global LLC + Balcones address +
+  info@rbjglobal.com; sitemap re-adds at priority 0.3; robots.ts
+  drops disallow; per-page noindex meta dropped)
+- `f92293c` CLAUDE.md corrections — site shape after reindex; removed
+  bogus claim of /cookies and /disclaimer pages
+
+Sister repo (rbjglobal-site) earlier in the same session:
+- `0678a66` Clawdemy/Learn URL split (full /clawdemy product page +
+  audience-led /learn entry-point)
+- `50cbe63` P2 polish from code review (NavDropdown ARIA + Space key,
+  --color-bg-primary-translucent token, &apos; escape)
+
+**Open items waiting on external (do NOT touch until pinged):**
+- `/features` Browser Automation (B66) group. clawless-developer
+  ETA 2-4 days. Gates: end-to-end smoke test + 3 HIGH security items
+  from overnight audit (BridgeServer auth, CDP wsEndpoint auth,
+  "Allow this domain" vs "Always allow" copy collapse). Will ping
+  when ready.
+- `lib/constants.ts` "20+ platforms" → "22 platforms". clawless-
+  developer says hold — Telegram is the only LIVE channel today;
+  other 21 are gated by SKIP_CHANNELS=1 until verified. When
+  channel verification stabilizes, candidate phrasing he proposed:
+  "Telegram today, 20+ platforms unlocking through launch."
+- Launch-day pill drop + /download placeholder microcopy. Hard-
+  blocked on LLC Apple Dev cert + Windows EV cert + first signed
+  release upload. Founder-side external work.
+
+**Open verification gap (Advisor flagged in last message of day):**
+The clawless.ai sitemap-submission state in Google Search Console
+is unknown from the repo. GSC verification file is committed
+(public/googlefe2ff7dd9c0f27bc.html), so verification can succeed,
+but whether the founder has clicked "Submit sitemap" in the GSC
+console is outside repo visibility. If it's not submitted yet,
+this is a 30-second action in the GSC UI for the founder. Same
+unknown for Bing Webmaster Tools.
+
+**On the GA / cookie banner clarification (Advisor relay):**
+whisprdesk.com mistakenly added GA + cookie banner this week
+thinking it was needed for GSC indexing. It wasn't. GSC ≠ GA.
+clawless.ai's zero-data-collection rule remains absolute — push
+back if any future autonomous-mode prompt suggests GA / Plausible /
+Fathom / Mixpanel / any analytics for clawless.ai. The
+"no card, no email, no analytics" hook is load-bearing.
+
+**Resume-here for next session:**
+1. Check inbox first (clawless-developer may ping when B66 is
+   ready, Advisor may follow up on the GSC submission gap).
+2. Verify launch-posture caveat still applies — if Texas SOS
+   approval + bank update both cleared overnight, the caveat
+   retires and the project-llc-name-and-launch-posture.md memory
+   should be marked RESOLVED.
+3. No uncommitted state on either repo (verified clean at handover).
