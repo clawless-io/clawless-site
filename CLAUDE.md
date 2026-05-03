@@ -114,10 +114,13 @@ Webhook surface (not a page):
   LLC Apple Developer cert + Windows EV cert + first signed release
   upload. Do not split, keep aspirational language consistent until
   everything goes live together.
-- **`/features` Browser Automation group (B66).** Phase 1 ships
-  pre-GA with default-off, permission-prompted, headless-only
-  posture. Capture conservatively, do not promise viewport
-  streaming or per-agent scope (those are Phase 2).
+- **Browser Automation Phase 2 features.** Live in-app viewport,
+  per-agent browser profiles, per-agent feature toggle, and
+  multi-session pools land in a later release. Do not claim them
+  on the site until clawless-developer pings. Phase 1 (default-on,
+  headed-by-default with headless toggle, per-hostname first-time
+  prompt, hardcoded sharp-edge URL refusal) shipped 2026-05-03 in
+  the `/features` Browser Automation group (Group 05).
 - **`lib/constants.ts` "20+ platforms" → "22 platforms"** once channel
   verification stabilizes pre-launch (P3, low priority).
 

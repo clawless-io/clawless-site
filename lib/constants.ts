@@ -66,6 +66,17 @@ export const FEATURE_GROUPS = [
   },
   {
     eyebrow: 'Group 05',
+    title: 'Agents that drive a real browser',
+    lead: 'Browser Automation is how agents move beyond reading the web to using it. The agent can open a page, click through a flow, fill a form, and read what it finds. The browser ships with Clawless, runs on your computer, and asks before visiting any new site for the first time.',
+    bullets: [
+      'Bundled Chromium engine, no separate download. Headed by default so you see the window do its work, with a headless toggle for runs you want to keep silent.',
+      'First-time per-hostname prompt before navigating to any new site in a session, with three buttons: Allow once, Always allow, Deny. Approved sites live in Settings under Browser with a Remove button to revoke at any time.',
+      'Hard refusal at the navigation layer for local addresses, file URLs, and browser-internal URLs. Not a configurable setting; it is a security floor.',
+      "No saved logins, cookies, or extensions carry over from your everyday browser. The agent's browser starts fresh in every conversation. Sites that require login or solve CAPTCHA need user help.",
+    ],
+  },
+  {
+    eyebrow: 'Group 06',
     title: 'Skills that turn your agents into specialists',
     lead: 'Skills are recipes that tell an agent how to do a specific job well. Bundle instructions, the right tools, and a trigger into a reusable unit. Install from ClawHub, or build your own in the Skill Builder.',
     bullets: [
@@ -76,7 +87,7 @@ export const FEATURE_GROUPS = [
     ],
   },
   {
-    eyebrow: 'Group 06',
+    eyebrow: 'Group 07',
     title: 'Reach your agents from anywhere',
     lead: 'Connect an agent to the messaging platforms you already use, so you can talk to it from your phone, your team Slack, or wherever you are. Setup is a wizard, not a config file.',
     bullets: [
@@ -87,7 +98,7 @@ export const FEATURE_GROUPS = [
     ],
   },
   {
-    eyebrow: 'Group 07',
+    eyebrow: 'Group 08',
     title: 'Schedule recurring prompts',
     lead: 'Automations are scheduled chat messages. Tell Clawless what to ask and when, and it sends the prompt on schedule. Send the result to chat, to a connected channel, or to a file.',
     bullets: [
