@@ -88,11 +88,16 @@ export default function PrivacyPage() {
                 device, (b) the minimal license-validation data exchanged with
                 our licensing server (expected to include a license key and
                 an opaque device identifier, with no content of your work or
-                prompts leaving your device by default), (c) the personal and
-                payment information our payment processor (Lemon Squeezy)
-                handles at checkout, (d) the support information you choose to
-                share with us at support@clawless.ai, and (e) how to exercise
-                rights of access, correction, deletion, export, and complaint.
+                prompts leaving your device by default), (c) Browser
+                Automation, the agent-controlled browser navigation Clawless
+                Computer ships with, where the agent asks before visiting any
+                website it has not visited before in the current session and
+                where Clawless does not track which sites are visited or what
+                the agent reads, (d) the personal and payment information our
+                payment processor (Lemon Squeezy) handles at checkout, (e) the
+                support information you choose to share with us at
+                support@clawless.ai, and (f) how to exercise rights of access,
+                correction, deletion, export, and complaint.
               </p>
               <p className="mb-4 leading-[1.8]">
                 Clawless Computer is intended for adult professional use. We
@@ -154,6 +159,13 @@ export default function PrivacyPage() {
                 <strong className="text-text-primary">Changelog</strong>
               </p>
               <ul className="ml-6 list-disc space-y-2 leading-[1.8]">
+                <li>
+                  <strong>2026-05-03</strong> — Browser Automation disclosure
+                  added to the forward-looking enumeration: per-hostname
+                  prompt before any new website, no Clawless tracking of
+                  visited sites or page content. Non-material clarification;
+                  marketing-site collection practices unchanged.
+                </li>
                 <li>
                   <strong>2026-05-03</strong> — Senior-policy-reviewer audit
                   applied: Cloudflare edge-log acknowledgment, RBJ Global LLC
