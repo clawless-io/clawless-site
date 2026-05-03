@@ -158,6 +158,49 @@ Touching the mirror does not require its own commit on the source repo,
 but the source-repo commit message should mention "(mirror updated)" so
 the audit trail is visible.
 
+## Material policy changes (standing rule)
+
+A **material** policy change is any of:
+
+- A new data flow we collect, or a new category of personal information
+  we hold
+- A new sub-processor introduced (analytics provider, marketing tool,
+  feedback widget, support helpdesk, anything that touches user data)
+- A scope expansion (the policy starts covering a new product, surface,
+  or audience)
+- Anything a reasonable user would want to know about before continuing
+  to use the site or product
+
+Material changes ship with **both** of the following:
+
+1. A **30-day banner at the top of the homepage** announcing "Privacy
+   Policy updated [date], see what changed", linking to /privacy. The
+   banner auto-retires after 30 days. Implementation lands when the
+   first material change is queued; until then, this rule documents
+   intent.
+2. A **Changelog entry at the bottom of the affected policy** with the
+   date and a short description of what changed. The Changelog
+   mechanism is in place on both /privacy and /terms as of 2026-05-03.
+
+**Non-material updates** (typo fixes, clarifications, formatting, the
+kinds of edits the 2026-05-02 reviewer audit produced) just bump the
+effective date and add a Changelog entry; no banner needed.
+
+Today's commits (2026-05-02 polish and 2026-05-03 reviewer-driven
+applies) are non-material clarifications under this rule. Subsequent
+edits that meet the material bar above must follow both legs.
+
+### Arbitration / class-action waiver posture (Clawless Computer)
+
+The 2026-05-03 founder decision: Texas governing law and Travis County
+venue are named today on the placeholder Terms. **NO arbitration, NO
+class-action waiver at this stage.** Informal-first dispute resolution
+paragraph encouraging email-first resolution. Revisit arbitration and
+class-action waiver when Clawless hits ~10K paying users, with lawyer
+opinion at that point. Do not introduce arbitration or waiver language
+into the Terms placeholder before that revisit, regardless of which
+agent suggests it.
+
 ## Source-of-truth references
 
 - Knowledge base for product claims: `clawless-v1` repo, the in-app
