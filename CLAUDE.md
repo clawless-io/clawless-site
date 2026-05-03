@@ -211,7 +211,106 @@ agent suggests it.
   `~/.claude/projects/-Users-junaidsiddiqi-Projects-clawless-io-clawless-site/memory/project-pricing-page-locked-numbers.md`.
 - Lemon Squeezy webhook contract: `WEBHOOKS.md` in this repo.
 
-## Last session handover (2026-05-02, end of day)
+## Last session handover (2026-05-03, end of day)
+
+**Today's ship list (clawless-site main, in order):**
+- `9317ee4` legal: apply founder-authorized HIGH/CRITICAL findings + Changelog.
+  Privacy /privacy: C1 Cloudflare-edge-log acknowledgment; C2 RBJ Global LLC
+  established as data controller TODAY + Lemon Squeezy LLC pre-named as
+  separate controller at checkout; H1 CCPA stub; H2 COPPA statement; H3
+  security@clawless.ai contact path with two-business-day acknowledgment;
+  M2 forward-looking PII enumeration including the load-bearing
+  "no content of your work or prompts leaving your device by default"
+  claim (founder verified against BYOK desktop architecture); L4 metadata
+  description aligned with C1. Terms /terms: H4 Texas governing law +
+  Travis County venue named explicitly + informal-first dispute
+  resolution paragraph; H5 site-itself as-is/as-available warranty
+  disclaimer. M3 was a "keep OpenClaw mention" decision; OpenClaw stays.
+  Changelog mechanism added to bottom of both pages.
+- `c3d26dd` docs: material-changes standing rule in CLAUDE.md +
+  arbitration/waiver-posture decision recorded (NO arbitration, NO
+  class-action waiver until ~10K paying users with lawyer opinion).
+
+**Today's ship list (rbjglobal-site main, in order):**
+- `5fe1ad7` legal: apply founder-authorized HIGH findings + Changelog.
+  Privacy /legal/privacy: H1 Your rights section (CCPA/CPRA/GDPR/UK GDPR);
+  H2 controller-language opener with GDPR Art. 13 identification; H3
+  Cloudflare-product-change-resilient phrasing on logging boundary.
+  Terms /legal/terms: H4 limitation-of-liability expanded to standard
+  B2C template; H5 Venue (Travis County) + Informal dispute resolution
+  paragraphs added between LoL and Governing law. NO arbitration, NO
+  class-action waiver. Disclaimer /legal/disclaimer: H6 trademark-
+  acknowledgment line. Effective date bumped May 2 -> May 3 on all 4
+  pages. Changelog at bottom of all 4 pages.
+- `b190035` docs: material-changes standing rule in CLAUDE.md +
+  parent-site dispute-resolution posture + Venue-moves-to-Dallas-
+  County reminder (paired with the registered-agent-address swap when
+  the founder procures the virtual office).
+
+**Earlier in the same day (Advisor 3-part initiative, 2026-05-02 + 03):**
+The above is the day-2 founder-authorized apply. Day-1 (2026-05-02)
+shipped the prerequisites: Part A forward-looking paragraph (clawless
+`26f5190`, rbjglobal `afacd53`), independent senior-policy-reviewer
+audit reports (clawless `39c4640`, rbjglobal `665ec7a`), autonomous
+LOW/MEDIUM polish (clawless `5b34a2f`, rbjglobal `a56b1ce`), and the
+legal-docs mirror sync protocol (clawless `283fd8a`, rbjglobal
+`7206e37`).
+
+**Advisor folder mirror state (2026-05-03 sync):**
+- `legal-docs/clawless-site/` — mirror of `9317ee4` HEAD; privacy.md,
+  terms.md, README.md updated with Changelog content + outstanding
+  routing items now reads "All CRITICAL/HIGH resolved."
+- `legal-docs/rbjglobal/` — mirror of `5fe1ad7` HEAD; privacy.md,
+  terms.md, cookies.md, disclaimer.md, README.md updated. Outstanding
+  routing items now reads "All HIGH resolved."
+
+**Open items waiting on external (do NOT touch until pinged):**
+- `security@clawless.ai` Workspace alias setup. Privacy page now
+  publicly invites security disclosures with a two-business-day
+  acknowledgment commitment. Founder said this is a ~30-second
+  Workspace task. **If the founder reports the alias isn't routing
+  by tomorrow morning, cut a same-day fallback commit substituting
+  `info@rbjglobal.com` for `security@clawless.ai` in
+  `app/privacy/page.tsx` until the alias is live.** Otherwise the
+  published commitment ships unchanged.
+- `/features` Browser Automation (B66) group. clawless-developer
+  ETA 2-4 days. Gates: end-to-end smoke test + 3 HIGH security items
+  from overnight audit. Will ping when ready.
+- `lib/constants.ts` "20+ platforms" → "22 platforms". clawless-
+  developer says hold; only Telegram is LIVE today. Candidate
+  phrasing when stable: "Telegram today, 20+ platforms unlocking
+  through launch."
+- Launch-day pill drop + /download placeholder microcopy. Hard-
+  blocked on LLC Apple Dev cert + Windows EV cert + first signed
+  release upload. Founder-side external work.
+- Texas SOS approval of "RBJ Global LLC" (ETA May 6-8) + bank-
+  account update. When both clear, the launch-posture caveat in
+  `project-llc-name-and-launch-posture.md` memory retires and the
+  founder can submit "RBJ Global LLC" to LS / Stripe / Apple / D&B.
+- Dallas virtual-office address swap. When founder procures, the
+  swap commits to `lib/cms.ts` (clawless) and `lib/metadata.ts`
+  (rbjglobal); rbjglobal Venue clause moves Travis → Dallas in the
+  same commit. Both repos' CLAUDE.md document this.
+
+**Open verification gap (carries over from 2026-05-02):**
+clawless.ai sitemap-submission state in Google Search Console still
+unknown from the repo. GSC verification file is committed; whether
+"Submit sitemap" was clicked in the GSC console is outside repo
+visibility. Same unknown for Bing Webmaster Tools.
+
+**Resume-here for next session:**
+1. Check inbox first. Likely pings: clawless-developer when B66 is
+   ready; Advisor with security@clawless.ai routing confirmation;
+   Texas SOS approval relay if it lands May 6+.
+2. If founder reports `security@clawless.ai` is not routing, cut
+   the fallback commit per "Open items" above.
+3. Verify launch-posture caveat still applies — if Texas SOS
+   approval + bank update both cleared overnight, the caveat
+   retires and the project-llc-name-and-launch-posture.md memory
+   should be marked RESOLVED.
+4. No uncommitted state on either repo (verified clean at handover).
+
+## Previous session handover (2026-05-02, end of day)
 
 **Day's ship list (clawless-site main, in order):**
 - `baf9b8a` LLC sweep — footer trust strip "Trading" → ""
