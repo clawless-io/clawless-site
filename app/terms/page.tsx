@@ -48,13 +48,29 @@ export default function TermsPage() {
                 The site and the upcoming Clawless Computer product are
                 operated by{' '}
                 <strong className="text-text-primary">RBJ Global LLC</strong>,
-                a United States limited liability company registered in the
-                State of Texas, with its principal office at 5900 Balcones
+                a United States limited liability company organized in the
+                State of Texas, with a principal office at 5900 Balcones
                 Drive, STE 100, Austin, TX 78731, USA. Once the product
                 launches, RBJ Global LLC will be the contracting party for
                 the Clawless Computer license. The full terms of service
-                published with launch will name this entity and specify
-                governing law and dispute resolution.
+                published with launch will be governed by the laws of the
+                State of Texas, USA, without regard to its conflict-of-laws
+                principles, with venue in the state or federal courts located
+                in Travis County, Texas. Until those terms are published, no
+                contract for the Clawless Computer product exists, and use of
+                this informational site is governed by these placeholder
+                terms.
+              </p>
+              <p className="mb-4 leading-[1.8]">
+                If you have a concern about this site, please contact{' '}
+                <a
+                  href="mailto:info@rbjglobal.com"
+                  className="text-accent underline hover:text-text-primary"
+                >
+                  info@rbjglobal.com
+                </a>{' '}
+                first so we can address it directly. Most issues can be
+                resolved by email and in good faith, without formal action.
               </p>
               <p className="mb-4 leading-[1.8]">
                 Nothing on this page constitutes an offer, warranty, or
@@ -62,7 +78,17 @@ export default function TermsPage() {
                 release timing may change between now and the first public
                 release.
               </p>
-              <p className="leading-[1.8]">
+              <p className="mb-4 leading-[1.8]">
+                This site is provided on an as-is, as-available basis. RBJ
+                Global LLC makes no warranties, express or implied, about the
+                accuracy, completeness, or availability of the information on
+                this site, and disclaims all implied warranties to the maximum
+                extent permitted by applicable law. Forward-looking statements
+                about Clawless Computer (including features, pricing, naming,
+                and release timing) reflect current intent and may change
+                before the first public release.
+              </p>
+              <p className="mb-4 leading-[1.8]">
                 Full terms of service for the Clawless Computer product will
                 be published with the launch and will fully replace this
                 placeholder. Those terms will cover license grant, acceptable
@@ -76,6 +102,25 @@ export default function TermsPage() {
                 full terms published at launch, the full terms control from
                 the effective date stated in those terms.
               </p>
+              <p className="mb-2 mt-8 leading-[1.8]">
+                <strong className="text-text-primary">Changelog</strong>
+              </p>
+              <ul className="ml-6 list-disc space-y-2 leading-[1.8]">
+                <li>
+                  <strong>2026-05-03</strong> — Senior-policy-reviewer audit
+                  applied: Texas governing law and Travis County venue named
+                  on the placeholder, informal-first dispute resolution
+                  paragraph added, as-is/as-available warranty disclaimer for
+                  the site itself added (separate from the future product
+                  license). Non-material clarifications.
+                </li>
+                <li>
+                  <strong>2026-05-02</strong> — Closing paragraph expanded
+                  with indemnity, governing-law, dispute-resolution coverage;
+                  precedence clause added; entity-of-record paragraph names
+                  RBJ Global LLC; site reindexed at sitemap priority 0.3.
+                </li>
+              </ul>
             </div>
           </ScrollReveal>
         </section>
