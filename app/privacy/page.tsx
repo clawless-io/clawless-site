@@ -99,6 +99,18 @@ export default function PrivacyPage() {
                 correction, deletion, export, and complaint.
               </p>
               <p className="mb-4 leading-[1.8]">
+                For the third-party services that run this site and the
+                purchase flow it links to (Lemon Squeezy as Merchant of
+                Record, Cloudflare as host), see our{' '}
+                <a
+                  href="/subprocessors"
+                  className="text-accent underline hover:text-text-primary"
+                >
+                  subprocessors list
+                </a>
+                .
+              </p>
+              <p className="mb-4 leading-[1.8]">
                 Clawless Computer is intended for adult professional use. We
                 do not knowingly collect personal information from children
                 under 13, and we do not direct this site or the Clawless
@@ -158,6 +170,19 @@ export default function PrivacyPage() {
                 <strong className="text-text-primary">Changelog</strong>
               </p>
               <ul className="ml-6 list-disc space-y-2 leading-[1.8]">
+                <li>
+                  <strong>2026-05-05</strong> — Cross-link to{' '}
+                  <a
+                    href="/subprocessors"
+                    className="text-accent underline hover:text-text-primary"
+                  >
+                    /subprocessors
+                  </a>{' '}
+                  added after the forward-looking PII enumeration. Non-material
+                  clarification; the data flows it describes (Lemon Squeezy as
+                  Merchant of Record, Cloudflare as host) were already
+                  disclosed.
+                </li>
                 <li>
                   <strong>2026-05-05</strong> — Principal-office street
                   address removed from the entity-of-record paragraph. Entity
