@@ -57,8 +57,7 @@ export default function PrivacyPage() {
                 operated by{' '}
                 <strong className="text-text-primary">RBJ Global LLC</strong>,
                 a United States limited liability company organized in the
-                State of Texas, with a principal office at 5900 Balcones
-                Drive, STE 100, Austin, TX 78731, USA. RBJ Global LLC is the
+                State of Texas. RBJ Global LLC is the
                 controller of any personal information collected in connection
                 with this site (today: none beyond infrastructure metadata
                 held by our host) and will be the controller of personal
@@ -159,6 +158,14 @@ export default function PrivacyPage() {
                 <strong className="text-text-primary">Changelog</strong>
               </p>
               <ul className="ml-6 list-disc space-y-2 leading-[1.8]">
+                <li>
+                  <strong>2026-05-05</strong> — Principal-office street
+                  address removed from the entity-of-record paragraph. Entity
+                  name, state of formation, and email contact retained.
+                  Customers reach RBJ Global LLC through email; no public
+                  street address is published. Non-material clarification;
+                  data practices unchanged.
+                </li>
                 <li>
                   <strong>2026-05-03</strong> — Browser Automation disclosure
                   added to the forward-looking enumeration: per-hostname

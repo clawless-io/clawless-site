@@ -49,8 +49,7 @@ export default function TermsPage() {
                 operated by{' '}
                 <strong className="text-text-primary">RBJ Global LLC</strong>,
                 a United States limited liability company organized in the
-                State of Texas, with a principal office at 5900 Balcones
-                Drive, STE 100, Austin, TX 78731, USA. Once the product
+                State of Texas. Once the product
                 launches, RBJ Global LLC will be the contracting party for
                 the Clawless Computer license. The full terms of service
                 published with launch will be governed by the laws of the
@@ -106,6 +105,13 @@ export default function TermsPage() {
                 <strong className="text-text-primary">Changelog</strong>
               </p>
               <ul className="ml-6 list-disc space-y-2 leading-[1.8]">
+                <li>
+                  <strong>2026-05-05</strong> — Principal-office street
+                  address removed from the entity-of-record paragraph. Entity
+                  name, state of formation, and email contact retained.
+                  Non-material clarification; contracting-party identity and
+                  governing law unchanged.
+                </li>
                 <li>
                   <strong>2026-05-03</strong> — Senior-policy-reviewer audit
                   applied: Texas governing law and Travis County venue named
