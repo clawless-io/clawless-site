@@ -1,11 +1,19 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/metadata';
+import { getAllChapterSlugs } from '@/lib/docs';
 
 // Required for `output: 'export'` static export — Next.js otherwise treats
 // metadata routes as dynamic and refuses to prerender them.
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const docsChapters = getAllChapterSlugs().map((slug) => ({
+    url: `${SITE_URL}/docs/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.5,
+  }));
+
   return [
     {
       url: SITE_URL,
@@ -25,6 +33,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.9,
     },
+    {
+      url: `${SITE_URL}/docs`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    ...docsChapters,
     {
       url: `${SITE_URL}/download`,
       lastModified: new Date(),

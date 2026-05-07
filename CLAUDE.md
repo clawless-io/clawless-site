@@ -106,17 +106,51 @@ Indexable pages (in `app/sitemap.ts`):
 - `/` (home, launch-ready hero with "Coming Q3 2026" pill)
 - `/features`
 - `/pricing`
+- `/docs` (chapter index) + `/docs/<slug>` for each KB chapter
 - `/download` (placeholder microcopy until launch-day signed releases)
 - `/about`
-- `/privacy` (priority 0.3 — placeholder copy with the entity-of-record
-  paragraph naming RBJ Global LLC; reindexed 2026-05-02)
-- `/terms` (priority 0.3 — placeholder copy with the entity-of-record
-  paragraph; reindexed 2026-05-02)
+- `/privacy` (priority 0.3 — placeholder copy; address removed 2026-05-05;
+  reindexed 2026-05-02)
+- `/terms` (priority 0.3 — placeholder copy; address removed 2026-05-05;
+  reindexed 2026-05-02)
+- `/subprocessors` (priority 0.3 — Lemon Squeezy + Cloudflare named;
+  shipped 2026-05-05)
+
+Top-nav order: Features, Pricing, Docs, Download, About. Docs slots
+between Pricing and Download so trial-curious users can research the
+product before downloading.
 
 There is no `/cookies`, no `/disclaimer`, no `/refunds`, no
 `/acceptable-use` page on this site. The /terms placeholder bundles
 acceptable use, refund policy, and warranty disclaimers into the
 forward-looking line; full topical breakdown ships with launch.
+
+## Docs sync protocol (standing rule)
+
+The 16 chapters at `content/docs/*.md` are a synced copy of
+`clawless-v1/clawless/docs/knowledge-base/*.md`. The desktop-app
+planning workspace `clawless-v1` is the source of truth; this site
+holds a synced copy because clawless-v1 has no public git remote and
+Cloudflare Pages cannot pull from it at build time.
+
+When clawless-developer (or anyone) updates a KB chapter:
+
+1. From `clawless-site`, run `bun run sync-docs`. This wipes
+   `content/docs/` and re-copies every `.md` from clawless-v1
+   (skipping the in-tree `README.md`).
+2. Spot-check the diff. Voice + brand rules apply: scan for em-dashes
+   that snuck in, internal references (file paths, IPC names, class
+   names), and `[Shipping with launch]` badges that should now read
+   `[Live]` post-GA.
+3. Sanity gate, commit, push.
+4. The KB-RAG worker at `kb.clawless.ai` indexes the same chapters
+   and emits citation URLs as `clawless.ai/docs/<chapter-slug>#<anchor>`.
+   Rename a chapter slug ONLY if you also coordinate a re-index with
+   `Clawless-kb` — slugs are load-bearing for citation correctness.
+
+Chapter taxonomy (categories, display order, per-chapter descriptions
+on the index page) lives in `lib/docs.ts`. New chapters need a new
+entry there or they won't appear in the index even after sync.
 
 Webhook surface (not a page):
 - `functions/lemonsqueezy.ts` at `/lemonsqueezy` — Lemon Squeezy
