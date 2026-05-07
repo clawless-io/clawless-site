@@ -63,6 +63,22 @@ For routine workflow choices (file paths, commit shape, sanity gate
 order, link colors, etc.), decide yourself and report after. Escalate
 only for critical issues.
 
+## Model selection policy
+
+Founder-approved fleet-wide policy 2026-05-07 (relayed via Clawless
+Advisor):
+
+**Default Sonnet 4.6.** Escalate to **Opus 4.7** for: visual-design
+judgment calls, marketing-copy authorship for landing pages, anything
+touching the legal pack mirrors at `advisor/legal-docs/clawless-site/`.
+Routine site changes, content edits, deployment scripts, sitemap
+maintenance, address-scrub-style cleanups all run Sonnet. Subagent
+Explore + Plan default Sonnet.
+
+Iterative; advisor tunes over the first 3-4 days. If you escalate to
+Opus mid-task on something the policy says is Sonnet, capture the
+trigger for the next calibration pass.
+
 ## Receiving updates from sister product terminals
 
 Other terminals (clawless-developer, Clawdemy-Educational_Site,
