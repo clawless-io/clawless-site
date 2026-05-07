@@ -81,9 +81,15 @@ trigger for the next calibration pass.
 
 ## Receiving updates from sister product terminals
 
-Other terminals (clawless-developer, Clawdemy-Educational_Site,
-WhisprDesk, the Advisor) will send ClaudeLink messages when they ship
-something this marketing site should reflect. You are the editor.
+Other terminals send ClaudeLink messages when they ship something this
+marketing site should reflect. You are the editor. Current roster
+(2026-05-07): `Clawless Advisor`, `clawless-developer`,
+`Clawdemy Developer Opus`, `Clawdemy Developer Sonnet`, `Clawless-kb`,
+`WhisprDesk developer`, `trading-agents-lab`. The full lookup with
+"when to ping each" lives in the `reference-claudelink-agent-roster`
+memory file. Always confirm the exact role string with
+`mcp__claudelink__get_agents` before sending — renames happen
+(Clawdemy split into Opus + Sonnet tiers 2026-05-07).
 
 When you receive one:
 
