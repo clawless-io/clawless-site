@@ -120,6 +120,14 @@ The Logs panel has two views:
 - **Activity feed.** A friendly, curated stream of high-signal events.
 - **Raw logs.** A terminal-style view with everything, filterable by level (info, warn, error) and subsystem.
 
+### How do I run a Python script through Clawless?
+
+Use the Bash tool. The Bash tool lets your agent execute shell commands, including `python script.py`, `python3 script.py`, or any other interpreter you have installed. Ask the agent to run your script by name or path and it will dispatch through Bash.
+
+The same pattern works for Node (`node script.js`), Ruby (`ruby script.rb`), Go (`go run script.go`), shell scripts, and any other language with a CLI. Whatever interpreter is on your system PATH is callable from the Bash tool.
+
+If your script needs arguments, just include them in the prompt: "run my-script.py with --verbose and --output ./out". The agent passes them through.
+
 ## Common questions
 
 **Why is the agent asking permission for every tiny thing?** Your security profile is set to Strict. Switch to Standard in Settings, Tools.

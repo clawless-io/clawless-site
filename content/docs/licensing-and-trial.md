@@ -75,7 +75,7 @@ Cancelling on the portal does not cut you off immediately. Your license stays ac
 
 ## Refunds
 
-We honor a 14-day refund window for first-time subscribers. Request a refund through the customer portal or email support@clawless.ai.
+Yes, you can get a refund if you change your mind. We honor a 14-day refund window for first-time subscribers. Request a refund through the customer portal or email support@clawless.ai.
 
 Lifetime purchases have a 14-day refund window as well. After 14 days the lifetime sale is final.
 

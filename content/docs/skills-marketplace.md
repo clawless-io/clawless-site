@@ -26,13 +26,11 @@ So: agents have skills, skills have tools.
 
 Open the Skills panel from the navigation rail (the small lightbulb icon).
 
-You see three lists:
+You see three tabs:
 
-- **Installed.** Skills already available to your agents. Each row shows the skill's name, description, and the agents that have it enabled.
-- **Available updates.** When the catalog has a newer version of a skill you have installed.
-- **Marketplace.** The ClawHub catalog of community-built skills you can install.
-
-A search bar at the top filters across all three.
+- **Browse.** Your starter pack of skills that ship with Clawless. The list shows what's ready to use, what needs setup, and what is disabled. A search bar narrows the list and a small toggle reveals the "advanced" skills that need an API key or a token to finish setting up.
+- **Skill Builder.** A simple form for writing your own skill. Name, description, instructions, the tools it should use, and a save button.
+- **ClawHub.** The community catalog of skills built by other Clawless users. Browse, search, and sort by popularity, downloads, or how recently they were updated.
 
 ## Using a skill in chat
 
@@ -45,19 +43,25 @@ If a skill is available to multiple agents, switching agents does not change the
 
 ## The ClawHub catalog
 
-ClawHub is the community marketplace for skills. We curate it, but most skills are built by other Clawless users who wanted to share what worked for them.
+ClawHub is the community marketplace for skills. We curate the listing, but most skills are built by other Clawless users who wanted to share what worked for them.
 
-Browsing ClawHub is like browsing a recipe site. Each skill has:
+Open the ClawHub tab inside the Skills panel. The first time you open it, click Sync to pull the catalog. Once synced, you can browse, search, and sort the listing.
 
-- A name and a short description.
-- A category (writing, research, planning, code, ops, learning).
-- A star rating from people who installed it.
-- A description of what tools it uses.
-- The author's name (if they chose to be public).
+Each skill card shows:
 
-To install, click the skill, review the description, and click Install. The skill appears in your Installed list. You can enable or disable it per agent from there.
+- The skill's name and a short summary of what it does.
+- Stats: star count, install count, downloads, latest version.
+- A few tags so you can spot skills in your interest area.
 
-When the author updates a skill, you see it in the Available updates list. Updates are opt-in; we do not auto-update skills, because you should always know what your agents have.
+You can sort the listing by Most Stars, Most Downloads, Most Installs, Trending, or Recently Updated. The search bar above the list runs a deeper match against the catalog so you can find skills by keyword.
+
+### Installing a ClawHub skill
+
+The launch release of Clawless ships ClawHub in browse-only mode. The Install button is visible on every card but is grayed out with a "coming soon" label, and clicking it is intentionally inert.
+
+The reason: the install flow goes through a security review pass before any community-authored skill lands on your computer. That review surface (a permission summary plus a malware scan) is part of the v1.0.1 fast-follow update. Once that ships, the Install button activates and you'll see the permission summary before anything is written.
+
+In the meantime you can browse the catalog freely, save a list of skills you want, and install them as soon as v1.0.1 lands.
 
 ## Building your own skill
 
@@ -102,7 +106,11 @@ In the meantime, if you have built a useful skill, you can export it as a file a
 
 **How do I see what tools a skill uses?** Click the skill in the Installed list. The detail view shows the tools, the instructions, and which agents currently have it enabled.
 
-**Are catalog skills safe to install?** ClawHub skills are vetted before they appear in the catalog, but treat them like any third-party recipe: read the description, look at the tools used, and start cautious. A skill that needs file write access can do more than a skill that only reads.
+**Are catalog skills safe to install?** ClawHub skills are vetted before they appear in the catalog. Once the v1.0.1 fast-follow ships, every install also goes through a permission summary (so you see exactly what the skill plans to do before it lands) plus a malware scan. Even then, treat them like any third-party recipe: read the description, look at the tools used, and start cautious. A skill that needs file write access can do more than a skill that only reads.
+
+**When does the ClawHub catalog refresh?** The catalog syncs to your computer every few hours in the background, and you can press Sync at any time on the ClawHub tab to pull the latest. The catalog itself lives at clawhub.ai; only the catalog data is fetched, never any skill files until you explicitly install one.
+
+**Why is the Install button grayed out?** The launch release ships ClawHub in browse-only mode. The install flow needs a permission summary plus a malware scan before any community-authored code lands on your computer. That setup is in the v1.0.1 fast-follow.
 
 **Can a skill use a tool the agent does not have?** No. The agent runs the skill, which means the skill is constrained by whatever tools that agent has access to. If a skill needs WebSearch and your agent has read-only file access, the skill will not work for that agent.
 
