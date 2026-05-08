@@ -171,7 +171,7 @@ export default function PrivacyPage() {
               </p>
               <ul className="ml-6 list-disc space-y-2 leading-[1.8]">
                 <li>
-                  <strong>2026-05-05</strong> — Cross-link to{' '}
+                  <strong>2026-05-05:</strong> Cross-link to{' '}
                   <a
                     href="/subprocessors"
                     className="text-accent underline hover:text-text-primary"
@@ -184,7 +184,7 @@ export default function PrivacyPage() {
                   disclosed.
                 </li>
                 <li>
-                  <strong>2026-05-05</strong> — Principal-office street
+                  <strong>2026-05-05:</strong> Principal-office street
                   address removed from the entity-of-record paragraph. Entity
                   name, state of formation, and email contact retained.
                   Customers reach RBJ Global LLC through email; no public
@@ -192,14 +192,14 @@ export default function PrivacyPage() {
                   data practices unchanged.
                 </li>
                 <li>
-                  <strong>2026-05-03</strong> — Browser Automation disclosure
+                  <strong>2026-05-03:</strong> Browser Automation disclosure
                   added to the forward-looking enumeration: per-hostname
                   prompt before any new website, no Clawless tracking of
                   visited sites or page content. Non-material clarification;
                   marketing-site collection practices unchanged.
                 </li>
                 <li>
-                  <strong>2026-05-03</strong> — Senior-policy-reviewer audit
+                  <strong>2026-05-03:</strong> Senior-policy-reviewer audit
                   applied: Cloudflare edge-log acknowledgment, RBJ Global LLC
                   established as data controller today, Lemon Squeezy
                   pre-named as separate controller at checkout, CCPA stub,
@@ -208,7 +208,7 @@ export default function PrivacyPage() {
                   clarifications.
                 </li>
                 <li>
-                  <strong>2026-05-02</strong> — Forward-looking practices
+                  <strong>2026-05-02:</strong> Forward-looking practices
                   paragraph added; jurisdiction line added; entity-of-record
                   paragraph names RBJ Global LLC; site reindexed at sitemap
                   priority 0.3; placeholder dates aligned to May 2026.

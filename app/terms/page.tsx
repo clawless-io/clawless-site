@@ -106,14 +106,14 @@ export default function TermsPage() {
               </p>
               <ul className="ml-6 list-disc space-y-2 leading-[1.8]">
                 <li>
-                  <strong>2026-05-05</strong> — Principal-office street
+                  <strong>2026-05-05:</strong> Principal-office street
                   address removed from the entity-of-record paragraph. Entity
                   name, state of formation, and email contact retained.
                   Non-material clarification; contracting-party identity and
                   governing law unchanged.
                 </li>
                 <li>
-                  <strong>2026-05-03</strong> — Senior-policy-reviewer audit
+                  <strong>2026-05-03:</strong> Senior-policy-reviewer audit
                   applied: Texas governing law and Travis County venue named
                   on the placeholder, informal-first dispute resolution
                   paragraph added, as-is/as-available warranty disclaimer for
@@ -121,7 +121,7 @@ export default function TermsPage() {
                   license). Non-material clarifications.
                 </li>
                 <li>
-                  <strong>2026-05-02</strong> — Closing paragraph expanded
+                  <strong>2026-05-02:</strong> Closing paragraph expanded
                   with indemnity, governing-law, dispute-resolution coverage;
                   precedence clause added; entity-of-record paragraph names
                   RBJ Global LLC; site reindexed at sitemap priority 0.3.

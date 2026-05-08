@@ -17,7 +17,7 @@ What happens:
 1. The agent decides it needs to look at real review pages.
 2. Clawless asks: *"Agent wants to open google.com. Allow once / Always allow / Deny."* You click **Always allow**.
 3. The browser opens, runs a search, navigates to a couple of well-known review sites.
-4. As each new site comes up (rtings.com, wirecutter.com, reddit.com), Clawless asks again — once per new domain.
+4. As each new site comes up (rtings.com, wirecutter.com, reddit.com), Clawless asks again, once per new domain.
 5. The agent reads the pages and writes the summary back into your chat.
 6. When the conversation ends, the browser closes. The cookies and history from this task do not stick around.
 
