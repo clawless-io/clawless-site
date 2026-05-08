@@ -188,12 +188,20 @@ the SEO deindex is reversed.
 ## LLC entity name
 
 The operating entity is **RBJ Global LLC** (decision finalized
-2026-05-02). Texas Certificate of Amendment is filed but not yet
-state-approved as of this writing; the bank-account update is also
-pending. The name in code/docs/site can update now. Do **not** submit
-"RBJ Global LLC" to external reviewers (Lemon Squeezy, Apple, Stripe,
-banks, lawyers, CAs) as the official entity name until both gates
-clear.
+2026-05-02; Texas SOS approval landed 2026-05-04, founder
+confirmed in-terminal). The name is safe to use in code, docs,
+public sites, AND in external submissions to Lemon Squeezy, Stripe,
+Apple Developer, Google Play, D&B, lawyers, CAs, KYB/KYC verifiers.
+Bank-account update is a separate gate the founder is still working
+but does not block external-name submissions.
+
+**Public address — NO ADDRESS ON WEB** (founder decision 2026-05-05,
+relayed via Advisor). No street address on any public marketing
+surface across the RBJ family. Customers reach RBJ Global LLC
+through email; entity is identified by name + state of formation
+only. Address scrubbed on clawless-site `f5a41c2` and rbjglobal-site
+`083c1ef` (2026-05-05). Do NOT add an address back without explicit
+founder authorization.
 
 ## Legal docs mirror sync protocol (standing rule)
 
@@ -270,169 +278,165 @@ agent suggests it.
   `~/.claude/projects/-Users-junaidsiddiqi-Projects-clawless-io-clawless-site/memory/project-pricing-page-locked-numbers.md`.
 - Lemon Squeezy webhook contract: `WEBHOOKS.md` in this repo.
 
-## Last session handover (2026-05-03, end of day)
+## Last session handover (2026-05-04 → 2026-05-07, end of day 2026-05-07)
 
-**Today's ship list (clawless-site main, in order):**
-- `9317ee4` legal: apply founder-authorized HIGH/CRITICAL findings + Changelog.
-  Privacy /privacy: C1 Cloudflare-edge-log acknowledgment; C2 RBJ Global LLC
-  established as data controller TODAY + Lemon Squeezy LLC pre-named as
-  separate controller at checkout; H1 CCPA stub; H2 COPPA statement; H3
-  security@clawless.ai contact path with two-business-day acknowledgment;
-  M2 forward-looking PII enumeration including the load-bearing
-  "no content of your work or prompts leaving your device by default"
-  claim (founder verified against BYOK desktop architecture); L4 metadata
-  description aligned with C1. Terms /terms: H4 Texas governing law +
-  Travis County venue named explicitly + informal-first dispute
-  resolution paragraph; H5 site-itself as-is/as-available warranty
-  disclaimer. M3 was a "keep OpenClaw mention" decision; OpenClaw stays.
-  Changelog mechanism added to bottom of both pages.
-- `c3d26dd` docs: material-changes standing rule in CLAUDE.md +
-  arbitration/waiver-posture decision recorded (NO arbitration, NO
-  class-action waiver until ~10K paying users with lawyer opinion).
+This handover spans four working days as one continuous session.
+The founder closed the terminal at end of 2026-05-07 to restart the
+laptop; resume notes assume a brand-new session boot.
 
-**Today's ship list (rbjglobal-site main, in order):**
-- `5fe1ad7` legal: apply founder-authorized HIGH findings + Changelog.
-  Privacy /legal/privacy: H1 Your rights section (CCPA/CPRA/GDPR/UK GDPR);
-  H2 controller-language opener with GDPR Art. 13 identification; H3
-  Cloudflare-product-change-resilient phrasing on logging boundary.
-  Terms /legal/terms: H4 limitation-of-liability expanded to standard
-  B2C template; H5 Venue (Travis County) + Informal dispute resolution
-  paragraphs added between LoL and Governing law. NO arbitration, NO
-  class-action waiver. Disclaimer /legal/disclaimer: H6 trademark-
-  acknowledgment line. Effective date bumped May 2 -> May 3 on all 4
-  pages. Changelog at bottom of all 4 pages.
-- `b190035` docs: material-changes standing rule in CLAUDE.md +
-  parent-site dispute-resolution posture + Venue-moves-to-Dallas-
-  County reminder (paired with the registered-agent-address swap when
-  the founder procures the virtual office).
+### Ship list (clawless-site main, chronological)
 
-**Earlier in the same day (Advisor 3-part initiative, 2026-05-02 + 03):**
-The above is the day-2 founder-authorized apply. Day-1 (2026-05-02)
-shipped the prerequisites: Part A forward-looking paragraph (clawless
-`26f5190`, rbjglobal `afacd53`), independent senior-policy-reviewer
-audit reports (clawless `39c4640`, rbjglobal `665ec7a`), autonomous
-LOW/MEDIUM polish (clawless `5b34a2f`, rbjglobal `a56b1ce`), and the
-legal-docs mirror sync protocol (clawless `283fd8a`, rbjglobal
-`7206e37`).
+- `f5a41c2` legal: remove principal-office address from /privacy +
+  /terms (mirror updated). Address scrub directive relayed by Advisor;
+  founder authorized "no street address on any public marketing
+  surface" 2026-05-05. Effective date bumped, non-material Changelog
+  entry added.
+- `9fe9203` legal: publish /subprocessors page (mirror updated).
+  GDPR Art. 28 disclosure surface naming Lemon Squeezy (payment
+  processor, Merchant of Record) + Stripe (downstream of LS) +
+  Cloudflare (hosting + edge logs). Sections: intro, Payment
+  processing, Hosting and delivery, Desktop application
+  subprocessors (pointer, since BYOK provider list lives in-app),
+  Updates, Changelog. Effective May 5, 2026. Sitemap entry priority
+  0.3. Cross-link added from /privacy after enumeration paragraph.
+- `a6cfb21` features: Browser Automation /features group +
+  /privacy disclosure (B66). clawless-developer pinged 2026-05-04
+  with B66 (Phase 1) ship status: bundled Chromium, headed-by-default
+  with headless toggle, per-hostname first-time prompt with
+  three-button modal (Allow once / Always allow / Deny), hardcoded
+  navigation-layer refusal for local/file/browser-internal URLs,
+  fresh browser per conversation. Group 05 inserted into FEATURE_GROUPS
+  (eight groups total). New `(c) Browser Automation` clause added
+  to /privacy forward-looking enumeration. Source-of-truth conflict
+  resolved: KB chapter was stale; developer's verbatim modal strings
+  + permission-model B are correct.
+- `c397575` docs: add model-selection policy to CLAUDE.md.
+  Founder-approved fleet-wide policy: Default Sonnet 4.6, escalate
+  to Opus 4.7 for visual-design judgment, marketing-copy authorship,
+  and legal-pack-mirror touches. Iterative; Advisor tunes over the
+  first 3-4 days.
+- `e4d68b3` docs: publish /docs surface — 16 KB chapters + index +
+  nav (D1). Added react-markdown 10 + remark-gfm + rehype-slug +
+  rehype-autolink-headings; new `lib/docs.ts` chapter taxonomy
+  (5 categories), `scripts/sync-docs.sh` (path B sync from
+  clawless-v1 — local-only repo, Cloudflare can't pull at build),
+  `components/docs/MarkdownContent.tsx` server component,
+  `app/docs/page.tsx` index, `app/docs/[slug]/page.tsx` dynamic
+  route with `generateStaticParams`. Anchor IDs match the worker's
+  citation pattern `clawless.ai/docs/<chapter-slug>#<anchor>`.
+  NAV_LINKS reorder: Features, Pricing, Docs, Download, About.
+  Sitemap adds /docs (0.7) + 16 chapters (0.5).
+- `cfc9d11` docs: refresh CLAUDE.md sister-terminal roster
+  (Clawdemy tier-split). Two-terminal split landed 2026-05-07:
+  `Clawdemy Developer Opus` (synthesis/judgment/voice authority)
+  + `Clawdemy Developer Sonnet` (ops/lookups/mechanical edits).
+  This terminal is now `Clawless Site Developer` (Title Case).
+- `05a2635` docs: commit pre-existing ClaudeLink protocol section
+  in CLAUDE.md. Founder-authorized commit of an uncommitted-but-
+  modified section that had been carrying since 2026-05-02. Three
+  sub-sections preserved verbatim: Automatic Inbox Checking,
+  Autonomous Collaboration, Communication Shortcuts. Founder
+  clarification: "Clawless Advisor is the main Orchestrator;
+  route questions there when in doubt."
 
-**Advisor folder mirror state (2026-05-03 sync):**
-- `legal-docs/clawless-site/` — mirror of `9317ee4` HEAD; privacy.md,
-  terms.md, README.md updated with Changelog content + outstanding
-  routing items now reads "All CRITICAL/HIGH resolved."
-- `legal-docs/rbjglobal/` — mirror of `5fe1ad7` HEAD; privacy.md,
-  terms.md, cookies.md, disclaimer.md, README.md updated. Outstanding
-  routing items now reads "All HIGH resolved."
+### Ship list (rbjglobal-site main, chronological)
 
-**Open items waiting on external (do NOT touch until pinged):**
-- `security@clawless.ai` Workspace alias setup. Privacy page now
-  publicly invites security disclosures with a two-business-day
-  acknowledgment commitment. Founder said this is a ~30-second
-  Workspace task. **If the founder reports the alias isn't routing
-  by tomorrow morning, cut a same-day fallback commit substituting
-  `info@rbjglobal.com` for `security@clawless.ai` in
-  `app/privacy/page.tsx` until the alias is live.** Otherwise the
-  published commitment ships unchanged.
-- `/features` Browser Automation (B66) group. clawless-developer
-  ETA 2-4 days. Gates: end-to-end smoke test + 3 HIGH security items
-  from overnight audit. Will ping when ready.
-- `lib/constants.ts` "20+ platforms" → "22 platforms". clawless-
-  developer says hold; only Telegram is LIVE today. Candidate
-  phrasing when stable: "Telegram today, 20+ platforms unlocking
+- `083c1ef` legal: address scrub. `COMPANY_ADDRESS` const removed
+  from `lib/metadata.ts`; address blocks stripped from Footer,
+  About, all four `app/legal/*` pages; Organization JSON-LD
+  postal-address field removed; "Austin Texas software" removed
+  from keywords. Effective date bumped, Changelog on all four
+  legal pages.
+- `learn-page-callout` (verify exact SHA on resume): Clawdemy
+  Phase 3 callout added to /learn between audiences and "How
+  Clawdemy works", covering scaling laws + Chinchilla, parallelism
+  + Flash Attention, quantization + mixed precision.
+
+### Advisor folder mirror state (clawless-v1, 2026-05-07 sync)
+
+- `legal-docs/clawless-site/` — mirror of `f5a41c2` HEAD then
+  `9fe9203` HEAD; privacy.md, terms.md, plus new subprocessors.md
+  added with row in README Contents table.
+- `legal-docs/rbjglobal/` — mirror of `083c1ef` HEAD; address
+  removed from privacy.md, terms.md, cookies.md, disclaimer.md.
+
+### Resolved this session (memory updated)
+
+- **LLC launch-posture caveat — RESOLVED 2026-05-04.** Texas SOS
+  approved the rename to RBJ Global LLC; founder confirmed
+  in-terminal. External submissions (LS/Stripe/Apple/D&B/CAs)
+  cleared. Bank-account update is independent and still in
+  flight but no longer blocks the name. Memory file
+  `project-llc-name-and-launch-posture.md` carries the resolved
+  header.
+- **Address swap obsoleted 2026-05-05.** "Dallas virtual office
+  swap" reminder retired; founder chose "no address on web" for
+  the entire RBJ family. Venue clause stays Travis County
+  (decoupled from operating address).
+- **B66 Browser Automation group on /features — SHIPPED 2026-05-03**
+  in `a6cfb21` (already in repo at session start, just clarifying
+  it's now done; Phase 2 features remain backlog).
+- **Clawdemy roster split — DOCUMENTED 2026-05-07.** Roster memory
+  file `reference-claudelink-agent-roster.md` refreshed to current
+  7-agent lineup with tier-split + Title-Case rename of this
+  terminal.
+
+### Open items waiting on external (do NOT touch until pinged)
+
+- **Browser Automation Phase 2** (live in-app viewport, per-agent
+  browser profiles, per-agent feature toggle, multi-session pools).
+  clawless-developer will ping when ready. Do not claim on /features.
+- **`lib/constants.ts` "20+ platforms" → "22 platforms"** once
+  channel verification stabilizes. Currently only Telegram is LIVE;
+  other channels gated by SKIP_CHANNELS=1. P3, low priority.
+  Candidate phrasing: "Telegram today, 20+ platforms unlocking
   through launch."
-- Launch-day pill drop + /download placeholder microcopy. Hard-
-  blocked on LLC Apple Dev cert + Windows EV cert + first signed
-  release upload. Founder-side external work.
-- Texas SOS approval of "RBJ Global LLC" (ETA May 6-8) + bank-
-  account update. When both clear, the launch-posture caveat in
-  `project-llc-name-and-launch-posture.md` memory retires and the
-  founder can submit "RBJ Global LLC" to LS / Stripe / Apple / D&B.
-- Dallas virtual-office address swap. When founder procures, the
-  swap commits to `lib/cms.ts` (clawless) and `lib/metadata.ts`
-  (rbjglobal); rbjglobal Venue clause moves Travis → Dallas in the
-  same commit. Both repos' CLAUDE.md document this.
+- **Launch-day pill drop + /download placeholder microcopy.**
+  Hard-blocked on LLC Apple Developer cert + Windows EV cert +
+  first signed release upload. Founder-side external work.
+  Drop both in the same commit; do not split.
+- **`security@clawless.ai` Workspace alias.** Privacy page commits
+  to two-business-day acknowledgment. If founder reports the alias
+  isn't routing, cut a fallback commit substituting
+  `info@rbjglobal.com` in `app/privacy/page.tsx` until the alias
+  is live. (Carrying over from 2026-05-03; no new signal received
+  in the 04-07 window.)
+- **Bank-account update for RBJ Global LLC.** Independent of
+  external-name submissions; founder is working it.
 
-**Open verification gap (carries over from 2026-05-02):**
-clawless.ai sitemap-submission state in Google Search Console still
-unknown from the repo. GSC verification file is committed; whether
-"Submit sitemap" was clicked in the GSC console is outside repo
-visibility. Same unknown for Bing Webmaster Tools.
+### Open verification gap (carries forward, founder-side)
 
-**Resume-here for next session:**
-1. Check inbox first. Likely pings: clawless-developer when B66 is
-   ready; Advisor with security@clawless.ai routing confirmation;
-   Texas SOS approval relay if it lands May 6+.
-2. If founder reports `security@clawless.ai` is not routing, cut
-   the fallback commit per "Open items" above.
-3. Verify launch-posture caveat still applies — if Texas SOS
-   approval + bank update both cleared overnight, the caveat
-   retires and the project-llc-name-and-launch-posture.md memory
-   should be marked RESOLVED.
-4. No uncommitted state on either repo (verified clean at handover).
+clawless.ai sitemap-submission state in Google Search Console and
+Bing Webmaster Tools is unknown from the repo. GSC verification
+file is committed (`public/googlefe2ff7dd9c0f27bc.html`); whether
+"Submit sitemap" was clicked in the GSC UI is outside repo
+visibility. 30-second action for the founder if not yet done.
 
-## Previous session handover (2026-05-02, end of day)
+### ClaudeLink registration note
 
-**Day's ship list (clawless-site main, in order):**
-- `baf9b8a` LLC sweep — footer trust strip "Trading" → ""
-- `823cb82` LS webhook hardening — body cap, sig length guard,
-  Retry-After 503, onRequestPost; 5 new tests (16/16 passing)
-- `0405d62` favicon refresh — curved-arc mark replaces "C" glyph
-- `1df0ad0` CLAUDE.md operating notes + .mcp.json gitignore
-- `1babe36` LLC fix-forward — Footer copyright miss caught post-sweep
-- `42017a6` logo system wired — four SVGs committed; Navbar uses
-  mark-only on mobile, lockup on sm+; Footer uses lockup
-- `416b57f` Privacy/Terms LLC entity-of-record + reverse SEO deindex
-  (paragraphs name RBJ Global LLC + Balcones address +
-  info@rbjglobal.com; sitemap re-adds at priority 0.3; robots.ts
-  drops disallow; per-page noindex meta dropped)
-- `f92293c` CLAUDE.md corrections — site shape after reindex; removed
-  bogus claim of /cookies and /disclaimer pages
+This terminal registers as **`Clawless Site Developer`** (Title
+Case). Re-registering with `register` creates a duplicate agent
+record, it does NOT update by role name. To update description
+without duplication, edit `~/.claudelink/nexus.db` agents table
+directly via SQLite. The Command Center at
+`http://127.0.0.1:7878` exposes a "Remove stale" button per agent
+when the agent's PID is dead, but not while it's online.
+Captured in the roster memory file.
 
-Sister repo (rbjglobal-site) earlier in the same session:
-- `0678a66` Clawdemy/Learn URL split (full /clawdemy product page +
-  audience-led /learn entry-point)
-- `50cbe63` P2 polish from code review (NavDropdown ARIA + Space key,
-  --color-bg-primary-translucent token, &apos; escape)
+### Resume-here for next session
 
-**Open items waiting on external (do NOT touch until pinged):**
-- `/features` Browser Automation (B66) group. clawless-developer
-  ETA 2-4 days. Gates: end-to-end smoke test + 3 HIGH security items
-  from overnight audit (BridgeServer auth, CDP wsEndpoint auth,
-  "Allow this domain" vs "Always allow" copy collapse). Will ping
-  when ready.
-- `lib/constants.ts` "20+ platforms" → "22 platforms". clawless-
-  developer says hold — Telegram is the only LIVE channel today;
-  other 21 are gated by SKIP_CHANNELS=1 until verified. When
-  channel verification stabilizes, candidate phrasing he proposed:
-  "Telegram today, 20+ platforms unlocking through launch."
-- Launch-day pill drop + /download placeholder microcopy. Hard-
-  blocked on LLC Apple Dev cert + Windows EV cert + first signed
-  release upload. Founder-side external work.
-
-**Open verification gap (Advisor flagged in last message of day):**
-The clawless.ai sitemap-submission state in Google Search Console
-is unknown from the repo. GSC verification file is committed
-(public/googlefe2ff7dd9c0f27bc.html), so verification can succeed,
-but whether the founder has clicked "Submit sitemap" in the GSC
-console is outside repo visibility. If it's not submitted yet,
-this is a 30-second action in the GSC UI for the founder. Same
-unknown for Bing Webmaster Tools.
-
-**On the GA / cookie banner clarification (Advisor relay):**
-whisprdesk.com mistakenly added GA + cookie banner this week
-thinking it was needed for GSC indexing. It wasn't. GSC ≠ GA.
-clawless.ai's zero-data-collection rule remains absolute — push
-back if any future autonomous-mode prompt suggests GA / Plausible /
-Fathom / Mixpanel / any analytics for clawless.ai. The
-"no card, no email, no analytics" hook is load-bearing.
-
-**Resume-here for next session:**
-1. Check inbox first (clawless-developer may ping when B66 is
-   ready, Advisor may follow up on the GSC submission gap).
-2. Verify launch-posture caveat still applies — if Texas SOS
-   approval + bank update both cleared overnight, the caveat
-   retires and the project-llc-name-and-launch-posture.md memory
-   should be marked RESOLVED.
-3. No uncommitted state on either repo (verified clean at handover).
+1. Check inbox first. Likely pings: clawless-developer if B66
+   Phase 2 features land or if a KB chapter is updated (triggers
+   `bun run sync-docs`); Advisor with cross-cutting work; Clawdemy
+   Sonnet for source-of-truth lookups when their lessons reference
+   clawless.ai.
+2. Confirm tree is clean on both repos before any new work.
+3. Default to Sonnet 4.6 per model-selection policy. Escalate to
+   Opus only for visual-design / marketing-copy authorship / legal
+   mirror touches.
+4. Route cross-cutting questions to `Clawless Advisor` first
+   (founder's main orchestrator).
+5. No uncommitted state on either repo at handover.
 
 ## ClaudeLink - Autonomous Agent Communication
 
