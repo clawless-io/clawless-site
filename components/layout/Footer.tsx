@@ -47,6 +47,12 @@ export default function Footer({ content }: Props) {
               Privacy
             </a>
             <a
+              href="/subprocessors"
+              className="text-text-muted transition-colors duration-200 hover:text-text-primary"
+            >
+              Subprocessors
+            </a>
+            <a
               href="/terms"
               className="text-text-muted transition-colors duration-200 hover:text-text-primary"
             >
