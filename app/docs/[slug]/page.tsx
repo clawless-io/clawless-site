@@ -32,7 +32,7 @@ export async function generateMetadata({
   const chapter = getChapterMeta(slug);
   if (!chapter) return { title: 'Documentation' };
   return {
-    title: `${chapter.title} — Documentation`,
+    title: `${chapter.title} | Documentation`,
     description: chapter.description,
   };
 }

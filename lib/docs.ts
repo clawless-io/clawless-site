@@ -101,7 +101,7 @@ const CHAPTER_TAXONOMY: DocsCategory[] = [
         slug: 'attachments',
         title: 'Attachments',
         description:
-          'Sending files to your agents — images, PDFs, text — and how each model handles them.',
+          'Sending images, PDFs, and text files to your agents, and how each model handles them.',
         status: 'shipping-with-launch',
       },
     ],

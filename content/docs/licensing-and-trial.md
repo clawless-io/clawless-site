@@ -28,7 +28,7 @@ There is one plan, Clawless, with three billing options.
 
 - **Monthly.** $4.95 per month.
 - **Yearly.** $50 per year (about 16% off the monthly rate).
-- **Lifetime.** A single one-time payment for permanent access. Early-backer pricing of $199 is available for a limited time; standard lifetime pricing of $299 applies after the early-backer window closes.
+- **Lifetime.** A single one-time payment for permanent access. Early-backer pricing of $199 is the founding-member price, available for the first 3 months from public launch. Standard lifetime pricing of $299 applies after that window closes.
 
 There is no tier split (no "Pro" or "Basic"). Every paid customer has the full app.
 

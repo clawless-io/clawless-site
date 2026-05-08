@@ -162,7 +162,7 @@ export default function SubprocessorsPage() {
               </p>
               <ul className="ml-6 list-disc space-y-2 leading-[1.8]">
                 <li>
-                  <strong>2026-05-05</strong> — Initial publication. Lemon
+                  <strong>2026-05-05:</strong> Initial publication. Lemon
                   Squeezy named as Merchant of Record (Stripe disclosed as
                   Lemon Squeezy&apos;s underlying processor); Cloudflare named
                   as host. Pointer to the in-app subprocessors page added for
