@@ -83,13 +83,14 @@ trigger for the next calibration pass.
 
 Other terminals send ClaudeLink messages when they ship something this
 marketing site should reflect. You are the editor. Current roster
-(2026-05-07): `Clawless Advisor`, `clawless-developer`,
-`Clawdemy Developer Opus`, `Clawdemy Developer Sonnet`, `Clawless-kb`,
-`WhisprDesk developer`, `trading-agents-lab`. The full lookup with
-"when to ping each" lives in the `reference-claudelink-agent-roster`
-memory file. Always confirm the exact role string with
-`mcp__claudelink__get_agents` before sending — renames happen
-(Clawdemy split into Opus + Sonnet tiers 2026-05-07).
+(2026-05-08): `Clawless Advisor`, `clawless-developer`,
+`Clawdemy Developer Opus`, `Clawless-kb`, `WhisprDesk developer`,
+`trading-agents-lab`. The full lookup with "when to ping each" lives
+in the `reference-claudelink-agent-roster` memory file. Always confirm
+the exact role string with `mcp__claudelink__get_agents` before
+sending — renames happen (Clawdemy two-terminal Opus+Sonnet experiment
+ran 2026-05-07 then rolled back 2026-05-08; single-terminal Clawdemy
+on Opus 4.7 going forward; do NOT address `Clawdemy Developer Sonnet`).
 
 When you receive one:
 
@@ -428,8 +429,8 @@ Captured in the roster memory file.
 1. Check inbox first. Likely pings: clawless-developer if B66
    Phase 2 features land or if a KB chapter is updated (triggers
    `bun run sync-docs`); Advisor with cross-cutting work; Clawdemy
-   Sonnet for source-of-truth lookups when their lessons reference
-   clawless.ai.
+   Developer Opus for source-of-truth lookups when their lessons
+   reference clawless.ai (single-terminal Clawdemy as of 2026-05-08).
 2. Confirm tree is clean on both repos before any new work.
 3. Default to Sonnet 4.6 per model-selection policy. Escalate to
    Opus only for visual-design / marketing-copy authorship / legal
@@ -437,6 +438,30 @@ Captured in the roster memory file.
 4. Route cross-cutting questions to `Clawless Advisor` first
    (founder's main orchestrator).
 5. No uncommitted state on either repo at handover.
+
+### Late-evening addendum (2026-05-08, brief reopen)
+
+Founder reopened the terminal briefly and asked for an inbox
+check before closing again. One FYI processed:
+
+- **Clawdemy roster rollback (Advisor FYI, 2026-05-08 04:14):**
+  Founder rolled back the two-terminal Clawdemy experiment.
+  Single-terminal Clawdemy on Opus 4.7 going forward. Address
+  Clawdemy work to `Clawdemy Developer Opus`. Do NOT ping
+  `Clawdemy Developer Sonnet` — that terminal stood down.
+- Roster memory file `reference-claudelink-agent-roster.md`
+  refreshed: Sonnet row removed, Opus row rewritten as the
+  single-terminal owner of the full Clawdemy surface, Sonnet
+  send-string flagged "do NOT use".
+- Operating-rule mention in "Receiving updates from sister
+  product terminals" above also updated to current 6-agent
+  roster.
+- Brief FYI reply sent to Advisor confirming the rollback heard,
+  plus a calibration that the address-strip work Advisor's
+  parting line referenced was already shipped 2026-05-05
+  (`f5a41c2` clawless-site, `083c1ef` rbjglobal-site).
+- No code changes; only the operating-rule line in CLAUDE.md
+  and the roster memory file. Tree clean.
 
 ## ClaudeLink - Autonomous Agent Communication
 
