@@ -229,7 +229,7 @@ export function getContent(): CmsData {
       companion: {
         headline: 'A companion to OpenClaw, not a competitor.',
         paragraphs: [
-          'OpenClaw is one of the most impressive open-source AI projects in the world, a community big enough to ship new releases almost every week. Clawless Computer is built on top of it, 100% compatible, and exists to bring OpenClaw to people who cannot live in a terminal all day.',
+          'OpenClaw is a major open-source AI project with an active contributor community shipping new releases almost weekly. Clawless Computer is built on top of it, 100% compatible, and exists to bring OpenClaw to people who cannot live in a terminal all day.',
           "We do not fork OpenClaw. We do not compete with it. We track every release, test it, and ship the upgrades so you do not have to. Our success is OpenClaw's success.",
         ],
       },

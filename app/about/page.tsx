@@ -67,13 +67,13 @@ export default function AboutPage() {
                 The vision
               </h2>
               <p>
-                OpenClaw is one of the most impressive open-source AI projects
-                in the world. The engine is powerful, the contributor
-                community is enormous, and new releases ship almost every
-                week. But for most non-technical people, OpenClaw is also{' '}
-                <em>invisible</em>, locked behind a command line that
-                requires you to know what YAML, environment variables, and
-                JSON-RPC calls are.
+                OpenClaw is a major open-source AI project with an active
+                contributor community shipping new releases almost weekly. The
+                engine is capable, the project is well-maintained, and the
+                ecosystem around it is real. But for most non-technical
+                people, OpenClaw is also <em>invisible</em>, locked behind a
+                command line that requires you to know what YAML, environment
+                variables, and JSON-RPC calls are.
               </p>
               <p>
                 Clawless Computer exists to close that gap. Same engine, same
@@ -117,14 +117,11 @@ export default function AboutPage() {
                 reach more people.
               </p>
               <p>
-                The open-source AI agent space has powerful enemies right now.
-                Big platforms are working hard to commoditize, absorb, or
-                replace independent projects like OpenClaw with closed
-                alternatives. Clawless Computer takes the opposite bet: we
-                want OpenClaw to flourish. Every Clawless Computer install
-                puts another OpenClaw user out into the world. Every Clawless
-                Computer feature is a feature OpenClaw can be used for. Our
-                success is OpenClaw&apos;s success.
+                Clawless Computer takes a deliberate bet: we want OpenClaw to
+                flourish. Every Clawless Computer install puts another
+                OpenClaw user out into the world. Every Clawless Computer
+                feature is a feature OpenClaw can be used for. Our success is
+                OpenClaw&apos;s success.
               </p>
               <p>
                 If you are part of the OpenClaw community: we are huge fans
