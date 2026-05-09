@@ -116,11 +116,11 @@
 }
 
 /* Focus indicator for keyboard navigation. Browser defaults are unreliable on
-   the dark cyan-accent theme; brand cyan ring lands cleanly on every surface. */
+   the dark cyan-accent theme; brand cyan ring lands cleanly on every surface.
+   The focused element keeps its own border-radius; the outline conforms. */
 *:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
-  border-radius: 2px;
 }
 
 /* Skip-to-content link, visually hidden until keyboard-focused. Lets keyboard
