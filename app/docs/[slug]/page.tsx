@@ -50,7 +50,7 @@ export default async function DocsChapterPage({ params }: PageProps) {
   return (
     <div className="relative z-[1]">
       <Navbar content={getContent().content.nav} />
-      <main className="mx-auto max-w-[1200px] px-6 sm:px-8">
+      <main id="main-content" className="mx-auto max-w-[1200px] px-6 sm:px-8">
         <section className="pb-8 pt-28">
           <ScrollReveal>
             <nav

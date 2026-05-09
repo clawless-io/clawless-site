@@ -16,7 +16,7 @@ export default function AboutPage() {
   return (
     <div className="relative z-[1]">
       <Navbar content={cms.content.nav} />
-      <main className="mx-auto max-w-[1200px] px-6 sm:px-8">
+      <main id="main-content" className="mx-auto max-w-[1200px] px-6 sm:px-8">
         {/* ── Hero ── */}
         <section className="relative overflow-hidden pb-16 pt-[120px] text-center">
           <div
