@@ -64,6 +64,8 @@ export default function Navbar({ content }: Props) {
           className="flex cursor-pointer flex-col gap-1.5 border-none bg-transparent p-1 md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-menu"
         >
           <span
             className={`block h-0.5 w-5 bg-text-primary transition-all duration-300 ${
@@ -87,6 +89,7 @@ export default function Navbar({ content }: Props) {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}

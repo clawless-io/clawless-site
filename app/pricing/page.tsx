@@ -18,7 +18,7 @@ export default function PricingPage() {
   return (
     <div className="relative z-[1]">
       <Navbar content={cms.content.nav} />
-      <main className="mx-auto max-w-[1200px] px-6 sm:px-8">
+      <main id="main-content" className="mx-auto max-w-[1200px] px-6 sm:px-8">
         {/* ── Page hero ── */}
         <section className="relative overflow-hidden pb-12 pt-[100px] text-center sm:pb-16 sm:pt-[120px]">
           <div

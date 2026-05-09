@@ -16,7 +16,7 @@ export default function TermsPage() {
   return (
     <div className="relative z-[1]">
       <Navbar content={cms.content.nav} />
-      <main className="mx-auto max-w-[1200px] px-6 sm:px-8">
+      <main id="main-content" className="mx-auto max-w-[1200px] px-6 sm:px-8">
         <section className="pb-12 pt-32 text-center">
           <ScrollReveal>
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-accent">

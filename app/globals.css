@@ -115,6 +115,33 @@
   color: #f1f5f9;
 }
 
+/* Focus indicator for keyboard navigation. Browser defaults are unreliable on
+   the dark cyan-accent theme; brand cyan ring lands cleanly on every surface. */
+*:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Skip-to-content link, visually hidden until keyboard-focused. Lets keyboard
+   users jump past the nav on every page. */
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 100;
+  padding: 12px 20px;
+  background: var(--color-accent);
+  color: var(--color-bg-primary);
+  font-weight: 600;
+  border-radius: 8px;
+  transition: top 0.2s ease;
+}
+
+.skip-to-content:focus {
+  top: 16px;
+}
+
 /* Base styles */
 body {
   font-family: var(--font-sans);

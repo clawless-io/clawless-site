@@ -15,7 +15,7 @@ export default function HomePage() {
   return (
     <div className="relative z-[1]">
       <Navbar content={cms.content.nav} />
-      <main className="mx-auto max-w-[1200px] px-0">
+      <main id="main-content" className="mx-auto max-w-[1200px] px-0">
         <Hero content={cms.content.hero} />
         <ZeroData content={cms.content.zeroData} />
         <DemoVideoSlot content={cms.content.demoVideo} />
