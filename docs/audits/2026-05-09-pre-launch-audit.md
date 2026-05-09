@@ -188,14 +188,24 @@ rule-aligned.
 
 ## Notes
 
-**Advisor brief referenced a non-existent commit.** The audit brief
-named clawless-developer commit `87710c7` for "the 2026-05-08 KB-RAG
-Privacy + Subprocessors edits". That SHA is not in either
-clawless-site or clawless-v1 git logs (verified via `git log --all
---oneline`). Likely a stale or fabricated reference. The legal
-mirror at `clawless-v1/clawless/advisor/legal-docs/clawless-site/`
-is currently in sync with clawless-site `4e73569` and has not
-required an update from any subsequent commit (`7e8aaa2`, `af38c7b`,
+**Advisor brief referenced a SHA unverified locally at audit time.**
+The audit brief named clawless-developer commit `87710c7` for "the
+2026-05-08 KB-RAG Privacy + Subprocessors edits". That SHA did not
+resolve in either clawless-site or clawless-v1 local git logs at
+audit time (verified via `git log --all --oneline`). Post-audit
+calibration from Advisor (2026-05-09 17:04): the commit was real
+but unpushed at audit time, sitting in clawless-developer's local
+working tree as part of an 89-commit batch awaiting founder push
+authorization. The batch landed on `origin/main` later that day.
+Methodology note for future audits: when a cited SHA does not
+resolve locally, default framing is "unverified locally; may be
+pending push," not "fabricated." Optional follow-up: `git fetch
+--all` before verification, or `gh api repos/<owner>/<repo>/commits/<sha>`
+to surface commits visible on GitHub even if the local clone is
+behind. The legal mirror at
+`clawless-v1/clawless/advisor/legal-docs/clawless-site/` is
+currently in sync with clawless-site `4e73569` and has not required
+an update from any subsequent commit (`7e8aaa2`, `af38c7b`,
 `18dff63`, `5d49a6d` did not change legal-page copy semantically
 even where they touched legal-page source files structurally).
 
