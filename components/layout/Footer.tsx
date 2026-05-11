@@ -58,6 +58,12 @@ export default function Footer({ content }: Props) {
             >
               Terms
             </a>
+            <a
+              href="/trust"
+              className="text-text-muted transition-colors duration-200 hover:text-text-primary"
+            >
+              Trust
+            </a>
             <span className="text-text-muted">
               Built on top of{' '}
               <a
