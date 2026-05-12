@@ -33,7 +33,7 @@ export default function Footer({ content }: Props) {
           <p className="text-xs text-text-muted">
             &copy; {new Date().getFullYear()} RBJ Global LLC. All rights reserved.
           </p>
-          <div className="flex items-center gap-6 text-xs">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs sm:justify-end">
             <a
               href="/about"
               className="text-text-muted transition-colors duration-200 hover:text-text-primary"
