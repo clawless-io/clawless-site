@@ -1,5 +1,7 @@
 import ScrollReveal from '@/components/effects/ScrollReveal';
 import CtaButton from '@/components/ui/CtaButton';
+import FollowLinkedIn from '@/components/FollowLinkedIn';
+import { PRE_LAUNCH } from '@/config/site';
 import type { HeroContent } from '@/lib/cms-types';
 
 interface Props {
@@ -101,6 +103,24 @@ export default function Hero({ content }: Props) {
                 {secondaryCta.label}
               </a>
             )}
+          </div>
+        )}
+
+        {/* Pre-launch Follow-on-LinkedIn CTA. Gated on NEXT_PUBLIC_PRE_LAUNCH;
+            removed on launch day by flipping the env var to "false" and
+            redeploying. Copy is founder-locked Variant A (2026-05-12).
+            Single-click external link — no LinkedIn JavaScript loads on
+            page view. */}
+        {PRE_LAUNCH && (
+          <div className="relative mx-auto mt-14 max-w-[560px] border-t border-border-light pt-10">
+            <p className="mb-3 text-[18px] font-semibold leading-[1.4] text-text-primary sm:text-[20px]">
+              Clawless is coming Q3 2026.
+            </p>
+            <p className="mb-7 text-[15px] leading-[1.7] text-text-secondary sm:text-base">
+              Want to know when? Follow us on LinkedIn. We don&apos;t collect
+              emails or track this page.
+            </p>
+            <FollowLinkedIn companyId="114564073" variant="primary" />
           </div>
         )}
       </ScrollReveal>

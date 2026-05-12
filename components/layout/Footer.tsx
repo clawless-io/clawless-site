@@ -1,3 +1,4 @@
+import FollowLinkedIn from '@/components/FollowLinkedIn';
 import type { FooterContent } from '@/lib/cms-types';
 
 interface Props {
@@ -86,6 +87,7 @@ export default function Footer({ content }: Props) {
                 RBJ Global
               </a>
             </span>
+            <FollowLinkedIn companyId="114564073" variant="subtle" />
           </div>
         </div>
       </div>
