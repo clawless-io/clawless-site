@@ -26,7 +26,7 @@ export default function PrivacyPage() {
               Privacy
             </h1>
             <p className="mx-auto mt-4 max-w-[520px] text-base leading-relaxed text-text-secondary">
-              Last updated: May 2026
+              Last updated: May 12, 2026
             </p>
           </ScrollReveal>
         </section>
@@ -111,6 +111,16 @@ export default function PrivacyPage() {
                 .
               </p>
               <p className="mb-4 leading-[1.8]">
+                <strong className="text-text-primary">
+                  Follow on LinkedIn link.
+                </strong>{' '}
+                This page includes a link to our LinkedIn company page. We
+                do not load LinkedIn scripts, set cookies, or track visitors
+                on this site. If you click the link, LinkedIn opens in a new
+                tab and LinkedIn&apos;s own privacy practices apply once
+                you&apos;re there.
+              </p>
+              <p className="mb-4 leading-[1.8]">
                 Clawless Computer is intended for adult professional use. We
                 do not knowingly collect personal information from children
                 under 13, and we do not direct this site or the Clawless
@@ -170,6 +180,20 @@ export default function PrivacyPage() {
                 <strong className="text-text-primary">Changelog</strong>
               </p>
               <ul className="ml-6 list-disc space-y-2 leading-[1.8]">
+                <li>
+                  <strong>2026-05-12:</strong> Added a one-paragraph
+                  disclosure for the Follow-on-LinkedIn link shipped on the
+                  hero (pre-launch) and footer. The link opens
+                  linkedin.com/company/clawless-computer in a new tab. No
+                  LinkedIn JavaScript loads on this site; no cookies are
+                  set by us; no visitor activity is tracked. Once a user
+                  reaches LinkedIn, LinkedIn&apos;s own privacy practices
+                  apply. Non-material clarification (no new passive
+                  collection, no new always-engaged subprocessor on this
+                  site); last-updated date bumped per the standing rule,
+                  no version stamp on this page to bump per the
+                  no-version-bumps-pre-launch policy.
+                </li>
                 <li>
                   <strong>2026-05-05:</strong> Cross-link to{' '}
                   <a
