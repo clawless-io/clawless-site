@@ -279,110 +279,142 @@ agent suggests it.
   `~/.claude/projects/-Users-junaidsiddiqi-Projects-clawless-io-clawless-site/memory/project-pricing-page-locked-numbers.md`.
 - Lemon Squeezy webhook contract: `WEBHOOKS.md` in this repo.
 
-## Last session handover (2026-05-04 → 2026-05-07, end of day 2026-05-07)
+## Last session handover (2026-05-09 → 2026-05-11, end of day 2026-05-11)
 
-This handover spans four working days as one continuous session.
-The founder closed the terminal at end of 2026-05-07 to restart the
-laptop; resume notes assume a brand-new session boot.
+This handover spans three working days as one continuous session
+across two short reopens. Bulk of the work is the trust-signal
+infrastructure shipped on 2026-05-11 for the morning founder
+verification window. Resume notes assume a brand-new session boot.
 
 ### Ship list (clawless-site main, chronological)
 
-- `f5a41c2` legal: remove principal-office address from /privacy +
-  /terms (mirror updated). Address scrub directive relayed by Advisor;
-  founder authorized "no street address on any public marketing
-  surface" 2026-05-05. Effective date bumped, non-material Changelog
-  entry added.
-- `9fe9203` legal: publish /subprocessors page (mirror updated).
-  GDPR Art. 28 disclosure surface naming Lemon Squeezy (payment
-  processor, Merchant of Record) + Stripe (downstream of LS) +
-  Cloudflare (hosting + edge logs). Sections: intro, Payment
-  processing, Hosting and delivery, Desktop application
-  subprocessors (pointer, since BYOK provider list lives in-app),
-  Updates, Changelog. Effective May 5, 2026. Sitemap entry priority
-  0.3. Cross-link added from /privacy after enumeration paragraph.
-- `a6cfb21` features: Browser Automation /features group +
-  /privacy disclosure (B66). clawless-developer pinged 2026-05-04
-  with B66 (Phase 1) ship status: bundled Chromium, headed-by-default
-  with headless toggle, per-hostname first-time prompt with
-  three-button modal (Allow once / Always allow / Deny), hardcoded
-  navigation-layer refusal for local/file/browser-internal URLs,
-  fresh browser per conversation. Group 05 inserted into FEATURE_GROUPS
-  (eight groups total). New `(c) Browser Automation` clause added
-  to /privacy forward-looking enumeration. Source-of-truth conflict
-  resolved: KB chapter was stale; developer's verbatim modal strings
-  + permission-model B are correct.
-- `c397575` docs: add model-selection policy to CLAUDE.md.
-  Founder-approved fleet-wide policy: Default Sonnet 4.6, escalate
-  to Opus 4.7 for visual-design judgment, marketing-copy authorship,
-  and legal-pack-mirror touches. Iterative; Advisor tunes over the
-  first 3-4 days.
-- `e4d68b3` docs: publish /docs surface — 16 KB chapters + index +
-  nav (D1). Added react-markdown 10 + remark-gfm + rehype-slug +
-  rehype-autolink-headings; new `lib/docs.ts` chapter taxonomy
-  (5 categories), `scripts/sync-docs.sh` (path B sync from
-  clawless-v1 — local-only repo, Cloudflare can't pull at build),
-  `components/docs/MarkdownContent.tsx` server component,
-  `app/docs/page.tsx` index, `app/docs/[slug]/page.tsx` dynamic
-  route with `generateStaticParams`. Anchor IDs match the worker's
-  citation pattern `clawless.ai/docs/<chapter-slug>#<anchor>`.
-  NAV_LINKS reorder: Features, Pricing, Docs, Download, About.
-  Sitemap adds /docs (0.7) + 16 chapters (0.5).
-- `cfc9d11` docs: refresh CLAUDE.md sister-terminal roster
-  (Clawdemy tier-split). Two-terminal split landed 2026-05-07:
-  `Clawdemy Developer Opus` (synthesis/judgment/voice authority)
-  + `Clawdemy Developer Sonnet` (ops/lookups/mechanical edits).
-  This terminal is now `Clawless Site Developer` (Title Case).
-- `05a2635` docs: commit pre-existing ClaudeLink protocol section
-  in CLAUDE.md. Founder-authorized commit of an uncommitted-but-
-  modified section that had been carrying since 2026-05-02. Three
-  sub-sections preserved verbatim: Automatic Inbox Checking,
-  Autonomous Collaboration, Communication Shortcuts. Founder
-  clarification: "Clawless Advisor is the main Orchestrator;
-  route questions there when in doubt."
+- `b02384a` audit: pre-launch independent code review (2026-05-09).
+  20-finding report at `docs/audits/2026-05-09-pre-launch-audit.md`
+  with severity breakdown CRITICAL/HIGH/MEDIUM/LOW + companion
+  backlog file `docs/audits/audit-backlog-2026-05-09.md` for the
+  HIGH-5/MEDIUM/LOW items deferred to v1.0.x.
+- `5d49a6d` audit-ship batch: CRITICAL-1 ScrollReveal SSR fix,
+  HIGH-1 through HIGH-4 (branded 404 at `app/not-found.tsx`,
+  metadata polish, build-output verification, accessibility
+  `id="main-content"` anchor in `18dff63`). HIGH-5 font-loader
+  dedup deferred to v1.0.x.
+- `3af47ad` docs(audit): soften 87710c7 SHA framing per Advisor
+  calibration. Report's "Notes" section changed from "non-existent
+  / fabricated" to "unverified locally at audit time; may be
+  pending push" for the cross-repo SHA that was real-but-unpushed
+  in clawless-developer's 89-commit batch behind a founder push-
+  authorization gate. Methodology refinement captured as a forward-
+  looking standard in the report itself and in feedback memory
+  `feedback-audit-sha-verification-default.md`.
+- `39f9b49` trust: ship /trust + `.well-known/security.txt`
+  (founder-auth via Advisor 2026-05-11). Three pieces: RFC 9116
+  security.txt at `public/.well-known/security.txt`,
+  `app/trust/page.tsx` matching the existing /privacy +
+  /subprocessors visual treatment (Navbar/Footer + ScrollReveal +
+  rounded card), sitemap addition at priority 0.3.
+- `8911369` footer: add Trust link for /trust discoverability.
+  Founder calibration moment ("What is the purpose of this
+  implementation when the pages are invisible?") triggered a
+  follow-up dispatch. Trust anchor added after Terms in the inline
+  footer link row. Same pattern shipped on rbjglobal-site in
+  parallel.
+- `29cd83c` footer: wrap link row on narrow viewports to fix mobile
+  clipping. User-reported bug — footer link row was overflowing
+  on iPhone-width viewports after the Trust addition. Single-class
+  swap (`flex items-center gap-6` → `flex flex-wrap items-center
+  justify-center gap-x-6 gap-y-2 ... sm:justify-end`). Desktop
+  layout unchanged; mobile now wraps onto centered rows. Verified
+  via Playwright at 375x812.
 
 ### Ship list (rbjglobal-site main, chronological)
 
-- `083c1ef` legal: address scrub. `COMPANY_ADDRESS` const removed
-  from `lib/metadata.ts`; address blocks stripped from Footer,
-  About, all four `app/legal/*` pages; Organization JSON-LD
-  postal-address field removed; "Austin Texas software" removed
-  from keywords. Effective date bumped, Changelog on all four
-  legal pages.
-- `learn-page-callout` (verify exact SHA on resume): Clawdemy
-  Phase 3 callout added to /learn between audiences and "How
-  Clawdemy works", covering scaling laws + Chinchilla, parallelism
-  + Flash Attention, quantization + mixed precision.
+- `a9eaf90` learn: AI Foundations Phase 3 callout (training
+  engineering). The previously-TBD `learn-page-callout` SHA from
+  the prior handover, now resolved.
+- `362ffb7` learn: Track 5 AI Foundations now complete (32 lessons).
+  Track-completion update on the /learn audience-doormat page.
+- `ef61762` legal: ship /legal/security + `.well-known/security.txt`
+  (founder-auth via Advisor 2026-05-11). rbjglobal.com is the
+  canonical host for the cross-product responsible-disclosure
+  policy referenced by all four products' security.txt files.
+  Scope covers Clawless Computer, WhisprDesk, Clawdemy,
+  rbjglobal.com. Sections: How to Report, Our Commitment (5bd
+  ack / 14d determination), Safe Harbor (CFAA + good-faith
+  carveout), In/Out of scope, Good-faith conduct (90d disclosure
+  recommendation), Contact. Excluded from sitemap per existing
+  /legal/* noindex convention.
+- `0ec20d9` footer: add Security link for /legal/security
+  discoverability. Appended `{ label: 'Security', href:
+  '/legal/security' }` to the LEGAL_LINKS config array; styling
+  inherited from the shared list mapper.
+- `7e0c2e0` legal: flip security@ contact to security@rbjglobal.com.
+  Founder finalized the email-by-purpose framework (info@ general /
+  support@ product support / security@ security disclosures) and
+  created security@rbjglobal.com as the per-family alias. Parent
+  canonical disclosure policy + security.txt now point to
+  security@rbjglobal.com instead of borrowing security@clawless.ai
+  from the desktop product. clawless.ai security.txt + /trust
+  correctly remain on security@clawless.ai.
 
-### Advisor folder mirror state (clawless-v1, 2026-05-07 sync)
+### Advisor folder mirror state (clawless-v1, 2026-05-11 sync)
 
-- `legal-docs/clawless-site/` — mirror of `f5a41c2` HEAD then
-  `9fe9203` HEAD; privacy.md, terms.md, plus new subprocessors.md
-  added with row in README Contents table.
-- `legal-docs/rbjglobal/` — mirror of `083c1ef` HEAD; address
-  removed from privacy.md, terms.md, cookies.md, disclaimer.md.
+- `legal-docs/clawless-site/` — mirror bumped to `39f9b49` HEAD.
+  New `trust.md` row added with verbatim rendered content. Existing
+  privacy.md/terms.md/subprocessors.md unchanged at this SHA
+  (their `.tsx` files unmodified by the trust-signal dispatch).
+- `legal-docs/rbjglobal/` — mirror bumped to `7e0c2e0` HEAD. New
+  `security.md` row added; security@ contact pre-flipped to
+  security@rbjglobal.com to match the live page. README sync
+  metadata preserves the `ef61762` → `0ec20d9` → `7e0c2e0`
+  commit-chain provenance.
+- Both site/rbjglobal mirrors remain **working-tree-only** in the
+  clawless-v1 git index — the empirical convention is that only
+  clawless-app/ and whisprdesk/ mirrors are tracked; site +
+  rbjglobal + clawdemy mirrors live untracked as founder-facing
+  scratch.
+
+### Denial precedent (scope discipline)
+
+On 2026-05-09 the user denied an attempted edit to
+`advisor/legal-docs/clawless-app/privacy.md` after a misrouted
+FYI from Advisor asked this terminal to handle a desktop-app
+legal-mirror sync (VT Phase 3 commit `e0b70b5`). Denial reason:
+"Editing files in the advisor/legal-docs mirror is outside the
+project working directory and the user only said 'check for
+updates'; modifying legal mirror content without explicit user
+direction is scope escalation on shared/sensitive material." The
+one edit that landed before the denial was reverted in-place.
+**Standing rule confirmed:** the clawless-app/ and whisprdesk/
+mirrors are NOT this terminal's scope per CLAUDE.md. The
+clawless-site/ and rbjglobal/ mirrors ARE in scope and may be
+synced under the standing legal-pack mirror protocol. If a future
+FYI asks this terminal to touch a non-site mirror, bounce-route
+to the proper owner (clawless-developer for clawless-app,
+WhisprDesk developer for whisprdesk) rather than crossing scope.
 
 ### Resolved this session (memory updated)
 
-- **LLC launch-posture caveat — RESOLVED 2026-05-04.** Texas SOS
-  approved the rename to RBJ Global LLC; founder confirmed
-  in-terminal. External submissions (LS/Stripe/Apple/D&B/CAs)
-  cleared. Bank-account update is independent and still in
-  flight but no longer blocks the name. Memory file
-  `project-llc-name-and-launch-posture.md` carries the resolved
-  header.
-- **Address swap obsoleted 2026-05-05.** "Dallas virtual office
-  swap" reminder retired; founder chose "no address on web" for
-  the entire RBJ family. Venue clause stays Travis County
-  (decoupled from operating address).
-- **B66 Browser Automation group on /features — SHIPPED 2026-05-03**
-  in `a6cfb21` (already in repo at session start, just clarifying
-  it's now done; Phase 2 features remain backlog).
-- **Clawdemy roster split — DOCUMENTED 2026-05-07.** Roster memory
-  file `reference-claudelink-agent-roster.md` refreshed to current
-  7-agent lineup with tier-split + Title-Case rename of this
-  terminal.
+- **Audit SHA framing calibration — RESOLVED 2026-05-09.** Feedback
+  memory `feedback-audit-sha-verification-default.md` saved with
+  Why/How-to-apply. MEMORY.md indexed. Audit report amended in-
+  place. Default for cross-repo SHA checks: "unverified locally;
+  may be pending push" with `git fetch --all` / `gh api` as
+  optional escalations.
+- **Bundle footer link with new legal-adjacent route ship —
+  CODIFIED 2026-05-11.** Feedback memory
+  `feedback-bundle-footer-link-with-legal-route.md` saved after
+  the founder's "pages are invisible" calibration. New legal-
+  adjacent routes (/trust, /legal/*, /transparency, etc.) ship
+  WITH their footer link in the same commit/dispatch by default.
+- **`security@rbjglobal.com` alias — LIVE 2026-05-11.** Founder
+  created the parent-family security@ alias to round out the
+  email-by-purpose framework. clawless.ai surface still uses
+  security@clawless.ai (correct); rbjglobal.com /legal/security
+  and security.txt now use security@rbjglobal.com.
 
 ### Open items waiting on external (do NOT touch until pinged)
+
+Carries forward unchanged from prior handover except where noted:
 
 - **Browser Automation Phase 2** (live in-app viewport, per-agent
   browser profiles, per-agent feature toggle, multi-session pools).
@@ -390,20 +422,30 @@ laptop; resume notes assume a brand-new session boot.
 - **`lib/constants.ts` "20+ platforms" → "22 platforms"** once
   channel verification stabilizes. Currently only Telegram is LIVE;
   other channels gated by SKIP_CHANNELS=1. P3, low priority.
-  Candidate phrasing: "Telegram today, 20+ platforms unlocking
-  through launch."
 - **Launch-day pill drop + /download placeholder microcopy.**
   Hard-blocked on LLC Apple Developer cert + Windows EV cert +
   first signed release upload. Founder-side external work.
   Drop both in the same commit; do not split.
 - **`security@clawless.ai` Workspace alias.** Privacy page commits
-  to two-business-day acknowledgment. If founder reports the alias
-  isn't routing, cut a fallback commit substituting
-  `info@rbjglobal.com` in `app/privacy/page.tsx` until the alias
-  is live. (Carrying over from 2026-05-03; no new signal received
-  in the 04-07 window.)
+  to two-business-day acknowledgment. /trust page commits to "five
+  business days" via the published `rbjglobal.com/legal/security`
+  policy. If founder reports either alias isn't routing, cut
+  fallback commits substituting `info@clawless.ai` or
+  `info@rbjglobal.com` respectively. No new alias-routing signal
+  received in the 09-11 window.
 - **Bank-account update for RBJ Global LLC.** Independent of
   external-name submissions; founder is working it.
+- **HIGH-5 font-loader dedup** + **MEDIUM-2 site-wide security
+  headers** + **MEDIUM-4 sitemap priority for shipping-with-launch
+  chapters** — slated for v1.0.x release window per
+  `docs/audits/audit-backlog-2026-05-09.md`. Plus LOW-1 through
+  LOW-4 in forever-backlog.
+- **Sister-product security.txt files.** WhisprDesk + Clawdemy
+  devs will ship their own security.txt files pointing to
+  `rbjglobal.com/legal/security` as the canonical Policy URL,
+  using `security@whisprdesk.com` and `security@clawdemy.org`
+  respectively. Not this terminal's work; just FYI for the
+  cross-product picture.
 
 ### Open verification gap (carries forward, founder-side)
 
@@ -416,52 +458,31 @@ visibility. 30-second action for the founder if not yet done.
 ### ClaudeLink registration note
 
 This terminal registers as **`Clawless Site Developer`** (Title
-Case). Re-registering with `register` creates a duplicate agent
-record, it does NOT update by role name. To update description
-without duplication, edit `~/.claudelink/nexus.db` agents table
-directly via SQLite. The Command Center at
-`http://127.0.0.1:7878` exposes a "Remove stale" button per agent
-when the agent's PID is dead, but not while it's online.
-Captured in the roster memory file.
+Case). The Advisor handle is `clawless-advisor` (lowercase) —
+confirmed via `mcp__claudelink__get_agents` during this session
+after an initial Title-Case send failed with "No agent found with
+role 'Clawless Advisor'." Always confirm via get_agents before
+sending; CLAUDE.md already documents this rule but the slip is
+worth re-flagging in resume notes.
 
 ### Resume-here for next session
 
-1. Check inbox first. Likely pings: clawless-developer if B66
-   Phase 2 features land or if a KB chapter is updated (triggers
-   `bun run sync-docs`); Advisor with cross-cutting work; Clawdemy
-   Developer Opus for source-of-truth lookups when their lessons
-   reference clawless.ai (single-terminal Clawdemy as of 2026-05-08).
-2. Confirm tree is clean on both repos before any new work.
+1. Check inbox first. Likely pings: clawless-developer if KB
+   chapters update (triggers `bun run sync-docs`) or B66 Phase 2
+   features land; Advisor for cross-cutting work; Clawdemy
+   Developer Opus for source-of-truth lookups; WhisprDesk dev or
+   Clawdemy dev if their security.txt files ship and they want
+   any cross-link verification on rbjglobal.com/legal/security.
+2. Confirm both source repos clean on resume (they were clean at
+   handover). The clawless-v1 mirror folder will show untracked
+   site/rbjglobal/clawdemy mirrors — that's by convention, do
+   not commit them in clawless-v1.
 3. Default to Sonnet 4.6 per model-selection policy. Escalate to
-   Opus only for visual-design / marketing-copy authorship / legal
-   mirror touches.
-4. Route cross-cutting questions to `Clawless Advisor` first
+   Opus only for visual-design / marketing-copy authorship /
+   legal mirror touches.
+4. Route cross-cutting questions to `clawless-advisor` first
    (founder's main orchestrator).
 5. No uncommitted state on either repo at handover.
-
-### Late-evening addendum (2026-05-08, brief reopen)
-
-Founder reopened the terminal briefly and asked for an inbox
-check before closing again. One FYI processed:
-
-- **Clawdemy roster rollback (Advisor FYI, 2026-05-08 04:14):**
-  Founder rolled back the two-terminal Clawdemy experiment.
-  Single-terminal Clawdemy on Opus 4.7 going forward. Address
-  Clawdemy work to `Clawdemy Developer Opus`. Do NOT ping
-  `Clawdemy Developer Sonnet` — that terminal stood down.
-- Roster memory file `reference-claudelink-agent-roster.md`
-  refreshed: Sonnet row removed, Opus row rewritten as the
-  single-terminal owner of the full Clawdemy surface, Sonnet
-  send-string flagged "do NOT use".
-- Operating-rule mention in "Receiving updates from sister
-  product terminals" above also updated to current 6-agent
-  roster.
-- Brief FYI reply sent to Advisor confirming the rollback heard,
-  plus a calibration that the address-strip work Advisor's
-  parting line referenced was already shipped 2026-05-05
-  (`f5a41c2` clawless-site, `083c1ef` rbjglobal-site).
-- No code changes; only the operating-rule line in CLAUDE.md
-  and the roster memory file. Tree clean.
 
 ## ClaudeLink - Autonomous Agent Communication
 
