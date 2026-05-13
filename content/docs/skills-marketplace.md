@@ -45,7 +45,9 @@ If a skill is available to multiple agents, switching agents does not change the
 
 ClawHub is the community marketplace for skills. We curate the listing, but most skills are built by other Clawless users who wanted to share what worked for them.
 
-Open the ClawHub tab inside the Skills panel. The first time you open it, click Sync to pull the catalog. Once synced, you can browse, search, and sort the listing.
+Open the ClawHub tab inside the Skills panel. The first time you open it, click Sync to pull the catalog. The default view shows the top 50 skills by star count, which is what most people want. If you tick "Show all (~1,000)" you'll see the full pulled-down catalog with pagination, sorted however the sort dropdown is set.
+
+While a sync is running you'll see a "Stop sync" button in place of "Sync", handy if you started one and changed your mind, or if the network is slow that day.
 
 Each skill card shows:
 
@@ -53,15 +55,19 @@ Each skill card shows:
 - Stats: star count, install count, downloads, latest version.
 - A few tags so you can spot skills in your interest area.
 
-You can sort the listing by Most Stars, Most Downloads, Most Installs, Trending, or Recently Updated. The search bar above the list runs a deeper match against the catalog so you can find skills by keyword.
+You can sort the listing by Most Stars, Most Downloads, Most Installs, Trending, or Recently Updated. The search bar above the list runs a deeper match against the catalog so you can find skills by keyword. (We need at least two characters before searching.)
+
+Skills you've installed always stay visible in the catalog view, even if a later sync replaces them in the top-1,000 with something more popular. We didn't want a skill you rely on to silently vanish from the library because the community moved on.
 
 ### Installing a ClawHub skill
 
-The launch release of Clawless ships ClawHub in browse-only mode. The Install button is visible on every card but is grayed out with a "coming soon" label, and clicking it is intentionally inert.
+Click the Install button on any card and a permission review window opens. It shows what the skill is, who built it, when it was last updated, the basic stats, and a security check row that confirms ClawHub validated the manifest and Clawless ran a local pattern scan. You can also expand "What this skill does" to read the full skill description before deciding.
 
-The reason: the install flow goes through a security review pass before any community-authored skill lands on your computer. That review surface (a permission summary plus a malware scan) is part of the v1.0.1 fast-follow update. Once that ships, the Install button activates and you'll see the permission summary before anything is written.
+To proceed you tick a small "I've reviewed this skill and trust the source" checkbox, then click Install. That moment of pause is intentional. Community skills are someone else's work landing on your computer; we want you to look before you install.
 
-In the meantime you can browse the catalog freely, save a list of skills you want, and install them as soon as v1.0.1 lands.
+VirusTotal scanning is an optional third layer. It's off by default. You can turn it on in Settings, Security with your own VirusTotal API key (free tier is fine), and from then on every ClawHub install also gets scanned by 70+ antivirus engines before it lands.
+
+We don't track which skills you install. That bit is in the modal footer too.
 
 ## Building your own skill
 
@@ -106,11 +112,11 @@ In the meantime, if you have built a useful skill, you can export it as a file a
 
 **How do I see what tools a skill uses?** Click the skill in the Installed list. The detail view shows the tools, the instructions, and which agents currently have it enabled.
 
-**Are catalog skills safe to install?** ClawHub skills are vetted before they appear in the catalog. Once the v1.0.1 fast-follow ships, every install also goes through a permission summary (so you see exactly what the skill plans to do before it lands) plus a malware scan. Even then, treat them like any third-party recipe: read the description, look at the tools used, and start cautious. A skill that needs file write access can do more than a skill that only reads.
+**Are catalog skills safe to install?** ClawHub skills are vetted before they appear in the catalog. Every install also goes through the permission review (so you see exactly what the skill is + a confirmation checkbox), and ClawHub runs a manifest validation step before publish. Optional third layer: turn on VirusTotal scanning in Settings, Security with your own free API key for an extra antivirus pass on every install. Even with all three layers, treat any community recipe with sensible care: read the description, look at the stats, and start cautious.
 
 **When does the ClawHub catalog refresh?** The catalog syncs to your computer every few hours in the background, and you can press Sync at any time on the ClawHub tab to pull the latest. The catalog itself lives at clawhub.ai; only the catalog data is fetched, never any skill files until you explicitly install one.
 
-**Why is the Install button grayed out?** The launch release ships ClawHub in browse-only mode. The install flow needs a permission summary plus a malware scan before any community-authored code lands on your computer. That setup is in the v1.0.1 fast-follow.
+**What does the permission review modal actually do?** It opens between you clicking Install and anything being written to your computer. It shows the skill's full description, who built it, when it was last updated, and a row of three security checks (manifest validated, Clawless pattern scan, VirusTotal scan if enabled). You confirm by ticking a checkbox; the Install button stays disabled until you do. Cancel at any time and nothing is changed.
 
 **Can a skill use a tool the agent does not have?** No. The agent runs the skill, which means the skill is constrained by whatever tools that agent has access to. If a skill needs WebSearch and your agent has read-only file access, the skill will not work for that agent.
 
