@@ -35,7 +35,11 @@ Click Add on any platform tile. A multi-step wizard walks you through:
 
 1. **Platform-specific token or credentials.** Each platform asks for what it needs: Telegram a bot token, Discord a bot token plus a server pick, Slack an app token, etc. The wizard explains where to get each token, with deep links to the right page on the provider's site.
 2. **Which agent will reply.** Pick from your list of agents. Each channel binds to exactly one agent at launch.
-3. **Direct-message policy.** Choose Open (anyone can DM the bot) or Pairing-required (DMs are blocked unless you explicitly pair the user). Defaults to Pairing-required because anyone-can-DM is a spam vector for public bots.
+3. **Direct-message policy.** Pick one of four modes that control who can chat with the bot:
+   - **Pairing** (default). Anyone who knows a one-time pairing code can chat. Good middle ground for casual sharing.
+   - **Locked.** Only the specific users you list can chat. Most secure. If you pick this, a second field appears for the allowed user IDs (see "How to lock a Telegram bot to just you" below).
+   - **Open.** Anyone who finds the bot's username can chat. Use only when you want public access.
+   - **DMs off.** Direct messages are blocked. The channel stays connected so the bot can still respond in group conversations.
 4. **Confirm and connect.** A test message goes through to verify the connection. If it succeeds, the tile flips to green.
 
 If a step fails (wrong token, server permissions, network issue), the wizard explains what went wrong and what to fix. You do not get cryptic error codes.
@@ -82,19 +86,56 @@ Each platform has its own Setup Wizard step explaining what credential you need 
 
 ## Who can talk to your agent
 
-The single most important channel decision is who is allowed to message the bot.
+The single most important channel decision is who is allowed to message the bot. Four modes are available, all selectable from the DM Policy dropdown in the wizard:
 
-**Open** means anyone with the bot's handle can send it a direct message and the agent will respond. This is appropriate for:
+**Pairing (default).** Anyone who completes a one-time pairing code can chat. To enable a user, you share a small code through a side channel ("here is the code: ABCD-1234"), they message that code to the bot, and the bot recognizes them from then on. Good middle ground when you want a small group of trusted people to use the bot but do not want to look up everyone's user ID by hand.
 
-- A public bot you want anyone to use (a customer-support bot, a community helper).
-- Internal channels where everyone in the workspace is trusted.
+**Locked.** Only the specific user IDs you list can DM the bot. Everyone else is silently rejected before the agent ever sees the message. This is the most secure option, and it is the right starting point for any personal assistant bot you want to keep just to yourself. The next section walks through it step by step.
 
-**Pairing-required (default)** means DMs from unknown users are silently dropped. To enable a user, you pair them: send them a small code through a side channel ("here is the code: ABCD-1234"), they message that code to the bot, and the bot recognizes them from then on. Appropriate for:
+**Open.** Anyone who finds the bot's username on the platform can chat. Use this only when you want public access (a community helper, a customer-support bot). If you turn Open on, expect bot-spam attempts.
 
-- A personal assistant bot you want only you and a few people to reach.
-- Bots in semi-public servers where you do not want randoms spamming.
+**DMs off.** Direct messages are blocked completely. The channel stays connected so the bot can still respond in groups. Useful if you set up a bot to live in a Discord server or Telegram group but do not want any private side conversations.
 
 You can change the policy at any time by editing the channel.
+
+## How to lock a Telegram bot to just you (step by step)
+
+The most common setup for a personal assistant: only **you** can chat with the bot, no one else can even reach it. Here is the exact path through the wizard.
+
+**Step 1. Find your Telegram numeric user ID.**
+
+Telegram users have both a `@username` and a numeric user ID. The bot identifies you by the numeric ID, which never changes (your username can). To find yours, do one of:
+
+- Message [@userinfobot](https://t.me/userinfobot) on Telegram. It replies immediately with your numeric ID (a 9 or 10 digit number, for example `123456789`).
+- Or, after setting up the bot once in Open mode (or temporarily picking Pairing), send any message to your bot from your phone. Then open Clawless, go to the Logs panel, and look for a line containing your message; the numeric ID is recorded there.
+
+Write the number down. You will paste it into the wizard next.
+
+**Step 2. Open the Channel setup or edit screen.**
+
+If this is a new channel: Channels panel, click the Plus icon, pick Telegram. Paste your bot token from BotFather as usual.
+
+If the channel is already configured: Channels panel, expand the Telegram row, click Edit.
+
+**Step 3. Change the DM Policy dropdown to "Locked".**
+
+Scroll to the DM Policy field. Click the dropdown, pick the option labeled **"Locked (only specific users I list)"**. A short helper line appears below the dropdown explaining the implication.
+
+**Step 4. Type your user ID into "Allowed senders".**
+
+A new text field appears called "Allowed senders". Type your numeric ID into it (no quotes, just the digits, for example `123456789`). To allow more than one person, separate IDs with commas (`123456789, 987654321`).
+
+If you leave the field empty, an amber warning appears reminding you that an empty list locks everyone out (including yourself). The Save button stays disabled until you add at least one ID. This is intentional, to prevent you from accidentally locking yourself out of your own bot.
+
+**Step 5. Save.**
+
+Click Review, confirm the summary screen shows your new policy and the user IDs you entered, then click Save Changes. The channel restarts automatically within a second, and the new policy is live.
+
+**Step 6. Verify.**
+
+Send any message to your bot from your own Telegram account. You should get the normal AI reply. Then, if you have a second Telegram account or know someone who does, have them send a message to the same bot. They will get no reply. Their message is rejected at the engine level, before the agent ever sees it. You can also confirm this by looking at the Logs panel: rejected messages show a line like `Blocked unauthorized telegram sender 999999999 (dmPolicy=allowlist)`.
+
+To add or remove allowed users later, edit the channel again and update the comma-separated list. The same Lock-and-allowlist flow works for Discord DMs, WhatsApp, Signal, and the other DM-capable channels; each platform uses its own native numeric ID format.
 
 ## Editing, disabling, removing a channel
 
@@ -113,7 +154,7 @@ This is the right place for:
 - Custom message formatting that the wizard does not expose.
 - Webhook URLs and signing secrets.
 - Tweaking rate limits or retry policies.
-- Setting up channel-specific quirks (Telegram's allowFrom array, Slack's user-vs-bot scopes, etc.).
+- Setting up channel-specific quirks (Slack's user-vs-bot scopes, custom retry policies, advanced streaming options, etc.). Note that the common case of restricting DMs to specific users is now fully handled in the wizard itself, so you no longer need to touch the Config Editor for that.
 
 A red warning sits at the top of the editor: changes here can break the channel. The editor validates JSON before saving, but it cannot validate that what you wrote is what the platform expects. Test after every change.
 
@@ -136,7 +177,7 @@ Every reply an agent sends through a channel is a real AI call against your API 
 Two safeguards we recommend:
 
 - **CostGuard cap.** Set a monthly budget so a runaway public bot cannot drain your card (see [costguard.md](costguard.md)).
-- **Pairing-required policy.** Limit who can DM. Stops bot-spam attacks.
+- **Locked or Pairing DM policy.** Limit who can DM. Stops bot-spam attacks. For a personal bot, Locked is the right default. For a small trusted group, Pairing.
 
 If your bot is in a high-traffic public server, also consider using a smaller model for that channel's agent. The cost difference between a heavyweight and lightweight model is significant in the long run.
 
@@ -163,7 +204,17 @@ Each platform has its own quirks. Common ones:
 
 **Can I see what the bot has been replying?** Yes. Open the agent in the desktop app and look at its conversation history. Channel conversations show up there alongside your own desktop conversations, with a small platform icon to show which channel they came from.
 
-**Can I block a specific user from talking to my open-policy bot?** Yes. Edit the channel and add the user's ID to the block list. The block-list editor is in the Config Editor for now; a friendlier UI is on the post-launch list.
+**What is the Telegram allowlist?** The Telegram allowlist is the comma-separated list of user IDs you put into the "Allowed senders" field when DM Policy is set to "Locked". Only those user IDs can send direct messages to your Telegram bot; everyone else is rejected before the AI ever sees the message. Also called the whitelist, the Locked list, or the allowed-users list. The full step-by-step is in the "How to lock a Telegram bot to just you" section above.
+
+**How do I restrict my Telegram bot so only I can use it?** Edit the channel, change the DM Policy dropdown to "Locked (only specific users I list)", paste your numeric Telegram user ID into the "Allowed senders" field that appears, save. Step-by-step instructions are in the "How to lock a Telegram bot to just you" section above. The same flow works for Discord DMs, WhatsApp, and Signal.
+
+**How do I find my Telegram user ID?** Message [@userinfobot](https://t.me/userinfobot) on Telegram. It replies immediately with your numeric ID. Or, after sending any message to your own bot, look in the Logs panel for the inbound message; your numeric ID is recorded there.
+
+**Can I allow more than one person?** Yes. In the Allowed senders field, separate user IDs with commas: `123456789, 987654321, 111222333`. You can list as many as you need.
+
+**What happens if I leave the Allowed senders field empty when DM Policy is Locked?** The wizard will not let you save. An amber warning appears reminding you that an empty list locks everyone out, including yourself, and the Save button stays disabled until you add at least one ID.
+
+**Can I block a specific user without locking down the whole bot?** A friendlier block-list UI is on the post-launch list. For now, the cleanest way is to switch to Locked mode and add everyone you DO want to allow; everyone else is automatically blocked.
 
 **What is the difference between a channel and a webhook?** A channel is a managed integration with a specific platform (Telegram, Slack, etc.) that handles auth, message format, rate limits, and replies. A webhook is a generic HTTP endpoint where any system can post a message; you handle auth and format on your side. Channels are easier; webhooks are more flexible.
 
