@@ -160,9 +160,17 @@ A red warning sits at the top of the editor: changes here can break the channel.
 
 ## Channels and agents
 
-Every channel is bound to exactly one agent at launch. If you want one agent to answer in three different platforms, you create three channels, all pointed at the same agent. Each one runs independently, so a slow Discord response does not block the Telegram channel.
+Every channel inbound is routed to one of your agents to answer. By default, every DM-capable channel (Telegram, Discord, WhatsApp, Signal, iMessage, Matrix, LINE, Zalo, Microsoft Teams, Google Chat, Mattermost, Synology Chat, Feishu/Lark, Nextcloud Talk, Nostr, WebChat) routes to a dedicated agent called **Channels**. That agent ships with Clawless out of the box, alongside Assistant, Writer, Researcher, Local Helper, Planner, and Tutor in your agent rail.
 
-A useful pattern: have a dedicated agent per channel, even if they share most behavior. Same default model, same memory, but a different system prompt that mentions "you are responding in Telegram" or "you are responding to a public Discord". The agent can subtly tune its voice for the platform.
+Why a separate Channels agent rather than dropping conversations into the agent you happen to be using on the desktop:
+
+- **One predictable home for everything from your phone.** When you message your Telegram bot from outside, the conversation always shows up under Channels in the desktop agent rail. No guessing which agent it landed on.
+- **Phone-aware behavior.** The Channels agent is briefed to keep replies short by default (you're often on a small screen), name the platform context when relevant ("Yes Jay, from Telegram..."), and defer heavy tools until you're back at the desktop.
+- **Clean separation from your task chats.** Your desktop Researcher session stays focused on the research you're doing there. Your Telegram chitchat doesn't bleed into it.
+
+You can see the routing for yourself in the agent rail: open the Channels agent and you'll find one session per channel-and-peer combination, auto-titled with the first real message you (or whoever messaged your bot) sent. Session labels strip the channel envelope automatically, so a session shows up as "Are you there Yes/No" instead of "[Telegram Jay Sidd id:6491763775 +27m Wed 2026-05-13 13:57 CDT] Are you there Yes/No".
+
+Want a specific channel to use a different agent? The per-channel routing override is on the post-launch list. For now, the Channels agent is the right home for every connected channel.
 
 ## Memory and channels
 
@@ -202,7 +210,11 @@ Each platform has its own quirks. Common ones:
 
 **Can two people pair with the same bot?** Yes. A pairing-required channel keeps a list of paired users. You can pair any number of people; each one is independent.
 
-**Can I see what the bot has been replying?** Yes. Open the agent in the desktop app and look at its conversation history. Channel conversations show up there alongside your own desktop conversations, with a small platform icon to show which channel they came from.
+**Where do my Telegram (or other channel) conversations show up on the desktop?** Under the **Channels** agent in the agent rail. The Channels agent ships out of the box for exactly this purpose: every direct-message channel you connect routes here automatically. Open the Channels agent and you'll find one session per channel-and-peer combination, auto-titled with the first real message in that thread.
+
+**Can I see what the bot has been replying?** Yes. Open the **Channels** agent in the desktop app and look at its conversation history. Each conversation is a separate session, labeled with the opening message text. The session also notes which platform it came in from (Telegram, Discord, WhatsApp, and so on).
+
+**Why is the agent in my agent rail called "Channels"?** The Channels agent is the default home for all your phone-side and channel-side conversations. It ships pre-configured with a system prompt that keeps replies short (you're often on a small screen) and names the platform when relevant. You can edit its system prompt the same way you edit any other agent if you want different behavior.
 
 **What is the Telegram allowlist?** The Telegram allowlist is the comma-separated list of user IDs you put into the "Allowed senders" field when DM Policy is set to "Locked". Only those user IDs can send direct messages to your Telegram bot; everyone else is rejected before the AI ever sees the message. Also called the whitelist, the Locked list, or the allowed-users list. The full step-by-step is in the "How to lock a Telegram bot to just you" section above.
 
