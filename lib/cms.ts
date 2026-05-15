@@ -19,7 +19,9 @@ export function getContent(): CmsData {
         tagline:
           'A polished desktop home for OpenClaw, the open-source AI engine, built so everyday users can run agents, models, and tools without a terminal.',
         primaryCta: { label: 'Get Clawless', href: '/download', comingSoon: true },
-        secondaryCta: { label: 'See how it works', href: '#demo' },
+        // Secondary CTA dormant until the walkthrough video ships;
+        // empty strings make Hero's showSecondary conditional false.
+        secondaryCta: { label: '', href: '' },
       },
       zeroData: {
         eyebrow: 'Privacy is the product',
