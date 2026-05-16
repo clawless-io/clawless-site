@@ -53,7 +53,7 @@ DETAIL_COLOR = (71, 85, 105)   # slate-600 #475569
 # Fonts. SF Pro Rounded for the wordmark gives a friendlier feel than
 # stock SF Pro Display; matches whisprdesk's family treatment.
 SF_REGULAR = "/System/Library/Fonts/SFNS.ttf"
-SF_ROUNDED = "/System/Library/Fonts/SFNSRounded.ttf"
+GEORGIA_BOLD = "/Library/Fonts/Supplemental/Georgia Bold.ttf"
 
 
 def load_font(path: str, size: int) -> ImageFont.FreeTypeFont:
@@ -69,10 +69,18 @@ def main() -> None:
     img = Image.new("RGB", (RENDER_W, RENDER_H), BG)
     draw = ImageDraw.Draw(img)
 
-    # Clawless title is 16 chars ("Clawless Computer"), so the family-default
-    # 168px would overflow the 1200-wide canvas. Reducing to 130px keeps the
-    # two-word product name on a single line with visible left/right margin.
-    title_font = load_font(SF_ROUNDED, 130 * SCALE)
+    # Georgia Bold at 168px to match RBJ Global exactly. Founder
+    # feedback 2026-05-16: "Your design should match the way you build
+    # RBJ Global. RBJ Global is the parent, and the rest of them are
+    # siblings, so they should have resemblances." At 168px the stroke
+    # thickness matches RBJ Global's wordmark; at smaller sizes
+    # (previously 120px for "Clawless Computer") the strokes scaled
+    # down proportionally and the visual weight thinned. Title shortened
+    # to "Clawless" (the brand short form) so the family-default 168px
+    # fits the 1200-wide canvas; the "Computer" product suffix is
+    # implied by the clawless.ai URL surface and reinforced by the
+    # tagline "An operating system for AI."
+    title_font = load_font(GEORGIA_BOLD, 168 * SCALE)
     tagline_font = load_font(SF_REGULAR, 68 * SCALE)
     detail_font = load_font(SF_REGULAR, 46 * SCALE)
 
@@ -80,12 +88,11 @@ def main() -> None:
     # Sub-tagline = positioning statement. Keep each line short enough
     # that it survives LinkedIn's 1.91:1 crop (~8% bottom can clip on
     # narrow feed cards without losing the primary tagline).
-    title = "Clawless Computer"
+    title = "Clawless"
     tagline = "An operating system for AI."
     detail = "Built on OpenClaw. Bring your own keys."
 
-    # Title is shorter at 130px so it sits a bit lower for visual centering.
-    title_y = 180 * SCALE
+    title_y = 150 * SCALE
     tagline_y = 360 * SCALE
     detail_y = 480 * SCALE
 
