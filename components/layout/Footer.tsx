@@ -29,6 +29,47 @@ export default function Footer({ content }: Props) {
           <p className="mt-3 text-sm leading-relaxed text-text-muted">{tagline}</p>
         </div>
 
+        {/* Family of products: sibling sites + parent org. Self-excluded. */}
+        <div className="mb-10 border-t border-border-light pt-8 text-center sm:text-left">
+          <p className="mb-3 text-[11px] font-medium uppercase tracking-[0.18em] text-text-muted">
+            Family
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs sm:justify-start">
+            <a
+              href="https://clawdemy.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-secondary transition-colors duration-200 hover:text-text-primary"
+            >
+              Clawdemy
+            </a>
+            <a
+              href="https://whisprdesk.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-secondary transition-colors duration-200 hover:text-text-primary"
+            >
+              WhisprDesk
+            </a>
+            <a
+              href="https://tradingagentslab.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-secondary transition-colors duration-200 hover:text-text-primary"
+            >
+              TradingAgentsLab
+            </a>
+            <a
+              href="https://rbjglobal.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-secondary transition-colors duration-200 hover:text-text-primary"
+            >
+              RBJ Global
+            </a>
+          </div>
+        </div>
+
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-border-light pt-6 sm:flex-row">
           <p className="text-xs text-text-muted">
