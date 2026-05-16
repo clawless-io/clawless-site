@@ -31,8 +31,9 @@ export default function Hero({ content }: Props) {
       <ScrollReveal>
         {/* Wordmark, first impression of the full brand name */}
         <div className="relative mb-6 text-[15px] font-semibold uppercase tracking-[0.18em] text-text-secondary sm:text-base">
-          <span className="text-text-primary">Clawless</span>{' '}
+          <span className="text-text-primary">Clawless</span>
           <span
+            className="ml-2"
             style={{
               background: 'linear-gradient(135deg, var(--color-accent) 0%, var(--color-success) 100%)',
               WebkitBackgroundClip: 'text',

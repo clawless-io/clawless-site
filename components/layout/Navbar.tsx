@@ -39,9 +39,9 @@ export default function Navbar({ content }: Props) {
           <img
             src="/logo-lockup.svg"
             alt=""
-            width={210}
-            height={28}
-            className="hidden h-7 w-auto sm:block"
+            width={270}
+            height={36}
+            className="hidden h-9 w-auto sm:block"
           />
         </a>
 
