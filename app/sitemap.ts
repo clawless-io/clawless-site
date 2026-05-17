@@ -52,29 +52,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    {
-      url: `${SITE_URL}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.3,
-    },
-    {
-      url: `${SITE_URL}/terms`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.3,
-    },
-    {
-      url: `${SITE_URL}/subprocessors`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.3,
-    },
-    {
-      url: `${SITE_URL}/trust`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.3,
-    },
+    // /privacy, /terms, /subprocessors, /trust are intentionally
+    // excluded. Each carries a `noindex,follow` robots meta tag so
+    // crawlers that discover them via footer links do not include
+    // them in search results. Matches the rbjglobal-site pattern.
   ];
 }

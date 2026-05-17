@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Privacy Notice',
   description:
     'Clawless Computer privacy notice. This pre-launch site collects no visitor data beyond standard host-level metadata. RBJ Global LLC operates this site and the upcoming Clawless Computer desktop product.',
+  robots: { index: false, follow: true },
 };
 
 export default function PrivacyPage() {
