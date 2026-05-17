@@ -60,6 +60,14 @@ export default function Footer({ content }: Props) {
               Trading Agents Lab
             </a>
             <a
+              href="https://iluvmd.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-text-secondary transition-colors duration-200 hover:text-text-primary"
+            >
+              iLoveMD
+            </a>
+            <a
               href="https://rbjglobal.com"
               target="_blank"
               rel="noopener noreferrer"
