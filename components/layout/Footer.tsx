@@ -57,7 +57,7 @@ export default function Footer({ content }: Props) {
               rel="noopener noreferrer"
               className="text-text-secondary transition-colors duration-200 hover:text-text-primary"
             >
-              TradingAgentsLab
+              Trading Agents Lab
             </a>
             <a
               href="https://rbjglobal.com"
