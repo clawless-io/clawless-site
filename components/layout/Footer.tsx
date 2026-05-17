@@ -101,6 +101,18 @@ export default function Footer({ content }: Props) {
               Terms
             </a>
             <a
+              href="/refunds"
+              className="text-text-muted transition-colors duration-200 hover:text-text-primary"
+            >
+              Refunds
+            </a>
+            <a
+              href="/acceptable-use"
+              className="text-text-muted transition-colors duration-200 hover:text-text-primary"
+            >
+              Acceptable Use
+            </a>
+            <a
               href="/trust"
               className="text-text-muted transition-colors duration-200 hover:text-text-primary"
             >

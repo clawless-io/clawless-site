@@ -91,21 +91,57 @@ export default function TermsPage() {
               <p className="mb-4 leading-[1.8]">
                 Full terms of service for the Clawless Computer product will
                 be published with the launch and will fully replace this
-                placeholder. Those terms will cover license grant, acceptable
-                use, payment terms, refund policy, warranty disclaimers,
-                indemnity, limitation of liability, governing law, and dispute
-                resolution. Until those terms are published, no purchases are
-                being processed through this site, and no refund obligation
-                can be created. After launch, the then-current refund policy
-                in the published Terms of Service will apply to all purchases.
-                In the event of any conflict between this placeholder and the
-                full terms published at launch, the full terms control from
-                the effective date stated in those terms.
+                placeholder. Those terms will cover license grant, payment
+                terms, warranty disclaimers, indemnity, limitation of
+                liability, governing law, and dispute resolution. Two
+                standalone policies are already published and apply to every
+                purchase from the day they took effect: the{' '}
+                <a
+                  href="/refunds"
+                  className="text-accent underline hover:text-text-primary"
+                >
+                  refund policy
+                </a>{' '}
+                (fourteen-day no-questions-asked window, identical across all
+                plans) and the{' '}
+                <a
+                  href="/acceptable-use"
+                  className="text-accent underline hover:text-text-primary"
+                >
+                  acceptable use policy
+                </a>{' '}
+                (what the app may and may not be used for). In the event of
+                any conflict between this placeholder and the full terms
+                published at launch, the full terms control from the
+                effective date stated in those terms.
               </p>
               <p className="mb-2 mt-8 leading-[1.8]">
                 <strong className="text-text-primary">Changelog</strong>
               </p>
               <ul className="ml-6 list-disc space-y-2 leading-[1.8]">
+                <li>
+                  <strong>2026-05-17:</strong> Refund policy and acceptable
+                  use policy split out into their own pages (
+                  <a
+                    href="/refunds"
+                    className="text-accent underline hover:text-text-primary"
+                  >
+                    /refunds
+                  </a>
+                  ,{' '}
+                  <a
+                    href="/acceptable-use"
+                    className="text-accent underline hover:text-text-primary"
+                  >
+                    /acceptable-use
+                  </a>
+                  ). The forward-looking paragraph that previously bundled
+                  &quot;no refund obligation&quot; into this placeholder was
+                  removed; refund handling now follows the standalone policy
+                  from its effective date. Non-material clarification driven
+                  by Lemon Squeezy KYB requirements; no change to governing
+                  law or venue.
+                </li>
                 <li>
                   <strong>2026-05-05:</strong> Principal-office street
                   address removed from the entity-of-record paragraph. Entity
