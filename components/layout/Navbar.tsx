@@ -30,18 +30,11 @@ export default function Navbar({ content }: Props) {
           className="inline-flex items-center transition-[filter] duration-300 hover:drop-shadow-[0_0_6px_rgba(255,255,255,0.25)]"
         >
           <img
-            src="/logo-mark.svg"
-            alt=""
-            width={32}
-            height={32}
-            className="h-8 w-8 sm:hidden"
-          />
-          <img
             src="/logo-lockup.svg"
             alt=""
             width={270}
             height={36}
-            className="hidden h-9 w-auto sm:block"
+            className="h-6 w-auto sm:h-9"
           />
         </a>
 
