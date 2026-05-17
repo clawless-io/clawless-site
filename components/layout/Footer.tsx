@@ -19,7 +19,7 @@ export default function Footer({ content }: Props) {
             className="inline-flex items-center"
           >
             <img
-              src="/logo-lockup.svg"
+              src="/logo-lockup-footer.svg"
               alt=""
               width={270}
               height={36}
