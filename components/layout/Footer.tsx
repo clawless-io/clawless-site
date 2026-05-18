@@ -29,23 +29,9 @@ export default function Footer({ content }: Props) {
           <p className="mt-3 text-sm leading-relaxed text-text-muted">{tagline}</p>
         </div>
 
-        {/* Family of products. Inline sibling list collapsed to a single
-            link into /family, which lists every sibling with full copy
-            and canonical CTAs. Matches the family-wide rollout pattern. */}
-        <div className="mb-10 border-t border-border-light pt-8 text-center sm:text-left">
-          <p className="mb-3 text-[11px] font-medium uppercase tracking-[0.18em] text-text-muted">
-            Family
-          </p>
-          <a
-            href="/family"
-            className="inline-flex items-center gap-1.5 text-xs text-text-secondary transition-colors duration-200 hover:text-text-primary"
-          >
-            Part of the RBJ Global family
-            <span aria-hidden="true">→</span>
-          </a>
-        </div>
-
-        {/* Bottom bar */}
+        {/* Bottom bar. The /family link lives inline here with the other
+            text-xs links rather than as its own section, to keep the
+            footer compact. */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-border-light pt-6 sm:flex-row">
           <p className="text-xs text-text-muted">
             &copy; {new Date().getFullYear()} RBJ Global LLC. All rights reserved.
@@ -92,6 +78,12 @@ export default function Footer({ content }: Props) {
               className="text-text-muted transition-colors duration-200 hover:text-text-primary"
             >
               Trust
+            </a>
+            <a
+              href="/family"
+              className="text-text-muted transition-colors duration-200 hover:text-text-primary"
+            >
+              Meet the family →
             </a>
             <span className="text-text-muted">
               Built on top of{' '}
