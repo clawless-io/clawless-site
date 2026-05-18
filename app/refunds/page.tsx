@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Refund Policy',
   description:
     'Clawless Computer refund policy. Fourteen-day no-questions-asked window on every purchase, applied identically to monthly, yearly, and lifetime plans. Lemon Squeezy handles the refund transaction.',
+  alternates: { canonical: 'https://clawless.ai/refunds/' },
   robots: { index: false, follow: true },
 };
 

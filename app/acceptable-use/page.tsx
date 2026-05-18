@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Acceptable Use Policy',
   description:
     'Clawless Computer acceptable use policy. What you can do with the app, what you cannot, how the BYOK provider relationship interacts with this policy, and how to report abuse.',
+  alternates: { canonical: 'https://clawless.ai/acceptable-use/' },
   robots: { index: false, follow: true },
 };
 

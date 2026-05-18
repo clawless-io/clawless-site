@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Subprocessors',
   description:
     'The third-party services that run clawless.ai and the purchase flow it links to. Lemon Squeezy as Merchant of Record (with Stripe under the hood), Cloudflare as host.',
+  alternates: { canonical: 'https://clawless.ai/subprocessors/' },
   robots: { index: false, follow: true },
 };
 
