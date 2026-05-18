@@ -52,6 +52,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    {
+      url: `${SITE_URL}/family`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
     // /privacy, /terms, /subprocessors, /trust are intentionally
     // excluded. Each carries a `noindex,follow` robots meta tag so
     // crawlers that discover them via footer links do not include
