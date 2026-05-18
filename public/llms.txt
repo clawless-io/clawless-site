@@ -1,0 +1,62 @@
+# Clawless Computer
+
+> An upcoming local-first BYOK AI desktop computer for macOS. Conversations, memory, agents, and API keys stay on the user's Mac; users connect Anthropic, OpenAI, Google, Groq, or another supported provider with their own key and pay the provider directly. A product of RBJ Global LLC.
+
+Clawless Computer is a native macOS application that gives the user a private AI workspace running entirely on their computer. The app stores conversations, memory entries, agents, skills, and API keys in a local SQLite database in the app data folder. Prompts travel directly from the user's Mac to the AI provider the user has connected with their own API key. Clawless does not proxy provider traffic, log prompts, or hold a copy of the user's work on any server it operates.
+
+## Capabilities
+
+- BYOK provider connections: the user supplies API keys for Anthropic, OpenAI, Google, Groq, and other supported providers; the app sends prompts to the configured provider under that provider's privacy policy
+- Memory: persistent facts the agent remembers about the user, stored locally and editable directly in the app
+- Agents and skills: the user can install and develop their own agents, skills, and tools on top of the application
+- Browser automation: a bundled Chromium the agent can drive to complete web tasks, with session state staying on the user's Mac
+- Local channels integrations: connectors to services that run on the user's computer rather than through a Clawless-operated cloud
+- Help mode (optional, off by default): when enabled, sends typed questions to kb.clawless.ai for documentation answers; the request is not linked to the user's license or account
+
+## Privacy and data model
+
+- Local-first: conversations, settings, memory, agents, skills, and license state all live on the user's Mac
+- The desktop app runs no analytics, crash telemetry, session replay, or fingerprinting
+- The marketing site (clawless.ai) sets no cookies, runs no analytics, and embeds no third-party scripts
+- BYOK provider traffic flows directly from the user's Mac to the provider the user chose
+- License validation calls Lemon Squeezy once per 24 hours while open and once on launch, with a 30-day offline grace window
+- Export everything as a single zip from Settings, Legal, Export My Data, with credentials redacted on export
+- Delete everything (and release the license activation slot) from Settings, Legal, Delete All My Data
+
+## Pricing
+
+- Monthly: $4.95
+- Annual: $50 per year
+- Lifetime: $199 launch price, $299 standard
+- Each license activates on multiple Macs the user owns; the user can deactivate from the in-app license panel or from the Lemon Squeezy customer portal
+
+## Status
+
+- Pre-launch; general availability scheduled for Q3 2026
+- Trust documentation and subprocessor list already published
+
+## Key pages
+
+- [Homepage](https://clawless.ai/)
+- [Features](https://clawless.ai/features)
+- [Pricing](https://clawless.ai/pricing)
+- [Download](https://clawless.ai/download)
+- [Documentation](https://clawless.ai/docs)
+- [About](https://clawless.ai/about)
+- [Trust](https://clawless.ai/trust/): the full data-flow explanation
+- [Subprocessors](https://clawless.ai/subprocessors/): third parties that may receive data
+
+## Family
+
+Clawless is one of several products operated by RBJ Global LLC:
+
+- [RBJ Global](https://rbjglobal.com/): parent company
+- [Clawdemy](https://clawdemy.org/): learning platform
+- [Trading Agents Lab](https://tradingagentslab.ai/): trading research
+- [WhisprDesk](https://whisprdesk.com/): local dictation
+- [iLoveMD](https://iluvmd.com/): privacy-first document converter
+
+## Contact
+
+- General: info@clawless.ai
+- Security: security@clawless.ai (responsible-disclosure policy at https://rbjglobal.com/legal/security)
