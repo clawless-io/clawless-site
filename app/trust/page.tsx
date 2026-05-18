@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Trust',
   description:
     'How Clawless Computer treats your data. What stays on your Mac, what leaves it and where it goes, the subprocessors we engage, and how you verify the claims.',
+  alternates: { canonical: 'https://clawless.ai/trust/' },
   robots: { index: false, follow: true },
 };
 

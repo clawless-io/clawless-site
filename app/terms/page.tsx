@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'Terms of Use',
   description:
     'Clawless Computer terms placeholder. RBJ Global LLC is the operator of the site and the upcoming product. Full terms of service ship with the launch.',
+  alternates: { canonical: 'https://clawless.ai/terms/' },
   robots: { index: false, follow: true },
 };
 
