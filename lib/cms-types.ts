@@ -19,6 +19,8 @@ export interface CtaButtonContent {
 
 export interface HeroContent {
   badgeText: string;
+  /** Small kicker above the headline. Empty/undefined disables it. */
+  eyebrow?: string;
   headline: string[];
   /**
    * Founder-locked positioning hook. Rendered as a punchy sub-headline

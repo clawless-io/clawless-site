@@ -5,7 +5,7 @@ export const SITE_NAME = 'Clawless Computer';
 export const SITE_DESCRIPTION =
   'An operating system for AI. Run agents, models, and tools on your Mac or Ubuntu desktop. Built on top of OpenClaw.';
 
-const DEFAULT_TITLE = 'Clawless Computer, an operating system for AI.';
+const DEFAULT_TITLE = 'Clawless Computer: run AI agents locally on your Mac.';
 
 export const siteMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),

@@ -9,8 +9,15 @@ interface Props {
 }
 
 export default function Hero({ content }: Props) {
-  const { badgeText, headline, tagline, valueProps, primaryCta, secondaryCta } =
-    content;
+  const {
+    badgeText,
+    eyebrow,
+    headline,
+    tagline,
+    valueProps,
+    primaryCta,
+    secondaryCta,
+  } = content;
   const showPrimary = !!primaryCta.label && !!primaryCta.href;
   const showSecondary = !!secondaryCta.label && !!secondaryCta.href;
 
@@ -52,6 +59,14 @@ export default function Hero({ content }: Props) {
           />
           {badgeText}
         </div>
+
+        {/* Eyebrow kicker, the high-level conceptual line above the
+            concrete headline. */}
+        {eyebrow && (
+          <p className="relative mb-4 text-[15px] font-medium tracking-[0.01em] text-text-secondary sm:text-base">
+            {eyebrow}
+          </p>
+        )}
 
         {/* Headline */}
         <h1

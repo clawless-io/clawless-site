@@ -11,12 +11,61 @@ export const metadata = pageMetadata('/pricing/', {
     'Clawless Computer pricing. One plan, three ways to pay: $4.95 monthly, $50 yearly, or $199 founding-member lifetime. Same features at every price. 7-day trial with no card, no email, no account.',
 });
 
+// Pre-launch: every offer is availability PreOrder until GA (Q3 2026), so
+// the schema never asserts the product is purchasable today. priceValidUntil
+// brackets the founding-lifetime window.
+const pricingJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Clawless Computer',
+  applicationCategory: 'DeveloperApplication',
+  operatingSystem: 'macOS, Linux (Ubuntu)',
+  url: 'https://clawless.ai/pricing/',
+  publisher: { '@id': 'https://clawless.ai/#organization' },
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'USD',
+    lowPrice: '4.95',
+    highPrice: '199',
+    offerCount: 3,
+    availability: 'https://schema.org/PreOrder',
+    priceValidUntil: '2026-12-31',
+    offers: [
+      {
+        '@type': 'Offer',
+        name: 'Monthly',
+        price: '4.95',
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/PreOrder',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Annual',
+        price: '50',
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/PreOrder',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Lifetime (founding member)',
+        price: '199',
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/PreOrder',
+      },
+    ],
+  },
+};
+
 export default function PricingPage() {
   const cms = getContent();
   const p = cms.content.pricingPage;
 
   return (
     <div className="relative z-[1]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingJsonLd) }}
+      />
       <Navbar content={cms.content.nav} />
       <main id="main-content" className="mx-auto max-w-[1200px] px-6 sm:px-8">
         {/* ── Page hero ── */}

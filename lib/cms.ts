@@ -13,7 +13,8 @@ export function getContent(): CmsData {
     content: {
       hero: {
         badgeText: 'Coming Q3 2026',
-        headline: ['An operating system', 'for AI.'],
+        eyebrow: 'An operating system for AI',
+        headline: ['Run AI agents on your own Mac,', 'with your own keys.'],
         valueProps:
           'Download. No credit card. No email. No account. 7-day trial.',
         tagline:

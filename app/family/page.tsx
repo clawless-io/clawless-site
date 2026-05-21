@@ -83,23 +83,34 @@ const MEMBERS: FamilyMember[] = [
   },
 ];
 
+// Acyclic @graph: each org is defined once and keyed by @id. Clawless (the
+// host) references RBJ as parent by @id; RBJ lists the four OTHER siblings
+// inline plus Clawless by @id reference. No node inlines its own ancestor,
+// so it's a clean DAG. Family-wide shape adopted 2026-05-20.
 const FAMILY_JSONLD = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'Clawless',
-  url: 'https://clawless.ai/',
-  parentOrganization: {
-    '@type': 'Organization',
-    name: 'RBJ Global LLC',
-    url: 'https://rbjglobal.com/',
-    subOrganization: [
-      { '@type': 'Organization', name: 'Clawless', url: 'https://clawless.ai/' },
-      { '@type': 'Organization', name: 'iLoveMD', url: 'https://iluvmd.com/' },
-      { '@type': 'Organization', name: 'WhisprDesk', url: 'https://whisprdesk.com/' },
-      { '@type': 'Organization', name: 'Trading Agents Lab', url: 'https://tradingagentslab.ai/' },
-      { '@type': 'Organization', name: 'Clawdemy', url: 'https://clawdemy.org/' },
-    ],
-  },
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://clawless.ai/#organization',
+      name: 'Clawless',
+      url: 'https://clawless.ai/',
+      parentOrganization: { '@id': 'https://rbjglobal.com/#organization' },
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://rbjglobal.com/#organization',
+      name: 'RBJ Global LLC',
+      url: 'https://rbjglobal.com/',
+      subOrganization: [
+        { '@type': 'Organization', name: 'iLoveMD', url: 'https://iluvmd.com/' },
+        { '@type': 'Organization', name: 'WhisprDesk', url: 'https://whisprdesk.com/' },
+        { '@type': 'Organization', name: 'Trading Agents Lab', url: 'https://tradingagentslab.ai/' },
+        { '@type': 'Organization', name: 'Clawdemy', url: 'https://clawdemy.org/' },
+        { '@id': 'https://clawless.ai/#organization' },
+      ],
+    },
+  ],
 };
 
 function Glyph({ kind }: { kind: FamilyMember['glyph'] }) {

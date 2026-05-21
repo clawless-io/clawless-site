@@ -177,7 +177,7 @@ export default function AboutPage() {
                 <a
                   href="https://clawdemy.org"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   className="text-text-primary underline transition-colors duration-200 hover:text-accent"
                 >
                   clawdemy.org
@@ -227,7 +227,7 @@ export default function AboutPage() {
                 <a
                   href="https://www.linkedin.com/in/junaidsiddiqi"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   className="text-text-primary underline transition-colors duration-200 hover:text-accent"
                 >
                   LinkedIn
