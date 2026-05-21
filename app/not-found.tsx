@@ -40,7 +40,7 @@ export default function NotFound() {
               Back to home
             </Link>
             <Link
-              href="/docs"
+              href="/docs/"
               className="text-[15px] font-medium text-accent transition-colors duration-200 hover:text-text-primary"
             >
               Browse documentation

@@ -285,7 +285,7 @@ export default function AcceptableUsePage() {
                 between this policy and a license revocation, are covered
                 on the{' '}
                 <a
-                  href="/refunds"
+                  href="/refunds/"
                   className="text-accent underline hover:text-text-primary"
                 >
                   refunds page
@@ -305,7 +305,7 @@ export default function AcceptableUsePage() {
                   Replaces the forward-looking paragraph that previously
                   bundled acceptable-use posture into the{' '}
                   <a
-                    href="/terms"
+                    href="/terms/"
                     className="text-accent underline hover:text-text-primary"
                   >
                     terms placeholder

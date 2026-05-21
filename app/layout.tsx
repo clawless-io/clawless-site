@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
-import { siteMetadata, jsonLd } from '@/lib/metadata';
+import { siteMetadata, organizationJsonLd } from '@/lib/metadata';
 import NoiseOverlay from '@/components/effects/NoiseOverlay';
 import GridBackground from '@/components/effects/GridBackground';
 
@@ -44,7 +44,7 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>
       <body className={inter.className}>

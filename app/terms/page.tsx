@@ -98,7 +98,7 @@ export default function TermsPage() {
                 standalone policies are already published and apply to every
                 purchase from the day they took effect: the{' '}
                 <a
-                  href="/refunds"
+                  href="/refunds/"
                   className="text-accent underline hover:text-text-primary"
                 >
                   refund policy
@@ -106,7 +106,7 @@ export default function TermsPage() {
                 (fourteen-day no-questions-asked window, identical across all
                 plans) and the{' '}
                 <a
-                  href="/acceptable-use"
+                  href="/acceptable-use/"
                   className="text-accent underline hover:text-text-primary"
                 >
                   acceptable use policy
@@ -124,14 +124,14 @@ export default function TermsPage() {
                   <strong>2026-05-17:</strong> Refund policy and acceptable
                   use policy split out into their own pages (
                   <a
-                    href="/refunds"
+                    href="/refunds/"
                     className="text-accent underline hover:text-text-primary"
                   >
                     /refunds
                   </a>
                   ,{' '}
                   <a
-                    href="/acceptable-use"
+                    href="/acceptable-use/"
                     className="text-accent underline hover:text-text-primary"
                   >
                     /acceptable-use

@@ -1,15 +1,24 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ScrollReveal from '@/components/effects/ScrollReveal';
 import { getContent } from '@/lib/cms';
 import { getCategories } from '@/lib/docs';
+import { pageMetadata, SITE_URL } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata('/docs/', {
   title: 'Documentation',
   description:
     'Reference documentation for Clawless Computer. Sixteen chapters covering chat, agents, memory, tools, browser automation, channels, automations, cost control, and security.',
+});
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+    { '@type': 'ListItem', position: 2, name: 'Documentation', item: `${SITE_URL}/docs/` },
+  ],
 };
 
 export default function DocsIndexPage() {
@@ -18,6 +27,10 @@ export default function DocsIndexPage() {
 
   return (
     <div className="relative z-[1]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Navbar content={cms.content.nav} />
       <main id="main-content" className="mx-auto max-w-[1200px] px-6 sm:px-8">
         <section className="pb-12 pt-32 text-center">
@@ -50,7 +63,7 @@ export default function DocsIndexPage() {
                   {category.chapters.map((chapter) => (
                     <li key={chapter.slug}>
                       <Link
-                        href={`/docs/${chapter.slug}`}
+                        href={`/docs/${chapter.slug}/`}
                         className="group block h-full rounded-xl border border-border-light bg-bg-surface p-5 transition-colors duration-150 hover:border-border-default"
                       >
                         <div className="flex items-start justify-between gap-3">

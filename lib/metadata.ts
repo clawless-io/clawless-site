@@ -5,10 +5,12 @@ export const SITE_NAME = 'Clawless Computer';
 export const SITE_DESCRIPTION =
   'An operating system for AI. Run agents, models, and tools on your Mac or Ubuntu desktop. Built on top of OpenClaw.';
 
+const DEFAULT_TITLE = 'Clawless Computer, an operating system for AI.';
+
 export const siteMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Clawless Computer, an operating system for AI.',
+    default: DEFAULT_TITLE,
     template: '%s | Clawless Computer',
   },
   description: SITE_DESCRIPTION,
@@ -32,12 +34,12 @@ export const siteMetadata: Metadata = {
     locale: 'en_US',
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: 'Clawless Computer, an operating system for AI.',
+    title: DEFAULT_TITLE,
     description: SITE_DESCRIPTION,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Clawless Computer, an operating system for AI.',
+    title: DEFAULT_TITLE,
     description: SITE_DESCRIPTION,
   },
   robots: {
@@ -46,12 +48,69 @@ export const siteMetadata: Metadata = {
   },
 };
 
-export const jsonLd = {
+/**
+ * Per-page metadata. Pass a trailing-slash path ('/features/', or '/' for
+ * the homepage) so the canonical matches the URL Next actually emits under
+ * `trailingSlash: true` and never self-references a 308.
+ *
+ * Next.js REPLACES the `openGraph` and `twitter` objects when a child route
+ * defines them (it does not deep-merge), so this helper reconstructs both in
+ * full. Without it, every page inherits the homepage's og:url and card text.
+ */
+export function pageMetadata(
+  path: string,
+  meta: { title?: string; description?: string } = {},
+): Metadata {
+  const url = `${SITE_URL}${path}`;
+  const ogTitle = meta.title ? `${meta.title} | ${SITE_NAME}` : DEFAULT_TITLE;
+  const description = meta.description ?? SITE_DESCRIPTION;
+  return {
+    ...(meta.title ? { title: meta.title } : {}),
+    description,
+    alternates: { canonical: path },
+    openGraph: {
+      type: 'website',
+      locale: 'en_US',
+      url,
+      siteName: SITE_NAME,
+      title: ogTitle,
+      description,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: ogTitle,
+      description,
+    },
+  };
+}
+
+/**
+ * Sitewide publisher identity, injected once in the root layout. Per-page
+ * JSON-LD (SoftwareApplication on the homepage, TechArticle on docs) is
+ * emitted by those pages and references this Organization as publisher.
+ */
+export const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${SITE_URL}/#organization`,
+  name: SITE_NAME,
+  url: `${SITE_URL}/`,
+  logo: `${SITE_URL}/icon.png`,
+  parentOrganization: {
+    '@type': 'Organization',
+    name: 'RBJ Global LLC',
+    url: 'https://rbjglobal.com/',
+  },
+};
+
+/** Homepage-only. operatingSystem reflects the live site's current claim. */
+export const softwareApplicationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
-  name: 'Clawless Computer',
+  name: SITE_NAME,
   applicationCategory: 'DeveloperApplication',
   operatingSystem: 'macOS, Linux (Ubuntu)',
   description: SITE_DESCRIPTION,
-  url: SITE_URL,
+  url: `${SITE_URL}/`,
+  publisher: { '@id': `${SITE_URL}/#organization` },
 };

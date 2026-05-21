@@ -1,15 +1,15 @@
-import type { Metadata } from 'next';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ScrollReveal from '@/components/effects/ScrollReveal';
 import CtaButton from '@/components/ui/CtaButton';
 import { getContent } from '@/lib/cms';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata('/pricing/', {
   title: 'Pricing',
   description:
     'Clawless Computer pricing. One plan, three ways to pay: $4.95 monthly, $50 yearly, or $199 founding-member lifetime. Same features at every price. 7-day trial with no card, no email, no account.',
-};
+});
 
 export default function PricingPage() {
   const cms = getContent();
