@@ -90,7 +90,7 @@ export default function Footer({ content }: Props) {
               <a
                 href={openClawUrl}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 className="underline transition-colors duration-200 hover:text-text-primary"
               >
                 OpenClaw
@@ -101,7 +101,7 @@ export default function Footer({ content }: Props) {
               <a
                 href="https://rbjglobal.com"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 className="underline transition-colors duration-200 hover:text-text-primary"
               >
                 RBJ Global

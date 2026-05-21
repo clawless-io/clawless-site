@@ -53,7 +53,7 @@ const components: Components = {
       <a
         href={href}
         target={isExternal ? '_blank' : undefined}
-        rel={isExternal ? 'noopener noreferrer' : undefined}
+        rel={isExternal ? 'noopener' : undefined}
         className="text-accent underline underline-offset-2 hover:text-text-primary"
       >
         {children}

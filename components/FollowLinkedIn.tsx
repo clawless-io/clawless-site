@@ -20,7 +20,7 @@ export default function FollowLinkedIn({
     <a
       href={`https://www.linkedin.com/company/${companyId}/`}
       target="_blank"
-      rel="noopener noreferrer"
+      rel="noopener"
       className={variant === 'primary' ? primaryClass : subtleClass}
       style={
         variant === 'primary'
