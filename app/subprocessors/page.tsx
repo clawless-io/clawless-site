@@ -140,7 +140,7 @@ export default function SubprocessorsPage() {
                 substantially expand the categories of data a current
                 subprocessor receives will be flagged at the top of{' '}
                 <a
-                  href="/privacy"
+                  href="/privacy/"
                   className="text-accent underline hover:text-text-primary"
                 >
                   /privacy

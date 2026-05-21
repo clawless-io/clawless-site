@@ -105,7 +105,7 @@ export default function PrivacyPage() {
                 purchase flow it links to (Lemon Squeezy as Merchant of
                 Record, Cloudflare as host), see our{' '}
                 <a
-                  href="/subprocessors"
+                  href="/subprocessors/"
                   className="text-accent underline hover:text-text-primary"
                 >
                   subprocessors list
@@ -199,7 +199,7 @@ export default function PrivacyPage() {
                 <li>
                   <strong>2026-05-05:</strong> Cross-link to{' '}
                   <a
-                    href="/subprocessors"
+                    href="/subprocessors/"
                     className="text-accent underline hover:text-text-primary"
                   >
                     /subprocessors

@@ -1,16 +1,16 @@
-import type { Metadata } from 'next';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ScrollReveal from '@/components/effects/ScrollReveal';
 import FeatureGroups from '@/components/sections/FeatureGroups';
 import CtaButton from '@/components/ui/CtaButton';
 import { getContent } from '@/lib/cms';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata('/features/', {
   title: 'Features',
   description:
     'Every feature that ships in Clawless Computer: chat with any AI model, specialized agents, tiered memory, tools and MCP, skills, channels, and scheduled automations. Built on top of OpenClaw and polished for everyday users.',
-};
+});
 
 export default function FeaturesPage() {
   const cms = getContent();

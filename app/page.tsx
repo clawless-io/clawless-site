@@ -7,12 +7,19 @@ import Companion from '@/components/sections/Companion';
 import CtaSection from '@/components/sections/CtaSection';
 import Footer from '@/components/layout/Footer';
 import { getContent } from '@/lib/cms';
+import { pageMetadata, softwareApplicationJsonLd } from '@/lib/metadata';
+
+export const metadata = pageMetadata('/');
 
 export default function HomePage() {
   const cms = getContent();
 
   return (
     <div className="relative z-[1]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationJsonLd) }}
+      />
       <Navbar content={cms.content.nav} />
       <main id="main-content" className="mx-auto max-w-[1200px] px-0">
         <Hero content={cms.content.hero} />

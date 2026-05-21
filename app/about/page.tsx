@@ -1,14 +1,14 @@
-import type { Metadata } from 'next';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ScrollReveal from '@/components/effects/ScrollReveal';
 import { getContent } from '@/lib/cms';
+import { pageMetadata } from '@/lib/metadata';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata('/about/', {
   title: 'About',
   description:
     'Clawless Computer is a companion to OpenClaw, built to bring the open-source AI agent gateway to everyday users through a polished desktop experience. Sister project: a free AI literacy site at clawdemy.org.',
-};
+});
 
 export default function AboutPage() {
   const cms = getContent();

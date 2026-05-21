@@ -164,7 +164,7 @@ export default function TrustPage() {
                 you use Clawless Computer, including each one&apos;s role and
                 when it is engaged, see our{' '}
                 <a
-                  href="/subprocessors"
+                  href="/subprocessors/"
                   className="text-accent underline hover:text-text-primary"
                 >
                   subprocessors page
@@ -229,7 +229,7 @@ export default function TrustPage() {
                 holds, where it lives, and where it travels. The marketing
                 site&apos;s{' '}
                 <a
-                  href="/privacy"
+                  href="/privacy/"
                   className="text-accent underline hover:text-text-primary"
                 >
                   privacy notice

@@ -18,7 +18,7 @@ export function getContent(): CmsData {
           'Download. No credit card. No email. No account. 7-day trial.',
         tagline:
           'A polished desktop home for OpenClaw, the open-source AI engine, built so everyday users can run agents, models, and tools without a terminal.',
-        primaryCta: { label: 'Get Clawless', href: '/download', comingSoon: true },
+        primaryCta: { label: 'Get Clawless', href: '/download/', comingSoon: true },
         // Secondary CTA dormant until the walkthrough video ships;
         // empty strings make Hero's showSecondary conditional false.
         secondaryCta: { label: '', href: '' },
@@ -215,7 +215,7 @@ export function getContent(): CmsData {
         closingHeadline: 'Try Clawless free for 7 days.',
         closingDescription:
           'No credit card. No email. No account. Download, install, paste a provider API key, start chatting. When the trial ends, pick a plan from the in-app upgrade button or keep the app in read-only mode.',
-        closingButton: { label: 'Get Clawless', href: '/download', comingSoon: true },
+        closingButton: { label: 'Get Clawless', href: '/download/', comingSoon: true },
       },
       whoItsFor: {
         sectionLabel: 'Who it is for',
@@ -239,7 +239,7 @@ export function getContent(): CmsData {
         headline: 'Try Clawless free for 7 days.',
         description:
           'No credit card. No email. No signup. Download, install, paste a provider API key, start chatting. When the trial ends, pick a plan from the in-app upgrade button or keep the app in read-only mode.',
-        button: { label: 'Get Clawless', href: '/download', comingSoon: true },
+        button: { label: 'Get Clawless', href: '/download/', comingSoon: true },
       },
       nav: {
         links: NAV_LINKS.map((l) => ({ label: l.label, href: l.href })),

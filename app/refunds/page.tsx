@@ -191,7 +191,7 @@ export default function RefundsPage() {
                 payment side of the transaction. For the list of every
                 third-party service involved in your purchase, see our{' '}
                 <a
-                  href="/subprocessors"
+                  href="/subprocessors/"
                   className="text-accent underline hover:text-text-primary"
                 >
                   subprocessors page
@@ -249,7 +249,7 @@ export default function RefundsPage() {
                   merchant-of-record handling. Replaces the forward-looking
                   paragraph that previously bundled refund posture into the{' '}
                   <a
-                    href="/terms"
+                    href="/terms/"
                     className="text-accent underline hover:text-text-primary"
                   >
                     terms placeholder
