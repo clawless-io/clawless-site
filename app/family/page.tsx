@@ -20,7 +20,7 @@ interface FamilyMember {
   name: string;
   tagline: string;
   description: string;
-  glyph: 'building' | 'document' | 'mic' | 'trending' | 'book';
+  glyph: 'building' | 'document' | 'mic' | 'trending' | 'book' | 'link';
   links: FamilyLink[];
 }
 
@@ -71,6 +71,17 @@ const MEMBERS: FamilyMember[] = [
     ],
   },
   {
+    name: 'ClaudeLink',
+    tagline: 'Coordinate a team of AI coding agents.',
+    glyph: 'link',
+    description:
+      'An open-source MCP server that turns the AI coding agents you already run into one coordinated team across terminals. Claude Code, Codex, Gemini, and Goose share a single message bus; each agent picks its own model. The Clawless posture applied to multi-agent development: local-first, no cloud, no telemetry, MIT licensed. The sibling most likely to interest a Clawless user who runs several agents at once.',
+    links: [
+      { label: 'Visit claudelink.ai', href: 'https://claudelink.ai/' },
+      { label: 'Read the docs', href: 'https://claudelink.ai/docs/' },
+    ],
+  },
+  {
     name: 'Clawdemy',
     tagline: 'Free AI literacy library.',
     glyph: 'book',
@@ -106,6 +117,7 @@ const FAMILY_JSONLD = {
         { '@type': 'Organization', name: 'iLoveMD', url: 'https://iluvmd.com/' },
         { '@type': 'Organization', name: 'WhisprDesk', url: 'https://whisprdesk.com/' },
         { '@type': 'Organization', name: 'Trading Agents Lab', url: 'https://tradingagentslab.ai/' },
+        { '@type': 'Organization', name: 'ClaudeLink', url: 'https://claudelink.ai/' },
         { '@type': 'Organization', name: 'Clawdemy', url: 'https://clawdemy.org/' },
         { '@id': 'https://clawless.ai/#organization' },
       ],
@@ -171,6 +183,14 @@ function Glyph({ kind }: { kind: FamilyMember['glyph'] }) {
         <svg {...common}>
           <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
           <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+        </svg>
+      );
+    case 'link':
+      return (
+        <svg {...common}>
+          <path d="M9 17H7A5 5 0 0 1 7 7h2" />
+          <path d="M15 7h2a5 5 0 0 1 0 10h-2" />
+          <line x1="8" y1="12" x2="16" y2="12" />
         </svg>
       );
   }

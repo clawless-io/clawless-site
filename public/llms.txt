@@ -53,6 +53,7 @@ Clawless is one of several products operated by RBJ Global LLC:
 - [RBJ Global](https://rbjglobal.com/): parent company
 - [Clawdemy](https://clawdemy.org/): learning platform
 - [Trading Agents Lab](https://tradingagentslab.ai/): trading research
+- [ClaudeLink](https://claudelink.ai/): open-source MCP server for coordinating AI coding agents
 - [WhisprDesk](https://whisprdesk.com/): local dictation
 - [iLoveMD](https://iluvmd.com/): privacy-first document converter
 
