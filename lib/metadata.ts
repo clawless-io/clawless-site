@@ -55,8 +55,16 @@ export const siteMetadata: Metadata = {
  *
  * Next.js REPLACES the `openGraph` and `twitter` objects when a child route
  * defines them (it does not deep-merge), so this helper reconstructs both in
- * full. Without it, every page inherits the homepage's og:url and card text.
+ * full, including the og:image — otherwise child routes drop the
+ * file-convention `app/opengraph-image.png` and ship no share card.
  */
+const OG_IMAGE = {
+  url: '/opengraph-image.png',
+  width: 1200,
+  height: 630,
+  alt: SITE_NAME,
+};
+
 export function pageMetadata(
   path: string,
   meta: { title?: string; description?: string } = {},
@@ -75,11 +83,13 @@ export function pageMetadata(
       siteName: SITE_NAME,
       title: ogTitle,
       description,
+      images: [OG_IMAGE],
     },
     twitter: {
       card: 'summary_large_image',
       title: ogTitle,
       description,
+      images: [OG_IMAGE.url],
     },
   };
 }
