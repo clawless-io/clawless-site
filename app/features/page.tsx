@@ -9,7 +9,7 @@ import { pageMetadata } from '@/lib/metadata';
 export const metadata = pageMetadata('/features/', {
   title: 'Features',
   description:
-    'Every feature that ships in Clawless Computer: chat with any AI model, specialized agents, tiered memory, tools and MCP, skills, channels, and scheduled automations. Built on top of OpenClaw and polished for everyday users.',
+    'Every feature in Clawless Computer: chat with any model, specialized agents, tiered memory, tools and MCP, skills, channels, and automations. Built on OpenClaw.',
 });
 
 export default function FeaturesPage() {
