@@ -7,7 +7,7 @@ import { pageMetadata } from '@/lib/metadata';
 export const metadata = pageMetadata('/about/', {
   title: 'About',
   description:
-    'Clawless Computer is a companion to OpenClaw, built to bring the open-source AI agent gateway to everyday users through a polished desktop experience. Sister project: a free AI literacy site at clawdemy.org.',
+    'Clawless Computer is a companion to OpenClaw, bringing the open-source AI agent gateway to everyday users through a calm desktop experience.',
 });
 
 export default function AboutPage() {

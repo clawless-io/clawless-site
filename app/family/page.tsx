@@ -7,7 +7,7 @@ import { getContent } from '@/lib/cms';
 export const metadata: Metadata = {
   title: 'The family',
   description:
-    'Clawless is one of several products from RBJ Global LLC. Meet the parent company plus iLoveMD, WhisprDesk, Trading Agents Lab, and Clawdemy. Privacy-first products, written from one operator, kept distinct on their own domains.',
+    'Clawless is one of several products from RBJ Global LLC: independent, privacy-first software, each kept distinct on its own domain.',
   alternates: { canonical: 'https://clawless.ai/family/' },
 };
 
