@@ -2,8 +2,13 @@ import type { Metadata } from 'next';
 
 export const SITE_URL = 'https://clawless.ai';
 export const SITE_NAME = 'Clawless Computer';
+// SITE_DESCRIPTION carries the privacy posture even after the 2026-05-26
+// homepage redesign demoted the visible privacy section. Keeping the
+// posture in the meta description + structured data preserves the
+// search-side signal so the brand keeps its "privacy-first AI" association
+// in result snippets even when the H1 leads with product value instead.
 export const SITE_DESCRIPTION =
-  'An operating system for AI. Run agents, models, and tools on your Mac or Ubuntu desktop. Built on top of OpenClaw.';
+  'A desktop home for AI agents, models, and tools on your Mac or Ubuntu. No accounts, no telemetry, no cookies. Built on OpenClaw.';
 
 const DEFAULT_TITLE = 'Clawless Computer: run AI agents locally on your Mac.';
 

@@ -18,18 +18,31 @@ export interface CtaButtonContent {
 }
 
 export interface HeroContent {
+  /** Status pill above the headline. Empty string disables. */
   badgeText: string;
   /** Small kicker above the headline. Empty/undefined disables it. */
   eyebrow?: string;
   headline: string[];
   /**
-   * Founder-locked positioning hook. Rendered as a punchy sub-headline
-   * directly below the main headline. Empty string disables it.
+   * Punchy sub-headline directly below the main headline. Empty string
+   * disables it.
    */
   valueProps: string;
   tagline: string;
   primaryCta: CtaButtonContent;
   secondaryCta: CtaButtonContent;
+}
+
+/**
+ * Marquee product-screenshot block sitting beneath the hero. The image
+ * is sourced from /public/screenshots/. If imageSrc is empty, the
+ * ProductShowcase component renders a neutral placeholder so the layout
+ * does not break while the asset is being captured.
+ */
+export interface ProductShowcaseContent {
+  caption: string;
+  imageSrc: string;
+  imageAlt: string;
 }
 
 export interface FeatureItem {
@@ -49,6 +62,15 @@ export interface CtaContent {
   headline: string;
   description: string;
   button?: CtaButtonContent;
+  /**
+   * Optional LinkedIn fold-in block beneath the primary CTA. Gated on
+   * PRE_LAUNCH at the page level; the field can stay populated even when
+   * the flag is off (the gate is in the page, not the data).
+   */
+  linkedInBlock?: {
+    lead: string;
+    companyId: string;
+  };
 }
 
 export interface NavContent {
@@ -195,6 +217,7 @@ export interface ZeroDataContent {
 
 export interface WebsiteContentMap {
   hero: HeroContent;
+  productShowcase: ProductShowcaseContent;
   zeroData: ZeroDataContent;
   features: FeaturesContent;
   featuresPage: FeaturesPageContent;

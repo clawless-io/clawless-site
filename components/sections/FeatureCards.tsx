@@ -92,12 +92,12 @@ export default function FeatureCards({ content }: Props) {
           <SectionHeader label={label} title={title} />
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((feature, i) => {
             const colorKey = feature.color || 'indigo';
             const colors = iconColors[colorKey] || iconColors.indigo;
             return (
-              <ScrollReveal key={feature.title} delay={i * 0.15}>
+              <ScrollReveal key={feature.title} delay={i * 0.1}>
                 <Card className="h-full">
                   <div
                     className="mb-5 flex h-[52px] w-[52px] items-center justify-center rounded-xl transition-shadow duration-300"

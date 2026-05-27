@@ -1,5 +1,7 @@
 import ScrollReveal from '@/components/effects/ScrollReveal';
 import CtaButton from '@/components/ui/CtaButton';
+import FollowLinkedIn from '@/components/FollowLinkedIn';
+import { PRE_LAUNCH } from '@/config/site';
 import type { CtaContent } from '@/lib/cms-types';
 
 interface Props {
@@ -7,7 +9,8 @@ interface Props {
 }
 
 export default function CtaSection({ content }: Props) {
-  const { headline, description, button } = content;
+  const { headline, description, button, linkedInBlock } = content;
+  const showLinkedInBlock = PRE_LAUNCH && !!linkedInBlock;
 
   return (
     <section className="border-b border-border-default px-8 py-20">
@@ -21,6 +24,25 @@ export default function CtaSection({ content }: Props) {
           </p>
           {button && <CtaButton cta={button} />}
         </ScrollReveal>
+
+        {/* Pre-launch LinkedIn fold-in. Gated on NEXT_PUBLIC_PRE_LAUNCH;
+            removed on launch day by flipping the env var to "false" and
+            redeploying. Wording is founder-approved: no "join early access"
+            or waitlist framing, because the privacy posture rules out
+            us-initiated outreach. */}
+        {showLinkedInBlock && linkedInBlock && (
+          <ScrollReveal delay={0.1}>
+            <div className="mx-auto mt-14 max-w-[520px] border-t border-border-light pt-10">
+              <p className="mb-5 text-[15px] leading-[1.6] text-text-secondary sm:text-base">
+                {linkedInBlock.lead}
+              </p>
+              <FollowLinkedIn
+                companyId={linkedInBlock.companyId}
+                variant="primary"
+              />
+            </div>
+          </ScrollReveal>
+        )}
       </div>
     </section>
   );

@@ -1,7 +1,5 @@
 import ScrollReveal from '@/components/effects/ScrollReveal';
 import CtaButton from '@/components/ui/CtaButton';
-import FollowLinkedIn from '@/components/FollowLinkedIn';
-import { PRE_LAUNCH } from '@/config/site';
 import type { HeroContent } from '@/lib/cms-types';
 
 interface Props {
@@ -13,16 +11,18 @@ export default function Hero({ content }: Props) {
     badgeText,
     eyebrow,
     headline,
-    tagline,
     valueProps,
+    tagline,
     primaryCta,
     secondaryCta,
   } = content;
   const showPrimary = !!primaryCta.label && !!primaryCta.href;
   const showSecondary = !!secondaryCta.label && !!secondaryCta.href;
+  const showBadge = !!badgeText;
+  const showValueProps = !!valueProps;
 
   return (
-    <section className="relative overflow-hidden px-8 pb-[100px] pt-[120px] text-center">
+    <section className="relative overflow-hidden px-8 pb-[80px] pt-[120px] text-center">
       {/* Glow orb */}
       <div
         className="pointer-events-none absolute left-1/2 top-[-180px] h-[700px] w-[700px] rounded-full"
@@ -51,14 +51,16 @@ export default function Hero({ content }: Props) {
           </span>
         </div>
 
-        {/* Status pill */}
-        <div className="relative mb-8 inline-flex items-center gap-2 rounded-full border border-border-light bg-bg-surface px-4 py-1.5 text-[13px] font-medium text-text-secondary">
-          <span
-            className="h-1.5 w-1.5 rounded-full bg-success"
-            style={{ animation: 'pulse 2s infinite' }}
-          />
-          {badgeText}
-        </div>
+        {/* Status pill, optional. Empty badgeText disables. */}
+        {showBadge && (
+          <div className="relative mb-8 inline-flex items-center gap-2 rounded-full border border-border-light bg-bg-surface px-4 py-1.5 text-[13px] font-medium text-text-secondary">
+            <span
+              className="h-1.5 w-1.5 rounded-full bg-success"
+              style={{ animation: 'pulse 2s infinite' }}
+            />
+            {badgeText}
+          </div>
+        )}
 
         {/* Eyebrow kicker, the high-level conceptual line above the
             concrete headline. */}
@@ -95,15 +97,17 @@ export default function Hero({ content }: Props) {
           </span>
         </h1>
 
-        {/* Value props, the four-no positioning hook. Locked phrase. */}
-        {valueProps && (
+        {/* Value props, optional. Empty string disables (default after the
+            2026-05-26 redesign). */}
+        {showValueProps && (
           <p className="relative mx-auto mb-5 max-w-[720px] text-[20px] font-semibold leading-[1.4] tracking-[-0.01em] text-text-primary sm:text-[26px]">
             {valueProps}
           </p>
         )}
 
-        {/* Tagline */}
-        <p className="mx-auto mb-10 max-w-[680px] text-base leading-[1.7] tracking-[0.01em] text-text-secondary sm:text-lg">
+        {/* Tagline, the single elevator sentence. Sets up the screenshot
+            block beneath this section. */}
+        <p className="mx-auto mb-10 max-w-[760px] text-base leading-[1.7] tracking-[0.01em] text-text-secondary sm:text-lg">
           {tagline}
         </p>
 
@@ -119,24 +123,6 @@ export default function Hero({ content }: Props) {
                 {secondaryCta.label}
               </a>
             )}
-          </div>
-        )}
-
-        {/* Pre-launch Follow-on-LinkedIn CTA. Gated on NEXT_PUBLIC_PRE_LAUNCH;
-            removed on launch day by flipping the env var to "false" and
-            redeploying. Copy is founder-locked Variant A (2026-05-12).
-            Single-click external link — no LinkedIn JavaScript loads on
-            page view. */}
-        {PRE_LAUNCH && (
-          <div className="relative mx-auto mt-14 max-w-[560px] border-t border-border-light pt-10">
-            <p className="mb-3 text-[18px] font-semibold leading-[1.4] text-text-primary sm:text-[20px]">
-              Clawless is coming Q3 2026.
-            </p>
-            <p className="mb-7 text-[15px] leading-[1.7] text-text-secondary sm:text-base">
-              Want to know when? Follow us on LinkedIn. We don&apos;t collect
-              emails or track this page.
-            </p>
-            <FollowLinkedIn companyId="114564073" variant="primary" />
           </div>
         )}
       </ScrollReveal>

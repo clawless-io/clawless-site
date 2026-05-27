@@ -111,28 +111,37 @@ export const FEATURE_GROUPS = [
   },
 ] as const;
 
-// Three-card row for the home page. Categories are locked; refine wording here.
+// Four-card row for the home page. Categories are locked; refine wording here.
+// Channels is card #4 per founder direction (the differentiator over "everyone
+// has cron"); schedule surfaces as a supporting line inside the Channels card.
 export const FEATURES = [
   {
-    title: 'Chat with any AI model, no terminal needed',
+    title: 'Chat with any AI model',
     description:
-      'Claude, GPT, Gemini, plus 800+ models through OpenRouter. Switch with one click. Bring your own provider keys; conversations stay on your computer.',
+      'Claude, GPT, Gemini, plus 800+ models through OpenRouter. Switch mid-conversation. Bring your own provider keys.',
     icon: 'openrouter' as const,
     color: 'indigo',
   },
   {
-    title: 'Agents that do real work for you',
+    title: 'Agents that remember you',
     description:
-      'A default lineup of specialized agents ships with the app, ready the moment you launch. Build your own with a system prompt and a toolset, and each agent remembers the way you like to work.',
+      'A default lineup of specialized agents, or build your own. Tiered memory keeps the things you tell Clawless once. Skills are reusable instructions, installed like apps.',
     icon: 'swarm' as const,
     color: 'electricCyan',
   },
   {
-    title: 'Memory and skills that grow with you',
+    title: 'Agents that drive a real browser',
     description:
-      'Tiered memory captures the things you tell Clawless once, so you do not have to repeat yourself. Skills are reusable instructions you install or build, the way you would install an app.',
-    icon: 'skills' as const,
+      'Click through a flow, fill a form, read what is on the page. The browser ships with the app, runs on your computer, and asks before visiting any new site.',
+    icon: 'desktop' as const,
     color: 'amber',
+  },
+  {
+    title: 'Reach your agents from anywhere',
+    description:
+      'Telegram, Discord, Slack, and more. Talk to an agent from your phone or your team chat. Schedule recurring prompts to run on cadence, sent back wherever you want them.',
+    icon: 'channels' as const,
+    color: 'indigo',
   },
 ] as const;
 

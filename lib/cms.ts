@@ -12,20 +12,31 @@ export function getContent(): CmsData {
   return {
     content: {
       hero: {
-        badgeText: 'Coming Q3 2026',
-        eyebrow: 'An operating system for AI',
-        headline: ['Run AI agents on your own Mac,', 'with your own keys.'],
-        valueProps:
-          'Download. No credit card. No email. No account. 7-day trial.',
+        // Status pill intentionally empty after the 2026-05-26 redesign. The
+        // visible "real product" signal now comes from the ProductShowcase
+        // block beneath the hero, not from a pre-launch pill.
+        badgeText: '',
+        eyebrow: 'Built to make you an AI power user.',
+        headline: ['Agents that do real work,', 'from your desktop.'],
+        // valueProps line removed from the hero per 2026-05-26 redesign. The
+        // four-no chips remain in the demoted privacy section below.
+        valueProps: '',
         tagline:
-          'A polished desktop home for OpenClaw, the open-source AI engine, built so everyday users can run agents, models, and tools without a terminal.',
+          'Chat with any model. Build agents that remember you. Drive a real browser. Reach you on the platforms you already use.',
         primaryCta: { label: 'Get Clawless', href: '/download/', comingSoon: true },
-        // Secondary CTA dormant until the walkthrough video ships;
-        // empty strings make Hero's showSecondary conditional false.
-        secondaryCta: { label: '', href: '' },
+        secondaryCta: { label: 'Learn more', href: '/features/' },
+      },
+      productShowcase: {
+        caption: 'An agent driving a real browser, from inside Clawless.',
+        // Asset request out to Clawless Developer 2026-05-26; the
+        // ProductShowcase component renders a neutral placeholder while
+        // imageSrc is empty so the layout does not break.
+        imageSrc: '',
+        imageAlt:
+          'Clawless desktop app showing an AI agent driving a web browser in real time, with the agent panel visible alongside the browser pane.',
       },
       zeroData: {
-        eyebrow: 'Privacy is the product',
+        eyebrow: 'How we are different',
         headline: 'We do not ask for anything.',
         lead: 'Most AI apps want at least your email before you can try them. Clawless does not.',
         chips: ['No credit card', 'No email', 'No account', 'No telemetry'],
@@ -241,6 +252,10 @@ export function getContent(): CmsData {
         description:
           'No credit card. No email. No signup. Download, install, paste a provider API key, start chatting. When the trial ends, pick a plan from the in-app upgrade button or keep the app in read-only mode.',
         button: { label: 'Get Clawless', href: '/download/', comingSoon: true },
+        linkedInBlock: {
+          lead: 'No mailing list. Launch news goes out on LinkedIn.',
+          companyId: '114564073',
+        },
       },
       nav: {
         links: NAV_LINKS.map((l) => ({ label: l.label, href: l.href })),
