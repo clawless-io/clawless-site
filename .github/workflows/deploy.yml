@@ -61,4 +61,10 @@ jobs:
           # Public account ID for Jaysidd@yahoo.com's Cloudflare account.
           # Not a secret; safe to commit. Visible in `wrangler whoami`.
           accountId: 8368028f1f2560ac1ad853ef0452bd30
-          command: pages deploy out --project-name=clawless-site --branch=main
+          # Branch alias: github.ref_name is "main" when this workflow is
+          # invoked from main (auto on push or manual workflow_dispatch from
+          # main), landing the deploy on the production alias. From any
+          # other branch via workflow_dispatch, the alias is the branch
+          # name, which gives a CF Pages preview URL like
+          # <branch>.clawless-site.pages.dev for staged review before merge.
+          command: pages deploy out --project-name=clawless-site --branch=${{ github.ref_name }}
