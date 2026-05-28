@@ -27,13 +27,21 @@ export function getContent(): CmsData {
         secondaryCta: { label: 'Learn more', href: '/features/' },
       },
       productShowcase: {
-        caption: 'An agent driving a real browser, from inside Clawless.',
-        // Asset request out to Clawless Developer 2026-05-26; the
+        caption: 'An agent in Clawless driving a real browser on your machine.',
+        // Asset capture is a composite shot: the Clawless app window
+        // beside the headed Chromium it drives, mid-navigation. Caption
+        // tightened from the earlier "from inside Clawless" wording
+        // since B66 Phase 1 runs the browser as a separate process; the
+        // in-app viewport is Phase 2. Demo scenario picked 2026-05-28:
+        // "What is the height of Mount Everest, according to Wikipedia?"
+        // Reasons: Wikipedia is universally recognized, the article is
+        // stable, the infobox is visually dense, no login or CAPTCHA,
+        // the prompt and result both look good frozen mid-action.
         // ProductShowcase component renders a neutral placeholder while
         // imageSrc is empty so the layout does not break.
         imageSrc: '',
         imageAlt:
-          'Clawless desktop app showing an AI agent driving a web browser in real time, with the agent panel visible alongside the browser pane.',
+          'Clawless desktop app on the left showing an AI agent issuing browser tool-calls, beside a Chromium browser window on the right displaying the Wikipedia article on Mount Everest with the infobox visible.',
       },
       zeroData: {
         eyebrow: 'How we are different',
