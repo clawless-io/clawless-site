@@ -12,7 +12,7 @@ export function getContent(): CmsData {
   return {
     content: {
       hero: {
-        badgeText: 'Coming Q3 2026',
+        badgeText: 'Coming soon',
         eyebrow: 'An operating system for AI',
         headline: ['Run AI agents on your own Mac,', 'with your own keys.'],
         valueProps:
@@ -52,19 +52,19 @@ export function getContent(): CmsData {
         privacyHook:
           'No card to start the trial. No email signup. No account.',
         preLaunchBanner:
-          'Pricing locked. Available for purchase when Clawless launches in Q3 2026.',
+          'Pricing locked. Available for purchase when Clawless launches.',
         tiers: [
           {
             name: 'Monthly',
             priceLabel: '$4.95',
             priceNote: 'per month',
-            cta: { label: 'Available Q3 2026', href: '#', comingSoon: true },
+            cta: { label: 'Coming soon', href: '#', comingSoon: true },
           },
           {
             name: 'Yearly',
             priceLabel: '$50',
             priceNote: 'per year, about 16% less than monthly',
-            cta: { label: 'Available Q3 2026', href: '#', comingSoon: true },
+            cta: { label: 'Coming soon', href: '#', comingSoon: true },
           },
           {
             name: 'Lifetime',
@@ -73,7 +73,7 @@ export function getContent(): CmsData {
               'Founding-member price for the first 3 months from public launch. $299 after.',
             badge: 'Founding member',
             highlighted: true,
-            cta: { label: 'Available Q3 2026', href: '#', comingSoon: true },
+            cta: { label: 'Coming soon', href: '#', comingSoon: true },
           },
         ],
         clawdemyCallout: {
@@ -139,7 +139,7 @@ export function getContent(): CmsData {
         privacyHook:
           'Download. No credit card. No email. No account.',
         preLaunchBanner:
-          "Available Q3 2026. Here's what you'll need on day one.",
+          "Coming soon. Here's what you'll need on day one.",
         installFlow: {
           headline: 'How it goes on day one',
           steps: [
@@ -161,7 +161,7 @@ export function getContent(): CmsData {
             versionLabel: 'macOS 13 Ventura or later',
             architectures: ['Apple Silicon', 'Intel x64'],
             cta: {
-              label: 'Available Q3 2026',
+              label: 'Coming soon',
               href: '#',
               comingSoon: true,
             },
@@ -177,7 +177,7 @@ export function getContent(): CmsData {
               '.deb (Ubuntu native package)',
             ],
             cta: {
-              label: 'Available Q3 2026',
+              label: 'Coming soon',
               href: '#',
               comingSoon: true,
             },

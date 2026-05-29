@@ -7,7 +7,7 @@
 
 /**
  * Shared CTA button shape. comingSoon=true renders the CTA as a
- * non-clickable gray span with a "Coming Q3 2026" suffix. When the
+ * non-clickable gray span with a "Coming soon" suffix. When the
  * destination route exists at launch, flip comingSoon to false (or
  * remove it) for the active link rendering.
  */

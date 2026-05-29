@@ -8,7 +8,7 @@ import { pageMetadata } from '@/lib/metadata';
 export const metadata = pageMetadata('/download/', {
   title: 'Download',
   description:
-    'Download Clawless Computer for Mac or Ubuntu. Available Q3 2026. About 200 MB to download, around 500 MB installed. No card, no email, no account to start the 7-day trial.',
+    'Download Clawless Computer for Mac or Ubuntu. Coming soon. About 200 MB to download, around 500 MB installed. No card, no email, no account to start the 7-day trial.',
 });
 
 const osIcons: Record<'macos' | 'windows' | 'linux', React.ReactNode> = {
