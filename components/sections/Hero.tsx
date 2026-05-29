@@ -130,7 +130,7 @@ export default function Hero({ content }: Props) {
         {PRE_LAUNCH && (
           <div className="relative mx-auto mt-14 max-w-[560px] border-t border-border-light pt-10">
             <p className="mb-3 text-[18px] font-semibold leading-[1.4] text-text-primary sm:text-[20px]">
-              Clawless is coming Q3 2026.
+              Clawless is coming soon.
             </p>
             <p className="mb-7 text-[15px] leading-[1.7] text-text-secondary sm:text-base">
               Want to know when? Follow us on LinkedIn. We don&apos;t collect
