@@ -11,7 +11,7 @@ export const metadata = pageMetadata('/pricing/', {
     'Clawless Computer pricing. One plan, three ways to pay: $4.95 monthly, $50 yearly, or $199 founding-member lifetime. Same features at every price. 7-day trial with no card, no email, no account.',
 });
 
-// Pre-launch: every offer is availability PreOrder until GA (Q3 2026), so
+// Pre-launch: every offer is availability PreOrder until GA, so
 // the schema never asserts the product is purchasable today. priceValidUntil
 // brackets the founding-lifetime window.
 const pricingJsonLd = {
