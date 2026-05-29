@@ -4,9 +4,9 @@ interface Props {
   cta: CtaButtonContent;
   /**
    * Override the suffix used on the disabled (coming-soon) state.
-   * Defaults to "Coming Q3 2026" to match the hero pill. Pass an empty
-   * string to render the label alone (e.g. "Available Q3 2026") without
-   * a trailing "· ..." marker.
+   * Defaults to "Coming soon" to match the hero pill. Pass an empty
+   * string to render the label alone (e.g. a CTA already labeled
+   * "Coming soon") without a trailing "· ..." marker.
    */
   comingSoonSuffix?: string;
 }
@@ -25,7 +25,7 @@ interface Props {
  */
 export default function CtaButton({
   cta,
-  comingSoonSuffix = 'Coming Q3 2026',
+  comingSoonSuffix = 'Coming soon',
 }: Props) {
   if (cta.comingSoon) {
     const ariaLabel = comingSoonSuffix
