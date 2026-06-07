@@ -83,10 +83,10 @@ const MEMBERS: FamilyMember[] = [
   },
   {
     name: 'Clawdemy',
-    tagline: 'Free AI literacy library.',
+    tagline: 'Free AI literacy. Learn the math and ML behind your AI tools.',
     glyph: 'book',
     description:
-      'A free, public-facing learning library that explains how AI actually works, written for the non-technical reader. The track on local-first AI maps cleanly onto why a tool like Clawless exists. Useful link to share with a friend or family member who has been asking what the privacy fuss is about.',
+      'A free, public learning library, built as a 24-track curriculum across 310 lessons, that explains how AI actually works for the non-technical reader. It runs from the math under the models to building and running them, and its track on local-first AI maps cleanly onto why a tool like Clawless exists. A good link to share with anyone who has been asking what the privacy fuss is about.',
     links: [
       { label: 'Visit clawdemy.org', href: 'https://clawdemy.org/' },
       { label: 'Browse all tracks', href: 'https://clawdemy.org/tracks/' },

@@ -34,7 +34,7 @@ export default function Footer({ content }: Props) {
             footer compact. */}
         <div className="flex flex-col items-center justify-between gap-4 border-t border-border-light pt-6 sm:flex-row">
           <p className="text-xs text-text-muted">
-            &copy; {new Date().getFullYear()} RBJ Global LLC. All rights reserved.
+            &copy; {new Date().getFullYear()} RBJ Global LLC. Dallas, Texas.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs sm:justify-end">
             <a
