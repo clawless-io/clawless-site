@@ -91,8 +91,8 @@ const MEMBERS: FamilyMember[] = [
       { label: 'Visit clawdemy.org', href: 'https://clawdemy.org/' },
       { label: 'Browse all tracks', href: 'https://clawdemy.org/tracks/' },
       {
-        label: 'Listen on Apple Podcasts',
-        href: 'https://podcasts.apple.com/us/podcast/clawdemy-lessons/id1896899400',
+        label: 'Listen on podcast platforms',
+        href: 'https://clawdemy.org/podcast/',
       },
     ],
   },
