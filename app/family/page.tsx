@@ -20,7 +20,7 @@ interface FamilyMember {
   name: string;
   tagline: string;
   description: string;
-  glyph: 'building' | 'document' | 'mic' | 'trending' | 'book' | 'link';
+  glyph: 'building' | 'document' | 'mic' | 'trending' | 'book' | 'link' | 'grid';
   links: FamilyLink[];
 }
 
@@ -82,6 +82,17 @@ const MEMBERS: FamilyMember[] = [
     ],
   },
   {
+    name: 'Clawddesk',
+    tagline: 'A personal agent command desk on the Claude Agent SDK.',
+    glyph: 'grid',
+    description:
+      'An open-source, local-only command desk for AI agents, built directly on Anthropic’s Claude Agent SDK. It shows how thin the layer becomes when the SDK is the engine: almost every feature maps to one or two options on a single query() call. Like Clawless, it keeps everything on your own machine, with no cloud and no telemetry. MIT licensed, meant to be read and forked.',
+    links: [
+      { label: 'Visit clawddesk.ai', href: 'https://clawddesk.ai/' },
+      { label: 'Read the docs', href: 'https://clawddesk.ai/docs/' },
+    ],
+  },
+  {
     name: 'Clawdemy',
     tagline: 'Free AI literacy. Learn the math and ML behind your AI tools.',
     glyph: 'book',
@@ -122,6 +133,7 @@ const FAMILY_JSONLD = {
         { '@type': 'Organization', name: 'WhisprDesk', url: 'https://whisprdesk.com/' },
         { '@type': 'Organization', name: 'Trading Agents Lab', url: 'https://tradingagentslab.ai/' },
         { '@type': 'Organization', name: 'ClaudeLink', url: 'https://claudelink.ai/' },
+        { '@type': 'Organization', name: 'Clawddesk', url: 'https://clawddesk.ai/' },
         { '@type': 'Organization', name: 'Clawdemy', url: 'https://clawdemy.org/' },
         { '@id': 'https://clawless.ai/#organization' },
       ],
@@ -195,6 +207,14 @@ function Glyph({ kind }: { kind: FamilyMember['glyph'] }) {
           <path d="M9 17H7A5 5 0 0 1 7 7h2" />
           <path d="M15 7h2a5 5 0 0 1 0 10h-2" />
           <line x1="8" y1="12" x2="16" y2="12" />
+        </svg>
+      );
+    case 'grid':
+      return (
+        <svg {...common}>
+          <rect x="3" y="3" width="18" height="18" rx="2" />
+          <line x1="3" y1="9" x2="21" y2="9" />
+          <line x1="9" y1="9" x2="9" y2="21" />
         </svg>
       );
   }
