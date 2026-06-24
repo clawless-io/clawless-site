@@ -34,3 +34,9 @@ yarn-error.log*
 .playwright-mcp/
 test-results/
 playwright-report/
+
+# Internal agent-governance docs, keep OUT of this public repo (founder rule 2026-06-24)
+/CLAUDE.md
+/WEBHOOKS.md
+/legal-review-*.md
+/docs/audits/
