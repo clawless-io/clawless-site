@@ -9,7 +9,7 @@ import { pageMetadata, SITE_URL } from '@/lib/metadata';
 export const metadata = pageMetadata('/docs/', {
   title: 'Documentation',
   description:
-    'Reference documentation for Clawless Computer. Sixteen chapters covering chat, agents, memory, tools, browser automation, channels, automations, cost control, and security.',
+    'Reference documentation for Clawless Computer: chat, agents, memory, tools, browser automation, channels, automations, cost control, and security.',
 });
 
 const breadcrumbJsonLd = {

@@ -113,6 +113,20 @@ export const organizationJsonLd = {
   },
 };
 
+/** Homepage-only WebSite node for entity clarity. No SearchAction: the
+ * marketing site has no on-site search endpoint, so a sitelinks-searchbox
+ * target would be invalid. Publisher references the org by @id (acyclic). */
+export const webSiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE_URL}/#website`,
+  name: SITE_NAME,
+  url: `${SITE_URL}/`,
+  description: SITE_DESCRIPTION,
+  inLanguage: 'en-US',
+  publisher: { '@id': `${SITE_URL}/#organization` },
+};
+
 /** Homepage-only. operatingSystem reflects the live site's current claim. */
 export const softwareApplicationJsonLd = {
   '@context': 'https://schema.org',

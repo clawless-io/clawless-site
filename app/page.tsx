@@ -7,7 +7,7 @@ import Companion from '@/components/sections/Companion';
 import CtaSection from '@/components/sections/CtaSection';
 import Footer from '@/components/layout/Footer';
 import { getContent } from '@/lib/cms';
-import { pageMetadata, softwareApplicationJsonLd } from '@/lib/metadata';
+import { pageMetadata, softwareApplicationJsonLd, webSiteJsonLd } from '@/lib/metadata';
 
 export const metadata = pageMetadata('/');
 
@@ -16,6 +16,10 @@ export default function HomePage() {
 
   return (
     <div className="relative z-[1]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationJsonLd) }}
