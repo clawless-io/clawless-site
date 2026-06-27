@@ -43,8 +43,8 @@ export default function DocsIndexPage() {
             </h1>
             <p className="mx-auto mt-4 max-w-[640px] text-base leading-relaxed text-text-secondary">
               Plain-language reference for everything Clawless Computer does.
-              Sixteen chapters, organized by where they live in the app. Pick
-              the section you need.
+              Organized by where things live in the app. Pick the section you
+              need.
             </p>
           </ScrollReveal>
         </section>
