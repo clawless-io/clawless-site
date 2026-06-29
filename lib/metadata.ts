@@ -111,6 +111,8 @@ export const organizationJsonLd = {
     name: 'RBJ Global LLC',
     url: 'https://rbjglobal.com/',
   },
+  // Numeric LinkedIn company ID (stable; vanity slugs can be reassigned).
+  sameAs: ['https://www.linkedin.com/company/114564073'],
 };
 
 /** Homepage-only WebSite node for entity clarity. No SearchAction: the
