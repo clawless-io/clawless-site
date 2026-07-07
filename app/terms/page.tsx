@@ -28,7 +28,7 @@ export default function TermsPage() {
               Terms
             </h1>
             <p className="mx-auto mt-4 max-w-[520px] text-base leading-relaxed text-text-secondary">
-              Last updated: May 2026
+              Last updated: July 2026
             </p>
           </ScrollReveal>
         </section>
@@ -57,7 +57,7 @@ export default function TermsPage() {
                 published with launch will be governed by the laws of the
                 State of Texas, USA, without regard to its conflict-of-laws
                 principles, with venue in the state or federal courts located
-                in Travis County, Texas. Until those terms are published, no
+                in Dallas County, Texas. Until those terms are published, no
                 contract for the Clawless Computer product exists, and use of
                 this informational site is governed by these placeholder
                 terms.
@@ -120,6 +120,12 @@ export default function TermsPage() {
                 <strong className="text-text-primary">Changelog</strong>
               </p>
               <ul className="ml-6 list-disc space-y-2 leading-[1.8]">
+                <li>
+                  <strong>2026-07-01:</strong> Placeholder venue corrected
+                  from Travis County to Dallas County, Texas, to track the
+                  company&apos;s operating base. Governing law is unchanged
+                  (State of Texas). Non-material, same-state venue correction.
+                </li>
                 <li>
                   <strong>2026-05-17:</strong> Refund policy and acceptable
                   use policy split out into their own pages (
