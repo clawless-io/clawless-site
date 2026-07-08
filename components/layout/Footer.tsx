@@ -44,6 +44,12 @@ export default function Footer({ content }: Props) {
               About
             </a>
             <a
+              href="/support/"
+              className="text-text-muted transition-colors duration-200 hover:text-text-primary"
+            >
+              Support
+            </a>
+            <a
               href="/privacy/"
               className="text-text-muted transition-colors duration-200 hover:text-text-primary"
             >
