@@ -7,7 +7,7 @@ import { getContent } from '@/lib/cms';
 export const metadata: Metadata = {
   title: 'Privacy Notice',
   description:
-    'Clawless Computer privacy notice. This pre-launch site collects no visitor data beyond standard host-level metadata. RBJ Global LLC operates this site and the upcoming Clawless Computer desktop product.',
+    'Clawless Computer privacy notice. This pre-launch site runs one privacy-first, cookieless visit counter and collects nothing that identifies you. RBJ Global LLC operates this site and the upcoming Clawless Computer desktop product.',
   alternates: { canonical: 'https://clawless.ai/privacy/' },
   robots: { index: false, follow: true },
 };
@@ -28,7 +28,7 @@ export default function PrivacyPage() {
               Privacy
             </h1>
             <p className="mx-auto mt-4 max-w-[520px] text-base leading-relaxed text-text-secondary">
-              Last updated: May 12, 2026
+              Last updated: July 12, 2026
             </p>
           </ScrollReveal>
         </section>
@@ -42,17 +42,19 @@ export default function PrivacyPage() {
               <p className="mb-4 leading-[1.8]">
                 This is the pre-launch website for{' '}
                 <strong className="text-text-primary">Clawless Computer</strong>.
-                It is an informational site only. We operate no analytics, no
-                cookies, no tracking scripts, no email signup forms, and no
-                user accounts on this site. We do not associate visits with
-                any identity, and we do not log or analyze visitor traffic
-                ourselves. The site is hosted on Cloudflare Pages, which, like
-                any web host, processes connection metadata such as IP
-                address, user agent, and request timestamp at the network edge
-                for delivery, security, and abuse prevention. We do not
-                access, retain, or analyze that data ourselves. Cloudflare&apos;s
-                processing of that infrastructure data is governed by
-                Cloudflare&apos;s own privacy documentation.
+                It is an informational site only. We use one privacy-first,
+                cookieless analytics counter (Cloudflare Web Analytics,
+                provided by our host) to see how many people visit and which
+                pages are read. It sets no cookies, does not associate visits
+                with any identity, and does not track you across other sites.
+                We run no advertising or behavioral tracking scripts, no email
+                signup forms, and no user accounts on this site. The site is
+                hosted on Cloudflare Pages, which, like any web host, processes
+                connection metadata such as IP address, user agent, and request
+                timestamp at the network edge for delivery, security, and abuse
+                prevention. We do not access, retain, or analyze that edge data
+                ourselves. Cloudflare&apos;s processing of that infrastructure
+                data is governed by Cloudflare&apos;s own privacy documentation.
               </p>
               <p className="mb-4 leading-[1.8]">
                 The site and the upcoming Clawless Computer product are
@@ -149,18 +151,20 @@ export default function PrivacyPage() {
                 <strong className="text-text-primary">
                   Future changes to these practices.
                 </strong>{' '}
-                We currently collect no visitor data on this site. If our
-                practices change in the future, we will update this policy with
-                a new effective date and clear disclosure of what changed. In
-                particular, if we ever add analytics or marketing measurement,
-                we will update this policy first, deploy any consent mechanism
-                required for your jurisdiction, and describe specifically what
-                is collected and why. We commit to updating before changing,
-                not after.
+                On this site, we collect only the anonymous, aggregate visit
+                counts from the cookieless counter described above. If our
+                practices change further, we will update this policy with a new
+                effective date and clear disclosure of what changed. In
+                particular, if we ever add anything that collects personal data
+                or tracks individuals, we will update this policy first, deploy
+                any consent mechanism required for your jurisdiction, and
+                describe specifically what is collected and why. We commit to
+                updating before changing, not after.
               </p>
               <p className="mb-4 leading-[1.8]">
-                Until then there is nothing to disclose, because there is
-                nothing being collected. For privacy questions, contact{' '}
+                What we collect is limited to those anonymous, aggregate visit
+                counts, nothing that identifies you. For privacy questions,
+                contact{' '}
                 <a
                   href="mailto:info@rbjglobal.com"
                   className="text-accent underline hover:text-text-primary"

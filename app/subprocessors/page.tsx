@@ -99,10 +99,11 @@ export default function SubprocessorsPage() {
                 your browser, Cloudflare&apos;s edge processes connection
                 metadata such as your IP address, your User-Agent header, and
                 the path you requested. This is standard web-server-log data,
-                used for delivery and abuse defense. We do not enable
-                Cloudflare&apos;s analytics products on this site, and we do
-                not access Cloudflare&apos;s operational logs to profile
-                visitors, build audiences, or run marketing. Cloudflare&apos;s
+                used for delivery and abuse defense. We enable one Cloudflare
+                analytics product on this site, Cloudflare Web Analytics, a
+                privacy-first, cookieless counter, and nothing more. We do not
+                access Cloudflare&apos;s operational logs to profile visitors,
+                build audiences, or run marketing. Cloudflare&apos;s
                 privacy policy is at{' '}
                 <a
                   href="https://www.cloudflare.com/privacypolicy/"

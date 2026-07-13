@@ -5,6 +5,11 @@ export const SITE_NAME = 'Clawless Computer';
 export const SITE_DESCRIPTION =
   'An operating system for AI. Run agents, models, and tools on your Mac or Ubuntu desktop. Built on top of OpenClaw.';
 
+// Cloudflare Web Analytics: the cookieless, aggregate visit counter disclosed
+// in the privacy notice. This token is PUBLIC by design (it ships in the page
+// HTML); it is NOT a secret. An empty string disables the beacon.
+export const CF_BEACON_TOKEN = '158ab1942af24008a379002a1739f428';
+
 const DEFAULT_TITLE = 'Clawless Computer: run AI agents locally on your Mac.';
 
 export const siteMetadata: Metadata = {

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import localFont from 'next/font/local';
 import './globals.css';
-import { siteMetadata, organizationJsonLd } from '@/lib/metadata';
+import { siteMetadata, organizationJsonLd, CF_BEACON_TOKEN } from '@/lib/metadata';
 import NoiseOverlay from '@/components/effects/NoiseOverlay';
 import GridBackground from '@/components/effects/GridBackground';
 
@@ -54,6 +54,16 @@ export default function RootLayout({
         <GridBackground />
         <NoiseOverlay />
         {children}
+        {/* Cloudflare Web Analytics: cookieless, aggregate visit counter,
+            disclosed in the privacy notice. Renders only when the public
+            beacon token is set. */}
+        {CF_BEACON_TOKEN && (
+          <script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon={JSON.stringify({ token: CF_BEACON_TOKEN })}
+          />
+        )}
       </body>
     </html>
   );

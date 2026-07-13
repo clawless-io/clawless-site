@@ -31,7 +31,7 @@ export function getContent(): CmsData {
         chips: ['No credit card', 'No email', 'No account', 'No telemetry'],
         paragraphs: [
           'Download, install, start a 7-day trial in the app. No signup, no login, no profile. We do not know who you are, by design.',
-          'If we are not collecting anything, there is nothing to leak. No customer database to breach. No mailing list to harvest. No cookies, no analytics, no identifiers. The marketing site is a brochure with a download button.',
+          'There is no customer database to breach and no mailing list to harvest. No cookies, no identifiers, just one cookieless visit counter. The marketing site is a brochure with a download button.',
           'When you pay, Lemon Squeezy handles checkout on their domain as the merchant of record. They take your card. We never see it.',
         ],
       },
@@ -199,7 +199,7 @@ export function getContent(): CmsData {
           body: "About 200 MB to download, around 500 MB once installed. Most of that footprint is a bundled Chromium engine that powers browser-automation features so agents can drive real websites on your behalf. No surprise downloads, no proxy or firewall failure modes after install.",
         },
         trustStrip:
-          'Built and operated by RBJ Global LLC. Built on top of OpenClaw, the open-source AI engine. No telemetry, no analytics, no cookies on this site.',
+          'Built and operated by RBJ Global LLC. Built on top of OpenClaw, the open-source AI engine. No telemetry, no cookies, and only a cookieless visit counter on this site.',
       },
       featuresPage: {
         pageTitle: 'Everything Clawless does.',
