@@ -48,10 +48,17 @@ const components: Components = {
     </p>
   ),
   a: ({ href, children }) => {
-    const isExternal = href?.startsWith('http');
+    // The chapter sources are synced from the knowledge-base corpus, where
+    // cross-references are written as sibling links like `memory-system.md`
+    // or `costguard.md#caps`. Rewrite those to their /docs/<slug>/ routes at
+    // render time; a relative *.md href resolved against /docs/<slug>/ would
+    // otherwise 404.
+    const mdLink = href?.match(/^([a-z0-9-]+)\.md(#.*)?$/);
+    const resolvedHref = mdLink ? `/docs/${mdLink[1]}/${mdLink[2] ?? ''}` : href;
+    const isExternal = resolvedHref?.startsWith('http');
     return (
       <a
-        href={href}
+        href={resolvedHref}
         target={isExternal ? '_blank' : undefined}
         rel={isExternal ? 'noopener' : undefined}
         className="text-accent underline underline-offset-2 hover:text-text-primary"
