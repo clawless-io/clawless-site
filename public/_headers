@@ -1,3 +1,29 @@
+# Cloudflare Pages — security & cache headers.
+# Static export, so headers live here rather than in middleware. Matches the
+# family baseline (rbjglobal / claudelink / clawddesk / whisprdesk / TAL).
+# CSP allows only self plus the cookieless Cloudflare Web Analytics beacon,
+# which is the single external resource any page on this site loads
+# (verified 2026-08-19: every other external URL in the markup is either an
+# outbound anchor href or an XML namespace, not a fetch).
+#
+# NOTE: Strict-Transport-Security is deliberately NOT set here. This zone
+# already sends HSTS from Cloudflare zone settings (max-age=15552000);
+# adding it here too would emit a duplicate header. To raise it to the
+# family standard (max-age=31536000), change it at the zone level in the
+# Cloudflare dashboard, not in this file.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
+
+# Long-cache the hashed Next.js bundles.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Pre-existing: the file-convention OG image needs an explicit content type.
 /opengraph-image
   Content-Type: image/png
   Cache-Control: public, max-age=86400, must-revalidate
