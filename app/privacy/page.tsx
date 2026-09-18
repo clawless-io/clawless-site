@@ -28,7 +28,7 @@ export default function PrivacyPage() {
               Privacy
             </h1>
             <p className="mx-auto mt-4 max-w-[520px] text-base leading-relaxed text-text-secondary">
-              Last updated: July 12, 2026
+              Last updated: September 18, 2026
             </p>
           </ScrollReveal>
         </section>
@@ -116,6 +116,57 @@ export default function PrivacyPage() {
               </p>
               <p className="mb-4 leading-[1.8]">
                 <strong className="text-text-primary">
+                  Reporting an issue from the Clawless Computer app.
+                </strong>{' '}
+                Clawless Computer includes a way to report a problem to us.
+                Nothing is sent unless you press Send, and the app shows you
+                exactly what will be included before you do. The report is
+                received by an endpoint on this domain and passed straight on;
+                there is no report form anywhere on this website, and browsing
+                clawless.ai never sends anything.
+              </p>
+              <p className="mb-4 leading-[1.8]">
+                What a report contains: the description you type, a reply-to
+                email address only if you choose to enter one, and three
+                values the app fills in for you, labelled App version,
+                Operating system, and Engine version, all of which are
+                displayed to you in the dialog before sending. If you
+                separately opt in, a recent log excerpt is attached, capped in
+                size and passed through path masking first. Nothing else is
+                collected, and no report is ever sent on its own.
+              </p>
+              <p className="mb-4 leading-[1.8]">
+                Where it goes: the report is filed as an issue in a private
+                repository we control at GitHub, and a copy is emailed to our
+                support inbox through Resend. Both are listed on our{' '}
+                <a
+                  href="/subprocessors/"
+                  className="text-accent underline hover:text-text-primary"
+                >
+                  subprocessors list
+                </a>
+                . Reports are readable only by RBJ Global LLC. They are kept
+                while we work the issue and are not used for marketing, sold,
+                or shared for advertising.
+              </p>
+              <p className="mb-4 leading-[1.8]">
+                Your IP address is used only to stop the endpoint being
+                flooded, with a limit of five reports per hour. It is hashed
+                with a secret salt, held for one hour, and then gone. The raw
+                address is never written into the issue, the email, or our
+                logs. To have a report deleted, write
+                to{' '}
+                <a
+                  href="mailto:support@clawless.ai"
+                  className="text-accent underline hover:text-text-primary"
+                >
+                  support@clawless.ai
+                </a>{' '}
+                or reply to the thread, and we will remove both the issue and
+                the emailed copy.
+              </p>
+              <p className="mb-4 leading-[1.8]">
+                <strong className="text-text-primary">
                   Follow on LinkedIn link.
                 </strong>{' '}
                 This page includes a link to our LinkedIn company page. We
@@ -151,8 +202,11 @@ export default function PrivacyPage() {
                 <strong className="text-text-primary">
                   Future changes to these practices.
                 </strong>{' '}
-                On this site, we collect only the anonymous, aggregate visit
-                counts from the cookieless counter described above. If our
+                Browsing this site still collects only the anonymous,
+                aggregate visit counts from the cookieless counter described
+                above. The one exception is a report you choose to send from
+                the Clawless Computer app, described earlier, which you
+                initiate and preview before anything leaves your machine. If our
                 practices change further, we will update this policy with a new
                 effective date and clear disclosure of what changed. In
                 particular, if we ever add anything that collects personal data
@@ -162,8 +216,11 @@ export default function PrivacyPage() {
                 updating before changing, not after.
               </p>
               <p className="mb-4 leading-[1.8]">
-                What we collect is limited to those anonymous, aggregate visit
-                counts, nothing that identifies you. For privacy questions,
+                From visitors to this site, what we collect is limited to
+                those anonymous, aggregate visit counts, nothing that
+                identifies you. The only personal information that reaches us
+                through this domain is what you deliberately put in an app
+                issue report and press Send on. For privacy questions,
                 contact{' '}
                 <a
                   href="mailto:info@rbjglobal.com"
@@ -186,6 +243,30 @@ export default function PrivacyPage() {
                 <strong className="text-text-primary">Changelog</strong>
               </p>
               <ul className="ml-6 list-disc space-y-2 leading-[1.8]">
+                <li>
+                  <strong>2026-09-18:</strong> MATERIAL CHANGE, published
+                  before the feature it describes was enabled, per the
+                  commitment in this policy to update before changing.
+                  Clawless Computer gains user-initiated issue reporting.
+                  A report is sent only when you press Send, after the app
+                  shows you what it contains. It is received by an endpoint
+                  on this domain, filed as an issue in a private repository
+                  at GitHub, and emailed to our support inbox through Resend.
+                  GitHub and Resend are added to the{' '}
+                  <a
+                    href="/subprocessors/"
+                    className="text-accent underline hover:text-text-primary"
+                  >
+                    subprocessors list
+                  </a>{' '}
+                  as part of this change. Your IP address is used only for
+                  rate limiting, as a salted hash held one hour, and is
+                  never written to the issue, the email, or our logs. No
+                  report form is added to this website, and browsing
+                  clawless.ai still collects nothing beyond the anonymous,
+                  aggregate visit counts already described. Last-updated date
+                  bumped.
+                </li>
                 <li>
                   <strong>2026-05-12:</strong> Added a one-paragraph
                   disclosure for the Follow-on-LinkedIn link shipped on the

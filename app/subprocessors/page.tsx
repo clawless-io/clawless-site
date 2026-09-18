@@ -7,7 +7,7 @@ import { getContent } from '@/lib/cms';
 export const metadata: Metadata = {
   title: 'Subprocessors',
   description:
-    'The third-party services that run clawless.ai and the purchase flow it links to. Lemon Squeezy as Merchant of Record (with Stripe under the hood), Cloudflare as host.',
+    'The third-party services that run clawless.ai and the purchase flow it links to. Lemon Squeezy as Merchant of Record (with Stripe under the hood), Cloudflare as host, and GitHub plus Resend for issue reports sent from the app.',
   alternates: { canonical: 'https://clawless.ai/subprocessors/' },
   robots: { index: false, follow: true },
 };
@@ -28,7 +28,7 @@ export default function SubprocessorsPage() {
               Subprocessors
             </h1>
             <p className="mx-auto mt-4 max-w-[520px] text-base leading-relaxed text-text-secondary">
-              Effective: May 5, 2026
+              Effective: September 18, 2026
             </p>
           </ScrollReveal>
         </section>
@@ -132,6 +132,66 @@ export default function SubprocessorsPage() {
               </p>
 
               <p className="mb-2 mt-8 leading-[1.8]">
+                <strong className="text-text-primary">
+                  Issue reports sent from the Clawless Computer app
+                </strong>
+              </p>
+              <p className="mb-4 leading-[1.8]">
+                These two services receive data only when a user of the
+                Clawless Computer app chooses to send us an issue report and
+                presses Send. Browsing clawless.ai never reaches either of
+                them, and there is no report form on this website. What a
+                report contains, and how to have one deleted, is described on
+                our{' '}
+                <a
+                  href="/privacy/"
+                  className="text-accent underline hover:text-text-primary"
+                >
+                  privacy page
+                </a>
+                .
+              </p>
+              <p className="mb-4 leading-[1.8]">
+                <strong className="text-text-primary">GitHub</strong>{' '}
+                (GitHub, Inc., a Microsoft company) stores each report as an
+                issue in a private repository that only RBJ Global LLC can
+                read. What it receives is the report you typed, the
+                App version, Operating system, and Engine version values shown
+                to you before sending, a reply-to email address if you entered
+                one, and a size-capped, path-masked log excerpt if you opted
+                in. It does
+                not receive your IP address. GitHub&apos;s privacy statement
+                is at{' '}
+                <a
+                  href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+                  className="text-accent underline hover:text-text-primary"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  docs.github.com
+                </a>
+                .
+              </p>
+              <p className="mb-4 leading-[1.8]">
+                <strong className="text-text-primary">Resend</strong>{' '}
+                (Plus Five Five, Inc.) delivers a copy of the same report to
+                our support inbox by email, so a person sees it promptly. It
+                receives the same content as the issue and does not receive
+                your IP address. We do not use Resend for marketing email,
+                newsletters, or any message you did not start. Resend&apos;s
+                privacy policy is at{' '}
+                <a
+                  href="https://resend.com/legal/privacy-policy"
+                  className="text-accent underline hover:text-text-primary"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  resend.com/legal/privacy-policy
+                </a>
+                .
+              </p>
+
+              <p className="mb-2 mt-8 leading-[1.8]">
                 <strong className="text-text-primary">Updates</strong>
               </p>
               <p className="mb-4 leading-[1.8]">
@@ -164,6 +224,14 @@ export default function SubprocessorsPage() {
                 <strong className="text-text-primary">Changelog</strong>
               </p>
               <ul className="ml-6 list-disc space-y-2 leading-[1.8]">
+                <li>
+                  <strong>2026-09-18:</strong> Added GitHub and Resend, both
+                  engaged only when a user of the Clawless Computer app
+                  chooses to send an issue report. Published before the
+                  feature was enabled, per the update-before-changing
+                  commitment on the privacy page. New subprocessors, so this
+                  is flagged as a material change; effective date bumped.
+                </li>
                 <li>
                   <strong>2026-05-05:</strong> Initial publication. Lemon
                   Squeezy named as Merchant of Record (Stripe disclosed as
