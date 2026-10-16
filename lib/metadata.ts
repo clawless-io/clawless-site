@@ -111,11 +111,12 @@ export const organizationJsonLd = {
   name: SITE_NAME,
   url: `${SITE_URL}/`,
   logo: `${SITE_URL}/icon.png`,
-  parentOrganization: {
-    '@type': 'Organization',
-    name: 'RBJ Global LLC',
-    url: 'https://rbjglobal.com/',
-  },
+  // Reference the parent by @id, not by name+url. An @id reference lets a
+  // crawler merge this node with RBJ Global's own Organization node into one
+  // entity; an inline {name, url} object only restates a name and leaves the
+  // two unlinked. app/family/page.tsx already used the @id form, so the
+  // homepage was the weaker of our two emissions.
+  parentOrganization: { '@id': 'https://rbjglobal.com/#organization' },
   // Numeric LinkedIn company ID (stable; vanity slugs can be reassigned).
   sameAs: ['https://www.linkedin.com/company/114564073'],
 };
