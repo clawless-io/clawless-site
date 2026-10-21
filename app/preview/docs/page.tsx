@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { PageHead, Arrow } from '@/components/oss/Shell';
-import { DOCS, blob, tree } from '@/components/oss/content';
+import { DOCS, tree } from '@/components/oss/content';
 
 export const metadata: Metadata = { title: 'Docs' };
 
@@ -19,20 +20,20 @@ export default function Docs() {
               <p className="oss-eyebrow">{g.group}</p>
               <div className="mt-5 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
                 {g.items.map(([slug, title, desc]) => (
-                  <a key={slug} href={blob(`docs/knowledge-base/${slug}.md`)} className="oss-card group block p-5 transition-transform hover:-translate-y-0.5">
+                  <Link key={slug} href={`/preview/docs/${slug}/`} className="oss-card group block p-5 transition-transform hover:-translate-y-0.5">
                     <p className="font-semibold text-[var(--oss-ink)]">{title}</p>
                     <p className="oss-small mt-1">{desc}</p>
                     <span className="oss-mono mt-4 inline-flex items-center gap-1 text-[0.7rem] text-[var(--oss-muted)] group-hover:text-[var(--oss-accent)]">
-                      {slug}.md <Arrow size={11} />
+                      Read <Arrow size={11} />
                     </span>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
           ))}
         </div>
         <a href={tree('docs/knowledge-base')} className="oss-btn mt-14">
-          Browse the knowledge base on GitHub <Arrow />
+          View the knowledge base on GitHub <Arrow />
         </a>
       </section>
     </>

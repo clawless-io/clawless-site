@@ -1,0 +1,146 @@
+# Skills Marketplace
+
+`[Live]`
+
+Skills are the way Clawless agents go from "good at chatting" to "good at specific jobs you do over and over." This chapter explains what a skill is, how it differs from a tool, how to install one from the ClawHub catalog, and how to build your own.
+
+## What is a skill
+
+A skill is a small, named recipe that tells an agent how to do a specific job well. Each skill bundles three things: a clear set of instructions, the right tools to do the job, and a trigger so the agent knows when to use it.
+
+A useful way to think about it: tools are verbs (read, write, search, click). Skills are jobs (summarize a meeting transcript, draft a weekly review, check if a domain is taken, plan a product launch). When you give your agent a skill, you are giving it a colleague who already knows how that job should be done.
+
+The classic agent-without-skills experience is "explain the same workflow every conversation." Skills are how you stop doing that.
+
+## How skills differ from tools and from agents
+
+These three concepts are easy to confuse at first.
+
+- **A tool is a verb.** It does one specific thing in the world: read a file, search the web, run a command. Tools are low-level. The agent picks them as it works.
+- **A skill is a job.** It combines instructions and the right tools for a recurring task. Skills are higher-level. They bundle a whole approach into something the agent can invoke as a unit.
+- **An agent is a person.** It has a personality, a default model, and a set of tools and skills available to it. Agents use skills.
+
+So: agents have skills, skills have tools.
+
+## The Skills panel
+
+Open the Skills panel from the navigation rail (the small lightbulb icon).
+
+You see three tabs:
+
+- **Browse.** Your starter pack of skills that ship with Clawless. The list shows what's ready to use, what needs setup, and what is disabled. A search bar narrows the list and a small toggle reveals the "advanced" skills that need an API key or a token to finish setting up.
+- **Skill Builder.** A simple form for writing your own skill. Name, description, instructions, the tools it should use, and a save button.
+- **ClawHub.** The community catalog of skills built by other Clawless users. Browse, search, and sort by popularity, downloads, or how recently they were updated.
+
+## Using a skill in chat
+
+Two ways:
+
+1. **The agent picks automatically.** When you ask something that matches an installed skill's trigger, the agent runs the skill's instructions instead of improvising. You see a small chip in the reply showing which skill was used.
+2. **You ask for it explicitly.** Type `/` in the chat input to bring up the slash menu. Available skills appear there. Pick one and your message is sent with that skill applied.
+
+If a skill is available to multiple agents, switching agents does not change the skill behavior. The skill is the same recipe; only the agent's other instructions wrap around it differently.
+
+## The ClawHub catalog
+
+ClawHub is the community marketplace for skills. We curate the listing, but most skills are built by other Clawless users who wanted to share what worked for them.
+
+Open the ClawHub tab inside the Skills panel. At the top you'll see a "Recommended" row of cards we hand-pick as a good starting point if you're not sure what to try first. These are skills that work without much setup and that we've used ourselves. The row hides as soon as you type a search or switch to "Show all", so it stays out of the way once you know what you're looking for.
+
+Below Recommended is the catalog itself. Clawless downloads it from ClawHub automatically the first time you use the Skills catalog, then refreshes it every few hours while the app is open; you can also click Sync to refresh it right away. The default view shows the top 50 skills by star count, which is what most people want. If you tick "Show all (~1,000)" you'll see the full pulled-down catalog with pagination, sorted however the sort dropdown is set.
+
+While a sync is running you'll see a "Stop sync" button in place of "Sync", handy if you started one and changed your mind, or if the network is slow that day.
+
+Each skill card shows:
+
+- The skill's name and a short summary of what it does.
+- Stats: star count, install count, downloads, latest version.
+- A few tags so you can spot skills in your interest area.
+
+You can sort the listing by Most Stars, Most Downloads, Most Installs, Trending, or Recently Updated. The search bar above the list runs a deeper match against the catalog so you can find skills by keyword. (We need at least two characters before searching.)
+
+Skills you've installed always stay visible in the catalog view, even if a later sync replaces them in the top-1,000 with something more popular. We didn't want a skill you rely on to silently vanish from the library because the community moved on.
+
+### Installing a ClawHub skill
+
+Click the Install button on any card and a permission review window opens. It shows what the skill is, who built it, when it was last updated, the basic stats, and a security check row that confirms ClawHub validated the manifest and Clawless ran a local pattern scan. You can also expand "What this skill does" to read the full skill description before deciding.
+
+To proceed you tick a small "I've reviewed this skill and trust the source" checkbox, then click Install. That moment of pause is intentional. Community skills are someone else's work landing on your computer; we want you to look before you install.
+
+VirusTotal scanning is an optional third layer. It's off by default. You can turn it on in Settings, Security with your own VirusTotal API key (free tier is fine), and from then on every ClawHub install also gets scanned by 70+ antivirus engines before it lands.
+
+We don't track which skills you install. That bit is in the modal footer too.
+
+## Building your own skill
+
+Click New Skill in the Skills panel to open the Skill Builder.
+
+The Builder is a small form with these fields:
+
+- **Name.** The label that shows up in the Skills panel and in the slash menu.
+- **Description.** One sentence on what the skill does. This is what the agent reads when deciding whether to use it.
+- **Trigger.** Optional. A short hint to the agent about when to invoke it (for example "when the user asks for a meeting summary" or "any time the user mentions invoicing").
+- **Instructions.** The recipe itself. Write it as if you were teaching a colleague to do the job. Be specific about steps, formats, edge cases.
+- **Tools used.** Which tools the agent should use when running this skill. Pulled from the available tool list.
+
+Click Save and your skill is available to your agents immediately. You can test it in chat right away and iterate on the instructions until the output is what you want.
+
+### Tips for writing a good skill
+
+A good skill is short, concrete, and reusable.
+
+1. **Write the instructions like a recipe.** Numbered steps. Specific outputs. Format expectations.
+2. **Avoid moving targets.** Do not put dates, names, or one-off context into the skill itself. Those go in your message or in memory.
+3. **Test before sharing.** Run the skill on three or four different inputs to make sure it produces the result you want.
+4. **Keep the trigger specific.** A vague trigger like "when the user asks a question" will fire on everything and frustrate you. A specific trigger like "when the user shares a meeting transcript and asks for a summary" hits its target.
+
+## Where skills live
+
+Installed skills live on your computer in the Clawless data folder, alongside your agents and conversations. They are not uploaded anywhere unless you explicitly publish a skill back to the catalog.
+
+If you delete a skill, it is removed from your Installed list immediately. You can reinstall from the catalog at any time.
+
+## Sharing your skill
+
+Clawless lets you keep skills on your computer and use them across your agents. Publishing your own skill back to the ClawHub catalog for others to install is not built yet.
+
+In the meantime, if you have built a useful skill, you can export it as a file and send it to someone who can import it manually. The Skill Builder has an Export button that produces a single file with the whole recipe.
+
+## When an agent suggests a new skill
+
+Agents can notice when they keep doing the same kind of work over and over. When that happens, an agent can offer to save that pattern as a reusable skill, so it does not have to figure it out from scratch next time.
+
+This is off by default. To turn it on, open Settings, choose Skills, and switch on "Let agents suggest new skills". You can also set how many repeats an agent should see before it offers a suggestion. A higher number means fewer suggestions.
+
+When an agent has a suggestion, it appears at the top of the Skills panel as a proposal to review. Each proposal shows the suggested name, a short description, and which agent suggested it. You decide what happens:
+
+- **Approve** saves the skill so that agent can use it going forward.
+- **Reject** discards the suggestion and nothing is saved.
+
+Nothing is ever written without your approval. A suggestion stays a suggestion until you press Approve.
+
+One thing worth knowing: making a suggestion uses one short, extra AI request behind the scenes. If you signed in with a subscription plan (for example OpenAI or Claude), that request counts toward your plan's usage the same way a normal message does. That is why the feature stays off until you choose to turn it on.
+
+## Common questions
+
+**What is the difference between a skill and an agent?** A skill is the job description; an agent is the colleague. Many agents can use the same skill. One agent can have many skills.
+
+**Can two agents share a skill?** Yes. Skills are not bound to a single agent. Enable the skill on whichever agents should have it.
+
+**How do I see what tools a skill uses?** Click the skill in the Installed list. The detail view shows the tools, the instructions, and which agents currently have it enabled.
+
+**Are catalog skills safe to install?** ClawHub skills are vetted before they appear in the catalog. Every install also goes through the permission review (so you see exactly what the skill is + a confirmation checkbox), and ClawHub runs a manifest validation step before publish. Optional third layer: turn on VirusTotal scanning in Settings, Security with your own free API key for an extra antivirus pass on every install. Even with all three layers, treat any community recipe with sensible care: read the description, look at the stats, and start cautious.
+
+**When does the ClawHub catalog refresh?** The catalog syncs to your computer every few hours in the background, and you can press Sync at any time on the ClawHub tab to pull the latest. The catalog itself lives at clawhub.ai; only the catalog data is fetched, never any skill files until you explicitly install one.
+
+**What does the permission review modal actually do?** It opens between you clicking Install and anything being written to your computer. It shows the skill's full description, who built it, when it was last updated, and a row of three security checks (manifest validated, Clawless pattern scan, VirusTotal scan if enabled). You confirm by ticking a checkbox; the Install button stays disabled until you do. Cancel at any time and nothing is changed.
+
+**Can a skill use a tool the agent does not have?** No. The agent runs the skill, which means the skill is constrained by whatever tools that agent has access to. If a skill needs WebSearch and your agent has read-only file access, the skill will not work for that agent.
+
+**Can the same skill behave differently on two different agents?** Yes, in a soft way. The agent's personality and other instructions wrap around every skill it runs. A skill called "Summarize" will produce a more formal summary on a Writer agent and a more bullet-pointed one on a Planner agent, even though the recipe is identical.
+
+**Can I version-control my custom skills?** Skill files are plain text. Power users can keep them in git or any other tool. We do not do that for you, but the format is friendly to it.
+
+**What happens to skills if I uninstall Clawless?** Installed skill files live in the Clawless data folder. Uninstalling the app does not wipe the data folder by default, so the skills are still there if you reinstall. If you wipe the data folder manually, you would need to reinstall your skills from the catalog.
+
+**What is the difference between a skill and a sub-agent?** A sub-agent is a separate agent that the main agent can spawn for a sub-task. A skill is a recipe that one agent runs as part of its own work. Sub-agent orchestration is not built yet; skills are available today.

@@ -136,16 +136,16 @@ export function Footer() {
           links={[
             ['Source on GitHub', REPO],
             ['Releases', `${REPO}/releases`],
-            ['Contributing', blob('CONTRIBUTING.md')],
-            ['Contributor License Agreement', blob('CLA.md')],
+            ['Contributing', `${P}/contributing/`],
+            ['Contributor License Agreement', `${P}/cla/`],
           ]}
         />
         <FooterCol
           title="Trust"
           links={[
-            ['Privacy', blob('PRIVACY.md')],
-            ['Security', blob('SECURITY.md')],
-            ['License', blob('LICENSE')],
+            ['Privacy', `${P}/privacy/`],
+            ['Security', `${P}/security/`],
+            ['License', `${P}/license/`],
           ]}
         />
         <FooterCol

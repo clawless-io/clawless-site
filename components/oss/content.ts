@@ -2,7 +2,7 @@
  * Single source of truth for every factual claim on the open-source redesign.
  *
  * RULE: every claim carries the path in the PUBLIC open-source tree that backs
- * it (RBJGlobal/clawless-computer, renamed from RBJGlobal/clawless; tree reviewed at commit 4e02af4, "Clawless 6.0.0: open
+ * it (RBJGlobal/clawless-computer, renamed from RBJGlobal/clawless; claims checked against 4e02af4, docs synced from ca20b05, "Clawless 6.0.0: open
  * source release"). Never source from the private repo, its CLAUDE.md,
  * architecture notes, or advisor documents. If a claim cannot point at a public
  * path, it does not ship.
