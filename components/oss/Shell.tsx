@@ -143,9 +143,11 @@ export function Footer() {
         <FooterCol
           title="Trust"
           links={[
-            ['Privacy', `${P}/privacy/`],
-            ['Security', `${P}/security/`],
-            ['License', `${P}/license/`],
+            ['Legal', `${P}/legal/`],
+            ['Website privacy', `${P}/privacy/`],
+            ['App privacy', `${P}/privacy/app/`],
+            ['Security and trust', `${P}/trust/`],
+            ['Support', `${P}/support/`],
           ]}
         />
         <FooterCol
