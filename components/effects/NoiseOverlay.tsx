@@ -1,6 +1,11 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
+
 export default function NoiseOverlay() {
+  // The open-source redesign under /preview/ has its own light/dark surfaces;
+  // this dark command-center overlay must not bleed into it.
+  if (usePathname()?.startsWith('/preview')) return null;
   return (
     <div
       className="pointer-events-none fixed inset-0 z-[9999]"

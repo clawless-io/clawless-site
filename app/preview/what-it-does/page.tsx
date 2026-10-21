@@ -1,0 +1,33 @@
+import type { Metadata } from 'next';
+import { PageHead, Source } from '@/components/oss/Shell';
+import { FEATURES } from '@/components/oss/content';
+
+export const metadata: Metadata = { title: 'What it does' };
+
+export default function WhatItDoes() {
+  return (
+    <>
+      <PageHead
+        eyebrow="What it does"
+        title="Everything the engine can do, behind an interface you do not have to configure by hand."
+        lede="Each feature below is live in the current release and documented in the knowledge base that ships with the source. Follow any link to read the full chapter."
+      />
+      <section className="oss-wrap py-20">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {FEATURES.map((f, i) => (
+            <article key={f.key} className="oss-card flex flex-col justify-between p-6">
+              <div>
+                <span className="oss-mono text-[0.72rem] text-[var(--oss-accent)]">{String(i + 1).padStart(2, '0')}</span>
+                <h2 className="oss-h3 mt-3">{f.title}</h2>
+                <p className="oss-body mt-2 !text-[0.95rem]">{f.body}</p>
+              </div>
+              <div className="mt-6">
+                <Source path={f.doc} />
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}

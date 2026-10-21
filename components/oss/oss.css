@@ -1,0 +1,167 @@
+/*
+ * Open-source redesign: design tokens + a small set of semantic classes.
+ *
+ * Two directions for the founder to choose between, toggled by
+ * html[data-oss-theme]:
+ *   light  (default; his lean, in the register of Anthropic and OpenAI)
+ *   dark   (the Trading Agents Lab register)
+ *
+ * Accent comes from the canonical mark: green #22FFAA. On light it is too pale
+ * for text, so text and links use a darker green that passes WCAG AA, and the
+ * bright brand green is reserved for fills, rules and glows.
+ *
+ * Plain CSS on purpose (no @apply), so this file needs no Tailwind processing.
+ */
+
+.oss {
+  /* LIGHT, revised after the founder's review: the Vercel / Figma / Stripe
+     register. Pure cool white, neutral zinc greys with no warmth, crisp 1px
+     borders instead of soft shadows. The earlier warm off-white (#fbfbf9)
+     read as the same palette as rbjglobal.com, so the two sites blurred. */
+  --oss-bg: #ffffff;
+  --oss-surface: #ffffff;
+  --oss-surface-2: #fafafa;
+  --oss-ink: #0a0a0a;
+  --oss-ink-2: #3f3f46;
+  --oss-muted: #71717a;
+  --oss-line: rgba(0, 0, 0, 0.08);
+  --oss-line-strong: rgba(0, 0, 0, 0.15);
+  --oss-accent: #067a4c;
+  --oss-accent-bright: #22ffaa;
+  --oss-accent-soft: rgba(34, 255, 170, 0.18);
+  --oss-accent-ink: #04140d;
+  --oss-code-bg: #fafafa;
+  --oss-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --oss-radius: 12px;
+  --oss-warn-bg: #fff7e0;
+  --oss-warn-ink: #6b4e00;
+  --oss-warn-line: #f0d68a;
+
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  background: var(--oss-bg);
+  color: var(--oss-ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+html[data-oss-theme='dark'] .oss {
+  --oss-bg: #07090e;
+  --oss-surface: #0d1117;
+  --oss-surface-2: #121922;
+  --oss-ink: #f2f5f7;
+  --oss-ink-2: #c3cad3;
+  --oss-muted: #8a94a3;
+  --oss-line: rgba(255, 255, 255, 0.08);
+  --oss-line-strong: rgba(255, 255, 255, 0.17);
+  --oss-accent: #22ffaa;
+  --oss-accent-bright: #22ffaa;
+  --oss-accent-soft: rgba(34, 255, 170, 0.1);
+  --oss-accent-ink: #04140d;
+  --oss-code-bg: #0a0e14;
+  --oss-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px -16px rgba(0, 0, 0, 0.7);
+  --oss-warn-bg: #2a2105;
+  --oss-warn-ink: #f3d77a;
+  --oss-warn-line: #5c4a12;
+  --oss-radius: 16px;
+}
+
+.oss ::selection { background: var(--oss-accent-bright); color: var(--oss-accent-ink); }
+
+/* ── Type ─────────────────────────────────────────────────────────── */
+.oss-display { font-family: var(--font-space-grotesk), var(--font-inter), sans-serif; letter-spacing: -0.025em; }
+.oss-h1 { font-family: var(--font-space-grotesk), sans-serif; font-weight: 600; letter-spacing: -0.035em; line-height: 1.02; font-size: clamp(2.5rem, 5vw, 4.3rem); }
+.oss-h2 { font-family: var(--font-space-grotesk), sans-serif; font-weight: 600; letter-spacing: -0.025em; line-height: 1.1; font-size: clamp(1.75rem, 3.2vw, 2.6rem); }
+.oss-h3 { font-family: var(--font-space-grotesk), sans-serif; font-weight: 600; letter-spacing: -0.015em; line-height: 1.25; font-size: 1.15rem; }
+.oss-lede { font-size: clamp(1.08rem, 1.5vw, 1.3rem); line-height: 1.6; color: var(--oss-ink-2); }
+.oss-body { font-size: 1rem; line-height: 1.7; color: var(--oss-ink-2); }
+.oss-small { font-size: 0.875rem; line-height: 1.6; color: var(--oss-muted); }
+.oss-eyebrow {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--oss-accent);
+}
+.oss-mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.86em; }
+.oss-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.84em;
+  background: var(--oss-code-bg); border: 1px solid var(--oss-line); border-radius: 6px; padding: 0.1em 0.4em;
+}
+.oss-pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.86rem; line-height: 1.75;
+  background: var(--oss-code-bg); border: 1px solid var(--oss-line); border-radius: 12px;
+  padding: 1.1rem 1.25rem; overflow-x: auto; color: var(--oss-ink);
+  white-space: pre;
+}
+
+/* ── Surfaces ─────────────────────────────────────────────────────── */
+/* Horizontal padding only. A `padding: 0 24px` shorthand here zeroed the
+   vertical padding of every py-* utility used alongside it (same cascade
+   order as Tailwind), which collapsed the spacing between sections. */
+.oss-wrap { max-width: 1160px; margin-left: auto; margin-right: auto; padding-left: 24px; padding-right: 24px; }
+.oss-card {
+  background: var(--oss-surface); border: 1px solid var(--oss-line); border-radius: var(--oss-radius);
+  box-shadow: var(--oss-shadow);
+}
+.oss-rule { height: 1px; background: var(--oss-line); border: 0; }
+
+.oss-link { color: var(--oss-accent); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.oss-link:hover { text-decoration-thickness: 2px; }
+
+.oss-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  border-radius: 999px; padding: 0.72rem 1.2rem; font-weight: 600; font-size: 0.95rem;
+  border: 1px solid var(--oss-line-strong); color: var(--oss-ink); background: var(--oss-surface);
+  transition: transform 120ms ease, border-color 120ms ease, background 120ms ease;
+}
+.oss-btn:hover { border-color: var(--oss-ink); transform: translateY(-1px); }
+.oss-btn-primary { background: var(--oss-ink); color: var(--oss-bg); border-color: var(--oss-ink); }
+.oss-btn-primary:hover { background: var(--oss-ink-2); border-color: var(--oss-ink-2); }
+html[data-oss-theme='dark'] .oss .oss-btn-primary { background: var(--oss-accent-bright); color: var(--oss-accent-ink); border-color: var(--oss-accent-bright); }
+html[data-oss-theme='dark'] .oss .oss-btn-primary:hover { background: #5cffc2; border-color: #5cffc2; }
+
+.oss-pill {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  border-radius: 999px; padding: 0.3rem 0.75rem; font-size: 0.78rem; font-weight: 500;
+  border: 1px solid var(--oss-line-strong); color: var(--oss-ink-2); background: var(--oss-surface);
+}
+.oss-dot { width: 7px; height: 7px; border-radius: 999px; background: var(--oss-accent-bright); box-shadow: 0 0 0 3px var(--oss-accent-soft); }
+
+/* Visible marker for claims that are not yet backed by a public source. */
+.oss-unverified {
+  display: inline-flex; align-items: center; gap: 0.35rem; vertical-align: middle;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.64rem; letter-spacing: 0.06em;
+  text-transform: uppercase; border-radius: 6px; padding: 0.12rem 0.4rem;
+  background: var(--oss-warn-bg); color: var(--oss-warn-ink); border: 1px solid var(--oss-warn-line);
+}
+
+/* Faint engineering grid behind hero sections. */
+.oss-grid-bg {
+  background-image:
+    linear-gradient(var(--oss-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--oss-line) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 30%, transparent 75%);
+}
+
+/* React Flow, themed to the tokens. */
+.oss .react-flow__node { font-family: var(--font-inter), sans-serif; }
+.oss .react-flow__attribution { display: none; }
+.oss .react-flow__controls { box-shadow: var(--oss-shadow); border: 1px solid var(--oss-line); border-radius: 10px; overflow: hidden; }
+.oss .react-flow__controls-button { background: var(--oss-surface); border-bottom: 1px solid var(--oss-line); fill: var(--oss-ink); }
+.oss .react-flow__controls-button:hover { background: var(--oss-surface-2); }
+.oss .react-flow__controls-button svg { fill: var(--oss-ink); }
+
+@media (prefers-reduced-motion: reduce) {
+  .oss *, .oss *::before, .oss *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Light-only hero glow: the one vivid moment, in the brand green. */
+.oss-glow { pointer-events: none; position: absolute; inset: -20% -10% auto -10%; height: 640px; opacity: 0; }
+html:not([data-oss-theme='dark']) .oss .oss-glow {
+  opacity: 1;
+  background:
+    radial-gradient(40% 55% at 22% 18%, rgba(34, 255, 170, 0.22), transparent 70%),
+    radial-gradient(35% 50% at 78% 8%, rgba(0, 196, 255, 0.14), transparent 70%);
+  filter: blur(8px);
+}
