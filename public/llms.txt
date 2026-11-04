@@ -17,7 +17,7 @@ Clawless Computer is a native macOS application that gives the user a private AI
 
 - Local-first: conversations, settings, memory, agents, skills, and license state all live on the user's Mac
 - The desktop app runs no analytics, crash telemetry, session replay, or fingerprinting
-- The marketing site (clawless.ai) sets no cookies, runs no analytics, and embeds no third-party scripts
+- The marketing site (clawless.ai) sets no cookies and embeds no advertising scripts; its only measurement is a cookieless Cloudflare Web Analytics page-view counter
 - BYOK provider traffic flows directly from the user's Mac to the provider the user chose
 - License validation calls Lemon Squeezy once per 24 hours while open and once on launch, with a 30-day offline grace window
 - Export everything as a single zip from Settings, Legal, Export My Data, with credentials redacted on export
