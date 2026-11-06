@@ -4,7 +4,7 @@ import { PageHead, P } from '@/components/oss/Shell';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Clawless Computer is a companion to OpenClaw, bringing the open-source AI agent gateway to everyday users through a calm desktop experience.',
+    'Clawless Computer is a product of RBJ Global LLC, a Texas limited liability company that builds a family of independent software that runs on your own machine, with your own keys.',
   alternates: { canonical: 'https://clawless.ai/about/' },
 };
 
@@ -14,64 +14,58 @@ export default function AboutPage() {
       <PageHead
         eyebrow="About"
         title="About Clawless Computer"
-        lede="An OpenClaw companion for everyday users. Part of a long bet that AI should make people more powerful, not obsolete."
+        lede="Clawless Computer is a product of RBJ Global LLC, which builds a family of software that runs on your own machine, with your own keys. The aim is the same across all of it: make people more powerful, not obsolete."
       />
       <section className="oss-wrap py-20">
         <div className="mx-auto max-w-3xl space-y-12">
           <div className="space-y-4">
-            <h2 className="oss-h3">The vision</h2>
+            <h2 className="oss-h3">RBJ Global LLC</h2>
             <p className="oss-body">
-              OpenClaw is a major open-source AI project with an active contributor community shipping new releases almost weekly. The engine is capable, the project is well-maintained, and the ecosystem around it is real. But for most non-technical people, OpenClaw is also <em>invisible</em>, locked behind a command line that requires you to know what YAML, environment variables, and JSON-RPC calls are.
+              RBJ Global LLC is a Texas limited liability company. It builds and ships a family of independent products, each with its own name, its own domain and its own roadmap.
             </p>
             <p className="oss-body">
-              Clawless Computer exists to close that gap. Same engine, same community, same release cadence, all wrapped in a polished desktop experience that anyone can install and use without touching a terminal.
+              The family includes Clawless Computer, Clawdemy, WhisprDesk, ClaudeLink, Clawddesk, Trading Agents Lab and iLoveMD. They cover agent software, AI education, dictation, developer tooling, research and document conversion.
             </p>
             <p className="oss-body">
-              That is the surface mission. The deeper one is broader. AI is going to be a defining technology of this generation, and the people most worried that AI will replace them are the people least likely to learn to use it well. The work is to flip that, to make AI literacy approachable so everyday users walk in confident instead of anxious.
+              They share one posture. The software runs on your own device. You bring your own keys. Your data stays with you, and several of the products are open source so the code can be read before it is trusted.
             </p>
             <p className="oss-body">
-              <strong>Clawless is the tool. Clawdemy is the mission.</strong> Both come from the same belief: that the right thing to build for AI is something that makes people more powerful, not obsolete.
+              See <a href={`${P}/family`} className="oss-link">the family</a> for each product and where to find it.
             </p>
           </div>
 
           <div className="space-y-4">
-            <h2 className="oss-h3">A companion, not a competitor</h2>
+            <h2 className="oss-h3">Where Clawless Computer fits</h2>
             <p className="oss-body">
-              Let&apos;s be clear about something: <strong>Clawless Computer is not a competitor to OpenClaw. It is a companion to it.</strong> Clawless Computer is built on top of OpenClaw, ships every OpenClaw release as soon as it lands, and stays fully compatible with the upstream engine. We do not fork OpenClaw. We do not compete with OpenClaw. We exist to help OpenClaw reach more people.
+              Clawless Computer is the family&apos;s desktop home for AI agents. It is built on OpenClaw, the open source AI agent engine, and bundles a tested OpenClaw version. It gives that engine a desktop app that anyone can install and use without a terminal.
             </p>
             <p className="oss-body">
-              Clawless Computer takes a deliberate bet: we want OpenClaw to flourish. Every Clawless install puts another OpenClaw user out into the world. Every Clawless feature is a feature OpenClaw can be used for. Our success is OpenClaw&apos;s success.
-            </p>
-            <p className="oss-body">
-              If you are part of the OpenClaw community: we are huge fans of what you have built. We are not here to compete with the project we love. We are here to be its desktop on-ramp.
+              Clawless Computer will be free and open source under AGPL-3.0 at launch. It runs on your computer with your own keys, in line with the rest of the family.
             </p>
           </div>
 
           <div className="space-y-4">
             <h2 className="oss-h3">Who it is for</h2>
             <p className="oss-body">
-              If you have heard about OpenClaw, want to use it, and bounced off the command line, Clawless is built for you. If you are already an OpenClaw power user and want a real GUI for the times you do not want to type, Clawless is built for you too. If you want to deploy your AI on a spare machine and access it from anywhere, also you.
+              People who want to use AI agents and do not want to learn a command line first. People who already use agents and want a real interface for the times they do not want to type.
             </p>
-            <p className="oss-body">Same engine. Just less typing. Anywhere you want to run it.</p>
+            <p className="oss-body">Same engine. Less typing.</p>
           </div>
 
           <div className="space-y-4">
             <h2 className="oss-h3">Clawdemy, a free AI literacy site</h2>
             <p className="oss-body">
-              Clawdemy is a free, web-based AI literacy site. It is built for the AI-anxious adult who suspects AI is coming for their job and would rather understand the technology than fear it. The mission is simple: turn fear into fluency, and make people more powerful, not obsolete.
+              Clawdemy is the family&apos;s free AI literacy site. It is built for adults who want to understand AI instead of fearing it. The goal is to turn worry into fluency.
             </p>
             <p className="oss-body">
-              Clawdemy teaches AI literacy to everyone, free. Lessons are vendor-neutral on the concept side and use Clawless as the worked environment for hands-on practice. Clawless users get the same content as everyone else. There is no gated content.
+              Lessons are free, and there is no gated content. Clawdemy offers a growing library of tracks, and Clawless users get the same lessons as everyone else.
             </p>
             <p className="oss-body">
-              Currently shipping: a transformer foundations track adapted from Stanford&apos;s CME 295, with AI-narrated audio so the lessons can be listened to in the car or at the gym.
-            </p>
-            <p className="oss-body">
-              Live and in active expansion at{' '}
+              Find it at{' '}
               <a href="https://clawdemy.org" target="_blank" rel="noopener" className="oss-link">
                 clawdemy.org
               </a>
-              . The lesson library grows continuously. See also <a href={`${P}/learn`} className="oss-link">Learn</a> and <a href={`${P}/what-it-does`} className="oss-link">What it does</a>.
+              . See also <a href={`${P}/learn`} className="oss-link">Learn</a> and <a href={`${P}/what-it-does`} className="oss-link">What it does</a>.
             </p>
           </div>
 
@@ -79,15 +73,9 @@ export default function AboutPage() {
             <h2 className="oss-h3">From the founder</h2>
             <p className="oss-body">AI isn&apos;t replacing people. It&apos;s leaving people behind.</p>
             <p className="oss-body">
-              I&apos;m Jay Siddiqi. I built Clawless because the people who need AI the most are the ones struggling to use it.
+              Most AI tools assume you can open a terminal, manage API keys and read a GitHub README. Many people can&apos;t, and shouldn&apos;t have to. Each product in the family exists to narrow that gap.
             </p>
-            <p className="oss-body">
-              Most AI tools assume you can open a terminal, manage API keys, and read a GitHub README. Most people can&apos;t, and shouldn&apos;t have to. The gap between &quot;AI exists&quot; and &quot;I can actually use it&quot; is widening every month. The whole point of Clawless is to close it.
-            </p>
-            <p className="oss-body">
-              Clawdemy is a free AI literacy curriculum I edit personally, line by line, before anything ships. No gated content. It stays free because AI literacy shouldn&apos;t be something you have to buy your way into.
-            </p>
-            <p className="oss-body">If you leave a lesson more confident than when you started, I did my job.</p>
+            <p className="oss-body">The measure is simple: people come away more capable than they started.</p>
             <p className="oss-small pt-2">
               Jay Siddiqi, Founder &middot;{' '}
               <a href="https://www.linkedin.com/in/junaidsiddiqi" target="_blank" rel="noopener" className="oss-link">
