@@ -20,7 +20,7 @@ export default function Build() {
     <>
       <PageHead
         eyebrow="Build on it"
-        title="The code is open, organized, and documented. Here is how to find your way in."
+        title={PRELAUNCH ? "The code will be open, organized, and documented. Here is how you will find your way in." : "The code is open, organized, and documented. Here is how to find your way in."}
         lede="Clone it, build it, change it. Clawless Computer is maintained as energy allows, so the most useful thing you can bring is a working change with tests."
       />
 
