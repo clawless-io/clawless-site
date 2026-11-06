@@ -45,7 +45,7 @@ export default function Trust() {
       {PRELAUNCH ? (
         <Para>
           Official builds will be signed and notarized for macOS and published on the project&apos;s GitHub Releases page at launch. Building
-          from source produces an unsigned app unless you supply your own signing identity.
+          from source will produce an unsigned app unless you supply your own signing identity.
         </Para>
       ) : (
         <Para>
@@ -103,8 +103,8 @@ export default function Trust() {
           Please do not report a vulnerability in public. Email <Mail to="security@clawless.ai" /> with &quot;Clawless security&quot; in the
           subject. Once the repository is public, GitHub&apos;s private vulnerability reporting will also be available from its Security tab.
           Security reports are prioritized over other work, though as the project is maintained as energy allows we cannot promise a fixed
-          response time. Fixes ship in the next signed release; older releases are not patched. The security policy is published with the
-          source at launch.
+          response time. Fixes will ship in the next signed release; older releases will not be patched. The security policy is published with
+          the source at launch.
         </Para>
       ) : (
         <Para>

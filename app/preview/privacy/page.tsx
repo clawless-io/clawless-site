@@ -168,12 +168,12 @@ export default function WebsitePrivacy() {
         </li>
         <li>
           <strong className="text-[var(--oss-ink)]">2026-09-18:</strong> Added a description of user-initiated issue reporting from the Clawless Computer app through an
-          endpoint on this domain, published before the feature was enabled. The feature never shipped and has been superseded, and the
-          description is removed in the entry above.
+          endpoint on this domain, published before the feature was enabled.
         </li>
         <li>
-          <strong className="text-[var(--oss-ink)]">2026-05-12:</strong> Added a disclosure for the Follow-on-LinkedIn link on the hero and footer. No LinkedIn JavaScript
-          loads on this site, no cookies are set by us, and no visitor activity is tracked.
+          <strong className="text-[var(--oss-ink)]">2026-05-12:</strong> Added a disclosure for the Follow-on-LinkedIn link on the hero and footer. The link opens LinkedIn
+          in a new tab. No LinkedIn JavaScript loads on this site, no cookies are set by us, and no visitor activity is tracked. Once you reach
+          LinkedIn, LinkedIn&apos;s own privacy practices apply. Non-material clarification.
         </li>
         <li>
           <strong className="text-[var(--oss-ink)]">2026-05-05:</strong> Cross-link to the subprocessors list added. Non-material clarification.
@@ -183,8 +183,9 @@ export default function WebsitePrivacy() {
           formation, and email contact retained. Non-material clarification; data practices unchanged.
         </li>
         <li>
-          <strong className="text-[var(--oss-ink)]">2026-05-03:</strong> Browser Automation disclosure added to the forward-looking description of the app. Non-material
-          clarification; website collection practices unchanged.
+          <strong className="text-[var(--oss-ink)]">2026-05-03:</strong> Browser Automation disclosure added to the forward-looking description of the app: a prompt
+          before the agent visits any new website, and no Clawless tracking of visited sites or page content. Non-material clarification;
+          website collection practices unchanged.
         </li>
         <li>
           <strong className="text-[var(--oss-ink)]">2026-05-03:</strong> Cloudflare edge-log acknowledgment, controller statement, payment processor named as a separate
