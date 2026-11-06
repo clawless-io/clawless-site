@@ -32,8 +32,8 @@ export const PRELAUNCH: boolean = true;
 /** /about stays (restyled) unless the founder rules otherwise; footer link flips here. */
 export const SHOW_ABOUT: boolean = true;
 
-/** RBJ Global company Page on LinkedIn (the pre-launch "follow for the date" line). */
-export const RBJ_LINKEDIN = 'https://www.linkedin.com/company/116324588/';
+/** Clawless Computer company Page on LinkedIn (founder 2026-11-06; same Page the live site's Follow link uses). */
+export const LINKEDIN_PAGE = 'https://www.linkedin.com/company/114564073/';
 
 /**
  * Deliberately NOT claimed (Advisor rulings, 2026-10-21):

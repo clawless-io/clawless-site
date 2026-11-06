@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { LegalPage, H2, Para, Mail } from '@/components/oss/LegalPage';
-import { PRELAUNCH, RBJ_LINKEDIN } from '@/components/oss/content';
+import { PRELAUNCH, LINKEDIN_PAGE } from '@/components/oss/content';
 import { PUBLICATION_DATE } from '@/components/oss/legal-dates';
 
 export const metadata: Metadata = {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
  * this follows SECURITY.md.
  *
  * Restored (Advisor brief 2026-11-06, item 1d): the LinkedIn-link paragraph,
- * reworded for the RBJ Global LinkedIn Page link (RBJ_LINKEDIN). Every link to
+ * reworded for the Clawless Computer LinkedIn Page link (LINKEDIN_PAGE). Every link to
  * it must open in a new tab (target="_blank" rel="noopener noreferrer") for the
  * paragraph to stay true.
  *
@@ -93,8 +93,8 @@ export default function WebsitePrivacy() {
       <H2>LinkedIn link</H2>
       <Para>
         This site includes a link to{' '}
-        <a href={RBJ_LINKEDIN} target="_blank" rel="noopener noreferrer" className="oss-link">
-          RBJ Global&apos;s LinkedIn Page
+        <a href={LINKEDIN_PAGE} target="_blank" rel="noopener noreferrer" className="oss-link">
+          the Clawless Computer LinkedIn Page
         </a>
         . It is an outbound link only. We do not load LinkedIn scripts, set cookies, or track visitors on this site. If you click the link,
         LinkedIn opens in a new tab, and LinkedIn&apos;s own privacy practices apply once you are there.

@@ -7,7 +7,7 @@
  * must never compute a target from any date. Wiring a real target is a
  * launch-state change and needs the founder's direct word.
  */
-import { RBJ_LINKEDIN } from './content';
+import { LINKEDIN_PAGE } from './content';
 
 const UNITS = ['Days', 'Hours', 'Minutes', 'Seconds'] as const;
 
@@ -34,8 +34,8 @@ export default function Countdown() {
         published together.
       </p>
       <p className="oss-small max-w-sm">
-        <a href={RBJ_LINKEDIN} target="_blank" rel="noopener noreferrer" className="oss-link">
-          Follow RBJ Global on LinkedIn
+        <a href={LINKEDIN_PAGE} target="_blank" rel="noopener noreferrer" className="oss-link">
+          Follow Clawless Computer on LinkedIn
         </a>{' '}
         to see the date when it is set.
       </p>
