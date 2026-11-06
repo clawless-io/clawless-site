@@ -177,6 +177,7 @@ export function Footer() {
           title="Site"
           links={[
             ['Architecture', `${P}/architecture/`],
+            ['Download', `${P}/download/`],
             ...(PRELAUNCH ? [] : ([['Docs', `${P}/docs/`]] as [string, string][])),
             ['Learn', `${P}/learn/`],
             ['Family', `${P}/family/`],

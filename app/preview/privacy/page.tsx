@@ -163,7 +163,7 @@ export default function WebsitePrivacy() {
       <ul className="ml-5 list-disc space-y-3 text-[0.95rem] leading-[1.75] text-[var(--oss-ink-2)]">
         <li>
           <strong className="text-[var(--oss-ink)]">{PUBLICATION_DATE}:</strong> Clawless Computer will be released as free, open source software under the AGPL-3.0. Removed: the
-          payment processor, the licensing server, and in-app issue reporting through this domain. Added: Google Workspace named as our email
+          payment processor, the licensing service, and in-app issue reporting through this domain. Added: Google Workspace named as our email
           provider; the LinkedIn link disclosure.
         </li>
         <li>
