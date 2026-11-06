@@ -5,17 +5,19 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import Mark from './Mark';
 import { ThemeToggle } from './Theme';
-import { REPO, blob } from './content';
+import { PRELAUNCH, RELEASES, REPO, SHOW_ABOUT, blob } from './content';
+import { ComingSoon, RepoLink } from './RepoLink';
 
 /** Every redesign route lives under /preview/ until launch. Promoting it to the
  *  site root on launch day is a mechanical move plus this one constant. */
 export const P = '/preview';
 
+/** Docs are hidden until launch (the knowledge base is published with the source). */
 const NAV = [
   { href: `${P}/what-it-does/`, label: 'What it does' },
   { href: `${P}/architecture/`, label: 'Architecture' },
   { href: `${P}/build/`, label: 'Build on it' },
-  { href: `${P}/docs/`, label: 'Docs' },
+  ...(PRELAUNCH ? [] : [{ href: `${P}/docs/`, label: 'Docs' }]),
   { href: `${P}/learn/`, label: 'Learn' },
 ];
 
@@ -81,13 +83,25 @@ export function Nav() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
-          <a href={REPO} className="oss-btn !px-3 !py-2" aria-label="Source on GitHub">
-            <GitHubIcon />
-            <span className="text-sm">Source</span>
-          </a>
-          <Link href={`${P}/download/`} className="oss-btn oss-btn-primary !py-2 text-sm">
-            Download
-          </Link>
+          {PRELAUNCH ? (
+            <>
+              <span className="flex items-center gap-1.5 px-2 text-sm text-[var(--oss-muted)]">
+                <GitHubIcon />
+                Source at launch
+              </span>
+              <ComingSoon className="oss-btn oss-btn-primary !py-2 text-sm" />
+            </>
+          ) : (
+            <>
+              <a href={REPO} className="oss-btn !px-3 !py-2" aria-label="Source on GitHub">
+                <GitHubIcon />
+                <span className="text-sm">Source</span>
+              </a>
+              <Link href={`${P}/download/`} className="oss-btn oss-btn-primary !py-2 text-sm">
+                Download
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Wrapper carries md:hidden: .oss-btn's display:inline-flex would override it on the button itself. */}
@@ -99,11 +113,12 @@ export function Nav() {
       </div>
       {open && (
         <nav className="oss-wrap flex flex-col gap-1 pb-4 md:hidden" aria-label="Mobile">
-          {[...NAV, { href: `${P}/download/`, label: 'Download' }].map((n) => (
+          {[...NAV, ...(PRELAUNCH ? [] : [{ href: `${P}/download/`, label: 'Download' }])].map((n) => (
             <Link key={n.href} href={n.href} onClick={() => setOpen(false)} className="rounded-lg px-3 py-2 text-sm text-[var(--oss-ink-2)] hover:bg-[var(--oss-surface-2)]">
               {n.label}
             </Link>
           ))}
+          {PRELAUNCH && <span className="px-3 py-2 text-sm text-[var(--oss-muted)]">Download: coming soon</span>}
         </nav>
       )}
     </header>
@@ -131,21 +146,29 @@ export function Footer() {
             .
           </p>
         </div>
-        <FooterCol
-          title="Project"
-          links={[
-            ['Source on GitHub', REPO],
-            ['Releases', `${REPO}/releases`],
-            ['Contributing', `${P}/contributing/`],
-            ['Contributor License Agreement', `${P}/cla/`],
-          ]}
-        />
+        {PRELAUNCH ? (
+          <FooterCol
+            title="Project"
+            links={[['Build on it', `${P}/build/`]]}
+            note="The source, releases, contributing guide and Contributor License Agreement are published on GitHub at launch."
+          />
+        ) : (
+          <FooterCol
+            title="Project"
+            links={[
+              ['Source on GitHub', REPO],
+              ['Releases', RELEASES],
+              ['Contributing', `${P}/contributing/`],
+              ['Contributor License Agreement', `${P}/cla/`],
+            ]}
+          />
+        )}
         <FooterCol
           title="Trust"
           links={[
             ['Legal', `${P}/legal/`],
             ['Website privacy', `${P}/privacy/`],
-            ['App privacy', `${P}/privacy/app/`],
+            ...(PRELAUNCH ? [] : ([['App privacy', `${P}/privacy/app/`]] as [string, string][])),
             ['Security and trust', `${P}/trust/`],
             ['Support', `${P}/support/`],
           ]}
@@ -154,8 +177,10 @@ export function Footer() {
           title="Site"
           links={[
             ['Architecture', `${P}/architecture/`],
-            ['Docs', `${P}/docs/`],
+            ...(PRELAUNCH ? [] : ([['Docs', `${P}/docs/`]] as [string, string][])),
             ['Learn', `${P}/learn/`],
+            ['Family', `${P}/family/`],
+            ...(SHOW_ABOUT ? ([['About', `${P}/about/`]] as [string, string][]) : []),
           ]}
         />
       </div>
@@ -169,7 +194,7 @@ export function Footer() {
   );
 }
 
-function FooterCol({ title, links }: { title: string; links: [string, string][] }) {
+function FooterCol({ title, links, note }: { title: string; links: [string, string][]; note?: string }) {
   return (
     <div>
       <p className="oss-eyebrow !text-[var(--oss-muted)]">{title}</p>
@@ -188,6 +213,7 @@ function FooterCol({ title, links }: { title: string; links: [string, string][] 
           </li>
         ))}
       </ul>
+      {note && <p className="oss-small mt-3 max-w-[16rem] !text-[0.8rem]">{note}</p>}
     </div>
   );
 }
@@ -221,9 +247,9 @@ export function PageHead({ eyebrow, title, lede }: { eyebrow: string; title: str
 /** Small source citation, rendered under claims so a reader can check them. */
 export function Source({ path }: { path: string }) {
   return (
-    <a href={blob(path)} className="oss-mono inline-flex items-center gap-1 text-[0.72rem] text-[var(--oss-muted)] hover:text-[var(--oss-accent)]">
+    <RepoLink href={blob(path)} className="oss-mono inline-flex items-center gap-1 text-[0.72rem] text-[var(--oss-muted)] hover:text-[var(--oss-accent)]">
       <GitHubIcon size={11} />
       {path}
-    </a>
+    </RepoLink>
   );
 }

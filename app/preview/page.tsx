@@ -2,7 +2,8 @@ import Link from 'next/link';
 import Mark from '@/components/oss/Mark';
 import Countdown from '@/components/oss/Countdown';
 import { P, Arrow, GitHubIcon, Source } from '@/components/oss/Shell';
-import { APP_VERSION, ENGINE_VERSION, FACTS, REPO, SEND_PATH, SEND_PATH_SOURCE, blob } from '@/components/oss/content';
+import { APP_VERSION, ENGINE_VERSION, FACTS, PRELAUNCH, REPO, SEND_PATH, SEND_PATH_SOURCE, blob } from '@/components/oss/content';
+import { ComingSoon } from '@/components/oss/RepoLink';
 
 export default function PreviewHome() {
   return (
@@ -15,22 +16,34 @@ export default function PreviewHome() {
           <div>
             <span className="oss-pill">
               <span className="oss-dot" />
-              Open source under AGPL-3.0 <span className="text-[var(--oss-muted)]">· v{APP_VERSION}</span>
+              Open source under AGPL-3.0{!PRELAUNCH && <span className="text-[var(--oss-muted)]"> · v{APP_VERSION}</span>}
             </span>
             <h1 className="oss-h1 mt-7">
               Run AI agents on your own Mac, with your own keys.
             </h1>
             <p className="oss-lede mt-7 max-w-xl">
               Clawless Computer is a desktop home for OpenClaw, the open source AI agent engine. Chat with any major provider, keep a team of
-              agents, and automate real work, all without a terminal. It is free, and every line is on GitHub.
+              agents, and automate real work, all without a terminal.{' '}
+              {PRELAUNCH ? 'It is free, and every line will be on GitHub at launch.' : 'It is free, and every line is on GitHub.'}
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3">
-              <Link href={`${P}/download/`} className="oss-btn oss-btn-primary">
-                Download for Mac <Arrow />
-              </Link>
-              <a href={REPO} className="oss-btn">
-                <GitHubIcon /> Read the source
-              </a>
+              {PRELAUNCH ? (
+                <>
+                  <ComingSoon className="oss-btn oss-btn-primary" />
+                  <span className="inline-flex items-center gap-2 px-2 text-sm text-[var(--oss-muted)]">
+                    <GitHubIcon /> Source on GitHub at launch
+                  </span>
+                </>
+              ) : (
+                <>
+                  <Link href={`${P}/download/`} className="oss-btn oss-btn-primary">
+                    Download for Mac <Arrow />
+                  </Link>
+                  <a href={REPO} className="oss-btn">
+                    <GitHubIcon /> Read the source
+                  </a>
+                </>
+              )}
             </div>
             <p className="oss-small mt-6">macOS on Apple silicon · No account · No email · No card</p>
           </div>
@@ -92,7 +105,9 @@ export default function PreviewHome() {
           <p className="oss-eyebrow">Built to be checked</p>
           <h2 className="oss-h2 mt-4">Every claim on this page points at the code.</h2>
           <p className="oss-lede mt-5">
-            Clawless is open source, so you do not have to take our word for anything. Each fact below links to the file that backs it.
+            {PRELAUNCH
+              ? 'Clawless will be open source, so you will not have to take our word for anything. Each fact below names the file that backs it; the files are published with the source at launch.'
+              : 'Clawless is open source, so you do not have to take our word for anything. Each fact below links to the file that backs it.'}
           </p>
         </div>
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -152,7 +167,7 @@ export default function PreviewHome() {
         <div className="grid gap-4 md:grid-cols-3">
           {[
             ['What it does', 'Agents, memory, skills, channels, automations, browser control and budget caps.', `${P}/what-it-does/`],
-            ['Architecture', 'An interactive map of the system, with every part linked to the files behind it.', `${P}/architecture/`],
+            ['Architecture', PRELAUNCH ? 'An interactive map of the system, with every part naming the files behind it.' : 'An interactive map of the system, with every part linked to the files behind it.', `${P}/architecture/`],
             ['Build on it', 'Set up the code, find your way around it, and send your first pull request.', `${P}/build/`],
           ].map(([t, d, h]) => (
             <Link key={h} href={h} className="oss-card group block p-6 transition-transform hover:-translate-y-0.5">
@@ -186,14 +201,18 @@ export default function PreviewHome() {
                 <Link href={`${P}/build/`} className="oss-btn oss-btn-primary">
                   Start building <Arrow />
                 </Link>
-                <a href={blob('CONTRIBUTING.md')} className="oss-btn">
-                  Read CONTRIBUTING.md
-                </a>
+                {PRELAUNCH ? (
+                  <span className="inline-flex items-center px-2 text-sm text-[var(--oss-muted)]">CONTRIBUTING.md is published at launch</span>
+                ) : (
+                  <a href={blob('CONTRIBUTING.md')} className="oss-btn">
+                    Read CONTRIBUTING.md
+                  </a>
+                )}
               </div>
             </div>
             <div className="oss-pre self-center text-[0.78rem]">
-              <span className="text-[var(--oss-muted)]"># build from source</span>
-              {'\n'}git clone {REPO}.git{'\n'}cd clawless-computer{'\n'}bun install{'\n'}bun run build{'\n'}bun run start
+              <span className="text-[var(--oss-muted)]"># build from source{PRELAUNCH && ', available at launch'}</span>
+              {'\n'}git clone {PRELAUNCH ? '<repository URL, published at launch>' : `${REPO}.git`}{'\n'}cd clawless-computer{'\n'}bun install{'\n'}bun run build{'\n'}bun run start
             </div>
           </div>
           <p className="oss-small relative mt-8">

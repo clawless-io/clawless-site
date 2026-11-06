@@ -7,6 +7,8 @@
  * must never compute a target from any date. Wiring a real target is a
  * launch-state change and needs the founder's direct word.
  */
+import { RBJ_LINKEDIN } from './content';
+
 const UNITS = ['Days', 'Hours', 'Minutes', 'Seconds'] as const;
 
 export default function Countdown() {
@@ -14,7 +16,7 @@ export default function Countdown() {
     <div className="oss-card inline-flex flex-col gap-4 p-5" aria-label="Launch countdown, no date set">
       <div className="flex items-center justify-between gap-6">
         <span className="oss-eyebrow">Opening ceremony</span>
-        <span className="oss-unverified">Placeholder, no date set</span>
+        <span className="oss-unverified">Date not set yet</span>
       </div>
       <div className="flex items-end gap-3 sm:gap-5">
         {UNITS.map((u, i) => (
@@ -30,6 +32,12 @@ export default function Countdown() {
       <p className="oss-small max-w-sm">
         Starts when everything is finished, built, and rehearsed. On launch day the source and the signed download are
         published together.
+      </p>
+      <p className="oss-small max-w-sm">
+        <a href={RBJ_LINKEDIN} target="_blank" rel="noopener noreferrer" className="oss-link">
+          Follow RBJ Global on LinkedIn
+        </a>{' '}
+        to see the date when it is set.
       </p>
     </div>
   );

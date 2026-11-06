@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { PageHead, Source } from '@/components/oss/Shell';
-import { FEATURES } from '@/components/oss/content';
+import { FEATURES, PRELAUNCH } from '@/components/oss/content';
 
 export const metadata: Metadata = { title: 'What it does' };
 
@@ -10,7 +10,11 @@ export default function WhatItDoes() {
       <PageHead
         eyebrow="What it does"
         title="Everything the engine can do, behind an interface you do not have to configure by hand."
-        lede="Each feature below is live in the current release and documented in the knowledge base that ships with the source. Follow any link to read the full chapter."
+        lede={
+          PRELAUNCH
+            ? 'Each feature below is live in the first release and documented in the knowledge base that ships with the source. Each card names its chapter; the knowledge base is published with the source at launch.'
+            : 'Each feature below is live in the first release and documented in the knowledge base that ships with the source. Follow any link to read the full chapter.'
+        }
       />
       <section className="oss-wrap py-20">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">

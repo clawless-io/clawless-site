@@ -2,7 +2,8 @@
 
 /**
  * Interactive architecture of Clawless Computer, built ONLY from the public
- * open-source tree (RBJGlobal/clawless-computer, reviewed at 4e02af4). Every node cites the files that back it.
+ * open-source tree (RBJGlobal/clawless-computer, reviewed at 4e02af4, re-checked
+ * 2026-11-06 against branch engine-upgrade at 4151e86). Every node cites the files that back it.
  *
  * Descriptions paraphrase what each file's own header comment says the code
  * DOES. Internal narrative in those comments (ticket ids, design-review dates,
@@ -32,7 +33,8 @@ import {
   type NodeProps,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
-import { blob, ENGINE_VERSION, SEND_PATH } from './content';
+import { blob, ENGINE_VERSION, PRELAUNCH, SEND_PATH } from './content';
+import { RepoLink } from './RepoLink';
 import { useOssTheme } from './Theme';
 
 /* ── Detail content ──────────────────────────────────────────────── */
@@ -96,7 +98,7 @@ const DETAILS: Record<string, Detail> = {
     body: 'Long-term memory lives in local SQLite, independent of engine sessions. Retrieval combines full-text ranking with vector similarity.',
     points: [
       'Hybrid search: BM25 full-text plus vector cosine similarity',
-      'Facts worth keeping are extracted from recent conversations',
+      'With automatic saving turned on (off by default), facts worth keeping are extracted from recent conversations',
       'Idle memories move to a Decayed tier; pinned memories never decay',
       'Embeddings from your provider or a local Ollama model',
     ],
@@ -119,7 +121,7 @@ const DETAILS: Record<string, Detail> = {
     title: 'Channels and plugins',
     kicker: 'Messaging platforms',
     body: 'Clawless keeps a map of the engine plugins it surfaces and installs them through the engine’s own plugin installer.',
-    points: ['Some channels install their plugin from the public npm registry'],
+    points: ['Every channel except Telegram installs its plugin from the public npm registry'],
     files: [`${S}PluginCatalog.ts`, `${S}PluginInstaller.ts`],
     doc: 'docs/knowledge-base/channels-and-integrations.md',
   },
@@ -159,9 +161,9 @@ const DETAILS: Record<string, Detail> = {
   },
   keys: {
     title: 'Provider keys',
-    kicker: 'A local file',
-    body: 'Stored in your data folder, protected by your account’s file permissions; the engine reads them from there. Turn on FileVault for stronger protection at rest.',
-    files: [`${E}auth-profiles-writer.ts`, 'PRIVACY.md'],
+    kicker: 'The engine’s local database',
+    body: 'Stored by the bundled engine in its local database inside your data folder, unencrypted but readable only by your user account. Clawless never displays a saved key. Turn on FileVault for stronger protection at rest.',
+    files: [`${E}auth-migration.ts`, 'PRIVACY.md'],
   },
   provider: {
     title: 'Your AI provider',
@@ -178,13 +180,13 @@ const DETAILS: Record<string, Detail> = {
   clawhub: {
     title: 'ClawHub catalog',
     kicker: 'clawhub.ai',
-    body: 'The list of community skills, downloaded on first use and refreshed every few hours while the app is open. Your search words are sent if you search.',
-    files: ['PRIVACY.md'],
+    body: 'The list of community skills, downloaded only when you ask: opening the catalog when your copy is more than four hours old, or pressing Sync. Your search words are sent if you search. Never contacted in the background.',
+    files: [`${S}ClawHubCatalogService.ts`, 'docs/knowledge-base/whats-under-the-hood.md'],
   },
   npm: {
     title: 'npm registry',
-    kicker: 'Some channel plugins',
-    body: 'Connecting some channels installs the matching OpenClaw plugin from the public npm registry.',
+    kicker: 'Channel and web search plugins',
+    body: 'Connecting a channel other than Telegram, or turning on web search, installs the matching OpenClaw plugin from the public npm registry.',
     files: ['PRIVACY.md'],
   },
   github: {
@@ -196,7 +198,7 @@ const DETAILS: Record<string, Detail> = {
   virustotal: {
     title: 'VirusTotal',
     kicker: 'Optional, default off',
-    body: 'Only with your own key. Skills you install are checked there first.',
+    body: 'Only with your own key. Skills you install from the catalog are checked there first.',
     files: ['PRIVACY.md'],
   },
 };
@@ -528,13 +530,13 @@ export default function ArchitectureFlow() {
             )}
             {(detail.files || detail.doc) && (
               <div className="mt-5 border-t border-[var(--oss-line)] pt-4">
-                <p className="oss-small !text-[0.72rem] uppercase tracking-[0.12em]">Read the source</p>
+                <p className="oss-small !text-[0.72rem] uppercase tracking-[0.12em]">{PRELAUNCH ? 'Source files, published at launch' : 'Read the source'}</p>
                 <ul className="mt-2 space-y-1.5">
                   {[...(detail.files ?? []), ...(detail.doc ? [detail.doc] : [])].map((f) => (
                     <li key={f}>
-                      <a href={blob(f)} className="oss-mono text-[0.74rem] text-[var(--oss-accent)] hover:underline">
+                      <RepoLink href={blob(f)} mark={false} className="oss-mono text-[0.74rem] text-[var(--oss-accent)] hover:underline">
                         {f}
-                      </a>
+                      </RepoLink>
                     </li>
                   ))}
                 </ul>

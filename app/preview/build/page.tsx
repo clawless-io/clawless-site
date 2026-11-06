@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
-import { PageHead, Source, Arrow } from '@/components/oss/Shell';
-import { CODE_MAP, EXTENSION_POINTS, REPO, RISK_TIERS, blob, tree } from '@/components/oss/content';
+import Link from 'next/link';
+import { P, PageHead, Source, Arrow } from '@/components/oss/Shell';
+import { RepoLink } from '@/components/oss/RepoLink';
+import { CODE_MAP, EXTENSION_POINTS, PRELAUNCH, REPO, RISK_TIERS, blob, tree } from '@/components/oss/content';
 
 export const metadata: Metadata = { title: 'Build on it' };
 
@@ -27,7 +29,7 @@ export default function Build() {
           <p className="oss-eyebrow">Set up</p>
           <h2 className="oss-h2 mt-4">Five commands.</h2>
           <p className="oss-body mt-4">
-            You need Bun and Git. macOS on Apple silicon is the primary development platform today. Install also applies a small set of
+            You need Bun, Node.js 24.16 or newer, and Git. macOS on Apple silicon is the primary development platform today. Install also applies a small set of
             compatibility patches to the bundled engine.
           </p>
           <div className="mt-4">
@@ -35,8 +37,8 @@ export default function Build() {
           </div>
         </div>
         <pre className="oss-pre self-start">
-          <span className="text-[var(--oss-muted)]"># clone and run</span>
-          {'\n'}git clone {REPO}.git{'\n'}cd clawless-computer{'\n'}bun install{'\n'}bun run build{'\n'}bun run start{'\n\n'}
+          <span className="text-[var(--oss-muted)]"># clone and run{PRELAUNCH && ', available at launch'}</span>
+          {'\n'}git clone {PRELAUNCH ? '<repository URL, published at launch>' : `${REPO}.git`}{'\n'}cd clawless-computer{'\n'}bun install{'\n'}bun run build{'\n'}bun run start{'\n\n'}
           <span className="text-[var(--oss-muted)]"># before a pull request</span>
           {'\n'}bun run typecheck{'\n'}bun run test:unit
         </pre>
@@ -48,10 +50,10 @@ export default function Build() {
           <h2 className="oss-h2 mt-4 max-w-2xl">Where things live.</h2>
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             {CODE_MAP.map((c) => (
-              <a key={c.path} href={tree(c.path)} className="oss-card block p-6 transition-transform hover:-translate-y-0.5">
+              <RepoLink key={c.path} href={tree(c.path)} mark={false} className="oss-card block p-6 transition-transform hover:-translate-y-0.5">
                 <p className="oss-mono text-[0.95rem] font-semibold text-[var(--oss-accent)]">{c.path}</p>
                 <p className="oss-body mt-2 !text-[0.95rem]">{c.role}</p>
-              </a>
+              </RepoLink>
             ))}
           </div>
           <p className="oss-body mt-6 max-w-2xl">
@@ -148,16 +150,30 @@ export default function Build() {
               <p className="oss-body mt-2 !text-[0.95rem]">
                 Every contributor signs the CLA once, before a first pull request can be merged. Read it before you start.
               </p>
-              <a href={blob('CLA.md')} className="oss-link mt-3 inline-flex items-center gap-1 text-sm">
-                CLA.md <Arrow size={12} />
-              </a>
+              {PRELAUNCH ? (
+                <p className="oss-small mt-3">CLA.md is published with the source at launch.</p>
+              ) : (
+                <a href={blob('CLA.md')} className="oss-link mt-3 inline-flex items-center gap-1 text-sm">
+                  CLA.md <Arrow size={12} />
+                </a>
+              )}
             </div>
           </div>
           <div className="mt-4">
             <Source path="CONTRIBUTING.md" />
           </div>
           <p className="oss-small mt-8">
-            Found a security issue? Please do not open a public issue. Report it privately; see <a href={blob('SECURITY.md')} className="oss-link">SECURITY.md</a>.
+            Found a security issue? Please do not open a public issue. Report it privately; see{' '}
+            {PRELAUNCH ? (
+              <Link href={`${P}/trust/`} className="oss-link">
+                Security and trust
+              </Link>
+            ) : (
+              <a href={blob('SECURITY.md')} className="oss-link">
+                SECURITY.md
+              </a>
+            )}
+            .
           </p>
         </div>
       </section>

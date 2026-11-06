@@ -1,6 +1,8 @@
 import OssMarkdown from './OssMarkdown';
 import { DocHeader, SourceNote } from './DocChrome';
 import { getProject, source, PROJECT_DOCS, type ProjectSlug } from '@/lib/oss-docs';
+import AtLaunchNotice from './AtLaunchNotice';
+import { PRELAUNCH } from './content';
 
 const P = '/preview';
 
@@ -10,6 +12,15 @@ const P = '/preview';
  * file it summarizes.
  */
 export default function ProjectDocPage({ slug, preface }: { slug: ProjectSlug; preface?: React.ReactNode }) {
+  // Before launch these documents are not served: the repository is not public yet.
+  if (PRELAUNCH)
+    return (
+      <AtLaunchNotice
+        eyebrow={PROJECT_DOCS[slug].label}
+        title={`${PROJECT_DOCS[slug].label}: published with the source at launch.`}
+        lede="This document lives in the repository and is published, together with the source, on launch day."
+      />
+    );
   const d = getProject(slug);
   const { commit } = source();
   const file = PROJECT_DOCS[slug].file;
