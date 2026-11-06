@@ -1,15 +1,13 @@
 import Link from 'next/link';
 
-const P = '/preview';
-
 /**
  * Frame for the site's OWN legal pages (website privacy, security and trust,
  * support, the legal hub). Distinct from ProjectDocPage, which renders the
  * repository's files verbatim.
  *
- * These are DRAFTS prepared for the founder's ruling and Founder Advisor's
- * review (2026-10-21). They ship only on launch day, with the founder's direct
- * word, and the advisor legal-docs mirror is synced in the same session.
+ * Any change to a page using this frame is a legal-page change: it needs the
+ * founder's direct word, and the advisor legal-docs mirror is synced in the
+ * same session.
  */
 export function LegalPage({
   title,
@@ -24,16 +22,12 @@ export function LegalPage({
     <div className="oss-wrap py-12">
       <article className="mx-auto max-w-[760px]">
         <nav aria-label="Breadcrumb" className="oss-small flex items-center gap-1.5 border-b border-[var(--oss-line)] pb-5 !text-[0.82rem]">
-          <Link href={`${P}/legal/`} className="hover:text-[var(--oss-ink)]">
+          <Link href={`/legal/`} className="hover:text-[var(--oss-ink)]">
             Legal
           </Link>
           <span className="text-[var(--oss-line-strong)]">/</span>
           <span className="text-[var(--oss-ink)]">{title}</span>
         </nav>
-        <div className="mt-8 flex flex-wrap items-center gap-2 rounded-lg border border-[var(--oss-warn-line)] bg-[var(--oss-warn-bg)] px-4 py-3 text-[0.86rem] text-[var(--oss-warn-ink)]">
-          <span className="oss-mono text-[0.68rem] font-semibold uppercase tracking-[0.1em]">Draft</span>
-          Prepared for the founder&apos;s ruling. Not published. The current notice stays live until launch day.
-        </div>
         <h1 className="oss-h2 mt-8">{title}</h1>
         <p className="oss-small mt-3">Last updated: {updated}</p>
         <div className="mt-8">{children}</div>

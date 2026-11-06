@@ -10,8 +10,7 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:e2e": "playwright test",
-    "sync-docs": "bash scripts/sync-docs.sh"
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@xyflow/react": "^12",

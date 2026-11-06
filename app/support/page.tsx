@@ -1,123 +1,88 @@
 import type { Metadata } from 'next';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
-import ScrollReveal from '@/components/effects/ScrollReveal';
-import { getContent } from '@/lib/cms';
+import { pageMetadata } from '@/lib/metadata';
+import Link from 'next/link';
+import { LegalPage, H2, Para, Mail } from '@/components/oss/LegalPage';
+import { PRELAUNCH, REPO } from '@/components/oss/content';
+import { PUBLICATION_DATE } from '@/components/oss/legal-dates';
 
 export const metadata: Metadata = {
-  title: 'Support',
-  description:
-    'Get help with Clawless Computer. Email support for license activation, billing, and product questions, or start with the documentation.',
-  alternates: { canonical: 'https://clawless.ai/support/' },
+  ...pageMetadata('/support/', {
+    title: 'Support',
+    description: PRELAUNCH
+      ? 'How to get help with Clawless Computer: email for questions now, GitHub Issues for bugs and feature requests at launch, and private reporting for security.'
+      : 'How to get help with Clawless Computer: GitHub Issues for bugs and feature requests, email for questions, private reporting for security.',
+  }),
 };
 
-export default function SupportPage() {
-  const cms = getContent();
-
+/** Rewrite of the previous /support page (which described refunds and the
+ *  paid product). Sources: README.md, CONTRIBUTING.md, SECURITY.md, PRIVACY.md.
+ *  PRELAUNCH: no links into the repository, /security or /docs (none are
+ *  public until launch); the issue forms are described in the future tense. */
+export default function Support() {
   return (
-    <div className="relative z-[1]">
-      <Navbar content={cms.content.nav} />
-      <main id="main-content" className="mx-auto max-w-[1200px] px-6 sm:px-8">
-        <section className="pb-12 pt-32 text-center">
-          <ScrollReveal>
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-accent">
-              Support
-            </p>
-            <h1 className="text-[40px] font-bold leading-[1.1] tracking-[-0.03em] text-text-primary sm:text-[52px]">
-              Need help?
-            </h1>
-            <p className="mx-auto mt-4 max-w-[560px] text-base leading-relaxed text-text-secondary">
-              A person reads every message. Email us and we will get back
-              to you.
-            </p>
-          </ScrollReveal>
-        </section>
+    <LegalPage title="Support" updated={PUBLICATION_DATE}>
+      <Para>
+        {PRELAUNCH
+          ? 'Clawless Computer will be open source and maintained as energy allows. There is no support SLA and no roadmap commitment; issues and fixes from the community are what will keep it moving.'
+          : 'Clawless Computer is open source and maintained as energy allows. There is no support SLA and no roadmap commitment; issues and fixes from the community are what keep it moving.'}
+      </Para>
 
-        <section className="mx-auto max-w-[760px] pb-24">
-          <ScrollReveal>
-            <div
-              className="rounded-2xl border border-border-default p-8 text-text-secondary sm:p-10"
-              style={{ background: 'rgba(10, 15, 28, 0.6)' }}
-            >
-              <p className="mb-2 leading-[1.8]">
-                <strong className="text-text-primary">Email support</strong>
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                For license activation, billing, or anything else about
-                Clawless Computer, email{' '}
-                <a
-                  href="mailto:support@clawless.ai"
-                  className="text-accent underline hover:text-text-primary"
-                >
-                  support@clawless.ai
-                </a>
-                . If your question is about a purchase or a license, include
-                the email address on your order; it is the fastest way for
-                us to find your record.
-              </p>
+      <H2>Bugs, features and questions</H2>
+      {PRELAUNCH ? (
+        <Para>
+          GitHub Issues forms open at launch: Bug report, Feature request, and Question. For a bug, you will be asked for the app version,
+          your operating system, and the engine version, all shown in Settings, About.
+        </Para>
+      ) : (
+        <>
+          <Para>
+            Open an issue on GitHub using the matching form: Bug report, Feature request, or Question. For a bug, include the app version,
+            your operating system, and the engine version, all shown in Settings, About.
+          </Para>
+          <a href={`${REPO}/issues/new/choose`} className="oss-btn oss-btn-primary mb-4">
+            Open an issue on GitHub
+          </a>
+        </>
+      )}
 
-              <p className="mb-2 mt-8 leading-[1.8]">
-                <strong className="text-text-primary">
-                  Documentation
-                </strong>
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                Setup, provider keys, and day-to-day usage are covered in{' '}
-                <a
-                  href="/docs/"
-                  className="text-accent underline hover:text-text-primary"
-                >
-                  the documentation
-                </a>
-                . Many activation and configuration questions are answered
-                there.
-              </p>
+      <H2>Email</H2>
+      <Para>
+        {PRELAUNCH ? 'For questions, write to ' : 'For anything that does not fit an issue, write to '}
+        <Mail to="support@clawless.ai" />.
+      </Para>
 
-              <p className="mb-2 mt-8 leading-[1.8]">
-                <strong className="text-text-primary">
-                  Refunds and billing
-                </strong>
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                Every purchase carries a fourteen-day no-questions-asked
-                refund window. The details, and how to request one, are in
-                the{' '}
-                <a
-                  href="/refunds/"
-                  className="text-accent underline hover:text-text-primary"
-                >
-                  refund policy
-                </a>
-                .
-              </p>
+      <H2>Security problems</H2>
+      {PRELAUNCH ? (
+        <Para>
+          Please do not report a vulnerability in public. Email <Mail to="security@clawless.ai" />. The security policy, with GitHub&apos;s
+          private reporting, is published with the source at launch.
+        </Para>
+      ) : (
+        <Para>
+          Please do not report a vulnerability in a public issue. Use private reporting as described in the{' '}
+          <Link href="/security/" className="oss-link">
+            security policy
+          </Link>
+          , or email <Mail to="security@clawless.ai" />.
+        </Para>
+      )}
 
-              <p className="mb-2 mt-8 leading-[1.8]">
-                <strong className="text-text-primary">
-                  Security reports
-                </strong>
-              </p>
-              <p className="leading-[1.8]">
-                Found a security issue? Email{' '}
-                <a
-                  href="mailto:security@clawless.ai"
-                  className="text-accent underline hover:text-text-primary"
-                >
-                  security@clawless.ai
-                </a>{' '}
-                directly. See the{' '}
-                <a
-                  href="/trust/"
-                  className="text-accent underline hover:text-text-primary"
-                >
-                  trust page
-                </a>{' '}
-                for how we handle reports.
-              </p>
-            </div>
-          </ScrollReveal>
-        </section>
-      </main>
-      <Footer content={cms.content.footer} />
-    </div>
+      <H2>Read first</H2>
+      {PRELAUNCH ? (
+        <Para>The documentation is published with the source at launch.</Para>
+      ) : (
+        <Para>
+          Most answers are in the{' '}
+          <Link href="/docs/" className="oss-link">
+            documentation
+          </Link>
+          . Start with{' '}
+          <Link href="/docs/getting-started/" className="oss-link">
+            Getting started
+          </Link>
+          .
+        </Para>
+      )}
+    </LegalPage>
   );
 }

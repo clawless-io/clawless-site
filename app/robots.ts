@@ -8,9 +8,8 @@ export const dynamic = 'force-static';
  * Allow all crawlers, with AI/answer-engine bots listed explicitly so
  * the intent is unambiguous to future WAF or Cloudflare-bot-management
  * defaults that may start blocking unknown UAs. Legal pages
- * (/privacy, /terms, /refunds, /acceptable-use, /subprocessors,
- * /trust) carry noindex meta in their route metadata, so they stay
- * crawlable but out of search results. We do NOT robots.txt Disallow
+ * (/privacy, /legal, /trust) carry noindex meta in their route
+ * metadata, so they stay crawlable but out of search results. We do NOT robots.txt Disallow
  * them; doing so blocks crawlers from seeing the noindex tag.
  */
 export default function robots(): MetadataRoute.Robots {

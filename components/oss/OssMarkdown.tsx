@@ -4,10 +4,10 @@
  *
  * Link rewriting maps the repository's relative links onto the site, so a
  * reader moves between chapters and policies without bouncing out to GitHub:
- *   memory-system.md          -> /preview/docs/memory-system/
- *   PRIVACY.md, SECURITY.md   -> /preview/privacy/, /preview/security/
- *   LICENSE                   -> /preview/license/
- *   docs/knowledge-base/      -> /preview/docs/
+ *   memory-system.md          -> /docs/memory-system/
+ *   PRIVACY.md, SECURITY.md   -> /privacy/app/, /security/
+ *   LICENSE                   -> /license/
+ *   docs/knowledge-base/      -> /docs/
  *   src/..., build/..., etc.  -> the file on GitHub
  */
 import ReactMarkdown, { type Components } from 'react-markdown';
@@ -15,14 +15,13 @@ import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import { blob, tree } from './content';
 
-const P = '/preview';
 const ROOT_DOCS: Record<string, string> = {
-  'CONTRIBUTING.md': `${P}/contributing/`,
-  'CLA.md': `${P}/cla/`,
-  'PRIVACY.md': `${P}/privacy/`,
-  'SECURITY.md': `${P}/security/`,
-  LICENSE: `${P}/license/`,
-  'README.md': `${P}/docs/`,
+  'CONTRIBUTING.md': `/contributing/`,
+  'CLA.md': `/cla/`,
+  'PRIVACY.md': `/privacy/app/`,
+  'SECURITY.md': `/security/`,
+  LICENSE: `/license/`,
+  'README.md': `/docs/`,
 };
 
 export function resolveHref(href: string | undefined): { href: string; external: boolean } {
@@ -34,8 +33,8 @@ export function resolveHref(href: string | undefined): { href: string; external:
   const clean = p.replace(/^\.\//, '').replace(/^(\.\.\/)+/, '');
   if (ROOT_DOCS[clean]) return { href: ROOT_DOCS[clean] + h, external: false };
   const kb = clean.match(/^(?:docs\/knowledge-base\/)?([a-z0-9-]+)\.md$/);
-  if (kb) return { href: `${P}/docs/${kb[1]}/${h}`, external: false };
-  if (/^docs\/knowledge-base\/?$/.test(clean)) return { href: `${P}/docs/`, external: false };
+  if (kb) return { href: `/docs/${kb[1]}/${h}`, external: false };
+  if (/^docs\/knowledge-base\/?$/.test(clean)) return { href: `/docs/`, external: false };
   // Anything else is a path inside the repository: send it to GitHub.
   return { href: clean.endsWith('/') ? tree(clean) : blob(clean), external: true };
 }

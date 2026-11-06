@@ -4,7 +4,6 @@ import { getProject, source, PROJECT_DOCS, type ProjectSlug } from '@/lib/oss-do
 import AtLaunchNotice from './AtLaunchNotice';
 import { PRELAUNCH } from './content';
 
-const P = '/preview';
 
 /**
  * One template for the repository's own project documents. Rendered verbatim:
@@ -27,7 +26,7 @@ export default function ProjectDocPage({ slug, preface }: { slug: ProjectSlug; p
   return (
     <div className="oss-wrap py-12">
       <article className="mx-auto max-w-[780px]">
-        <DocHeader crumbs={[['Project', `${P}/build/`], [d.title]]} file={file} commit={commit} />
+        <DocHeader crumbs={[['Project', `/build/`], [d.title]]} file={file} commit={commit} />
         {preface && <div className="mt-8">{preface}</div>}
         <div className="mt-8">
           {d.plain ? (

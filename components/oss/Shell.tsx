@@ -8,17 +8,13 @@ import { ThemeToggle } from './Theme';
 import { PRELAUNCH, RELEASES, REPO, SHOW_ABOUT, blob } from './content';
 import { ComingSoon, RepoLink } from './RepoLink';
 
-/** Every redesign route lives under /preview/ until launch. Promoting it to the
- *  site root on launch day is a mechanical move plus this one constant. */
-export const P = '/preview';
-
 /** Docs are hidden until launch (the knowledge base is published with the source). */
 const NAV = [
-  { href: `${P}/what-it-does/`, label: 'What it does' },
-  { href: `${P}/architecture/`, label: 'Architecture' },
-  { href: `${P}/build/`, label: 'Build on it' },
-  ...(PRELAUNCH ? [] : [{ href: `${P}/docs/`, label: 'Docs' }]),
-  { href: `${P}/learn/`, label: 'Learn' },
+  { href: `/what-it-does/`, label: 'What it does' },
+  { href: `/architecture/`, label: 'Architecture' },
+  { href: `/build/`, label: 'Build on it' },
+  ...(PRELAUNCH ? [] : [{ href: `/docs/`, label: 'Docs' }]),
+  { href: `/learn/`, label: 'Learn' },
 ];
 
 export function GitHubIcon({ size = 16 }: { size?: number }) {
@@ -37,29 +33,13 @@ export function Arrow({ size = 14 }: { size?: number }) {
   );
 }
 
-function ReviewBar() {
-  return (
-    <div className="border-b border-[var(--oss-line)] bg-[var(--oss-surface-2)]">
-      <div className="oss-wrap flex flex-wrap items-center justify-between gap-3 py-2 text-xs">
-        <span className="flex items-center gap-2 text-[var(--oss-muted)]">
-          <span className="oss-mono rounded bg-[var(--oss-warn-bg)] px-1.5 py-0.5 text-[var(--oss-warn-ink)]">REVIEW BUILD</span>
-          Local only, not public. Open-source redesign draft for the founder.
-        </span>
-        <span className="flex items-center gap-2 text-[var(--oss-muted)]">
-          Direction <ThemeToggle />
-        </span>
-      </div>
-    </div>
-  );
-}
-
 export function Nav() {
   const path = usePathname() || '';
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--oss-line)] bg-[color-mix(in_srgb,var(--oss-bg)_82%,transparent)] backdrop-blur-xl">
       <div className="oss-wrap flex h-16 items-center justify-between gap-6">
-        <Link href={`${P}/`} className="flex items-center gap-2.5" aria-label="Clawless Computer home">
+        <Link href={`/`} className="flex items-center gap-2.5" aria-label="Clawless Computer home">
           <Mark size={30} />
           <span className="oss-display text-lg font-semibold">Clawless Computer</span>
         </Link>
@@ -83,6 +63,7 @@ export function Nav() {
         </nav>
 
         <div className="hidden items-center gap-2 md:flex">
+          <ThemeToggle />
           {PRELAUNCH ? (
             <>
               <span className="flex items-center gap-1.5 px-2 text-sm text-[var(--oss-muted)]">
@@ -97,7 +78,7 @@ export function Nav() {
                 <GitHubIcon />
                 <span className="text-sm">Source</span>
               </a>
-              <Link href={`${P}/download/`} className="oss-btn oss-btn-primary !py-2 text-sm">
+              <Link href={`/download/`} className="oss-btn oss-btn-primary !py-2 text-sm">
                 Download
               </Link>
             </>
@@ -113,12 +94,15 @@ export function Nav() {
       </div>
       {open && (
         <nav className="oss-wrap flex flex-col gap-1 pb-4 md:hidden" aria-label="Mobile">
-          {[...NAV, ...(PRELAUNCH ? [] : [{ href: `${P}/download/`, label: 'Download' }])].map((n) => (
+          {[...NAV, ...(PRELAUNCH ? [] : [{ href: `/download/`, label: 'Download' }])].map((n) => (
             <Link key={n.href} href={n.href} onClick={() => setOpen(false)} className="rounded-lg px-3 py-2 text-sm text-[var(--oss-ink-2)] hover:bg-[var(--oss-surface-2)]">
               {n.label}
             </Link>
           ))}
           {PRELAUNCH && <span className="px-3 py-2 text-sm text-[var(--oss-muted)]">Download: coming soon</span>}
+          <div className="px-3 py-2">
+            <ThemeToggle />
+          </div>
         </nav>
       )}
     </header>
@@ -149,7 +133,7 @@ export function Footer() {
         {PRELAUNCH ? (
           <FooterCol
             title="Project"
-            links={[['Build on it', `${P}/build/`]]}
+            links={[['Build on it', `/build/`]]}
             note="The source, releases, contributing guide and Contributor License Agreement are published on GitHub at launch."
           />
         ) : (
@@ -158,30 +142,30 @@ export function Footer() {
             links={[
               ['Source on GitHub', REPO],
               ['Releases', RELEASES],
-              ['Contributing', `${P}/contributing/`],
-              ['Contributor License Agreement', `${P}/cla/`],
+              ['Contributing', `/contributing/`],
+              ['Contributor License Agreement', `/cla/`],
             ]}
           />
         )}
         <FooterCol
           title="Trust"
           links={[
-            ['Legal', `${P}/legal/`],
-            ['Website privacy', `${P}/privacy/`],
-            ...(PRELAUNCH ? [] : ([['App privacy', `${P}/privacy/app/`]] as [string, string][])),
-            ['Security and trust', `${P}/trust/`],
-            ['Support', `${P}/support/`],
+            ['Legal', `/legal/`],
+            ['Website privacy', `/privacy/`],
+            ...(PRELAUNCH ? [] : ([['App privacy', `/privacy/app/`]] as [string, string][])),
+            ['Security and trust', `/trust/`],
+            ['Support', `/support/`],
           ]}
         />
         <FooterCol
           title="Site"
           links={[
-            ['Architecture', `${P}/architecture/`],
-            ['Download', `${P}/download/`],
-            ...(PRELAUNCH ? [] : ([['Docs', `${P}/docs/`]] as [string, string][])),
-            ['Learn', `${P}/learn/`],
-            ['Family', `${P}/family/`],
-            ...(SHOW_ABOUT ? ([['About', `${P}/about/`]] as [string, string][]) : []),
+            ['Architecture', `/architecture/`],
+            ['Download', `/download/`],
+            ...(PRELAUNCH ? [] : ([['Docs', `/docs/`]] as [string, string][])),
+            ['Learn', `/learn/`],
+            ['Family', `/family/`],
+            ...(SHOW_ABOUT ? ([['About', `/about/`]] as [string, string][]) : []),
           ]}
         />
       </div>
@@ -222,7 +206,6 @@ function FooterCol({ title, links, note }: { title: string; links: [string, stri
 export function Shell({ children }: { children: React.ReactNode }) {
   return (
     <div className="oss">
-      <ReviewBar />
       <Nav />
       <main id="main-content">{children}</main>
       <Footer />

@@ -1,281 +1,135 @@
 import type { Metadata } from 'next';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
-import ScrollReveal from '@/components/effects/ScrollReveal';
-import { getContent } from '@/lib/cms';
+import { pageMetadata } from '@/lib/metadata';
+import Link from 'next/link';
+import { LegalPage, H2, Para, Mail } from '@/components/oss/LegalPage';
+import { Source } from '@/components/oss/Shell';
+import { PRELAUNCH, RELEASES } from '@/components/oss/content';
+import { PUBLICATION_DATE } from '@/components/oss/legal-dates';
 
 export const metadata: Metadata = {
-  title: 'Trust',
-  description:
-    'How Clawless Computer treats your data. What stays on your Mac, what leaves it and where it goes, the subprocessors we engage, and how you verify the claims.',
-  alternates: { canonical: 'https://clawless.ai/trust/' },
+  ...pageMetadata('/trust/', {
+    title: 'Security and trust',
+    description: PRELAUNCH
+      ? 'How Clawless Computer is built to be checked: open source at launch, releases that will be signed, a security layer that treats agent output as untrusted, and private vulnerability reporting.'
+      : 'How Clawless Computer is built to be checked: open source, signed releases, a security layer that treats agent output as untrusted, and private vulnerability reporting.',
+  }),
   robots: { index: false, follow: true },
 };
 
-export default function TrustPage() {
-  const cms = getContent();
+/** Source chip. While PRELAUNCH the repository is not public, so the path is
+ *  plain text marked "at launch" instead of a link that would 404. */
+function Cite({ path }: { path: string }) {
+  if (!PRELAUNCH) return <Source path={path} />;
+  return <span className="oss-mono inline-flex items-center gap-1 text-[0.72rem] text-[var(--oss-muted)]">{path} (at launch)</span>;
+}
 
+/** Rewrite of the previous /trust page (which described license keys and the
+ *  paid product). Every statement cites the public file that backs it.
+ *  "Notarized" is verified on the actual release artifact before launch.
+ *  PRELAUNCH: future tense wherever the repository or releases are described. */
+export default function Trust() {
   return (
-    <div className="relative z-[1]">
-      <Navbar content={cms.content.nav} />
-      <main id="main-content" className="mx-auto max-w-[1200px] px-6 sm:px-8">
-        <section className="pb-12 pt-32 text-center">
-          <ScrollReveal>
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-accent">
-              Legal
-            </p>
-            <h1 className="text-[40px] font-bold leading-[1.1] tracking-[-0.03em] text-text-primary sm:text-[52px]">
-              Trust
-            </h1>
-            <p className="mx-auto mt-4 max-w-[560px] text-base leading-relaxed text-text-secondary">
-              How Clawless Computer treats your data, and how you verify it.
-            </p>
-          </ScrollReveal>
-        </section>
+    <LegalPage title="Security and trust" updated={PUBLICATION_DATE}>
+      <Para>
+        {PRELAUNCH
+          ? 'Clawless Computer will be open source, so you will not have to take our word for anything here. Each section points at the code or document that backs it, published with the source at launch.'
+          : 'Clawless Computer is open source, so you do not have to take our word for anything here. Each section points at the code or document that backs it.'}
+      </Para>
 
-        <section className="mx-auto max-w-[760px] pb-24">
-          <ScrollReveal>
-            <div
-              className="rounded-2xl border border-border-default p-8 text-text-secondary sm:p-10"
-              style={{ background: 'rgba(10, 15, 28, 0.6)' }}
-            >
-              <p className="mb-2 leading-[1.8]">
-                <strong className="text-text-primary">
-                  What we believe about your data
-                </strong>
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                Your work belongs on your computer. Clawless Computer is a
-                local-first desktop application: conversations, settings, and
-                memory tiers live in a SQLite database in your app data folder,
-                and the only data that ever leaves your Mac is the data you
-                explicitly route through a third party you have configured.
-              </p>
+      <H2>{PRELAUNCH ? 'The source will be public' : 'The source is public'}</H2>
+      <Para>
+        {PRELAUNCH
+          ? 'The app will be free software under the GNU Affero General Public License v3. Once the source is published, anyone will be able to read every line, build it themselves, and propose changes. The engine it runs, OpenClaw, is a separate open source project under the MIT license.'
+          : 'The app is free software under the GNU Affero General Public License v3. Anyone can read every line, build it themselves, and propose changes. The engine it runs, OpenClaw, is a separate open source project under the MIT license.'}
+      </Para>
+      <Cite path="docs/knowledge-base/whats-under-the-hood.md" />
 
-              <p className="mb-2 mt-8 leading-[1.8]">
-                <strong className="text-text-primary">
-                  What stays on your Mac
-                </strong>
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                The following live on your computer, in your app data folder,
-                and never travel to any server we operate:
-              </p>
-              <ul className="ml-6 mb-4 list-disc space-y-2 leading-[1.8]">
-                <li>Your conversations with the agent</li>
-                <li>Your memory entries (facts the app remembers about you)</li>
-                <li>Your agents and skills</li>
-                <li>
-                  Your settings, including API keys for every AI provider you
-                  connect
-                </li>
-                <li>
-                  Browser-automation session state (cookies, local storage,
-                  history for the bundled Chromium)
-                </li>
-                <li>License state and the local consent ledger</li>
-                <li>Anything else you create inside the app</li>
-              </ul>
+      <H2>Signed releases</H2>
+      {PRELAUNCH ? (
+        <Para>
+          Official builds will be signed and notarized for macOS and published on the project&apos;s GitHub Releases page at launch. Building
+          from source will produce an unsigned app unless you supply your own signing identity.
+        </Para>
+      ) : (
+        <Para>
+          Official builds are signed and notarized for macOS and published on the project&apos;s{' '}
+          <a href={RELEASES} className="oss-link">
+            GitHub Releases
+          </a>{' '}
+          page. Building from source produces an unsigned app unless you supply your own signing identity.
+        </Para>
+      )}
+      <Cite path="README.md" />
 
-              <p className="mb-2 mt-8 leading-[1.8]">
-                <strong className="text-text-primary">
-                  What leaves your Mac, and where it goes
-                </strong>
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                Three categories of network traffic leave your Mac when you use
-                Clawless Computer. Each is described below, and each is either
-                fully under your control (BYOK) or scoped narrowly to a single
-                purpose (license validation, Help mode).
-              </p>
+      <H2>Agent output is treated as untrusted</H2>
+      <Para>
+        A tool approval that times out is denied, not allowed. File paths an agent produces are validated before anything is rendered, and
+        content an agent writes is scanned before it is saved or run. Skills pass up to three checks before install: the engine&apos;s
+        manifest validation, a local pattern scanner that is always on, and optional VirusTotal scanning with your own key.{' '}
+        <Link href="/architecture/" className="oss-link">
+          See the architecture
+        </Link>
+        .
+      </Para>
+      <Cite path="src/main/services/ApprovalPolicyOverride.ts" />
 
-              <p className="mb-2 mt-6 leading-[1.8]">
-                <strong className="text-text-primary">
-                  1. BYOK queries to the AI provider you choose
-                </strong>
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                When you send a chat message, Clawless Computer reads your
-                prompt and sends it directly from your computer to whichever
-                provider you have configured (Anthropic, OpenAI, Google, Groq,
-                or any other provider you supply an API key for). The
-                connection is between your computer and the provider; we do
-                not proxy the call through any server we run, and we do not
-                see, store, or relay your prompts or responses. You supply the
-                API key, you choose the model, you control the relationship
-                with the provider under their own privacy policy.
-              </p>
+      <H2>Nothing leaves your Mac that you did not send</H2>
+      {PRELAUNCH ? (
+        <Para>
+          The app adds no telemetry, analytics, or crash reporting, and pull requests that add any of these will not be merged. The engine is
+          reached only on your own machine. The complete list of network connections is in the app privacy notice, published with the source
+          at launch.
+        </Para>
+      ) : (
+        <Para>
+          The app adds no telemetry, analytics, or crash reporting, and pull requests that add any of these will not be merged. The engine is
+          reached only on your own machine. The complete list of network connections is in the{' '}
+          <Link href="/privacy/app/" className="oss-link">
+            app privacy notice
+          </Link>
+          .
+        </Para>
+      )}
+      <Cite path="CONTRIBUTING.md" />
 
-              <p className="mb-2 mt-6 leading-[1.8]">
-                <strong className="text-text-primary">
-                  2. Help mode queries to kb.clawless.ai
-                </strong>
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                When you turn on Help mode from the chat toolbar, your typed
-                question and an opaque per-session identifier travel to
-                kb.clawless.ai, which runs on Cloudflare Workers and uses
-                Cloudflare AI Gateway in front of Anthropic Haiku and Claude
-                Sonnet. The service returns answers and citations drawn from
-                our public documentation. A record of your help conversation
-                is retained for up to 10 minutes of inactivity to support
-                multi-turn follow-up questions, then deleted automatically. We
-                do not link this record to your Clawless account, your IP
-                address beyond edge logging, or any other identifying
-                information. If you do not turn on Help mode, no requests
-                reach this service.
-              </p>
+      <H2>Every change is reviewed by risk</H2>
+      <Para>
+        Pull requests are reviewed with depth proportional to what they touch, and changes to the main process, IPC handlers, or any network
+        endpoint get a security pass. AI agents operated by the maintainers help pre-review; they can comment and label, and a person makes
+        every merge decision.
+      </Para>
+      <Cite path="CONTRIBUTING.md" />
 
-              <p className="mb-2 mt-6 leading-[1.8]">
-                <strong className="text-text-primary">
-                  3. License validation to Lemon Squeezy
-                </strong>
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                Your license key and a short device fingerprint (your
-                computer&apos;s hostname plus a hash of platform and
-                architecture) travel to Lemon Squeezy when the app activates
-                or validates your license. The fingerprint lets Lemon Squeezy
-                show a human-readable name in your activation list so you can
-                recognize and free a specific machine later. The app checks
-                once per 24 hours while open and once on launch; if your
-                computer is offline, the app keeps working using the last
-                successful validation, with a 30-day offline grace window.
-              </p>
+      <H2>Reporting a vulnerability</H2>
+      {PRELAUNCH ? (
+        <Para>
+          Please do not report a vulnerability in public. Email <Mail to="security@clawless.ai" /> with &quot;Clawless security&quot; in the
+          subject. Once the repository is public, GitHub&apos;s private vulnerability reporting will also be available from its Security tab.
+          Security reports are prioritized over other work, though as the project is maintained as energy allows we cannot promise a fixed
+          response time. Fixes will ship in the next signed release; older releases will not be patched. The security policy is published with
+          the source at launch.
+        </Para>
+      ) : (
+        <Para>
+          Please do not open a public issue. Use GitHub&apos;s private vulnerability reporting from the repository&apos;s Security tab, or
+          email <Mail to="security@clawless.ai" /> with &quot;Clawless security&quot; in the subject. Security reports are prioritized over
+          other work, though as the project is maintained as energy allows we cannot promise a fixed response time. Fixes ship in the next
+          signed release; older releases are not patched.{' '}
+          <Link href="/security/" className="oss-link">
+            Read the security policy
+          </Link>
+          .
+        </Para>
+      )}
+      <Cite path="SECURITY.md" />
 
-              <p className="mb-2 mt-6 leading-[1.8]">
-                <strong className="text-text-primary">
-                  What is not there
-                </strong>
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                Clawless Computer does not run analytics, crash telemetry,
-                session replay, fingerprinting, or any other passive data
-                collection. There is no Clawless-controlled cloud storage; we
-                do not hold a copy of your conversations, your prompts, your
-                memory entries, or your work on any infrastructure we operate.
-              </p>
-
-              <p className="mb-2 mt-8 leading-[1.8]">
-                <strong className="text-text-primary">Subprocessors</strong>
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                For the full list of third parties that may receive data when
-                you use Clawless Computer, including each one&apos;s role and
-                when it is engaged, see our{' '}
-                <a
-                  href="/subprocessors/"
-                  className="text-accent underline hover:text-text-primary"
-                >
-                  subprocessors page
-                </a>
-                . The desktop application also enumerates its own subprocessor
-                list under Settings, Legal, Subprocessors, because the in-app
-                list depends on which AI providers you choose to connect.
-              </p>
-
-              <p className="mb-2 mt-8 leading-[1.8]">
-                <strong className="text-text-primary">Your rights</strong>
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                Because the vast majority of your data sits on your computer,
-                most rights are exercised by you, on your computer, without
-                involving us:
-              </p>
-              <ul className="ml-6 mb-4 list-disc space-y-2 leading-[1.8]">
-                <li>
-                  <strong className="text-text-primary">Export.</strong>{' '}
-                  Settings, Legal, Export My Data writes a single zip file
-                  built from an explicit allow-list: the app database
-                  (settings, conversations, memory entries, consent ledger,
-                  license cache), the OpenClaw engine working tree, and your
-                  installed skills. Every JSON file is scanned and any field
-                  whose name suggests a credential (token, secret, key,
-                  password, webhook) is replaced with the placeholder
-                  &quot;redacted-on-export&quot; before the zip is written. A
-                  manifest at the root of the archive lists what was excluded,
-                  what was redacted, and what was retained.
-                </li>
-                <li>
-                  <strong className="text-text-primary">Delete.</strong>{' '}
-                  Settings, Legal, Delete All My Data wipes the local
-                  database, removes your installed skills, and resets the
-                  app. When your computer is online at the time of deletion,
-                  the app also calls Lemon Squeezy to release your activation
-                  slot so you can re-use the same license key on another
-                  machine.
-                </li>
-                <li>
-                  <strong className="text-text-primary">Rectify.</strong> You
-                  can edit memory entries directly in the Memory panel and
-                  delete individual conversations from the chat sidebar.
-                </li>
-                <li>
-                  <strong className="text-text-primary">
-                    Disconnect at any time.
-                  </strong>{' '}
-                  Remove any AI provider, channel, or MCP server from
-                  Settings; the connection ends immediately.
-                </li>
-              </ul>
-
-              <p className="mb-2 mt-8 leading-[1.8]">
-                <strong className="text-text-primary">Verification</strong>
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                You do not have to take our word for the claims on this page.
-                The full in-app privacy policy lives at Settings, Legal,
-                Privacy Policy and describes every category of data the app
-                holds, where it lives, and where it travels. The marketing
-                site&apos;s{' '}
-                <a
-                  href="/privacy/"
-                  className="text-accent underline hover:text-text-primary"
-                >
-                  privacy notice
-                </a>{' '}
-                covers what this website itself collects (nothing beyond
-                standard host-level metadata at the Cloudflare edge). For the
-                desktop application, our practice is that no content of your
-                work or prompts leaves your device by default; the BYOK
-                connections you configure are the only data flows that send
-                prompts off your computer, and they go directly to the
-                provider you chose.
-              </p>
-
-              <p className="mb-2 mt-8 leading-[1.8]">
-                <strong className="text-text-primary">Contact</strong>
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                For privacy and data-rights questions, contact{' '}
-                <a
-                  href="mailto:info@clawless.ai"
-                  className="text-accent underline hover:text-text-primary"
-                >
-                  info@clawless.ai
-                </a>
-                . For suspected security vulnerabilities, contact{' '}
-                <a
-                  href="mailto:security@clawless.ai"
-                  className="text-accent underline hover:text-text-primary"
-                >
-                  security@clawless.ai
-                </a>
-                ; we aim to acknowledge within five business days, per the
-                published{' '}
-                <a
-                  href="https://rbjglobal.com/legal/security"
-                  className="text-accent underline hover:text-text-primary"
-                >
-                  responsible-disclosure policy
-                </a>
-                .
-              </p>
-            </div>
-          </ScrollReveal>
-        </section>
-      </main>
-      <Footer content={cms.content.footer} />
-    </div>
+      <H2>What you are trusting, and to whom</H2>
+      <Para>
+        You trust us to ship an app that does what it claims and protects your local data. You trust your AI provider with the contents of
+        your messages. You trust OpenClaw to be a faithful engine, which you can audit. And you trust any tool or skill you install with the
+        permissions it asks for.
+      </Para>
+      <Cite path="docs/knowledge-base/whats-under-the-hood.md" />
+    </LegalPage>
   );
 }

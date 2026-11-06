@@ -1,121 +1,110 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/metadata';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
-import ScrollReveal from '@/components/effects/ScrollReveal';
-import MarkdownContent from '@/components/docs/MarkdownContent';
-import { getContent } from '@/lib/cms';
-import {
-  getAllChapterSlugs,
-  getCategoryForSlug,
-  getChapterMarkdown,
-  getChapterMeta,
-} from '@/lib/docs';
-import { pageMetadata, SITE_URL } from '@/lib/metadata';
+import OssMarkdown from '@/components/oss/OssMarkdown';
+import { DocHeader, SourceNote } from '@/components/oss/DocChrome';
+import { Arrow } from '@/components/oss/Shell';
+import AtLaunchNotice from '@/components/oss/AtLaunchNotice';
+import { DOCS, PRELAUNCH } from '@/components/oss/content';
+import { getKb, kbSlugs, source } from '@/lib/oss-docs';
 
-interface PageParams {
-  slug: string;
+type Params = { slug: string };
+
+export function generateStaticParams(): Params[] {
+  return kbSlugs().map((slug) => ({ slug }));
 }
 
-interface PageProps {
-  params: Promise<PageParams>;
-}
-
-export function generateStaticParams(): PageParams[] {
-  return getAllChapterSlugs().map((slug) => ({ slug }));
-}
-
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { slug } = await params;
-  const chapter = getChapterMeta(slug);
-  if (!chapter) return { title: 'Documentation' };
-  return pageMetadata(`/docs/${slug}/`, {
-    title: `${chapter.title} | Documentation`,
-    description: chapter.description,
-  });
-}
-
-export default async function DocsChapterPage({ params }: PageProps) {
-  const { slug } = await params;
-  const chapter = getChapterMeta(slug);
-  const category = getCategoryForSlug(slug);
-  if (!chapter || !category) {
-    notFound();
+  const path = `/docs/${slug}/`;
+  if (PRELAUNCH) {
+    // Every chapter URL serves the same short notice before launch, so it stays
+    // out of the index (and the sitemap) but keeps a unique title per URL.
+    const entry = DOCS.flatMap<readonly [string, string, string]>((g) => g.items).find(([s]) => s === slug);
+    const title = entry ? `${entry[1]} (docs)` : 'Docs';
+    const description = entry
+      ? `${entry[1]}: ${entry[2]}. This Clawless Computer chapter is published with the source at launch.`
+      : 'The Clawless Computer documentation is published with the source at launch.';
+    return { ...pageMetadata(path, { title, description }), robots: { index: false, follow: true } };
   }
+  const d = getKb(slug);
+  return pageMetadata(path, { title: d.title, description: d.description });
+}
 
-  const markdown = getChapterMarkdown(slug);
-  const pageUrl = `${SITE_URL}/docs/${slug}/`;
+/** Reading order as the knowledge base README groups it. */
+const ORDER = DOCS.flatMap((g) => g.items.map(([slug, title]) => ({ slug, title, group: g.group })));
 
-  const jsonLd = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'TechArticle',
-      headline: chapter.title,
-      description: chapter.description,
-      url: pageUrl,
-      publisher: { '@id': `${SITE_URL}/#organization` },
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
-        { '@type': 'ListItem', position: 2, name: 'Documentation', item: `${SITE_URL}/docs/` },
-        { '@type': 'ListItem', position: 3, name: chapter.title, item: pageUrl },
-      ],
-    },
-  ];
+export default async function KbChapter({ params }: { params: Promise<Params> }) {
+  // Routes stay generated (generateStaticParams above) so launch day is a flag flip;
+  // before launch every chapter URL renders the same short notice.
+  if (PRELAUNCH)
+    return (
+      <AtLaunchNotice
+        eyebrow="Docs"
+        title="The documentation is published with the source at launch."
+        lede="The knowledge base lives in the repository next to the code it describes, and goes public on launch day."
+      />
+    );
+  const { slug } = await params;
+  const d = getKb(slug);
+  const { commit } = source();
+  const i = ORDER.findIndex((o) => o.slug === slug);
+  const prev = i > 0 ? ORDER[i - 1] : null;
+  const next = i >= 0 && i < ORDER.length - 1 ? ORDER[i + 1] : null;
 
   return (
-    <div className="relative z-[1]">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <Navbar content={getContent().content.nav} />
-      <main id="main-content" className="mx-auto max-w-[1200px] px-6 sm:px-8">
-        <section className="pb-8 pt-28">
-          <ScrollReveal>
-            <nav
-              aria-label="Breadcrumb"
-              className="mb-3 text-[12px] font-medium uppercase tracking-[0.16em] text-text-muted"
-            >
-              <Link href="/docs/" className="hover:text-accent">
-                Docs
-              </Link>
-              <span className="mx-2 text-text-muted/60">/</span>
-              <span>{category.title}</span>
-            </nav>
-          </ScrollReveal>
-        </section>
+    <div className="oss-wrap grid gap-12 py-12 lg:grid-cols-[230px_1fr]">
+      <aside className="hidden lg:block">
+        <nav aria-label="Knowledge base" className="sticky top-24 space-y-6">
+          {DOCS.map((g) => (
+            <div key={g.group}>
+              <p className="oss-eyebrow !text-[0.66rem] !text-[var(--oss-muted)]">{g.group}</p>
+              <ul className="mt-2 space-y-0.5">
+                {g.items.map(([s, title]) => (
+                  <li key={s}>
+                    <Link
+                      href={`/docs/${s}/`}
+                      className={
+                        'block rounded-md px-2.5 py-1.5 text-[0.86rem] transition-colors ' +
+                        (s === slug ? 'bg-[var(--oss-surface-2)] font-medium text-[var(--oss-ink)]' : 'text-[var(--oss-muted)] hover:text-[var(--oss-ink)]')
+                      }
+                    >
+                      {title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </nav>
+      </aside>
 
-        <section className="mx-auto max-w-[760px] pb-24">
-          <ScrollReveal>
-            <article className="text-text-secondary">
-              <MarkdownContent source={markdown} />
-            </article>
+      <article className="min-w-0 max-w-[760px]">
+        <DocHeader crumbs={[['Docs', `/docs/`], [d.title]]} file={`docs/knowledge-base/${slug}.md`} commit={commit} />
+        <div className="mt-8">
+          <OssMarkdown source={d.body} />
+        </div>
 
-            <nav
-              aria-label="Section navigation"
-              className="mt-16 flex items-center justify-between border-t border-border-light pt-8 text-[14px] text-text-muted"
-            >
-              <Link
-                href="/docs/"
-                className="text-accent hover:text-text-primary"
-              >
-                ← Back to all chapters
-              </Link>
-              <span className="text-[12px] uppercase tracking-[0.12em]">
-                {category.title}
-              </span>
-            </nav>
-          </ScrollReveal>
-        </section>
-      </main>
-      <Footer content={getContent().content.footer} />
+        <div className="mt-14 grid gap-3 sm:grid-cols-2">
+          {prev ? (
+            <Link href={`/docs/${prev.slug}/`} className="oss-card block p-4 hover:border-[var(--oss-line-strong)]">
+              <span className="oss-small !text-[0.72rem]">Previous</span>
+              <p className="font-semibold text-[var(--oss-ink)]">{prev.title}</p>
+            </Link>
+          ) : (
+            <span />
+          )}
+          {next && (
+            <Link href={`/docs/${next.slug}/`} className="oss-card block p-4 text-right hover:border-[var(--oss-line-strong)]">
+              <span className="oss-small !text-[0.72rem]">Next</span>
+              <p className="inline-flex items-center gap-1.5 font-semibold text-[var(--oss-ink)]">
+                {next.title} <Arrow size={12} />
+              </p>
+            </Link>
+          )}
+        </div>
+        <SourceNote file={`docs/knowledge-base/${slug}.md`} />
+      </article>
     </div>
   );
 }

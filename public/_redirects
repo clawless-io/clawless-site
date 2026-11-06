@@ -41,12 +41,34 @@
 /docs/knowledge-base/usage-and-cost /docs/usage-and-cost/ 301
 /docs/knowledge-base/usage-and-cost/ /docs/usage-and-cost/ 301
 /docs/knowledge-base/usage-and-cost.md /docs/usage-and-cost/ 301
-/docs/knowledge-base/licensing-and-trial /docs/licensing-and-trial/ 301
-/docs/knowledge-base/licensing-and-trial/ /docs/licensing-and-trial/ 301
-/docs/knowledge-base/licensing-and-trial.md /docs/licensing-and-trial/ 301
+/docs/knowledge-base/licensing-and-trial /docs/ 301
+/docs/knowledge-base/licensing-and-trial/ /docs/ 301
+/docs/knowledge-base/licensing-and-trial.md /docs/ 301
 /docs/knowledge-base/app-lock /docs/app-lock/ 301
 /docs/knowledge-base/app-lock/ /docs/app-lock/ 301
 /docs/knowledge-base/app-lock.md /docs/app-lock/ 301
 /docs/knowledge-base/settings-reference /docs/settings-reference/ 301
 /docs/knowledge-base/settings-reference/ /docs/settings-reference/ 301
 /docs/knowledge-base/settings-reference.md /docs/settings-reference/ 301
+
+# Retired with the open-source redesign (2026-11-06). Slash form first, then bare.
+/refunds/ /download/ 301
+/refunds /download/ 301
+/terms/ /legal/ 301
+/terms /legal/ 301
+/acceptable-use/ /legal/ 301
+/acceptable-use /legal/ 301
+/subprocessors/ /privacy/ 301
+/subprocessors /privacy/ 301
+/pricing/ /download/ 301
+/pricing /download/ 301
+/features/ /what-it-does/ 301
+/features /what-it-does/ 301
+
+# Old docs chapter with no counterpart in the new knowledge base.
+/docs/licensing-and-trial/ /docs/ 301
+/docs/licensing-and-trial /docs/ 301
+
+# The redesign was reviewed under /preview/; it now lives at the root.
+/preview / 301
+/preview/* /:splat 301

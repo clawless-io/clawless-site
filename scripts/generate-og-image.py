@@ -69,32 +69,30 @@ def main() -> None:
     img = Image.new("RGB", (RENDER_W, RENDER_H), BG)
     draw = ImageDraw.Draw(img)
 
-    # Georgia Bold at 168px to match RBJ Global exactly. Founder
-    # feedback 2026-05-16: "Your design should match the way you build
-    # RBJ Global. RBJ Global is the parent, and the rest of them are
-    # siblings, so they should have resemblances." At 168px the stroke
-    # thickness matches RBJ Global's wordmark; at smaller sizes
-    # (previously 120px for "Clawless Computer") the strokes scaled
-    # down proportionally and the visual weight thinned. Title shortened
-    # to "Clawless" (the brand short form) so the family-default 168px
-    # fits the 1200-wide canvas; the "Computer" product suffix is
-    # implied by the clawless.ai URL surface and reinforced by the
-    # tagline "An operating system for AI."
-    title_font = load_font(GEORGIA_BOLD, 168 * SCALE)
+    # Georgia Bold at the family 168px where it fits (RBJ Global's wordmark
+    # size; founder feedback 2026-05-16: siblings should resemble the parent).
+    # The full product name "Clawless Computer" is too wide for 168px on a
+    # 1200-wide canvas, so the title steps down until it fits inside the side
+    # margins. Taglines keep the family sizes.
     tagline_font = load_font(SF_REGULAR, 68 * SCALE)
     detail_font = load_font(SF_REGULAR, 46 * SCALE)
 
-    # Copy. Title = product name. Primary tagline = what it does.
-    # Sub-tagline = positioning statement. Keep each line short enough
-    # that it survives LinkedIn's 1.91:1 crop (~8% bottom can clip on
-    # narrow feed cards without losing the primary tagline).
-    title = "Clawless"
-    tagline = "An operating system for AI."
-    detail = "Built on OpenClaw. Bring your own keys."
+    # Copy (open-source relaunch, pre-launch mode 2026-11-06). Title = product
+    # name. Primary tagline = what it is. Sub-tagline = status. No date.
+    title = "Clawless Computer"
+    tagline = "Open source AI agents on your Mac"
+    detail = "Coming soon. Free under AGPL-3.0."
 
-    title_y = 150 * SCALE
-    tagline_y = 360 * SCALE
-    detail_y = 480 * SCALE
+    max_title_w = (WIDTH - 2 * 60) * SCALE
+    title_size = 168
+    title_font = load_font(GEORGIA_BOLD, title_size * SCALE)
+    while draw.textbbox((0, 0), title, font=title_font)[2] > max_title_w and title_size > 60:
+        title_size -= 2
+        title_font = load_font(GEORGIA_BOLD, title_size * SCALE)
+
+    title_y = (280 - int(title_size * 1.25)) * SCALE
+    tagline_y = 310 * SCALE
+    detail_y = 430 * SCALE
 
     draw.text((center_x(draw, title, title_font), title_y), title, fill=TITLE_COLOR, font=title_font)
     draw.text((center_x(draw, tagline, tagline_font), tagline_y), tagline, fill=TAGLINE_COLOR, font=tagline_font)

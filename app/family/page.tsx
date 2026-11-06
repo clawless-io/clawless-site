@@ -1,15 +1,12 @@
 import type { Metadata } from 'next';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
-import ScrollReveal from '@/components/effects/ScrollReveal';
-import { getContent } from '@/lib/cms';
+import { pageMetadata } from '@/lib/metadata';
+import { PageHead } from '@/components/oss/Shell';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata('/family/', {
   title: 'The family',
   description:
-    'Clawless is one of several products from RBJ Global LLC: independent, privacy-first software, each kept distinct on its own domain.',
-  alternates: { canonical: 'https://clawless.ai/family/' },
-};
+    'Clawless Computer is one of several products from RBJ Global LLC: independent, privacy-first software, each kept distinct on its own domain.',
+});
 
 interface FamilyLink {
   label: string;
@@ -41,7 +38,7 @@ const MEMBERS: FamilyMember[] = [
     tagline: 'Document conversion that never uploads.',
     glyph: 'document',
     description:
-      'A browser-only converter for Markdown, PDF, DOCX, and the usual suspects. Same posture as Clawless, scoped down to a single static page: nothing is uploaded, nothing is logged, nothing leaves your tab. Useful as the throwaway tool when you want to prep a document for a Clawless prompt without involving any server you do not control.',
+      'A browser-only converter for Markdown, PDF, DOCX, and the usual suspects. Same posture as Clawless Computer, scoped down to a single static page: nothing is uploaded, nothing is logged, nothing leaves your tab. Useful as the throwaway tool when you want to prep a document for a Clawless prompt without involving any server you do not control.',
     links: [
       { label: 'Visit iluvmd.com', href: 'https://iluvmd.com/' },
       { label: 'See the conversion modes', href: 'https://iluvmd.com/#modes' },
@@ -52,12 +49,11 @@ const MEMBERS: FamilyMember[] = [
     tagline: 'Local speech-to-text for Mac.',
     glyph: 'mic',
     description:
-      'Dictation on macOS with Whisper and Parakeet models running on your own laptop. The Clawless posture applied to audio: nothing goes to a vendor cloud, the product is sold once instead of rented. Useful upstream of Clawless when you want to talk into your computer instead of typing the prompt.',
+      'Dictation on macOS with Whisper and Parakeet models running on your own laptop. The Clawless posture applied to audio: nothing goes to a vendor cloud. Useful upstream of Clawless when you want to talk into your computer instead of typing the prompt.',
     links: [
       { label: 'Visit whisprdesk.com', href: 'https://whisprdesk.com/' },
       { label: 'See WhisprDesk features', href: 'https://whisprdesk.com/#features' },
       { label: 'Compare WhisprDesk', href: 'https://whisprdesk.com/#compare' },
-      { label: 'See WhisprDesk pricing', href: 'https://whisprdesk.com/pricing/' },
     ],
   },
   {
@@ -109,17 +105,14 @@ const MEMBERS: FamilyMember[] = [
   },
 ];
 
-// Acyclic @graph: each org is defined once and keyed by @id. Clawless (the
-// host) references RBJ as parent by @id; RBJ lists the four OTHER siblings
-// inline plus Clawless by @id reference. No node inlines its own ancestor,
-// so it's a clean DAG. Family-wide shape adopted 2026-05-20.
+// Acyclic @graph: each org is defined once and keyed by @id.
 const FAMILY_JSONLD = {
   '@context': 'https://schema.org',
   '@graph': [
     {
       '@type': 'Organization',
       '@id': 'https://clawless.ai/#organization',
-      name: 'Clawless',
+      name: 'Clawless Computer',
       url: 'https://clawless.ai/',
       parentOrganization: { '@id': 'https://rbjglobal.com/#organization' },
     },
@@ -239,124 +232,44 @@ function ArrowRight() {
   );
 }
 
+
 export default function FamilyPage() {
-  const cms = getContent();
-
   return (
-    <div className="relative z-[1]">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAMILY_JSONLD) }}
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAMILY_JSONLD) }} />
+      <PageHead
+        eyebrow="The family"
+        title="Clawless Computer is one of several."
+        lede="Clawless Computer is a product of RBJ Global LLC. The same operator ships a small portfolio of independent, privacy-first software. Each product is its own brand on its own domain, with its own roadmap, joined by a single posture: keep the user's data on the user's device."
       />
-      <Navbar content={cms.content.nav} />
-      <main id="main-content" className="mx-auto max-w-[1200px] px-6 sm:px-8">
-        {/* Hero */}
-        <section className="relative overflow-hidden pb-16 pt-[120px] text-center">
-          <div
-            className="pointer-events-none absolute left-1/2 top-[-180px] h-[700px] w-[700px] rounded-full"
-            style={{
-              transform: 'translateX(-50%)',
-              background:
-                'radial-gradient(circle, rgba(0,212,255,0.14) 0%, rgba(0,212,255,0.06) 35%, rgba(34,255,170,0.04) 55%, transparent 70%)',
-              filter: 'blur(40px)',
-              animation: 'orbBreathe 8s ease-in-out infinite',
-            }}
-          />
-
-          <ScrollReveal>
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">
-              The family
-            </p>
-            <h1
-              className="relative mb-6 text-[42px] font-extrabold leading-[1.1] tracking-[-0.02em] sm:text-[56px] md:text-[64px]"
-              style={{
-                background:
-                  'linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-secondary) 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-              }}
-            >
-              Clawless is one of{' '}
-              <span
-                style={{
-                  background:
-                    'linear-gradient(135deg, var(--color-accent) 0%, var(--color-success) 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                }}
-              >
-                several
-              </span>
-              .
-            </h1>
-            <p className="mx-auto max-w-[640px] text-base leading-[1.7] text-text-secondary sm:text-lg">
-              Clawless is a product of RBJ Global LLC. The same operator
-              ships a small portfolio of independent, privacy-first software.
-              Each product is its own brand on its own domain, with its own
-              pricing and roadmap, joined by a single posture: keep the
-              user&apos;s data on the user&apos;s device.
-            </p>
-          </ScrollReveal>
-        </section>
-
-        {/* Family grid */}
-        <section className="pb-24 sm:pb-32">
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
-            {MEMBERS.map((m) => (
-              <ScrollReveal key={m.name}>
-                <article
-                  className="flex h-full flex-col rounded-xl p-7 sm:p-8 motion-safe:transition-all motion-safe:duration-300 motion-safe:hover:-translate-y-0.5"
-                  style={{
-                    background: 'rgba(0, 212, 255, 0.06)',
-                    border: '1px solid rgba(0, 212, 255, 0.22)',
-                    backdropFilter: 'blur(20px)',
-                    WebkitBackdropFilter: 'blur(20px)',
-                  }}
-                >
-                  <div className="mb-4 flex items-center gap-3">
-                    <span
-                      className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg text-accent"
-                      style={{ background: 'rgba(0, 212, 255, 0.10)' }}
-                    >
-                      <Glyph kind={m.glyph} />
-                    </span>
-                    <div>
-                      <h2 className="text-[22px] font-bold leading-tight tracking-[-0.01em] text-text-primary sm:text-[24px]">
-                        {m.name}
-                      </h2>
-                      <p className="mt-0.5 text-[13px] leading-tight text-text-muted">
-                        {m.tagline}
-                      </p>
-                    </div>
-                  </div>
-                  <p className="text-[15px] leading-[1.7] text-text-secondary">
-                    {m.description}
-                  </p>
-                  <ul
-                    className="mt-6 flex flex-col gap-2 pt-5 text-[14px]"
-                    style={{ borderTop: '1px solid rgba(0, 212, 255, 0.16)' }}
-                  >
-                    {m.links.map((link) => (
-                      <li key={link.href}>
-                        <a
-                          href={link.href}
-                          target="_blank"
-                          rel="noopener"
-                          className="inline-flex items-center gap-2 text-accent transition-colors duration-150 hover:text-text-primary"
-                        >
-                          <ArrowRight />
-                          <span>{link.label}</span>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              </ScrollReveal>
-            ))}
-          </div>
-        </section>
-      </main>
-      <Footer content={cms.content.footer} />
-    </div>
+      <section className="oss-wrap py-20">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {MEMBERS.map((m) => (
+            <article key={m.name} className="oss-card flex h-full flex-col p-7">
+              <div className="mb-4 flex items-center gap-3">
+                <span className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg text-[var(--oss-accent)]">
+                  <Glyph kind={m.glyph} />
+                </span>
+                <div>
+                  <h2 className="oss-h3">{m.name}</h2>
+                  <p className="oss-small mt-0.5">{m.tagline}</p>
+                </div>
+              </div>
+              <p className="oss-body !text-[0.95rem]">{m.description}</p>
+              <ul className="mt-6 flex flex-col gap-2 border-t border-[var(--oss-line)] pt-5 text-[0.9rem]">
+                {m.links.map((link) => (
+                  <li key={link.href}>
+                    <a href={link.href} target="_blank" rel="noopener" className="oss-link inline-flex items-center gap-2">
+                      <ArrowRight />
+                      <span>{link.label}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+    </>
   );
 }

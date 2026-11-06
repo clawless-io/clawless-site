@@ -3,14 +3,14 @@ import type { Metadata } from 'next';
 export const SITE_URL = 'https://clawless.ai';
 export const SITE_NAME = 'Clawless Computer';
 export const SITE_DESCRIPTION =
-  'An operating system for AI. Run agents, models, and tools on your Mac or Ubuntu desktop. Built on top of OpenClaw.';
+  'Clawless Computer is a desktop app for running open source AI agents on your Mac with your own keys. Coming soon, and free under the AGPL-3.0 at launch.';
 
 // Cloudflare Web Analytics: the cookieless, aggregate visit counter disclosed
 // in the privacy notice. This token is PUBLIC by design (it ships in the page
 // HTML); it is NOT a secret. An empty string disables the beacon.
 export const CF_BEACON_TOKEN = '158ab1942af24008a379002a1739f428';
 
-const DEFAULT_TITLE = 'Clawless Computer: run AI agents locally on your Mac.';
+const DEFAULT_TITLE = 'Clawless Computer: open source AI agents on your Mac';
 
 export const siteMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -22,15 +22,15 @@ export const siteMetadata: Metadata = {
   keywords: [
     'Clawless',
     'Clawless Computer',
-    'AI computer',
-    'AI operating system',
+    'open source AI agents',
+    'AGPL-3.0',
     'OpenClaw',
+    'OpenClaw desktop app',
     'AI agent',
     'desktop AI',
     'local-first AI',
-    'privacy-first AI',
-    'OpenClaw GUI',
-    'AI on your machine',
+    'bring your own keys',
+    'AI on your Mac',
   ],
   authors: [{ name: 'Clawless Computer' }],
   creator: 'Clawless Computer',
@@ -54,7 +54,7 @@ export const siteMetadata: Metadata = {
 };
 
 /**
- * Per-page metadata. Pass a trailing-slash path ('/features/', or '/' for
+ * Per-page metadata. Pass a trailing-slash path ('/what-it-does/', or '/' for
  * the homepage) so the canonical matches the URL Next actually emits under
  * `trailingSlash: true` and never self-references a 308.
  *
@@ -100,9 +100,9 @@ export function pageMetadata(
 }
 
 /**
- * Sitewide publisher identity, injected once in the root layout. Per-page
- * JSON-LD (SoftwareApplication on the homepage, TechArticle on docs) is
- * emitted by those pages and references this Organization as publisher.
+ * Sitewide publisher identity, injected once in the root layout. The homepage
+ * adds the WebSite node below. No SoftwareApplication before launch: the app is
+ * not released yet, and no node on this site carries an Offer or a price.
  */
 export const organizationJsonLd = {
   '@context': 'https://schema.org',
@@ -135,14 +135,3 @@ export const webSiteJsonLd = {
   publisher: { '@id': `${SITE_URL}/#organization` },
 };
 
-/** Homepage-only. operatingSystem reflects the live site's current claim. */
-export const softwareApplicationJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: SITE_NAME,
-  applicationCategory: 'DeveloperApplication',
-  operatingSystem: 'macOS, Linux (Ubuntu)',
-  description: SITE_DESCRIPTION,
-  url: `${SITE_URL}/`,
-  publisher: { '@id': `${SITE_URL}/#organization` },
-};

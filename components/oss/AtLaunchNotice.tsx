@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { P, PageHead, Arrow } from './Shell';
+import { PageHead, Arrow } from './Shell';
 
 /**
  * Stand-in page for repository-backed pages (docs, project documents) while
@@ -10,7 +10,7 @@ export default function AtLaunchNotice({ eyebrow, title, lede }: { eyebrow: stri
     <>
       <PageHead eyebrow={eyebrow} title={title} lede={lede} />
       <section className="oss-wrap py-20">
-        <Link href={`${P}/what-it-does/`} className="oss-btn">
+        <Link href={`/what-it-does/`} className="oss-btn">
           See what it does <Arrow />
         </Link>
       </section>

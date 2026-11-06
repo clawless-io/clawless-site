@@ -1,11 +1,10 @@
 'use client';
 
 /**
- * Light/dark toggle for the design review. The founder chooses a direction
- * tomorrow; both are fully themed so every page can be judged in either.
+ * Light/dark toggle, rendered quietly in the header next to the main button.
  *
  * The chosen theme lives on <html data-oss-theme>, set before first paint by
- * THEME_BOOT (rendered inline in the preview layout) so there is no flash.
+ * THEME_BOOT (rendered inline in the root layout) so there is no flash.
  * localStorage holds only this per-viewer preference, wrapped in try/catch:
  * it can be unavailable, and the page must still render correctly without it.
  */
@@ -46,7 +45,7 @@ export const useOssTheme = () => useContext(Ctx);
 export function ThemeToggle() {
   const { theme, setTheme } = useOssTheme();
   return (
-    <div role="radiogroup" aria-label="Design direction" className="inline-flex rounded-full border border-[var(--oss-line-strong)] bg-[var(--oss-surface)] p-0.5 text-xs font-medium">
+    <div role="radiogroup" aria-label="Color theme" className="inline-flex rounded-full border border-[var(--oss-line-strong)] bg-[var(--oss-surface)] p-0.5 text-xs font-medium">
       {(['light', 'dark'] as const).map((t) => (
         <button
           key={t}

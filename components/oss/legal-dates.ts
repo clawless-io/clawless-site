@@ -4,5 +4,5 @@
  * website-privacy changelog entry. One constant so the publication step is a
  * one-line edit.
  */
-// set the day of the push (ISO form, e.g. 2026-MM-DD). Never a launch date.
-export const PUBLICATION_DATE = 'PUBLICATION DATE';
+// The day the open-source site was published (ISO form, like the changelog). Never a launch date.
+export const PUBLICATION_DATE = '2026-11-06';

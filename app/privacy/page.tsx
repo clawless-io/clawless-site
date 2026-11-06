@@ -1,335 +1,204 @@
 import type { Metadata } from 'next';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
-import ScrollReveal from '@/components/effects/ScrollReveal';
-import { getContent } from '@/lib/cms';
+import { pageMetadata } from '@/lib/metadata';
+import Link from 'next/link';
+import { LegalPage, H2, Para, Mail } from '@/components/oss/LegalPage';
+import { PRELAUNCH, LINKEDIN_PAGE } from '@/components/oss/content';
+import { PUBLICATION_DATE } from '@/components/oss/legal-dates';
 
 export const metadata: Metadata = {
-  title: 'Privacy Notice',
-  description:
-    'Clawless Computer privacy notice. This pre-launch site runs one privacy-first, cookieless visit counter and collects nothing that identifies you. RBJ Global LLC operates this site and the upcoming Clawless Computer desktop product.',
-  alternates: { canonical: 'https://clawless.ai/privacy/' },
+  ...pageMetadata('/privacy/', {
+    title: 'Website privacy',
+    description: PRELAUNCH
+      ? 'Privacy notice for the clawless.ai website. One cookieless visit counter, no cookies, no forms, no accounts. The Clawless Computer app will have its own notice, published with its source at launch.'
+      : 'Privacy notice for the clawless.ai website. One cookieless visit counter, no cookies, no forms, no accounts. The Clawless Computer app has its own notice.',
+  }),
   robots: { index: false, follow: true },
 };
 
-export default function PrivacyPage() {
-  const cms = getContent();
-
+/**
+ * WEBSITE privacy notice, rewritten from the previous app/privacy/page.tsx for
+ * the open-source launch. Scope is the website only; the app's notice is the
+ * repository's PRIVACY.md, rendered verbatim at /privacy/app/.
+ *
+ * Carried forward (still true): controller paragraph, Cloudflare edge-log
+ * acknowledgment, no-sale CCPA statement, children, jurisdiction, the
+ * update-before-changing commitment, and the full changelog history.
+ *
+ * Removed (false for a free AGPL app): Lemon Squeezy as separate controller,
+ * the licensing server and device identifier, future paid-product rights
+ * language, and the in-app issue-reporting endpoint (the open-source app's
+ * Report button opens a draft email in the user's own client: PRIVACY.md and
+ * IssueLogModal.tsx).
+ *
+ * Added (verified 2026-10-21): Google Workspace as email provider (MX records
+ * for clawless.ai and rbjglobal.com both resolve to aspmx.l.google.com), and the
+ * GitHub Releases download path.
+ *
+ * Changed: the live notice promised to acknowledge security reports "within two
+ * business days"; SECURITY.md says no fixed response time can be promised, so
+ * this follows SECURITY.md.
+ *
+ * Restored (Advisor brief 2026-11-06, item 1d): the LinkedIn-link paragraph,
+ * reworded for the Clawless Computer LinkedIn Page link (LINKEDIN_PAGE). Every link to
+ * it must open in a new tab (target="_blank" rel="noopener noreferrer") for the
+ * paragraph to stay true.
+ *
+ * PRELAUNCH: no links to /privacy/app or /security (not served until launch),
+ * and the GitHub download/source paragraph is in the future tense.
+ */
+export default function WebsitePrivacy() {
   return (
-    <div className="relative z-[1]">
-      <Navbar content={cms.content.nav} />
-      <main id="main-content" className="mx-auto max-w-[1200px] px-6 sm:px-8">
-        <section className="pb-12 pt-32 text-center">
-          <ScrollReveal>
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.1em] text-accent">
-              Legal
-            </p>
-            <h1 className="text-[40px] font-bold leading-[1.1] tracking-[-0.03em] text-text-primary sm:text-[52px]">
-              Privacy
-            </h1>
-            <p className="mx-auto mt-4 max-w-[520px] text-base leading-relaxed text-text-secondary">
-              Last updated: September 18, 2026
-            </p>
-          </ScrollReveal>
-        </section>
+    <LegalPage title="Website privacy" updated={PUBLICATION_DATE}>
+      {PRELAUNCH ? (
+        <Para>
+          This notice covers the clawless.ai website. The Clawless Computer app will have its own notice, app privacy, published with the
+          project&apos;s source at launch.
+        </Para>
+      ) : (
+        <Para>
+          This notice covers the clawless.ai website. The Clawless Computer app is described in its own notice,{' '}
+          <Link href="/privacy/app/" className="oss-link">
+            app privacy
+          </Link>
+          , which is published from the project&apos;s source repository.
+        </Para>
+      )}
 
-        <section className="mx-auto max-w-[760px] pb-24">
-          <ScrollReveal>
-            <div
-              className="rounded-2xl border border-border-default p-8 text-text-secondary sm:p-10"
-              style={{ background: 'rgba(10, 15, 28, 0.6)' }}
-            >
-              <p className="mb-4 leading-[1.8]">
-                This is the pre-launch website for{' '}
-                <strong className="text-text-primary">Clawless Computer</strong>.
-                It is an informational site only. We use one privacy-first,
-                cookieless analytics counter (Cloudflare Web Analytics,
-                provided by our host) to see how many people visit and which
-                pages are read. It sets no cookies, does not associate visits
-                with any identity, and does not track you across other sites.
-                We run no advertising or behavioral tracking scripts, no email
-                signup forms, and no user accounts on this site. The site is
-                hosted on Cloudflare Pages, which, like any web host, processes
-                connection metadata such as IP address, user agent, and request
-                timestamp at the network edge for delivery, security, and abuse
-                prevention. We do not access, retain, or analyze that edge data
-                ourselves. Cloudflare&apos;s processing of that infrastructure
-                data is governed by Cloudflare&apos;s own privacy documentation.
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                The site and the upcoming Clawless Computer product are
-                operated by{' '}
-                <strong className="text-text-primary">RBJ Global LLC</strong>,
-                a United States limited liability company organized in the
-                State of Texas. RBJ Global LLC is the
-                controller of any personal information collected in connection
-                with this site (today: none beyond infrastructure metadata
-                held by our host) and will be the controller of personal
-                information processed in connection with Clawless Computer
-                licensing, payments, and customer support once the product
-                launches. At launch, our payment processor (Lemon Squeezy,
-                operated by Lemon Squeezy LLC) will act as a separate
-                controller for checkout-stage personal and payment information
-                under its own privacy policy.
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                We do not sell personal information, and we do not share
-                personal information for cross-context behavioral advertising,
-                as those terms are defined under the California Consumer
-                Privacy Act. This statement applies to the marketing site
-                today and to the Clawless Computer product at launch.
-                California residents will have the right to know, delete,
-                correct, and limit the use of their personal information once
-                the product launches. The current site does not collect
-                personal information from visitors, so there is nothing to
-                know, delete, or correct here.
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                When the Clawless Computer product launches, this page will be
-                replaced with a full privacy policy. That policy will describe
-                (a) what the desktop application stores locally on your
-                device, (b) the minimal license-validation data exchanged with
-                our licensing server (expected to include a license key and
-                an opaque device identifier, with no content of your work or
-                prompts leaving your device by default), (c) Browser
-                Automation, the agent-controlled browser navigation Clawless
-                Computer ships with, where the agent asks before visiting any
-                website it has not visited before in the current session and
-                where Clawless does not track which sites are visited or what
-                the agent reads, (d) the personal and payment information our
-                payment processor (Lemon Squeezy) handles at checkout, (e) the
-                support information you choose to share with us at
-                support@clawless.ai, and (f) how to exercise rights of access,
-                correction, deletion, export, and complaint.
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                For the third-party services that run this site and the
-                purchase flow it links to (Lemon Squeezy as Merchant of
-                Record, Cloudflare as host), see our{' '}
-                <a
-                  href="/subprocessors/"
-                  className="text-accent underline hover:text-text-primary"
-                >
-                  subprocessors list
-                </a>
-                .
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                <strong className="text-text-primary">
-                  Reporting an issue from the Clawless Computer app.
-                </strong>{' '}
-                Clawless Computer includes a way to report a problem to us.
-                Nothing is sent unless you press Send, and the app shows you
-                exactly what will be included before you do. The report is
-                received by an endpoint on this domain and passed straight on;
-                there is no report form anywhere on this website, and browsing
-                clawless.ai never sends anything.
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                What a report contains: the description you type, a reply-to
-                email address only if you choose to enter one, and three
-                values the app fills in for you, labelled App version,
-                Operating system, and Engine version, all of which are
-                displayed to you in the dialog before sending. If you
-                separately opt in, a recent log excerpt is attached, capped in
-                size and passed through path masking first. Nothing else is
-                collected, and no report is ever sent on its own.
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                Where it goes: the report is filed as an issue in a private
-                repository we control at GitHub, and a copy is emailed to our
-                support inbox through Resend. Both are listed on our{' '}
-                <a
-                  href="/subprocessors/"
-                  className="text-accent underline hover:text-text-primary"
-                >
-                  subprocessors list
-                </a>
-                . Reports are readable only by RBJ Global LLC. They are kept
-                while we work the issue and are not used for marketing, sold,
-                or shared for advertising.
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                Your IP address is used only to stop the endpoint being
-                flooded, with a limit of five reports per hour. It is hashed
-                with a secret salt, held for one hour, and then gone. The raw
-                address is never written into the issue, the email, or our
-                logs. To have a report deleted, write
-                to{' '}
-                <a
-                  href="mailto:support@clawless.ai"
-                  className="text-accent underline hover:text-text-primary"
-                >
-                  support@clawless.ai
-                </a>{' '}
-                or reply to the thread, and we will remove both the issue and
-                the emailed copy.
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                <strong className="text-text-primary">
-                  Follow on LinkedIn link.
-                </strong>{' '}
-                This page includes a link to our LinkedIn company page. We
-                do not load LinkedIn scripts, set cookies, or track visitors
-                on this site. If you click the link, LinkedIn opens in a new
-                tab and LinkedIn&apos;s own privacy practices apply once
-                you&apos;re there.
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                Clawless Computer is intended for adult professional use. We
-                do not knowingly collect personal information from children
-                under 13, and we do not direct this site or the Clawless
-                Computer product to children under 13. If you believe a child
-                under 13 has provided personal information to us, contact{' '}
-                <a
-                  href="mailto:info@rbjglobal.com"
-                  className="text-accent underline hover:text-text-primary"
-                >
-                  info@rbjglobal.com
-                </a>{' '}
-                and we will delete it.
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                This site is operated from the United States. If you access it
-                from outside the United States, your connection is delivered by
-                infrastructure located in the United States. We do not target
-                users in the European Economic Area, the United Kingdom, or
-                other regions where local data protection law would impose
-                additional obligations on a service of this scope, and you are
-                welcome to read this site from anywhere.
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                <strong className="text-text-primary">
-                  Future changes to these practices.
-                </strong>{' '}
-                Browsing this site still collects only the anonymous,
-                aggregate visit counts from the cookieless counter described
-                above. The one exception is a report you choose to send from
-                the Clawless Computer app, described earlier, which you
-                initiate and preview before anything leaves your machine. If our
-                practices change further, we will update this policy with a new
-                effective date and clear disclosure of what changed. In
-                particular, if we ever add anything that collects personal data
-                or tracks individuals, we will update this policy first, deploy
-                any consent mechanism required for your jurisdiction, and
-                describe specifically what is collected and why. We commit to
-                updating before changing, not after.
-              </p>
-              <p className="mb-4 leading-[1.8]">
-                From visitors to this site, what we collect is limited to
-                those anonymous, aggregate visit counts, nothing that
-                identifies you. The only personal information that reaches us
-                through this domain is what you deliberately put in an app
-                issue report and press Send on. For privacy questions,
-                contact{' '}
-                <a
-                  href="mailto:info@rbjglobal.com"
-                  className="text-accent underline hover:text-text-primary"
-                >
-                  info@rbjglobal.com
-                </a>
-                . For suspected security vulnerabilities affecting this site
-                or the Clawless Computer product, contact{' '}
-                <a
-                  href="mailto:security@clawless.ai"
-                  className="text-accent underline hover:text-text-primary"
-                >
-                  security@clawless.ai
-                </a>
-                . We aim to acknowledge security reports within two business
-                days.
-              </p>
-              <p className="mb-2 mt-8 leading-[1.8]">
-                <strong className="text-text-primary">Changelog</strong>
-              </p>
-              <ul className="ml-6 list-disc space-y-2 leading-[1.8]">
-                <li>
-                  <strong>2026-09-18:</strong> MATERIAL CHANGE, published
-                  before the feature it describes was enabled, per the
-                  commitment in this policy to update before changing.
-                  Clawless Computer gains user-initiated issue reporting.
-                  A report is sent only when you press Send, after the app
-                  shows you what it contains. It is received by an endpoint
-                  on this domain, filed as an issue in a private repository
-                  at GitHub, and emailed to our support inbox through Resend.
-                  GitHub and Resend are added to the{' '}
-                  <a
-                    href="/subprocessors/"
-                    className="text-accent underline hover:text-text-primary"
-                  >
-                    subprocessors list
-                  </a>{' '}
-                  as part of this change. Your IP address is used only for
-                  rate limiting, as a salted hash held one hour, and is
-                  never written to the issue, the email, or our logs. No
-                  report form is added to this website, and browsing
-                  clawless.ai still collects nothing beyond the anonymous,
-                  aggregate visit counts already described. Last-updated date
-                  bumped.
-                </li>
-                <li>
-                  <strong>2026-05-12:</strong> Added a one-paragraph
-                  disclosure for the Follow-on-LinkedIn link shipped on the
-                  hero (pre-launch) and footer. The link opens
-                  linkedin.com/company/clawless-computer in a new tab. No
-                  LinkedIn JavaScript loads on this site; no cookies are
-                  set by us; no visitor activity is tracked. Once a user
-                  reaches LinkedIn, LinkedIn&apos;s own privacy practices
-                  apply. Non-material clarification (no new passive
-                  collection, no new always-engaged subprocessor on this
-                  site); last-updated date bumped per the standing rule,
-                  no version stamp on this page to bump per the
-                  no-version-bumps-pre-launch policy.
-                </li>
-                <li>
-                  <strong>2026-05-05:</strong> Cross-link to{' '}
-                  <a
-                    href="/subprocessors/"
-                    className="text-accent underline hover:text-text-primary"
-                  >
-                    /subprocessors
-                  </a>{' '}
-                  added after the forward-looking PII enumeration. Non-material
-                  clarification; the data flows it describes (Lemon Squeezy as
-                  Merchant of Record, Cloudflare as host) were already
-                  disclosed.
-                </li>
-                <li>
-                  <strong>2026-05-05:</strong> Principal-office street
-                  address removed from the entity-of-record paragraph. Entity
-                  name, state of formation, and email contact retained.
-                  Customers reach RBJ Global LLC through email; no public
-                  street address is published. Non-material clarification;
-                  data practices unchanged.
-                </li>
-                <li>
-                  <strong>2026-05-03:</strong> Browser Automation disclosure
-                  added to the forward-looking enumeration: per-hostname
-                  prompt before any new website, no Clawless tracking of
-                  visited sites or page content. Non-material clarification;
-                  marketing-site collection practices unchanged.
-                </li>
-                <li>
-                  <strong>2026-05-03:</strong> Senior-policy-reviewer audit
-                  applied: Cloudflare edge-log acknowledgment, RBJ Global LLC
-                  established as data controller today, Lemon Squeezy
-                  pre-named as separate controller at checkout, CCPA stub,
-                  COPPA statement, dedicated security-vulnerability contact
-                  path, forward-looking PII categories enumerated. Non-material
-                  clarifications.
-                </li>
-                <li>
-                  <strong>2026-05-02:</strong> Forward-looking practices
-                  paragraph added; jurisdiction line added; entity-of-record
-                  paragraph names RBJ Global LLC; site reindexed at sitemap
-                  priority 0.3; placeholder dates aligned to May 2026.
-                </li>
-              </ul>
-            </div>
-          </ScrollReveal>
-        </section>
-      </main>
-      <Footer content={cms.content.footer} />
-    </div>
+      <H2>What this website collects</H2>
+      <Para>
+        We use one privacy-first, cookieless analytics counter (Cloudflare Web Analytics, provided by our host) to see how many people
+        visit and which pages are read. It counts page views in aggregate and records general, non-identifying information such as the
+        referring website, approximate country, and browser and device type. It sets no cookies, does not associate visits with any
+        identity, and does not track you across other sites.
+      </Para>
+      <Para>We run no advertising or behavioral tracking scripts, no forms, and no user accounts on this site.</Para>
+
+      <H2>Hosting</H2>
+      <Para>
+        The site is hosted on Cloudflare Pages, which, like any web host, processes connection metadata such as IP address, user agent, and
+        request timestamp at the network edge for delivery, security, and abuse prevention. We do not access, retain, or analyze that edge
+        data ourselves. Cloudflare&apos;s processing of that infrastructure data is governed by Cloudflare&apos;s own privacy documentation.
+      </Para>
+
+      <H2>Downloads and source code</H2>
+      {PRELAUNCH ? (
+        <Para>
+          When Clawless Computer is released, downloads of the app, and links to its source code, will take you to GitHub. Once you are on
+          GitHub, GitHub&apos;s own privacy practices apply.
+        </Para>
+      ) : (
+        <Para>
+          Downloads of Clawless Computer, and links to its source code, take you to GitHub. Once you are on GitHub, GitHub&apos;s own privacy
+          practices apply.
+        </Para>
+      )}
+
+      <H2>LinkedIn link</H2>
+      <Para>
+        This site includes a link to{' '}
+        <a href={LINKEDIN_PAGE} target="_blank" rel="noopener noreferrer" className="oss-link">
+          the Clawless Computer LinkedIn Page
+        </a>
+        . It is an outbound link only. We do not load LinkedIn scripts, set cookies, or track visitors on this site. If you click the link,
+        LinkedIn opens in a new tab, and LinkedIn&apos;s own privacy practices apply once you are there.
+      </Para>
+
+      <H2>Email</H2>
+      <Para>
+        If you write to us, for example at <Mail to="support@clawless.ai" />, we receive your message and the address you send it from. Our
+        email is hosted by Google Workspace. We use your message only to respond to you, and you can ask us to delete it at any time.
+      </Para>
+
+      <H2>Who we are</H2>
+      <Para>
+        This site is operated by RBJ Global LLC, a United States limited liability company organized in the State of Texas. RBJ Global LLC is
+        the controller of any personal information collected in connection with this site, which is limited to the infrastructure metadata
+        held by our host and any email you choose to send us.
+      </Para>
+      <Para>The service providers that support this site are Cloudflare, for hosting and the visit counter, and Google, for email.</Para>
+
+      <H2>California</H2>
+      <Para>
+        We do not sell personal information, and we do not share personal information for cross-context behavioral advertising, as those
+        terms are defined under the California Consumer Privacy Act.
+      </Para>
+
+      <H2>Children</H2>
+      <Para>
+        We do not knowingly collect personal information from children under 13, and we do not direct this site to children under 13. If you
+        believe a child under 13 has provided personal information to us, contact <Mail to="info@rbjglobal.com" /> and we will delete it.
+      </Para>
+
+      <H2>Where this site operates from</H2>
+      <Para>
+        This site is operated from the United States. If you access it from outside the United States, your connection is delivered by
+        infrastructure located in the United States. We do not target users in the European Economic Area, the United Kingdom, or other
+        regions where local data protection law would impose additional obligations on a service of this scope, and you are welcome to read
+        this site from anywhere.
+      </Para>
+
+      <H2>Changes to this notice</H2>
+      <Para>
+        If our practices change, we will update this notice with a new date and a clear description of what changed. In particular, if we ever
+        add anything that collects personal data or tracks individuals, we will update this notice first, deploy any consent mechanism
+        required for your jurisdiction, and describe specifically what is collected and why. We commit to updating before changing, not
+        after.
+      </Para>
+
+      <H2>Contact</H2>
+      {PRELAUNCH ? (
+        <Para>
+          For privacy questions, contact <Mail to="info@rbjglobal.com" />. To report a security vulnerability, email{' '}
+          <Mail to="security@clawless.ai" />.
+        </Para>
+      ) : (
+        <Para>
+          For privacy questions, contact <Mail to="info@rbjglobal.com" />. To report a security vulnerability, please use private reporting
+          as described in our{' '}
+          <Link href="/security/" className="oss-link">
+            security policy
+          </Link>
+          , or email <Mail to="security@clawless.ai" />.
+        </Para>
+      )}
+
+      <H2>Changelog</H2>
+      <ul className="ml-5 list-disc space-y-3 text-[0.95rem] leading-[1.75] text-[var(--oss-ink-2)]">
+        <li>
+          <strong className="text-[var(--oss-ink)]">{PUBLICATION_DATE}:</strong> Clawless Computer will be released as free, open source software under the AGPL-3.0. Removed: the
+          payment processor, the licensing service, and in-app issue reporting through this domain. Added: Google Workspace named as our email
+          provider; the LinkedIn link disclosure.
+        </li>
+        <li>
+          <strong className="text-[var(--oss-ink)]">2026-09-18:</strong> Added a description of user-initiated issue reporting from the Clawless Computer app through an
+          endpoint on this domain, published before the feature was enabled.
+        </li>
+        <li>
+          <strong className="text-[var(--oss-ink)]">2026-05-12:</strong> Added a disclosure for the Follow-on-LinkedIn link on the hero and footer. The link opens LinkedIn
+          in a new tab. No LinkedIn JavaScript loads on this site, no cookies are set by us, and no visitor activity is tracked. Once you reach
+          LinkedIn, LinkedIn&apos;s own privacy practices apply. Non-material clarification.
+        </li>
+        <li>
+          <strong className="text-[var(--oss-ink)]">2026-05-05:</strong> Cross-link to the subprocessors list added. Non-material clarification.
+        </li>
+        <li>
+          <strong className="text-[var(--oss-ink)]">2026-05-05:</strong> Principal-office street address removed from the entity-of-record paragraph. Entity name, state of
+          formation, and email contact retained. Non-material clarification; data practices unchanged.
+        </li>
+        <li>
+          <strong className="text-[var(--oss-ink)]">2026-05-03:</strong> Browser Automation disclosure added to the forward-looking description of the app: a prompt
+          before the agent visits any new website, and no Clawless tracking of visited sites or page content. Non-material clarification;
+          website collection practices unchanged.
+        </li>
+        <li>
+          <strong className="text-[var(--oss-ink)]">2026-05-03:</strong> Cloudflare edge-log acknowledgment, controller statement, payment processor named as a separate
+          controller at checkout, CCPA statement, children statement, security contact, and forward-looking categories of personal
+          information added. Non-material clarifications.
+        </li>
+        <li>
+          <strong className="text-[var(--oss-ink)]">2026-05-02:</strong> Forward-looking practices, jurisdiction and entity-of-record paragraphs added.
+        </li>
+      </ul>
+    </LegalPage>
   );
 }
