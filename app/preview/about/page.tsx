@@ -4,7 +4,7 @@ import { PageHead, P } from '@/components/oss/Shell';
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Clawless Computer is a product of RBJ Global LLC, a Texas limited liability company that builds a family of independent software that runs on your own machine, with your own keys.',
+    'Clawless Computer is a product of RBJ Global LLC, a Texas limited liability company that builds a growing family of AI software and learning.',
   alternates: { canonical: 'https://clawless.ai/about/' },
 };
 
@@ -14,7 +14,7 @@ export default function AboutPage() {
       <PageHead
         eyebrow="About"
         title="About Clawless Computer"
-        lede="Clawless Computer is a product of RBJ Global LLC, which builds a family of software that runs on your own machine, with your own keys. The aim is the same across all of it: make people more powerful, not obsolete."
+        lede="Clawless Computer is a product of RBJ Global LLC, the company behind a growing family of AI software and learning. The aim is the same across all of it: make people more powerful, not obsolete."
       />
       <section className="oss-wrap py-20">
         <div className="mx-auto max-w-3xl space-y-12">
@@ -27,7 +27,7 @@ export default function AboutPage() {
               The family includes Clawless Computer, Clawdemy, WhisprDesk, ClaudeLink, Clawddesk, Trading Agents Lab and iLoveMD. They cover agent software, AI education, dictation, developer tooling, research and document conversion.
             </p>
             <p className="oss-body">
-              They share one posture. The software runs on your own device. You bring your own keys. Your data stays with you, and several of the products are open source so the code can be read before it is trusted.
+              They share one approach: software that works for the person using it. Several run entirely on your own machine, and several are open source, so the code can be read before it is trusted.
             </p>
             <p className="oss-body">
               See <a href={`${P}/family`} className="oss-link">the family</a> for each product and where to find it.
@@ -40,7 +40,7 @@ export default function AboutPage() {
               Clawless Computer is the family&apos;s desktop home for AI agents. It is built on OpenClaw, the open source AI agent engine, and bundles a tested OpenClaw version. It gives that engine a desktop app that anyone can install and use without a terminal.
             </p>
             <p className="oss-body">
-              Clawless Computer will be free and open source under AGPL-3.0 at launch. It runs on your computer with your own keys, in line with the rest of the family.
+              Clawless Computer will be free and open source under AGPL-3.0 at launch. It runs on your computer, with keys you bring from the AI providers you choose.
             </p>
           </div>
 
