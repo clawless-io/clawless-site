@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import ArchitectureFlow from '@/components/oss/ArchitectureFlow';
 import { PageHead, Source } from '@/components/oss/Shell';
-import { CONNECTIONS, ENGINE_VERSION, TRUST } from '@/components/oss/content';
+import { CONNECTIONS, ENGINE_VERSION, PRELAUNCH, TRUST } from '@/components/oss/content';
 
 export const metadata: Metadata = { title: 'Architecture' };
 
@@ -11,7 +11,11 @@ export default function Architecture() {
       <PageHead
         eyebrow="Architecture"
         title="One bridge between the interface and the engine. Everything else stays on your Mac."
-        lede="The map below is drawn from the open source tree. Click any part to see what it does and open the files that implement it, or trace a single message from the chat box to the model and back."
+        lede={
+          PRELAUNCH
+            ? 'The map below is drawn from the open source tree, which is published at launch. Click any part to see what it does and the files that implement it, or trace a single message from the chat box to the model and back.'
+            : 'The map below is drawn from the open source tree. Click any part to see what it does and open the files that implement it, or trace a single message from the chat box to the model and back.'
+        }
       />
 
       {/* Wider than the reading column so the diagram renders near full size. */}
@@ -50,7 +54,7 @@ export default function Architecture() {
       <section className="border-y border-[var(--oss-line)] bg-[var(--oss-surface-2)]">
         <div className="oss-wrap py-20">
           <p className="oss-eyebrow">Every connection the app makes</p>
-          <h2 className="oss-h2 mt-4 max-w-2xl">The complete list, from the privacy document in the repo.</h2>
+          <h2 className="oss-h2 mt-4 max-w-2xl">The complete list, as the repository documents it.</h2>
           <div className="oss-card mt-10 overflow-x-auto">
             <table className="w-full min-w-[640px] text-left text-sm">
               <thead>
@@ -72,7 +76,7 @@ export default function Architecture() {
             </table>
           </div>
           <p className="oss-body mt-6 max-w-2xl">
-            Clawless adds no telemetry, analytics or crash reporting, and the bundled engine includes none either. Apart from the provider you
+            Clawless adds no telemetry, analytics or crash reporting, and it turns off the bundled engine's optional usage telemetry and version check. Apart from the provider you
             send a message to, and any channel you choose to chat through, none of them carry your conversations, memories or keys.
           </p>
           <div className="mt-3">

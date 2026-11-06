@@ -3,7 +3,8 @@ import Link from 'next/link';
 import OssMarkdown from '@/components/oss/OssMarkdown';
 import { DocHeader, SourceNote } from '@/components/oss/DocChrome';
 import { Arrow } from '@/components/oss/Shell';
-import { DOCS } from '@/components/oss/content';
+import AtLaunchNotice from '@/components/oss/AtLaunchNotice';
+import { DOCS, PRELAUNCH } from '@/components/oss/content';
 import { getKb, kbSlugs, source } from '@/lib/oss-docs';
 
 const P = '/preview';
@@ -14,6 +15,7 @@ export function generateStaticParams(): Params[] {
 }
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
+  if (PRELAUNCH) return { title: 'Docs', description: 'The Clawless Computer documentation is published with the source at launch.' };
   const { slug } = await params;
   const d = getKb(slug);
   return { title: d.title, description: d.description };
@@ -23,6 +25,16 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 const ORDER = DOCS.flatMap((g) => g.items.map(([slug, title]) => ({ slug, title, group: g.group })));
 
 export default async function KbChapter({ params }: { params: Promise<Params> }) {
+  // Routes stay generated (generateStaticParams above) so launch day is a flag flip;
+  // before launch every chapter URL renders the same short notice.
+  if (PRELAUNCH)
+    return (
+      <AtLaunchNotice
+        eyebrow="Docs"
+        title="The documentation is published with the source at launch."
+        lede="The knowledge base lives in the repository next to the code it describes, and goes public on launch day."
+      />
+    );
   const { slug } = await params;
   const d = getKb(slug);
   const { commit } = source();

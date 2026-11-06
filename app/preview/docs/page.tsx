@@ -1,11 +1,20 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { PageHead, Arrow } from '@/components/oss/Shell';
-import { DOCS, tree } from '@/components/oss/content';
+import AtLaunchNotice from '@/components/oss/AtLaunchNotice';
+import { DOCS, PRELAUNCH, tree } from '@/components/oss/content';
 
 export const metadata: Metadata = { title: 'Docs' };
 
 export default function Docs() {
+  if (PRELAUNCH)
+    return (
+      <AtLaunchNotice
+        eyebrow="Docs"
+        title="The documentation is published with the source at launch."
+        lede="The knowledge base lives in the repository next to the code it describes, and goes public on launch day."
+      />
+    );
   return (
     <>
       <PageHead

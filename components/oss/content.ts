@@ -2,8 +2,9 @@
  * Single source of truth for every factual claim on the open-source redesign.
  *
  * RULE: every claim carries the path in the PUBLIC open-source tree that backs
- * it (RBJGlobal/clawless-computer, renamed from RBJGlobal/clawless; claims checked against 4e02af4, docs synced from ca20b05, "Clawless 6.0.0: open
- * source release"). Never source from the private repo, its CLAUDE.md,
+ * it (RBJGlobal/clawless-computer, renamed from RBJGlobal/clawless; claims first checked against 4e02af4, docs synced from ca20b05;
+ * claims re-checked 2026-11-06 against branch engine-upgrade at 4151e86, the tree that will be published).
+ * Source chips and repo links render as plain text "at launch" while PRELAUNCH is true (see RepoLink.tsx). Never source from the private repo, its CLAUDE.md,
  * architecture notes, or advisor documents. If a claim cannot point at a public
  * path, it does not ship.
  *
@@ -26,10 +27,10 @@ export const APP_VERSION = '6.0.0';
  *  Clawless Computer as coming: no links into the repository (it is not public
  *  yet), no download, no docs, future tense where the repo is described.
  *  Launch day = flip to false + re-run scripts/sync-oss-docs.sh <release-tag>. */
-export const PRELAUNCH = true;
+export const PRELAUNCH: boolean = true;
 
 /** /about stays (restyled) unless the founder rules otherwise; footer link flips here. */
-export const SHOW_ABOUT = true;
+export const SHOW_ABOUT: boolean = true;
 
 /** RBJ Global company Page on LinkedIn (the pre-launch "follow for the date" line). */
 export const RBJ_LINKEDIN = 'https://www.linkedin.com/company/116324588/';
@@ -44,11 +45,11 @@ export const RBJ_LINKEDIN = 'https://www.linkedin.com/company/116324588/';
 
 /** The checkable facts strip. Each item has a public source. */
 export const FACTS = [
-  { label: 'AGPL-3.0', detail: 'Free software, source on GitHub', source: 'LICENSE' },
+  { label: 'AGPL-3.0', detail: PRELAUNCH ? 'Free software, source on GitHub at launch' : 'Free software, source on GitHub', source: 'LICENSE' },
   { label: 'Runs on your Mac', detail: 'macOS on Apple silicon', source: 'README.md' },
   { label: 'Your own keys', detail: 'Anthropic, OpenAI, Google, Groq and more', source: 'README.md' },
   { label: 'No account', detail: 'No email, no sign-up, no card', source: 'PRIVACY.md' },
-  { label: 'No telemetry in the app', detail: 'Engine included, no crash reporting', source: 'PRIVACY.md' },
+  { label: 'No telemetry in the app', detail: 'Engine telemetry turned off, no crash reporting', source: 'PRIVACY.md' },
   { label: 'AI-built, human-reviewed', detail: 'Agents comment; a person merges', source: 'CONTRIBUTING.md' },
 ] as const;
 
@@ -64,7 +65,7 @@ export const SEND_PATH = [
 export const SEND_PATH_SOURCE = 'docs/knowledge-base/whats-under-the-hood.md';
 
 /** Feature tour. One line each, taken from the opening of the matching
- *  knowledge-base chapter. All chapters are tagged [Live] at 4e02af4. */
+ *  knowledge-base chapter. All chapters are tagged [Live] at engine-upgrade 4151e86. */
 export const FEATURES = [
   {
     key: 'chat',
@@ -75,13 +76,13 @@ export const FEATURES = [
   {
     key: 'agents',
     title: 'A team of agents',
-    body: 'Six default agents ready on day one. Switch between them by task, or create and edit your own.',
+    body: 'Seven default agents ready on day one. Switch between them by task, or create and edit your own.',
     doc: 'docs/knowledge-base/agents-and-overview.md',
   },
   {
     key: 'memory',
     title: 'Memory that decays on purpose',
-    body: 'Agents remember what matters about you across four tiers. Pin what should stay; untouched memories age into a Decayed tier instead of being deleted.',
+    body: 'Agents remember what matters about you across four tiers. Automatic saving is off until you turn it on. Pin what should stay; untouched memories age into a Decayed tier instead of being deleted.',
     doc: 'docs/knowledge-base/memory-system.md',
   },
   {
@@ -129,7 +130,7 @@ export const FEATURES = [
   {
     key: 'cost',
     title: 'Usage dashboard and CostGuard',
-    body: 'See spend per model, then set a monthly cap. Warnings as you approach it; new messages stop when you hit it.',
+    body: 'See spend per model, then set a monthly cap. Warnings as you approach it; new messages you send stop when you hit it.',
     doc: 'docs/knowledge-base/costguard.md',
   },
   {
@@ -143,10 +144,10 @@ export const FEATURES = [
 /** Every outbound connection, per PRIVACY.md (authoritative). */
 export const CONNECTIONS = [
   { name: 'Your AI provider', when: 'When you send a message, using your own key', carries: 'The message and its context', source: 'PRIVACY.md' },
-  { name: 'ClawHub catalog', when: 'First use of the Skills catalog, then every few hours while open', carries: 'Plain downloads; your search words if you search', source: 'PRIVACY.md' },
+  { name: 'ClawHub catalog', when: 'Only when you open the catalog, sync, search or install; never in the background', carries: 'Plain downloads; your search words if you search', source: 'docs/knowledge-base/whats-under-the-hood.md' },
   { name: 'GitHub update checks', when: 'When you check, or if you turn automatic checks on', carries: 'Your Clawless version and platform', source: 'PRIVACY.md' },
-  { name: 'VirusTotal', when: 'Optional, off by default, with your own key', carries: 'Skills you install, checked first', source: 'PRIVACY.md' },
-  { name: 'npm registry', when: 'Connecting some channels', carries: 'Installs the matching OpenClaw plugin', source: 'PRIVACY.md' },
+  { name: 'VirusTotal', when: 'Optional, off by default, with your own key', carries: 'Skills you install from the catalog, checked first', source: 'PRIVACY.md' },
+  { name: 'npm registry', when: 'Connecting a channel other than Telegram, or turning on web search', carries: 'Installs the matching OpenClaw plugin', source: 'PRIVACY.md' },
   { name: 'Services you connect', when: 'Channels, web search, the browser', carries: 'Contacted on your behalf', source: 'PRIVACY.md' },
 ] as const;
 
@@ -165,7 +166,7 @@ export const DOCS = [
     items: [
       ['getting-started', 'Getting started', 'First launch, onboarding, your first agent and message'],
       ['chat-and-models', 'Chat and models', 'Picking a model, history, streaming and stopping'],
-      ['agents-and-overview', 'Agents', 'The six default agents, switching, creating your own'],
+      ['agents-and-overview', 'Agents', 'The seven default agents, switching, creating your own'],
     ],
   },
   {
@@ -222,7 +223,7 @@ export const EXTENSION_POINTS = [
   { title: 'Port it to Windows or Linux', body: 'Clawless targets macOS on Apple silicon today. The README names Windows and Linux builds as a natural first community contribution.', source: 'README.md' },
   { title: 'Write a skill', body: 'Skills turn an agent into a specialist for a job you repeat. Build your own and use it across any of your agents.', source: 'docs/knowledge-base/skills-marketplace.md' },
   { title: 'Connect an MCP server', body: 'Give agents new tools by adding MCP servers, with per-agent permission control.', source: 'docs/knowledge-base/tools-and-automation.md' },
-  { title: 'Design your own agents', body: 'Beyond the six defaults, create and edit agents of your own, each with its own tools and skills.', source: 'docs/knowledge-base/agents-and-overview.md' },
+  { title: 'Design your own agents', body: 'Beyond the seven defaults, create and edit agents of your own, each with its own tools and skills.', source: 'docs/knowledge-base/agents-and-overview.md' },
   { title: 'Improve the docs', body: 'The knowledge base lives in the repo. Tier 0 changes get a light review, so this is the gentlest first pull request.', source: 'CONTRIBUTING.md' },
   { title: 'Bring your own gateway', body: 'Advanced users can run their own OpenClaw gateway instead of the bundled one.', source: 'docs/knowledge-base/whats-under-the-hood.md' },
 ] as const;

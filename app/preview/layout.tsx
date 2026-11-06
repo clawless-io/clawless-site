@@ -3,6 +3,7 @@ import '@/components/oss/oss.css';
 import { ThemeProvider } from '@/components/oss/Theme';
 import { THEME_BOOT } from '@/components/oss/themeBoot';
 import { Shell } from '@/components/oss/Shell';
+import { PRELAUNCH } from '@/components/oss/content';
 
 /**
  * Open-source redesign: REVIEW BUILD. Local only, never deployed from this
@@ -10,8 +11,9 @@ import { Shell } from '@/components/oss/Shell';
  */
 export const metadata: Metadata = {
   title: { default: 'Clawless Computer: open source AI agents on your Mac', template: '%s | Clawless Computer' },
-  description:
-    'Clawless Computer is a free, open source desktop app for OpenClaw. Run AI agents on your own Mac with your own keys. AGPL-3.0, source on GitHub.',
+  description: PRELAUNCH
+    ? 'Clawless Computer is a free, open source desktop app for OpenClaw, coming soon. Run AI agents on your own Mac with your own keys. AGPL-3.0, source on GitHub at launch.'
+    : 'Clawless Computer is a free, open source desktop app for OpenClaw. Run AI agents on your own Mac with your own keys. AGPL-3.0, source on GitHub.',
   robots: { index: false, follow: false },
 };
 
