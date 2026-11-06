@@ -89,7 +89,7 @@ export function getContent(): CmsData {
           '7-day free trial. No card, no email, no account.',
           'All major AI providers: Claude, GPT, Gemini, Groq, plus 800+ models through OpenRouter',
           'Bring your own provider keys. You pay AI providers directly at their rates.',
-          'Local-first storage. No telemetry, no analytics, no cookies.',
+          'Local-first storage. No telemetry or analytics in the app.',
           'Cancel anytime through the Lemon Squeezy customer portal.',
         ],
         comparison: {
