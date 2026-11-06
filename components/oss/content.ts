@@ -19,8 +19,20 @@ export const RELEASES = `${REPO}/releases`;
 
 /** Pinned in package.json. RE-VERIFY against the public tree immediately before
  *  the deploy go; a moved pin makes the site wrong the moment it goes live. */
-export const ENGINE_VERSION = '2026.6.1';
+export const ENGINE_VERSION = '2026.9.33';
 export const APP_VERSION = '6.0.0';
+
+/** PRE-LAUNCH MODE (Advisor brief 2026-11-06). While true the site announces
+ *  Clawless Computer as coming: no links into the repository (it is not public
+ *  yet), no download, no docs, future tense where the repo is described.
+ *  Launch day = flip to false + re-run scripts/sync-oss-docs.sh <release-tag>. */
+export const PRELAUNCH = true;
+
+/** /about stays (restyled) unless the founder rules otherwise; footer link flips here. */
+export const SHOW_ABOUT = true;
+
+/** RBJ Global company Page on LinkedIn (the pre-launch "follow for the date" line). */
+export const RBJ_LINKEDIN = 'https://www.linkedin.com/company/116324588/';
 
 /**
  * Deliberately NOT claimed (Advisor rulings, 2026-10-21):
