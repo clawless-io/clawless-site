@@ -21,13 +21,16 @@ export default function AboutPage() {
           <div className="space-y-4">
             <h2 className="oss-h3">RBJ Global LLC</h2>
             <p className="oss-body">
-              RBJ Global LLC is a Texas limited liability company. It builds and ships a family of independent products, each with its own name, its own domain and its own roadmap.
+              RBJ Global LLC is a company working in AI, intelligence and education, organized as a Texas limited liability company. It builds and ships a family of independent products, each with its own name, its own domain and its own roadmap.
             </p>
             <p className="oss-body">
               The family includes Clawless Computer, Clawdemy, WhisprDesk, ClaudeLink, Clawddesk, Trading Agents Lab and iLoveMD. They cover agent software, AI education, dictation, developer tooling, research and document conversion.
             </p>
             <p className="oss-body">
               They share one approach: software that works for the person using it. Several run entirely on your own machine, and several are open source, so the code can be read before it is trusted.
+            </p>
+            <p className="oss-body">
+              The work is for awareness and education. Much of it is free. Trading Agents Lab, several months in the making, is free in full, its Pro version included. ClaudeLink and Clawddesk are free and open source. Clawdemy is free to everyone. Clawless Computer will be free and open source at launch.
             </p>
             <p className="oss-body">
               See <a href={`${P}/family`} className="oss-link">the family</a> for each product and where to find it.
@@ -75,7 +78,10 @@ export default function AboutPage() {
             <p className="oss-body">
               Most AI tools assume you can open a terminal, manage API keys and read a GitHub README. Many people can&apos;t, and shouldn&apos;t have to. Each product in the family exists to narrow that gap.
             </p>
-            <p className="oss-body">The measure is simple: people come away more capable than they started.</p>
+            <p className="oss-body">
+              The fear I hear most is &quot;AI will replace me.&quot; I see it the other way. Keep working with AI, keep building with it, and let your team and your leadership see what you produce. When you put AI tools and agents to work, your output multiplies. When someone&apos;s output is six times higher, they do not have to say a word. They get noticed. Why would anyone replace the person working at six times their old capacity?
+            </p>
+            <p className="oss-body">I want to see people grow. That is the vision behind every product we make.</p>
             <p className="oss-small pt-2">
               Jay Siddiqi, Founder &middot;{' '}
               <a href="https://www.linkedin.com/in/junaidsiddiqi" target="_blank" rel="noopener" className="oss-link">
