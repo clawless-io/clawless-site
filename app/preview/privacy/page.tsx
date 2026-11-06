@@ -1,11 +1,14 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { LegalPage, H2, Para, Mail } from '@/components/oss/LegalPage';
+import { PRELAUNCH, RBJ_LINKEDIN } from '@/components/oss/content';
+import { PUBLICATION_DATE } from '@/components/oss/legal-dates';
 
 export const metadata: Metadata = {
   title: 'Website privacy',
-  description:
-    'Privacy notice for the clawless.ai website. One cookieless visit counter, no cookies, no forms, no accounts. The Clawless Computer app has its own notice.',
+  description: PRELAUNCH
+    ? 'Privacy notice for the clawless.ai website. One cookieless visit counter, no cookies, no forms, no accounts. The Clawless Computer app will have its own notice, published with its source at launch.'
+    : 'Privacy notice for the clawless.ai website. One cookieless visit counter, no cookies, no forms, no accounts. The Clawless Computer app has its own notice.',
   robots: { index: false, follow: true },
 };
 
@@ -32,19 +35,31 @@ export const metadata: Metadata = {
  * business days"; SECURITY.md says no fixed response time can be promised, so
  * this follows SECURITY.md.
  *
- * Dropped pending a ruling: the LinkedIn-link paragraph. The redesign has no
- * LinkedIn link; restore the paragraph if one is added.
+ * Restored (Advisor brief 2026-11-06, item 1d): the LinkedIn-link paragraph,
+ * reworded for the RBJ Global LinkedIn Page link (RBJ_LINKEDIN). Every link to
+ * it must open in a new tab (target="_blank" rel="noopener noreferrer") for the
+ * paragraph to stay true.
+ *
+ * PRELAUNCH: no links to /privacy/app or /security (not served until launch),
+ * and the GitHub download/source paragraph is in the future tense.
  */
 export default function WebsitePrivacy() {
   return (
-    <LegalPage title="Website privacy" updated="[set on launch day]">
-      <Para>
-        This notice covers the clawless.ai website. The Clawless Computer app is described in its own notice,{' '}
-        <Link href="/preview/privacy/app/" className="oss-link">
-          app privacy
-        </Link>
-        , which is published from the project&apos;s source repository.
-      </Para>
+    <LegalPage title="Website privacy" updated={PUBLICATION_DATE}>
+      {PRELAUNCH ? (
+        <Para>
+          This notice covers the clawless.ai website. The Clawless Computer app will have its own notice, app privacy, published with the
+          project&apos;s source at launch.
+        </Para>
+      ) : (
+        <Para>
+          This notice covers the clawless.ai website. The Clawless Computer app is described in its own notice,{' '}
+          <Link href="/preview/privacy/app/" className="oss-link">
+            app privacy
+          </Link>
+          , which is published from the project&apos;s source repository.
+        </Para>
+      )}
 
       <H2>What this website collects</H2>
       <Para>
@@ -63,9 +78,26 @@ export default function WebsitePrivacy() {
       </Para>
 
       <H2>Downloads and source code</H2>
+      {PRELAUNCH ? (
+        <Para>
+          When Clawless Computer is released, downloads of the app, and links to its source code, will take you to GitHub. Once you are on
+          GitHub, GitHub&apos;s own privacy practices apply.
+        </Para>
+      ) : (
+        <Para>
+          Downloads of Clawless Computer, and links to its source code, take you to GitHub. Once you are on GitHub, GitHub&apos;s own privacy
+          practices apply.
+        </Para>
+      )}
+
+      <H2>LinkedIn link</H2>
       <Para>
-        Downloads of Clawless Computer, and links to its source code, take you to GitHub. Once you are on GitHub, GitHub&apos;s own privacy
-        practices apply.
+        This site includes a link to{' '}
+        <a href={RBJ_LINKEDIN} target="_blank" rel="noopener noreferrer" className="oss-link">
+          RBJ Global&apos;s LinkedIn Page
+        </a>
+        . It is an outbound link only. We do not load LinkedIn scripts, set cookies, or track visitors on this site. If you click the link,
+        LinkedIn opens in a new tab, and LinkedIn&apos;s own privacy practices apply once you are there.
       </Para>
 
       <H2>Email</H2>
@@ -111,42 +143,56 @@ export default function WebsitePrivacy() {
       </Para>
 
       <H2>Contact</H2>
-      <Para>
-        For privacy questions, contact <Mail to="info@rbjglobal.com" />. To report a security vulnerability, please use private reporting as
-        described in our{' '}
-        <Link href="/preview/security/" className="oss-link">
-          security policy
-        </Link>
-        , or email <Mail to="security@clawless.ai" />.
-      </Para>
+      {PRELAUNCH ? (
+        <Para>
+          For privacy questions, contact <Mail to="info@rbjglobal.com" />. To report a security vulnerability, email{' '}
+          <Mail to="security@clawless.ai" />.
+        </Para>
+      ) : (
+        <Para>
+          For privacy questions, contact <Mail to="info@rbjglobal.com" />. To report a security vulnerability, please use private reporting
+          as described in our{' '}
+          <Link href="/preview/security/" className="oss-link">
+            security policy
+          </Link>
+          , or email <Mail to="security@clawless.ai" />.
+        </Para>
+      )}
 
       <H2>Changelog</H2>
       <ul className="ml-5 list-disc space-y-3 text-[0.95rem] leading-[1.75] text-[var(--oss-ink-2)]">
         <li>
-          <strong className="text-[var(--oss-ink)]">[Launch day]:</strong> MATERIAL CHANGE. Clawless Computer is released as free, open
-          source software under the AGPL-3.0. This notice now covers the website only; the app&apos;s notice is published from the source
-          repository. Removed: the payment processor at checkout, the licensing server, and in-app issue reporting through this domain. The
-          open-source app&apos;s Report button instead opens a draft email in your own email client. Added: Google Workspace named as our email
-          provider. Security reports now follow the security policy, which does not promise a fixed response time.
+          <strong className="text-[var(--oss-ink)]">{PUBLICATION_DATE}:</strong> Clawless Computer will be released as free, open source software under the AGPL-3.0. Removed: the
+          payment processor, the licensing server, and in-app issue reporting through this domain. Added: Google Workspace named as our email
+          provider; the LinkedIn link disclosure.
         </li>
         <li>
-          <strong className="text-[var(--oss-ink)]">2026-09-18:</strong> Clawless Computer gains user-initiated issue reporting through an
-          endpoint on this domain, filed at GitHub and emailed through Resend. Superseded on launch day.
+          <strong className="text-[var(--oss-ink)]">2026-09-18:</strong> Added a description of user-initiated issue reporting from the Clawless Computer app through an
+          endpoint on this domain, published before the feature was enabled. The feature never shipped and has been superseded, and the
+          description is removed in the entry above.
         </li>
         <li>
-          <strong className="text-[var(--oss-ink)]">2026-05-12:</strong> Added a disclosure for the Follow-on-LinkedIn link.
+          <strong className="text-[var(--oss-ink)]">2026-05-12:</strong> Added a disclosure for the Follow-on-LinkedIn link on the hero and footer. No LinkedIn JavaScript
+          loads on this site, no cookies are set by us, and no visitor activity is tracked.
         </li>
         <li>
-          <strong className="text-[var(--oss-ink)]">2026-05-05:</strong> Cross-link to the subprocessors list added. Principal-office street
-          address removed; entity name, state of formation, and email contact retained.
+          <strong className="text-[var(--oss-ink)]">2026-05-05:</strong> Cross-link to the subprocessors list added. Non-material clarification.
         </li>
         <li>
-          <strong className="text-[var(--oss-ink)]">2026-05-03:</strong> Browser Automation disclosure added. Cloudflare edge-log
-          acknowledgment, controller statement, CCPA statement, children statement and a security contact added.
+          <strong className="text-[var(--oss-ink)]">2026-05-05:</strong> Principal-office street address removed from the entity-of-record paragraph. Entity name, state of
+          formation, and email contact retained. Non-material clarification; data practices unchanged.
         </li>
         <li>
-          <strong className="text-[var(--oss-ink)]">2026-05-02:</strong> Forward-looking practices, jurisdiction and entity-of-record
-          paragraphs added.
+          <strong className="text-[var(--oss-ink)]">2026-05-03:</strong> Browser Automation disclosure added to the forward-looking description of the app. Non-material
+          clarification; website collection practices unchanged.
+        </li>
+        <li>
+          <strong className="text-[var(--oss-ink)]">2026-05-03:</strong> Cloudflare edge-log acknowledgment, controller statement, payment processor named as a separate
+          controller at checkout, CCPA statement, children statement, security contact, and forward-looking categories of personal
+          information added. Non-material clarifications.
+        </li>
+        <li>
+          <strong className="text-[var(--oss-ink)]">2026-05-02:</strong> Forward-looking practices, jurisdiction and entity-of-record paragraphs added.
         </li>
       </ul>
     </LegalPage>
