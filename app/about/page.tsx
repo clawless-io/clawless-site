@@ -81,6 +81,9 @@ export default function AboutPage() {
             <p className="oss-body">
               The fear I hear most is &quot;AI will replace me.&quot; I see it the other way. Keep working with AI, keep building with it, and let your team and your leadership see what you produce. When you put AI tools and agents to work, your output multiplies. When someone&apos;s output is six times higher, they do not have to say a word. They get noticed. Why would anyone replace the person working at six times their old capacity?
             </p>
+            <p className="oss-body">
+              I learned what AI could do by using it on small, real problems and improving what worked. I want Clawless to help more people begin that way: start small, build something useful, and keep learning.
+            </p>
             <p className="oss-body">I want to see people grow. That is the vision behind every product we make.</p>
             <p className="oss-small pt-2">
               Jay Siddiqi, Founder &middot;{' '}
