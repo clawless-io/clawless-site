@@ -35,6 +35,9 @@ export const SHOW_ABOUT: boolean = true;
 /** Clawless Computer company Page on LinkedIn (founder 2026-11-06; same Page the live site's Follow link uses). */
 export const LINKEDIN_PAGE = 'https://www.linkedin.com/company/114564073/';
 
+/** Clawless Computer account on X (founder 2026-11-20). Plain outbound link only. */
+export const X_PAGE = 'https://x.com/ClawlessAi';
+
 /**
  * Deliberately NOT claimed (Advisor rulings, 2026-10-21):
  *  - No "independent security audit". There is no public source, and the

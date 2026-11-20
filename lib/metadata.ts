@@ -118,7 +118,7 @@ export const organizationJsonLd = {
   // homepage was the weaker of our two emissions.
   parentOrganization: { '@id': 'https://rbjglobal.com/#organization' },
   // Numeric LinkedIn company ID (stable; vanity slugs can be reassigned).
-  sameAs: ['https://www.linkedin.com/company/114564073'],
+  sameAs: ['https://www.linkedin.com/company/114564073', 'https://x.com/ClawlessAi'],
 };
 
 /** Homepage-only WebSite node for entity clarity. No SearchAction: the
