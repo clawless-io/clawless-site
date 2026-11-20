@@ -34,12 +34,13 @@ export default function Countdown() {
         published together.
       </p>
       <p className="oss-small max-w-sm">
+        Follow Clawless Computer on{' '}
         <a href={LINKEDIN_PAGE} target="_blank" rel="noopener noreferrer" className="oss-link">
-          Follow Clawless Computer on LinkedIn
-        </a>
-        {' '}or{' '}
+          LinkedIn
+        </a>{' '}
+        or{' '}
         <a href={X_PAGE} target="_blank" rel="noopener noreferrer" className="oss-link">
-          on X
+          X
         </a>{' '}
         to see the date when it is set.
       </p>

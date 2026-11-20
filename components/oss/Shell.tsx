@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import Mark from './Mark';
 import { ThemeToggle } from './Theme';
-import { PRELAUNCH, RELEASES, REPO, SHOW_ABOUT, blob } from './content';
+import { PRELAUNCH, RELEASES, REPO, SHOW_ABOUT, LINKEDIN_PAGE, X_PAGE, blob } from './content';
 import { ComingSoon, RepoLink } from './RepoLink';
 
 /** Docs are hidden until launch (the knowledge base is published with the source). */
@@ -112,7 +112,7 @@ export function Nav() {
 export function Footer() {
   return (
     <footer className="mt-32 border-t border-[var(--oss-line)]">
-      <div className="oss-wrap grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+      <div className="oss-wrap grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
         <div className="max-w-sm">
           <div className="flex items-center gap-2.5">
             <Mark size={26} />
@@ -168,6 +168,14 @@ export function Footer() {
             ...(SHOW_ABOUT ? ([['About', `/about/`]] as [string, string][]) : []),
           ]}
         />
+        <FooterCol
+          title="Follow"
+          newTab
+          links={[
+            ['LinkedIn', LINKEDIN_PAGE],
+            ['X', X_PAGE],
+          ]}
+        />
       </div>
       <div className="oss-wrap flex flex-col gap-2 border-t border-[var(--oss-line)] py-6 md:flex-row md:items-center md:justify-between">
         <p className="oss-small">
@@ -179,7 +187,7 @@ export function Footer() {
   );
 }
 
-function FooterCol({ title, links, note }: { title: string; links: [string, string][]; note?: string }) {
+function FooterCol({ title, links, note, newTab }: { title: string; links: [string, string][]; note?: string; newTab?: boolean }) {
   return (
     <div>
       <p className="oss-eyebrow !text-[var(--oss-muted)]">{title}</p>
@@ -187,7 +195,11 @@ function FooterCol({ title, links, note }: { title: string; links: [string, stri
         {links.map(([label, href]) => (
           <li key={label}>
             {href.startsWith('http') ? (
-              <a href={href} className="text-sm text-[var(--oss-ink-2)] hover:text-[var(--oss-ink)]">
+              <a
+                href={href}
+                {...(newTab ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                className="text-sm text-[var(--oss-ink-2)] hover:text-[var(--oss-ink)]"
+              >
                 {label}
               </a>
             ) : (
