@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { pageMetadata } from '@/lib/metadata';
 import Link from 'next/link';
 import { LegalPage, H2, Para, Mail } from '@/components/oss/LegalPage';
-import { PRELAUNCH, LINKEDIN_PAGE } from '@/components/oss/content';
+import { PRELAUNCH, LINKEDIN_PAGE, X_PAGE } from '@/components/oss/content';
 import { PUBLICATION_DATE } from '@/components/oss/legal-dates';
 
 export const metadata: Metadata = {
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
  */
 export default function WebsitePrivacy() {
   return (
-    <LegalPage title="Website privacy" updated={PUBLICATION_DATE}>
+    <LegalPage title="Website privacy" updated="2026-11-20">
       {PRELAUNCH ? (
         <Para>
           This notice covers the clawless.ai website. The Clawless Computer app will have its own notice, app privacy, published with the
@@ -101,6 +101,16 @@ export default function WebsitePrivacy() {
         </a>
         . It is an outbound link only. We do not load LinkedIn scripts, set cookies, or track visitors on this site. If you click the link,
         LinkedIn opens in a new tab, and LinkedIn&apos;s own privacy practices apply once you are there.
+      </Para>
+
+      <H2>X link</H2>
+      <Para>
+        This site includes a link to{' '}
+        <a href={X_PAGE} target="_blank" rel="noopener noreferrer" className="oss-link">
+          the Clawless Computer account on X
+        </a>
+        . It is an outbound link only. We do not load X scripts, set cookies, or track visitors on this site. If you click the link, X opens
+        in a new tab, and X&apos;s own privacy practices apply once you are there.
       </Para>
 
       <H2>Email</H2>
@@ -164,6 +174,11 @@ export default function WebsitePrivacy() {
 
       <H2>Changelog</H2>
       <ul className="ml-5 list-disc space-y-3 text-[0.95rem] leading-[1.75] text-[var(--oss-ink-2)]">
+        <li>
+          <strong className="text-[var(--oss-ink)]">2026-11-20:</strong> Added a disclosure for the Follow on X link on the home page and
+          footer. The link opens X in a new tab. No X JavaScript loads on this site, no cookies are set by us, and no visitor activity is
+          tracked. Non-material clarification.
+        </li>
         <li>
           <strong className="text-[var(--oss-ink)]">{PUBLICATION_DATE}:</strong> Clawless Computer will be released as free, open source software under the AGPL-3.0. Removed: the
           payment processor, the licensing service, and in-app issue reporting through this domain. Added: Google Workspace named as our email
