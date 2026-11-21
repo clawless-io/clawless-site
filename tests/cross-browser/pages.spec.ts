@@ -98,6 +98,5 @@ test('mobile menu opens and closes', async ({ page, isMobile }, testInfo) => {
 
   await toggle.click();
   await expect(panel).toBeHidden();
-  expect(problems, problems.join('
-')).toEqual([]);
+  expect(problems, problems.join('\n')).toEqual([]);
 });
