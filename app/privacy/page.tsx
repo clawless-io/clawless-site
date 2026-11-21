@@ -99,7 +99,7 @@ export default function WebsitePrivacy() {
         <a href={LINKEDIN_PAGE} target="_blank" rel="noopener noreferrer" className="oss-link">
           the Clawless Computer LinkedIn Page
         </a>
-        . It is an outbound link only. We do not load LinkedIn scripts, set cookies, or track visitors on this site. If you click the link,
+        . It is an outbound link only. We do not load LinkedIn scripts or embeds on this site, and the link sets no cookies. If you click the link,
         LinkedIn opens in a new tab, and LinkedIn&apos;s own privacy practices apply once you are there.
       </Para>
 
@@ -109,7 +109,7 @@ export default function WebsitePrivacy() {
         <a href={X_PAGE} target="_blank" rel="noopener noreferrer" className="oss-link">
           the Clawless Computer account on X
         </a>
-        . It is an outbound link only. We do not load X scripts, set cookies, or track visitors on this site. If you click the link, X opens
+        . It is an outbound link only. We do not load X scripts or embeds on this site, and the link sets no cookies. If you click the link, X opens
         in a new tab, and X&apos;s own privacy practices apply once you are there.
       </Para>
 
@@ -176,8 +176,7 @@ export default function WebsitePrivacy() {
       <ul className="ml-5 list-disc space-y-3 text-[0.95rem] leading-[1.75] text-[var(--oss-ink-2)]">
         <li>
           <strong className="text-[var(--oss-ink)]">2026-11-20:</strong> Added a disclosure for the Follow on X link on the home page and
-          footer. The link opens X in a new tab. No X JavaScript loads on this site, no cookies are set by us, and no visitor activity is
-          tracked. Non-material clarification.
+          footer. The link opens X in a new tab. No X JavaScript loads on this site, and no cookies are set by us. The LinkedIn link paragraph now uses the same wording (the link sets no cookies and loads no scripts) in place of a broader statement about tracking, since this site runs the cookieless visit counter described above. Non-material clarification.
         </li>
         <li>
           <strong className="text-[var(--oss-ink)]">{PUBLICATION_DATE}:</strong> Clawless Computer will be released as free, open source software under the AGPL-3.0. Removed: the
