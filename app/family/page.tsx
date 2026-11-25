@@ -38,7 +38,7 @@ const MEMBERS: FamilyMember[] = [
     tagline: 'Document conversion that never uploads.',
     glyph: 'document',
     description:
-      'A browser-only converter for Markdown, PDF, DOCX, and the usual suspects. Same posture as Clawless Computer, scoped down to a single static page: nothing is uploaded, nothing is logged, nothing leaves your tab. Useful as the throwaway tool when you want to prep a document for a Clawless prompt without involving any server you do not control.',
+      'A browser-only converter for Markdown, PDF, DOCX, and the usual suspects, now with a command line tool. Same posture as Clawless Computer, scoped down to a single static page: nothing is uploaded, nothing is logged, nothing leaves your tab. Useful as the throwaway tool when you want to prep a document for a Clawless prompt without involving any server you do not control.',
     links: [
       { label: 'Visit iluvmd.com', href: 'https://iluvmd.com/' },
       { label: 'See the conversion modes', href: 'https://iluvmd.com/#modes' },
